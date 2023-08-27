@@ -172,7 +172,7 @@ const ImageSlider = () => {
       <div className="banner-black"></div>
       <section
         className="section"
-        style={{ paddingTop: "1em", background: "#e8eae1" }}
+        style={{ paddingTop: "1em"}}
       >
         <div className="section-center" style={{ height: "30em" }}>
           {slider.map((item, indexPeople) => {
@@ -191,14 +191,14 @@ const ImageSlider = () => {
             return (
               <article
                 className={position}
-                style={{ display: "flex", padding: "0 50px 0 50px" }}
+                style={{ display: "flex", overflow: "hidden" }}
                 key={id}
               >
                 <img
                   src={image}
                   alt="/"
                   className="person-img"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%",objectFit:"cover",height:"100%" }}
                 />
                 {/* {image[1] !== "" && (
                   <img
