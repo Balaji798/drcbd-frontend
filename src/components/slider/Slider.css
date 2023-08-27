@@ -1,0 +1,153 @@
+.icon {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.section-center {
+  width: 100%;
+  height: 33em;
+  text-align: center;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+article.activeSlide {
+  opacity: 1;
+  transform: translateX(0);
+}
+article.lastSlide {
+  transform: translateX(-100%);
+}
+article.nextSlide {
+  transform: translateX(100%);
+}
+
+.person-img {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* border: 4px solid hsl(210, 31%, 80%); */
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 200px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: #fff;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: grid;
+  place-items: center;
+  border-color: transparent;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.prev {
+  left: 0;
+  margin-left: 20px;
+}
+.next {
+  right: 0;
+  margin-right: 35px;
+}
+@media (min-width: 800px) {
+  .text {
+    max-width: 45em;
+  }
+  .prev,
+  .next {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.product {
+  width: 100%;
+  /* background: #e8eae1; */
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 50px;
+}
+
+.all-background{
+  background-image: url("./yty12.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-product-item {
+  background-size: cover;
+  width: 16em;
+  height: 17em;
+  margin-bottom: 1em;
+  color:#fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1em;
+}
+
+.product-item{
+  width: 20em;
+  height: 20em;
+  margin-bottom: 1em;
+  color:gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1em;
+}
+
+.home-product-item > img {
+  object-fit: contain;
+  transition: all 0.5s ease-in-out;
+}
+
+.home-product-item:hover img {
+  transform: scale(1.3);
+}
+
+.banner-black{
+   background-image: url("./edit02.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   width: 100%;
+   height: 30em;
+   color:#fff;
+   display: flex;
+   align-items: center;
+   padding-left:5em ;
+}

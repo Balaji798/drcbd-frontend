@@ -1,0 +1,78 @@
+header {
+  /* background: #005652; */
+  background-image: linear-gradient(to right, #004d4a, #002b2a);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 7em;
+  color: #fff;
+  position: fixed;
+  overflow: hidden;
+  z-index: 9999;
+  width: 100%;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar {
+  width: 80%;
+  display: flex;
+  background: #fff;
+  align-items: center;
+  padding: 0 0.5em;
+  border-radius: 5px;
+}
+
+.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 9999;
+}
+
+.overlay {
+  background: rgba(6,25,72,0.5);
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #fff;
+  /* background: #010f30; */
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+  color:#000;
+  z-index: 9999;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}

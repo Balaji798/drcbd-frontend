@@ -1,0 +1,30 @@
+.user-det-form {
+  background: #39797c;
+  max-width: 35rem;
+  width: 100%;
+  padding: 4rem 2rem;
+  margin-left: 2rem;
+  height: 40rem;
+}
+
+.user-det-form>div{
+    display: flex;
+    width: 100%;
+    justify-Content: space-between;
+    padding: 1rem 0;
+}
+
+.user-det-form>div>div>input,.user-det-form>div>input{
+    margin: 0.5rem 0;
+    background-color: transparent;
+    color:#c5cccd
+}
+
+.edit-button{
+    background:#003b45;
+    color:#fff;
+    font-size: 25px;
+    border:none;
+    outline: none;
+    padding: 5px 20px;
+}

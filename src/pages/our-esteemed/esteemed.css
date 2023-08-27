@@ -1,0 +1,11 @@
+.esteemed {
+  width: 100%;
+  background-image: url("./woman.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 7em 0 0 50px;
+  display: flex;
+  justify-content: space-between;
+  height: 30rem;
+}

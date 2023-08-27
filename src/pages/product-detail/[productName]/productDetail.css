@@ -1,0 +1,256 @@
+.productDetail {
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+}
+
+.description {
+  color: #005652;
+  width: 40%;
+  margin-left: 10px;
+  font-size: 13px;
+}
+.description > p {
+  line-height: 20px;
+}
+.description > p > span {
+  font-weight: bold;
+}
+
+button {
+  background: #005652;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  font-size: 25px;
+  font-weight: bold;
+  width: 300px;
+ 
+}
+.review-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.reviews{
+  width: 50%;
+}
+
+.product-slider {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.slider-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slider-item:last-child {
+  margin-right: 0;
+}
+
+.slider-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.slider-item h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.slider-transition-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slider-transition-enter-active {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.slider-transition-exit {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slider-transition-exit-active {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.icon {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.section-center {
+  width: 100%;
+  height: 33em;
+  text-align: center;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+article.activeSlide {
+  opacity: 1;
+  transform: translateX(0);
+}
+article.lastSlide {
+  transform: translateX(-100%);
+}
+article.nextSlide {
+  transform: translateX(100%);
+}
+
+.person-img {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* border: 4px solid hsl(210, 31%, 80%); */
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 200px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: #fff;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: grid;
+  place-items: center;
+  border-color: transparent;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.prev {
+  left: 0;
+  margin-left: 20px;
+}
+.next {
+  right: 0;
+  margin-right: 35px;
+}
+@media (min-width: 800px) {
+  .text {
+    max-width: 45em;
+  }
+  .prev,
+  .next {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.product {
+  width: 100%;
+  background: #e8eae1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 50px;
+}
+
+.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(0, 86, 82, 0.7)
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #005652;
+  /* background: #010f30; */
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+  color:#fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}

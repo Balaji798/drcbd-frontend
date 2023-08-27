@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Raleway:wght@100;200;300;400;500&family=Roboto+Condensed&family=Wix+Madefor+Text:ital@1&display=swap");
+@font-face {
+  font-family: AvenirNextLTPro-Regular;
+  src: url("../public/fonts/AvenirNextLTPro-Regular.otf");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.buttonStyle{
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0.7em 1.8em;
+  background: #005652;
+  border:none;
+  border-radius: 10px;
+}
+
+.linear-background {
+  background-image: linear-gradient(to right, #040404, #004d4a);
+}
+
+input,textarea{
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}

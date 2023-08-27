@@ -1,0 +1,34 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebf5f4;
+  overflow: hidden;
+}
+.footer-container {
+  padding-top: 20px;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer-container>ul{
+  list-style: none;
+}
+.footer-container > ul > li > span {
+  font-weight: bold;
+  font-size: 18px;
+}
+.subMenu {
+  height: 280px;
+}
+.second-footer-container {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-image: linear-gradient(to right, #000, #005652);
+  color: #fff;
+}

@@ -1,0 +1,116 @@
+.secondBanner {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.banner {
+  width: 100%;
+  background-image: url("./black-stone-spa.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 7em 0 0 50px;
+  display: flex;
+  justify-content: space-between;
+  height: 35em;
+}
+
+.back {
+  text-align: center;
+  background-image: url("./dark-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6em 0 10em;
+  border-bottom: 50px solid #00504c;
+}
+.pointer {
+  width: 47%;
+  height: 45em;
+  position: absolute;
+  background: #e5efe7;
+  /* background-image: url("./productoil-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+  overflow: hidden;
+  right: 0em;
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+  z-index: 1;
+}
+/* .pointer:after {
+  content: "";
+  position: absolute;
+  left: -200px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-right: 12.6em solid #e5efe7;
+  border-top: 22.6em solid transparent;
+  border-bottom: 22.6em solid transparent;
+}
+.pointer:before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+} */
+.banner-second {
+  width: 100%;
+  padding-top: 50px;
+  border-bottom-left-radius: 25px;
+  display: flex;
+}
+
+.blue-div {
+  position: absolute;
+  height: 17em;
+  width: 46%;
+  right: 0;
+  background: linear-gradient(to right, #004d4a, #002b2a);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Apply the folded corner effect */
+/* .blue-div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom left;
+  transform: skewX(-10deg);
+  background-color: #fff;
+} */
+
+.blue-div::after {
+  content: "";
+  position: absolute;
+  bottom: 0em;
+  left: -13em;
+  width: 30em;
+  height: 8em;
+  background-color: #fff;
+  transform: rotate(65deg);
+}
+
+.blue-div-second {
+  width: 40px;
+  height: 220px;
+  background-color: #005652;
+  transform: rotate(-20deg);
+}
