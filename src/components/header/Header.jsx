@@ -6,14 +6,14 @@ import { FaUserCircle } from "react-icons/fa";
 import "./header.css";
 import { Link } from "react-router-dom";
 // import cbd from "../../../public/dr/cbd.png";
-// import { useRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import Modal from "../modal/Modal";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
-  //const router = useRouter();
+  const navigate = useNavigate();
   const user = localStorage.getItem("token");
 
   if (open) {
@@ -29,7 +29,7 @@ const Header = () => {
     } else {
       console.log(user, "h2");
       const res = await ApiService.getUser();
-      // res.data.status ? router.push(type) : setOpen(true);
+      res.data.status ? navigate(type) : setOpen(true);
     }
   };
   return (

@@ -20,6 +20,7 @@ import Profile from "./pages/profile/Profile";
 import SignIn from "./pages/sign-in/SignIn";
 import OurCompanies from "./pages/our-companies/OurCompanies";
 import OurLeadership from "./pages/our-leadership/OurLeadership";
+import Orders from "./pages/orders/Orders";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/our-companies" element={<OurCompanies/>}/>
           <Route path="/our-leadership" element={<OurLeadership/>}/>
+          <Route path="/order-history" element={<Orders/>}/>
         </Routes>
       </div>
       <Footer />
