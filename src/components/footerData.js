@@ -69,15 +69,15 @@ export const footerData = [
     subMenu: [
       {
         title: "NEWS",
-        link: "/insights/news",
+        link: "/insights",
       },
       {
         title: "HEALTH",
-        link: "/insights/health",
+        link: "/insights",
       },
       {
         title: "INNOVATION",
-        link: "/insights/innovation",
+        link: "/insights",
       },
     ],
   },
