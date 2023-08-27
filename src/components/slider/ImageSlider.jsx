@@ -170,10 +170,7 @@ const ImageSlider = () => {
   return (
     <>
       <div className="banner-black"></div>
-      <section
-        className="section"
-        style={{ paddingTop: "1em"}}
-      >
+      <section className="section" style={{ paddingTop: "1em" }}>
         <div className="section-center" style={{ height: "30em" }}>
           {slider.map((item, indexPeople) => {
             const { id, image } = item;
@@ -198,7 +195,7 @@ const ImageSlider = () => {
                   src={image}
                   alt="/"
                   className="person-img"
-                  style={{ width: "100%",objectFit:"cover",height:"100%" }}
+                  style={{ width: "100%", objectFit: "cover", height: "100%" }}
                 />
                 {/* {image[1] !== "" && (
                   <img
@@ -229,7 +226,7 @@ const ImageSlider = () => {
       </section>
       <div className="product">
         <div className="all-background">
-          <div style={{ maxWidth: "1200px", width: "100%" }}>
+          <div style={{ maxWidth: "1300px", width: "100%" }}>
             <h1 style={{ textAlign: "center" }}>FIND YOUR CBD BY CATEGORY</h1>
             <div className="product-container">
               {product.map((item, index) => (
@@ -242,47 +239,58 @@ const ImageSlider = () => {
                 </div>
               ))}
             </div>
-            <Link
-              to="/cbd-by-category"
+            <div
               style={{
-                textAlign: "center",
-                color: "#2d3d41",
-                fontSize: "35px",
-                borderBottom: "2px solid",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              SHOP ALL CBD PRODUCTS
-            </Link>
-            <p
-              style={{
-                fontSize: 16,
-                padding: "1em 0 2em",
-                textAlign: "center",
-                fontWeight: "500",
-                lineHeight: "1.5em",
-              }}
-            >
-              CBD, short for cannabidiol, has gained significant popularity in
-              recent years as a natural remedy for various ailments. Derived
-              from the cannabis plant, CBD is a non-intoxicating compound that
-              offers potential therapeutic benefits without the psychoactive
-              effects commonly associated with its counterpart, THC. As a
-              result, CBD products have emerged as a diverse range of remedies
-              and wellness options for individuals seeking alternative
-              solutions. This article aims to provide an in-depth exploration of
-              CBD products, including their origins, uses, types, and potential
-              benefits.
-            </p>
+              <Link
+                to="/cbd-by-category"
+                style={{
+                  textAlign: "center",
+                  color: "#2d3d41",
+                  fontSize: "35px",
+                  borderBottom: "2px solid",
+                }}
+              >
+                SHOP ALL CBD PRODUCTS
+              </Link>
+              <p
+                style={{
+                  fontSize: 16,
+                  padding: "1em 0 2em",
+                  textAlign: "center",
+                  fontWeight: "500",
+                  lineHeight: "1.5em",
+                }}
+              >
+                CBD, short for cannabidiol, has gained significant popularity in
+                recent years as a natural remedy for various ailments. Derived
+                from the cannabis plant, CBD is a non-intoxicating compound that
+                offers potential therapeutic benefits without the psychoactive
+                effects commonly associated with its counterpart, THC. As a
+                result, CBD products have emerged as a diverse range of remedies
+                and wellness options for individuals seeking alternative
+                solutions. This article aims to provide an in-depth exploration
+                of CBD products, including their origins, uses, types, and
+                potential benefits.
+              </p>
+            </div>
           </div>
         </div>
-
+      </div>
+      <div className="product" style={{ background: "#000" }}>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            background: "#000",
+            // maxWidth: "1300px",
+            width: "100%",
           }}
         >
           <h1
@@ -329,6 +337,7 @@ const ImageSlider = () => {
           </Link>
         </div>
       </div>
+
       <div
         style={{
           textAlign: "center",
@@ -353,11 +362,11 @@ const ImageSlider = () => {
           depression. However, further research is needed to establish its
           efficacy.
         </p>
-        <div className="product-container" style={{ paddingTop: "2rem" }}>
+        <div className="product-container" style={{ paddingTop: "2rem",maxWidth:"1300px",width:"100%" }}>
           {products.map((item, index) => (
             <img
               src={item}
-              style={{ width: "18rem", height: "20em", objectFit: "contain" }}
+              style={{ width: "18.5rem", height: "20em", objectFit: "contain" }}
               key={index}
             />
           ))}
@@ -375,7 +384,7 @@ const ImageSlider = () => {
           AVAILABLE AT
         </h1>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ width: "45%", background: "#fff", height: "25em" }}>
+          <div style={{ width: "45%", background: "#fff", height: "27em" }}>
             <div
               style={{
                 position: "absolute",
@@ -386,23 +395,23 @@ const ImageSlider = () => {
             >
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/IMG_5118.jpg"
-                style={{ width: "22em", objectFit: "cover", height: "21.5em" }}
+                style={{ width: "25em", objectFit: "cover", height: "24em" }}
               />
               <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
-                  <img src={item} style={{ width: "9em", height: "10.75em" }} />
+                  <img src={item} style={{ width: "9.5em", height: "12em" }} />
                 ))}
               </div>
             </div>
           </div>
-          <div style={{ width: "28%", marginLeft: "5rem" }}>
+          <div style={{ width: "32%", marginLeft: "0rem" }}>
             <img
               src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png"
               style={{ width: "70%", objectFit: "contain", height: "10rem" }}
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%", fontSize: "0.8rem" }}>
+            <p style={{ width: "100%"}}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -446,7 +455,7 @@ const ImageSlider = () => {
               style={{ background: "#42b2be", width: "3.5em", height: "10em" }}
             />
           </div>
-          <div style={{ width: "30%", marginLeft: "-8rem" }}>
+          <div style={{ width: "35%", marginLeft: "-4rem" }}>
             <img
               src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png"
               style={{
@@ -461,7 +470,6 @@ const ImageSlider = () => {
             <p
               style={{
                 width: "100%",
-                fontSize: "0.8rem",
                 lineHeight: "1.3rem",
               }}
             >
@@ -476,7 +484,7 @@ const ImageSlider = () => {
               further research is needed to establish its efficacy.
             </p>
           </div>
-          <div style={{ width: "48%", background: "#fff", height: "25em" }}>
+          <div style={{ width: "45%", background: "#fff", height: "27em" }}>
             <div
               style={{
                 position: "absolute",
@@ -487,11 +495,11 @@ const ImageSlider = () => {
             >
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/IMG_5118.jpg"
-                style={{ width: "22em", objectFit: "cover", height: "21.5em" }}
+                style={{ width: "25em", objectFit: "cover", height: "24em" }}
               />
               <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
-                  <img src={item} style={{ width: "9em", height: "10.75em" }} />
+                  <img src={item} style={{ width: "9.5em", height: "12em" }}  />
                 ))}
               </div>
             </div>

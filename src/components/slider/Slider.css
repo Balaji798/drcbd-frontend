@@ -108,7 +108,7 @@ article.nextSlide {
 
 .home-product-item {
   background-size: cover;
-  width: 16em;
+  width: 18em;
   height: 17em;
   margin-bottom: 1em;
   color: #fff;
@@ -120,8 +120,8 @@ article.nextSlide {
 }
 
 .product-item {
-  width: 15.5em;
-  height: 15.5em;
+  width: 19.8em;
+  height: 19.8em;
   margin-bottom: 1em;
   color: gray;
   display: flex;
