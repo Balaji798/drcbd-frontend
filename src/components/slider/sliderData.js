@@ -9,6 +9,6 @@ export const sliderData = [
   },
   {
     id: 3,
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/S02-11250.tif"
+    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/s12-11540.jpg"
   },
 ];
