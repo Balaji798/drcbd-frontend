@@ -1,35 +1,114 @@
- 
 import React, { useState, useEffect } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import data from "../../data";
 import { sliderData } from "./sliderData";
 import "./Slider.css";
 
 const ImageSlider = () => {
   const affiliates = [
-    { title: "SKINCARE BEAUTY", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-01.jpg" },
-    { title: "SKINCARE IRRITATION", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-02.jpg" },
-    { title: "SLEEP DISORDER", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-03.jpg" },
-    { title: "IMMUNE", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-04.jpg" },
-    { title: "MUSCLE & JOINT", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-05.jpg" },
-    { title: "ENERGY", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-06.jpg" },
-    { title: "NCD'S", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-07.jpg" },
-    { title: "WEIGHT MANAGEMENT", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-08.jpg" },
-    { title: "RELAXATION", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-09.jpg" },
-    { title: "CANCER", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-10.jpg" },
-    { title: "HORMONES", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-11.jpg" },
-    { title: "OPIOID", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-12.jpg" },
+    {
+      title: "SKINCARE BEAUTY",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-01.jpg",
+    },
+    {
+      title: "SKINCARE IRRITATION",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-02.jpg",
+    },
+    {
+      title: "SLEEP DISORDER",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-03.jpg",
+    },
+    {
+      title: "IMMUNE",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-04.jpg",
+    },
+    {
+      title: "MUSCLE & JOINT",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-05.jpg",
+    },
+    {
+      title: "ENERGY",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-06.jpg",
+    },
+    {
+      title: "NCD'S",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-07.jpg",
+    },
+    {
+      title: "WEIGHT MANAGEMENT",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-08.jpg",
+    },
+    {
+      title: "RELAXATION",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-09.jpg",
+    },
+    {
+      title: "CANCER",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-10.jpg",
+    },
+    {
+      title: "HORMONES",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-11.jpg",
+    },
+    {
+      title: "OPIOID",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-12.jpg",
+    },
   ];
   const product = [
-    { title: "CBD OIL", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/oli.jpg" },
-    { title: "CBD SOFTGEL", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/soft-gel.jpg" },
-    { title: "CBD FACIAL CARE", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/serumizer.jpg" },
-    { title: "BEVERAGE", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/PACKSHOT-2317.jpg" },
-    { title: "CBD BODY CARE", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/shower.jpg" },
-    { title: "CBD FOR PET", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/cat.png" },
-    { title: "CBD FOR MUSCLE & JOINTS", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/massage.jpg" },
-    { title: "HOME USE", background: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/deep.jpg" },
+    {
+      title: "CBD OIL",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/oli.jpg",
+    },
+    {
+      title: "CBD SOFTGEL",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/soft-gel.jpg",
+    },
+    {
+      title: "CBD FACIAL CARE",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/serumizer.jpg",
+    },
+    {
+      title: "BEVERAGE",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/PACKSHOT-2317.jpg",
+    },
+    {
+      title: "CBD BODY CARE",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/shower.jpg",
+    },
+    {
+      title: "CBD FOR PET",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/cat.png",
+    },
+    {
+      title: "CBD FOR MUSCLE & JOINTS",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/massage.jpg",
+    },
+    {
+      title: "HOME USE",
+      background:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/deep.jpg",
+    },
   ];
 
   const products = [
@@ -97,7 +176,8 @@ const ImageSlider = () => {
       >
         <div className="section-center" style={{ height: "30em" }}>
           {slider.map((item, indexPeople) => {
-            const { id, image, name } = item;
+            const { id, image } = item;
+            console.log(image);
             let position = "nextSlide";
             if (indexPeople === secondIndex) {
               position = "activeSlide";
@@ -115,8 +195,8 @@ const ImageSlider = () => {
                 key={id}
               >
                 <img
-                  src={image[0]}
-                  alt={name}
+                  src={image}
+                  alt="/"
                   className="person-img"
                   style={{ width: "100%" }}
                 />
@@ -163,7 +243,7 @@ const ImageSlider = () => {
               ))}
             </div>
             <Link
-            to="/cbd-by-category"
+              to="/cbd-by-category"
               style={{
                 textAlign: "center",
                 color: "#2d3d41",
@@ -212,8 +292,8 @@ const ImageSlider = () => {
           </h1>
           <div
             style={{
-               display: "flex",
-               flexWrap: "wrap",
+              display: "flex",
+              flexWrap: "wrap",
               maxWidth: "90%",
               justifyContent: "space-between",
             }}
@@ -262,7 +342,7 @@ const ImageSlider = () => {
         <h1 style={{ padding: "2.5rem 0", fontWeight: "bold" }}>
           BEST SELLER PRODUCTS
         </h1>
-        <p style={{ width: "70%",fontWeight:600,lineHeight:"1.8rem" }}>
+        <p style={{ width: "70%", fontWeight: 600, lineHeight: "1.8rem" }}>
           CBD products have gained popularity due to their potential therapeutic
           benefits. While research is ongoing, CBD has shown promise in several
           areas, including: Pain Management: CBD may help alleviate chronic pain
@@ -273,7 +353,7 @@ const ImageSlider = () => {
           depression. However, further research is needed to establish its
           efficacy.
         </p>
-        <div className="product-container" style={{paddingTop:"2rem"}}>
+        <div className="product-container" style={{ paddingTop: "2rem" }}>
           {products.map((item, index) => (
             <img
               src={item}
@@ -315,14 +395,14 @@ const ImageSlider = () => {
               </div>
             </div>
           </div>
-          <div style={{ width: "28%",marginLeft:"5rem" }}>
+          <div style={{ width: "28%", marginLeft: "5rem" }}>
             <img
               src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png"
               style={{ width: "70%", objectFit: "contain", height: "10rem" }}
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%",fontSize:"0.8rem" }}>
+            <p style={{ width: "100%", fontSize: "0.8rem" }}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -378,7 +458,13 @@ const ImageSlider = () => {
             />
             <h2>VITAL MEDI CLINIC</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%",fontSize:'0.8rem',lineHeight:"1.3rem" }}>
+            <p
+              style={{
+                width: "100%",
+                fontSize: "0.8rem",
+                lineHeight: "1.3rem",
+              }}
+            >
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -390,7 +476,7 @@ const ImageSlider = () => {
               further research is needed to establish its efficacy.
             </p>
           </div>
-          <div style={{ width: "48%", background: "#fff", height: "25em"}}>
+          <div style={{ width: "48%", background: "#fff", height: "25em" }}>
             <div
               style={{
                 position: "absolute",
