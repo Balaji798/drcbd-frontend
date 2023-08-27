@@ -1,9 +1,9 @@
- 
-import React from "react";
+ import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const OurCompanies = () => {
-  const navigate = useNavigate();
+	const location = useLocation();
 
   const data = [
     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
@@ -35,7 +35,7 @@ const OurCompanies = () => {
             paddingBottom: "20px",
           }}
         >
-          {router.slice(1).split("-").join(" ")}
+          {location.pathname.slice(1).split("-").join(" ")}
         </p>
         <div
           style={{

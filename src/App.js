@@ -18,6 +18,8 @@ import ByCategory from "./pages/cbd-by-category/ByCategory";
 import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
 import SignIn from "./pages/sign-in/SignIn";
+import OurCompanies from "./pages/our-companies/OurCompanies";
+import OurLeadership from "./pages/our-leadership/OurLeadership";
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/our-companies" element={<OurCompanies/>}/>
+          <Route path="/our-leadership" element={<OurLeadership/>}/>
         </Routes>
       </div>
       <Footer />
