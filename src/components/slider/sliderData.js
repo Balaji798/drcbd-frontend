@@ -1,18 +1,18 @@
 export const sliderData = [
   {
     id: 1,
-    image:[ "/images/woondy-sprayfinal.jpg","/images/AntiFungus mockup2.jpg"],
+    image:[ "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/S02-11250.tif"],
   },
   {
     id: 2,
-    image: ["/images/S02-11250.jpg",""]
+    image: ["https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/S02-11250.tif"]
   },
   {
     id: 3,
-    image: ["/images/s09-11490.jpg",""]
+    image: ["https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/S02-11250.tif"]
   },
   {
     id: 4,
-    image: [ "/images/s12-11540.jpg","",]
+    image: [ "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/S02-11250.tif",]
   },
 ];

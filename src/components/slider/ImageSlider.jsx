@@ -118,16 +118,16 @@ const ImageSlider = () => {
                   src={image[0]}
                   alt={name}
                   className="person-img"
-                  style={{ width: image[1] !== "" ? "50%" : "100%" }}
+                  style={{ width: "100%" }}
                 />
-                {image[1] !== "" && (
+                {/* {image[1] !== "" && (
                   <img
                     src={image[1]}
                     alt={name}
                     className="person-img"
                     style={{ width: "50%" }}
                   />
-                )}
+                )} */}
               </article>
             );
           })}
