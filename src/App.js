@@ -29,7 +29,7 @@ function App() {
       <Navbar />
       <div
         style={{
-          paddingTop: "9rem",
+          paddingTop: "9.5rem",
           backgroundColor: "#f6f9fa",
         }}
       >
@@ -47,9 +47,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/our-companies" element={<OurCompanies/>}/>
-          <Route path="/our-leadership" element={<OurLeadership/>}/>
-          <Route path="/order-history" element={<Orders/>}/>
+          <Route path="/our-companies" element={<OurCompanies />} />
+          <Route path="/our-leadership" element={<OurLeadership />} />
+          <Route path="/order-history" element={<Orders />} />
         </Routes>
       </div>
       <Footer />

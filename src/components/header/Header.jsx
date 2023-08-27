@@ -94,7 +94,7 @@ const Header = () => {
         <Link to="/">
           <img
             src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
-            style={{ objectFit: "cover", height: "60px", width: "200px" }}
+            style={{ objectFit: "cover", height: "50px", width: "150px" }}
             alt={""}
           />
         </Link>

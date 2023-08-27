@@ -248,10 +248,10 @@ const SecondBanner = () => {
             <p
               style={{
                 width: "34.8%",
-                lineHeight: "40px",
+                lineHeight: "30px",
                 fontWeight: 300,
                 fontFamily: "'Hind Siliguri', sans-seri",
-                fontSize: 23,
+                fontSize: 20,
               }}
             >
               CBD Oil is extracted from an IES (Isolate Extraction Systems)
@@ -281,7 +281,7 @@ const SecondBanner = () => {
               flexWrap: "wrap",
               justifyContent: "space-between",
               width: "100%",
-              padding: " 5em 0",
+              padding: " 0em 0 2em 0",
             }}
           >
             <div style={{ width: "40%" }}>
@@ -292,7 +292,7 @@ const SecondBanner = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     width: "100%",
-                    padding: "20px 0",
+                    padding: "10px 0",
                   }}
                 >
                   <img
@@ -305,7 +305,7 @@ const SecondBanner = () => {
                 </div>
               ))}
             </div>
-            <div style={{ width: "45%", paddingTop: "22em" }}>
+            <div style={{ width: "45%", paddingTop: "15em" }}>
               {iconsData[1].map((item, index) => (
                 <div
                   style={{
@@ -361,7 +361,7 @@ const SecondBanner = () => {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            maxWidth: "1200px",
+            maxWidth: "1100px",
             width: "100%",
             justifyContent: "center",
             alignItems: "center",
@@ -371,7 +371,7 @@ const SecondBanner = () => {
           {data.map((item, index) => (
             <div
               style={{
-                width: "20em",
+                width: "18em",
                 background: "#fff",
                 borderRight: index == 2 || index == 5 ? 0 : "1px solid #000",
                 borderBottom:
@@ -394,14 +394,14 @@ const SecondBanner = () => {
         </div>
         <div
           style={{
-            maxWidth: "950px",
+            maxWidth: "850px",
             width: "100%",
             background: "#00504c",
             height: "38em",
             position: "absolute",
             zIndex: 0,
-            right: "16%",
-            marginBottom: "-6em",
+            left: "20%",
+            marginBottom: "-8em",
           }}
         />
       </div>

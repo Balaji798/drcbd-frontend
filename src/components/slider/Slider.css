@@ -95,7 +95,7 @@ article.nextSlide {
   padding: 20px 50px;
 }
 
-.all-background{
+.all-background {
   background-image: url("./yty12.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -111,7 +111,7 @@ article.nextSlide {
   width: 16em;
   height: 17em;
   margin-bottom: 1em;
-  color:#fff;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -119,11 +119,11 @@ article.nextSlide {
   padding: 1em;
 }
 
-.product-item{
-  width: 20em;
-  height: 20em;
+.product-item {
+  width: 15.5em;
+  height: 15.5em;
   margin-bottom: 1em;
-  color:gray;
+  color: gray;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -140,14 +140,14 @@ article.nextSlide {
   transform: scale(1.3);
 }
 
-.banner-black{
-   background-image: url("./edit02.jpg");
-   background-size: cover;
-   background-repeat: no-repeat;
-   width: 100%;
-   height: 30em;
-   color:#fff;
-   display: flex;
-   align-items: center;
-   padding-left:5em ;
+.banner-black {
+  background-image: url("./edit02.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 23em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 5em;
 }

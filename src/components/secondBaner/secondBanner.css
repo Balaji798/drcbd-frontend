@@ -33,8 +33,8 @@
   border-bottom: 50px solid #00504c;
 }
 .pointer {
-  width: 47%;
-  height: 45em;
+  width: 40%;
+  height: 40em;
   position: absolute;
   background: #e5efe7;
   /* background-image: url("./productoil-01.jpg");
@@ -76,8 +76,8 @@
 
 .blue-div {
   position: absolute;
-  height: 17em;
-  width: 46%;
+  height: 11em;
+  width: 42%;
   right: 0;
   background: linear-gradient(to right, #004d4a, #002b2a);
   overflow: hidden;
@@ -104,8 +104,8 @@
   left: -13em;
   width: 30em;
   height: 8em;
-  background-color: #fff;
-  transform: rotate(65deg);
+  background-color: #f6f9fa;
+  transform: rotate(68deg);
 }
 
 .blue-div-second {

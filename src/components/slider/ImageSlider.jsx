@@ -212,8 +212,8 @@ const ImageSlider = () => {
           </h1>
           <div
             style={{
-              display: "flex",
-              flexWrap: "wrap",
+               display: "flex",
+               flexWrap: "wrap",
               maxWidth: "90%",
               justifyContent: "space-between",
             }}
@@ -277,7 +277,7 @@ const ImageSlider = () => {
           {products.map((item, index) => (
             <img
               src={item}
-              style={{ width: "22.7em", height: "22em", objectFit: "cover" }}
+              style={{ width: "18rem", height: "20em", objectFit: "contain" }}
               key={index}
             />
           ))}
@@ -295,34 +295,34 @@ const ImageSlider = () => {
           AVAILABLE AT
         </h1>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ width: "48%", background: "#fff", height: "27em" }}>
+          <div style={{ width: "45%", background: "#fff", height: "25em" }}>
             <div
               style={{
                 position: "absolute",
-                left: "6%",
+                left: "6rem",
                 display: "flex",
-                paddingTop: "1.3em",
+                paddingTop: "1.5em",
               }}
             >
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/IMG_5118.jpg"
-                style={{ width: "25em", objectFit: "cover", height: "24em" }}
+                style={{ width: "22em", objectFit: "cover", height: "21.5em" }}
               />
-              <div style={{ display: "flex", flexWrap: "wrap", width: "30em" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
-                  <img src={item} style={{ width: "12em", height: "12em" }} />
+                  <img src={item} style={{ width: "9em", height: "10.75em" }} />
                 ))}
               </div>
             </div>
           </div>
-          <div style={{ width: "30%" }}>
+          <div style={{ width: "28%",marginLeft:"5rem" }}>
             <img
               src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png"
               style={{ width: "70%", objectFit: "contain", height: "10rem" }}
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%" }}>
+            <p style={{ width: "100%",fontSize:"0.8rem" }}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -378,7 +378,7 @@ const ImageSlider = () => {
             />
             <h2>VITAL MEDI CLINIC</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%" }}>
+            <p style={{ width: "100%",fontSize:'0.8rem',lineHeight:"1.3rem" }}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -390,22 +390,22 @@ const ImageSlider = () => {
               further research is needed to establish its efficacy.
             </p>
           </div>
-          <div style={{ width: "48%", background: "#fff", height: "27em" }}>
+          <div style={{ width: "48%", background: "#fff", height: "25em"}}>
             <div
               style={{
                 position: "absolute",
                 right: "5%",
                 display: "flex",
-                paddingTop: "1.3em",
+                paddingTop: "1.5em",
               }}
             >
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/IMG_5118.jpg"
-                style={{ width: "25em", objectFit: "cover", height: "24em" }}
+                style={{ width: "22em", objectFit: "cover", height: "21.5em" }}
               />
-              <div style={{ display: "flex", flexWrap: "wrap", width: "30em" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
-                  <img src={item} style={{ width: "12em", height: "12em" }} />
+                  <img src={item} style={{ width: "9em", height: "10.75em" }} />
                 ))}
               </div>
             </div>

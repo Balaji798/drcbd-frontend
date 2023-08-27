@@ -6,32 +6,38 @@ const Stories = () => {
   const storiesData = [
     {
       title: "ABOUT",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DR.CBD-282.jpg",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DR.CBD-282.jpg",
     },
     {
       title: "NEWS",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DSC01745.jpg",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DSC01745.jpg",
     },
     {
       title: "INSIGHTS",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/edit02.jpg",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/edit02.jpg",
     },
   ];
   const howItStarted = [
     {
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/scientist.jpg",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/scientist.jpg",
       year: "2019",
       title: "Exploration Year",
       para: "We started scientific work, research & development",
     },
     {
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/woman-scientist.jpg",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/woman-scientist.jpg",
       year: "2020",
       title: "Exploration Year",
       para: "We found real benefits from hemp & cannabis extracts",
     },
     {
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/s1-group.jpg",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/s1-group.jpg",
       year: "2021-2022",
       title: "Developed & Innovated",
       para: 'We have innovated, formulated and developed medical products from from hemp, cannabis, kratom and other Thai herbs Fro the well-being of the people and to ..."Save Lives & Heal People"',
@@ -40,18 +46,54 @@ const Stories = () => {
 
   const followData = [
     { image: "./logo2-01.png", name: "drcbdinnovation" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png", name: "drkratombio" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/EARTH-LAB.png", name: "earthlab.th" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png", name: "vitalmediclinicofficial" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png", name: "vitalhealtheathcafeofficial" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png", name: "drpetcbd" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png", name: "drcbdclinic" },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
+      name: "drkratombio",
+    },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/EARTH-LAB.png",
+      name: "earthlab.th",
+    },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
+      name: "vitalmediclinicofficial",
+    },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
+      name: "vitalhealtheathcafeofficial",
+    },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
+      name: "drpetcbd",
+    },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
+      name: "drcbdclinic",
+    },
   ];
 
   const newsData = [
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/DR.CBD-282.jpg", name: "Grand Opening Stores" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/IMG_1466.JPG", name: "Grand Opening Stores" },
-    { image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/nodtiezpix.jpg", name: "Grand Opening Stores" },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/DR.CBD-282.jpg",
+      name: "Grand Opening Stores",
+    },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/IMG_1466.JPG",
+      name: "Grand Opening Stores",
+    },
+    {
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/nodtiezpix.jpg",
+      name: "Grand Opening Stores",
+    },
   ];
   return (
     <>
@@ -79,25 +121,25 @@ const Stories = () => {
                   <img
                     src={item.image}
                     style={{
-                      width: "10rem",
+                      width: "8rem",
                       objectFit: "cover",
-                      height: "10rem",
+                      height: "8rem",
                     }}
                   />
                   <div style={{ paddingLeft: "0.5rem" }}>
                     <p>.{item.year}</p>
                     <h3>{item.title}</h3>
-                    <p>{item.para}</p>
+                    <p style={{ fontSize: "0.8rem" }}>{item.para}</p>
                   </div>
                 </div>
               ))}
             </div>
             <div
               style={{
-                maxWidth: "500px",
+                maxWidth: "400px",
                 width: "100%",
                 background: "#00504c",
-                height: "25.5em",
+                height: "20em",
                 position: "absolute",
                 zIndex: 0,
                 left: "20%",
@@ -195,7 +237,7 @@ const Stories = () => {
               alignItems: "center",
               width: "100%",
               justifyContent: "space-between",
-              maxWidth: 1300,
+              maxWidth: 1200,
               width: "100%",
             }}
           >
@@ -203,8 +245,8 @@ const Stories = () => {
               <div>
                 <div
                   style={{
-                    width: "10.5rem",
-                    height: "10.5rem",
+                    width: "9.5rem",
+                    height: "9.5rem",
                     borderRadius: "50%",
                     background: "#fff",
                     padding: "1rem",
@@ -212,7 +254,7 @@ const Stories = () => {
                 >
                   <img src={item.image} style={{ width: "100%" }} />
                 </div>
-                <p style={{ color: "#fff", padding: "0.5rem 0" }}>
+                <p style={{ color: "#fff", padding: "0.5rem 0",fontSize:"0.8rem" }}>
                   {item.name}
                 </p>
               </div>
@@ -327,7 +369,7 @@ const Stories = () => {
                 padding: "1rem 0.5rem",
                 marginBottom: "0.1rem",
                 fontWeight: "bold",
-                borderLeft:"2px solid"
+                borderLeft: "2px solid",
               }}
             >
               About CBD

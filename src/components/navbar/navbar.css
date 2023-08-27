@@ -1,5 +1,5 @@
 nav {
-  top: 7em;
+  top: 6em;
   /* background-color: #005652; */
   background-image: linear-gradient(to right, #004d4a, #002b2a);
   width: 100%;
@@ -49,7 +49,7 @@ nav {
 
 .dropdown-content {
   /* display: none; */
-  left: 11.5em;
+  left: 5em;
   max-width: 1050px;
   width: 100%;
   position: absolute;
