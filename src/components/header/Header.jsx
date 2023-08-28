@@ -1,4 +1,3 @@
- 
 import React, { useState, useEffect } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
@@ -75,7 +74,7 @@ const Header = () => {
               onClick={() => handelNext("/cart")}
             >
               <MdOutlineAddShoppingCart
-                style={{ fontSize: "20px", alignSelf: "end" }}
+                style={{ fontSize: "25px", alignSelf: "end" }}
               />
             </div>
             <div
@@ -93,7 +92,14 @@ const Header = () => {
         <Link to="/">
           <img
             src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
-            style={{ objectFit: "cover", height: "30px", width: "100px" }}
+            style={{
+              objectFit: "cover",
+              height: "45px",
+              width: "120px",
+              position: "absolute",
+              top:20,
+              left:"45%"
+            }}
             alt={""}
           />
         </Link>

@@ -5,7 +5,8 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 7em 0 7em;
+  padding: 10px 7em;
+  padding-bottom: 25px;
   color: #fff;
   position: fixed;
   overflow: hidden;

@@ -31,7 +31,7 @@ function App() {
       <Navbar />
       <div
         style={{
-          paddingTop: "9.5rem",
+          paddingTop: "7rem",
           backgroundColor: "#f6f9fa",
         }}
       >
