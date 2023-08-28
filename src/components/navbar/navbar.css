@@ -1,5 +1,5 @@
 nav {
-  top: 6em;
+  top: 4em;
   /* background-color: #005652; */
   background-image: linear-gradient(to right, #004d4a, #002b2a);
   width: 100%;
@@ -34,7 +34,8 @@ nav {
 }
 
 .dropdown > a {
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
   border: none;
   outline: none;
   color: white;
@@ -92,7 +93,7 @@ nav {
   text-decoration: none;
   display: block;
   text-align: left;
-  font-size: 20;
+  font-size: 16;
 }
 
 /* .column a:hover {

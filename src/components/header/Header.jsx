@@ -46,7 +46,7 @@ const Header = () => {
           >
             {/**/}
             <p> TH/EN |</p>
-            <Link href="sign-in">Sign In |</Link>
+            <Link to="/sign-in">Sign In |</Link>
             <p> Track Orders</p>
           </div>
           <div style={{ display: "flex", width: "20%" }}>
@@ -54,14 +54,13 @@ const Header = () => {
               <BsSearch
                 color="#000"
                 style={{ marginRight: "0.5em" }}
-                size={20}
+                size={16}
               />
               <input
                 style={{
                   outline: "none",
                   width: "100%",
                   fontSize: 10,
-                  padding: "0.2em 0",
                   border: "none",
                   background: "#fff",
                 }}
@@ -76,7 +75,7 @@ const Header = () => {
               onClick={() => handelNext("/cart")}
             >
               <MdOutlineAddShoppingCart
-                style={{ fontSize: "25px", alignSelf: "end" }}
+                style={{ fontSize: "20px", alignSelf: "end" }}
               />
             </div>
             <div
@@ -94,7 +93,7 @@ const Header = () => {
         <Link to="/">
           <img
             src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
-            style={{ objectFit: "cover", height: "50px", width: "150px" }}
+            style={{ objectFit: "cover", height: "30px", width: "100px" }}
             alt={""}
           />
         </Link>

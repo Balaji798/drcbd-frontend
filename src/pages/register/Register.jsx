@@ -46,7 +46,7 @@ const Register = () => {
             alt="/"
             style={{ width: "100%", objectFit: "contain", height: "30em" }}
           />
-          <Link href="/" style={{ color: "#99a79f" ,width: "35%",}}>
+          <Link to="/" style={{ color: "#99a79f" ,width: "35%",}}>
           <button
             style={{
               marginTop: "1em",
@@ -68,7 +68,7 @@ const Register = () => {
       ) : (
         <>
           <h1 style={{ fontSize: "50px" }}>
-            <Link href="/sign-in" style={{ color: "#99a79f" }}>
+            <Link to="/sign-in" style={{ color: "#99a79f" }}>
               Sign in |{" "}
             </Link>
             Register
@@ -76,7 +76,7 @@ const Register = () => {
           <p
             style={{
               width: "35%",
-              fontSize: "30px",
+              fontSize: "16px",
               padding: "0.7em 0",
               fontWeight: "bold",
             }}
@@ -86,7 +86,7 @@ const Register = () => {
           <input
             style={{
               width: "35%",
-              padding: "10px 5px",
+              padding: "5px",
               fontSize: 20,
               borderRadius: 10,
             }}
@@ -97,7 +97,7 @@ const Register = () => {
           <p
             style={{
               width: "35%",
-              fontSize: "30px",
+              fontSize: "16px",
               padding: "0.7em 0",
               fontWeight: "bold",
             }}
@@ -107,7 +107,7 @@ const Register = () => {
           <input
             style={{
               width: "35%",
-              padding: "10px 5px",
+              padding: "5px",
               fontSize: 20,
               borderRadius: 10,
             }}
@@ -118,7 +118,7 @@ const Register = () => {
           <p
             style={{
               width: "35%",
-              fontSize: "30px",
+              fontSize: "16px",
               padding: "0.7em 0",
               fontWeight: "bold",
             }}
@@ -128,10 +128,32 @@ const Register = () => {
           <input
             style={{
               width: "35%",
-              padding: "10px 5px",
-              fontSize: 20,
+              padding: "5px",
+              fontSize: 16,
               borderRadius: 10,
-              marginBottom: "1.5em",
+              marginBottom: "1em",
+            }}
+            onChange={(e) => {
+              setUser({ ...user, password: e.target.value });
+            }}
+          />
+           <p
+            style={{
+              width: "35%",
+              fontSize: "16px",
+              padding: "0.7em 0",
+              fontWeight: "bold",
+            }}
+          >
+           Confirm Password
+          </p>
+          <input
+            style={{
+              width: "35%",
+              padding: "5px",
+              fontSize: 16,
+              borderRadius: 10,
+              marginBottom: "1em",
             }}
             onChange={(e) => {
               setUser({ ...user, password: e.target.value });

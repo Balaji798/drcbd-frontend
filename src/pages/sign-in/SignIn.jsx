@@ -39,7 +39,7 @@ const SignIn = () => {
     >
       <h1 style={{ fontSize: "50px" }}>
         Sign in |{" "}
-        <Link href="/register" style={{ color: "#99a79f" }}>
+        <Link to="/register" style={{ color: "#99a79f" }}>
           Register
         </Link>
       </h1>

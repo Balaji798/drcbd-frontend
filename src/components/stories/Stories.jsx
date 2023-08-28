@@ -142,7 +142,7 @@ const Stories = () => {
                 height: "20em",
                 position: "absolute",
                 zIndex: 0,
-                left: "27%",
+                marginLeft: "10rem",
                 marginTop: "11rem",
               }}
             />

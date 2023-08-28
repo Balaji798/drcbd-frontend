@@ -371,12 +371,13 @@ const SecondBanner = () => {
           {data.map((item, index) => (
             <div
               style={{
-                width: "18em",
+                width: "17em",
                 background: "#fff",
                 borderRight: index == 2 || index == 5 ? 0 : "1px solid #000",
                 borderBottom:
                   index == 2 || index == 0 || index == 1 ? "1px solid #000" : 0,
                 padding: "1em",
+                margin:"0.1rem",
                 color: "#000",
               }}
               key={index}
@@ -394,13 +395,13 @@ const SecondBanner = () => {
         </div>
         <div
           style={{
-            maxWidth: "850px",
+            maxWidth: "800px",
             width: "100%",
             background: "#00504c",
-            height: "38em",
+            height: "39.5em",
             position: "absolute",
             zIndex: 0,
-            right: "20%",
+            right: "11.3rem",
             marginBottom: "-8em",
           }}
         />

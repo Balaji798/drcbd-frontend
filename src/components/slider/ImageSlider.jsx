@@ -226,7 +226,7 @@ const ImageSlider = () => {
       </section>
       <div className="product">
         <div className="all-background">
-          <div style={{ maxWidth: "1300px", width: "100%" }}>
+          <div style={{ maxWidth: "1200px", width: "100%" }}>
             <h1 style={{ textAlign: "center" }}>FIND YOUR CBD BY CATEGORY</h1>
             <div className="product-container">
               {product.map((item, index) => (
@@ -298,28 +298,22 @@ const ImageSlider = () => {
           >
             FIND YOUR CBD BY PURPOSE
           </h1>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              maxWidth: "90%",
-              justifyContent: "space-between",
-            }}
-          >
-            <div className="product-container">
-              {affiliates.map((item, index) => (
-                <div
-                  className="product-item"
-                  style={{
-                    backgroundImage: `url(${item.background})`,
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                >
-                  <h4>{item.title}</h4>
-                </div>
-              ))}
-            </div>
+          <div className="product-container">
+            {affiliates.map((item, index) => (
+              <div
+                className="product-item"
+                style={{
+                  backgroundImage: `url(${item.background})`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                  width: '17em',
+                  height: '19em',
+                  marginBottom: "0.3em",
+                }}
+              >
+                <h4>{item.title}</h4>
+              </div>
+            ))}
           </div>
           <Link
             style={{
@@ -362,11 +356,14 @@ const ImageSlider = () => {
           depression. However, further research is needed to establish its
           efficacy.
         </p>
-        <div className="product-container" style={{ paddingTop: "2rem",maxWidth:"1300px",width:"100%" }}>
+        <div
+          className="product-container"
+          style={{ paddingTop: "2rem", maxWidth: "1200px", width: "100%" }}
+        >
           {products.map((item, index) => (
             <img
               src={item}
-              style={{ width: "18.5rem", height: "20em", objectFit: "contain" }}
+              style={{ width: "17rem", height: "20em", objectFit: "contain" }}
               key={index}
             />
           ))}
@@ -411,7 +408,7 @@ const ImageSlider = () => {
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%"}}>
+            <p style={{ width: "100%" }}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -499,7 +496,7 @@ const ImageSlider = () => {
               />
               <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
-                  <img src={item} style={{ width: "9.5em", height: "12em" }}  />
+                  <img src={item} style={{ width: "9.5em", height: "12em" }} />
                 ))}
               </div>
             </div>
