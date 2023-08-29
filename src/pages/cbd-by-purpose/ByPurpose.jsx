@@ -19,12 +19,12 @@ const ByPurpose = () => {
     try {
       const res = await ApiService.getAllProduct();
       console.log(res.data);
-      const categoryProduct = res.data.filter((item) => {
-        if (item.category2 == "CBD BY PURPOSE") {
-          return item;
-        }
-      });
-      const productsByCategory = categoryProduct.reduce((acc, product) => {
+      // const categoryProduct = res.data.filter((item) => {
+      //   if (item.category2 == "CBD BY PURPOSE") {
+      //     return item;
+      //   }
+      // });
+      const productsByCategory = res.data.reduce((acc, product) => {
         //console.log(acc,product)
         const categoryName = product.category3;
         console.log(categoryName);

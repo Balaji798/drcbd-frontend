@@ -26,8 +26,8 @@ const Header = () => {
       console.log("hi");
       setOpen(true);
     } else {
-      console.log(user, "h2");
       const res = await ApiService.getUser();
+      console.log(res.data, "h2");
       res.data.status ? navigate(type) : setOpen(true);
     }
   };

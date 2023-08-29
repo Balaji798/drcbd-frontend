@@ -72,42 +72,42 @@ const ImageSlider = () => {
     {
       title: "CBD OIL",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/oli.jpg",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2.jpg",
     },
     {
       title: "CBD SOFTGEL",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/soft-gel.jpg",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-01.jpg",
     },
     {
       title: "CBD FACIAL CARE",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/serumizer.jpg",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-04.jpg",
     },
     {
       title: "BEVERAGE",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/PACKSHOT-2317.jpg",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-06.jpg",
     },
     {
       title: "CBD BODY CARE",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/shower.jpg",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-03.jpg",
     },
     {
       title: "CBD FOR PET",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/cat.png",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-05.jpg",
     },
     {
       title: "CBD FOR MUSCLE & JOINTS",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/massage.jpg",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/1.jpg",
     },
     {
       title: "HOME USE",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/deep.jpg",
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-01.jpg",
     },
   ];
 
@@ -174,7 +174,7 @@ const ImageSlider = () => {
         <div className="section-center" style={{ height: "30em" }}>
           {slider.map((item, indexPeople) => {
             const { id, image } = item;
-            console.log(image);
+            // console.log(image);
             let position = "nextSlide";
             if (indexPeople === secondIndex) {
               position = "activeSlide";
@@ -381,34 +381,34 @@ const ImageSlider = () => {
           AVAILABLE AT
         </h1>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ width: "45%", background: "#fff", height: "27em" }}>
+          <div style={{ width: "45%", background: "#fff", height: "23.5em" }}>
             <div
               style={{
                 position: "absolute",
-                left: "6rem",
+                left: "3rem",
                 display: "flex",
                 paddingTop: "1.5em",
               }}
             >
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/IMG_5118.jpg"
-                style={{ width: "25em", objectFit: "cover", height: "24em" }}
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
+                style={{ width: "40rem", objectFit: "cover" }}
               />
-              <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
+              {/* <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
                   <img src={item} style={{ width: "9.5em", height: "12em" }} />
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
-          <div style={{ width: "32%", marginLeft: "0rem" }}>
+          <div style={{ width: "29%", marginLeft: "0.5rem" }}>
             <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png"
-              style={{ width: "70%", objectFit: "contain", height: "10rem" }}
+              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-02.png"
+              style={{ width: "15rem", objectFit: "contain" }}
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%" }}>
+            <p style={{ width: "100%",fontSize:"0.8rem" }}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -452,14 +452,13 @@ const ImageSlider = () => {
               style={{ background: "#42b2be", width: "3.5em", height: "10em" }}
             />
           </div>
-          <div style={{ width: "35%", marginLeft: "-4rem" }}>
+          <div style={{ width: "29%", marginLeft: "-8rem" }}>
             <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png"
+              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-01.png"
               style={{
-                width: "95%",
+                width: "18rem",
                 objectFit: "cover",
-                height: "10rem",
-                marginLeft: "-7rem",
+                marginLeft: "0rem",
               }}
             />
             <h2>VITAL MEDI CLINIC</h2>
@@ -468,6 +467,7 @@ const ImageSlider = () => {
               style={{
                 width: "100%",
                 lineHeight: "1.3rem",
+                fontSize:"0.8rem"
               }}
             >
               CBD products have gained popularity due to their potential
@@ -481,7 +481,7 @@ const ImageSlider = () => {
               further research is needed to establish its efficacy.
             </p>
           </div>
-          <div style={{ width: "45%", background: "#fff", height: "27em" }}>
+          <div style={{ width: "45%", background: "#fff", height: "24rem" }}>
             <div
               style={{
                 position: "absolute",
@@ -491,14 +491,14 @@ const ImageSlider = () => {
               }}
             >
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/IMG_5118.jpg"
-                style={{ width: "25em", objectFit: "cover", height: "24em" }}
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
+                style={{ width: "42rem", objectFit: "cover" }}
               />
-              <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
+              {/* <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
                   <img src={item} style={{ width: "9.5em", height: "12em" }} />
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

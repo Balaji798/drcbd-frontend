@@ -150,7 +150,7 @@ const CartComponent = (props) => {
               cursor: "pointer",
               border: "none",
             }}
-            onClick={() => props.setPosition(2)}
+            onClick={() => props.setPosition([1,2])}
           >
             CHECK OUT
           </button>

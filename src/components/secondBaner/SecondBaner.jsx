@@ -95,7 +95,7 @@ const SecondBanner = () => {
             }}
           >
             <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_8944.JPG"
+              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_8944.jpg"
               style={{ objectFit: "cover", width: "100%", height: "24.7em" }}
             />
             <h2 style={{ textAlign: "center", padding: "1rem 0" }}>FASCINO</h2>
@@ -178,7 +178,7 @@ const SecondBanner = () => {
             >
               <div style={{ width: "49.2%" }}>
                 <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.JPG"
+                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
                 />
                 <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
@@ -191,7 +191,7 @@ const SecondBanner = () => {
               </div>
               <div style={{ width: "48%",marginRight:"1rem" }}>
                 <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.JPG"
+                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
                 />
                 <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
@@ -384,7 +384,7 @@ const SecondBanner = () => {
             >
               <img
                 src={item.image}
-                style={{ width: "100%", objectFit: "cover", height: "5em" }}
+                style={{ width: "15rem", objectFit: "contain", height: "5em" }}
               />
               <h2 style={{ padding: "5px 0" }}>{item.title}</h2>
               <p style={{ padding: "5px 0" }}>{item.para}</p>
