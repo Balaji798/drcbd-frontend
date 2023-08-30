@@ -22,7 +22,7 @@ const ProductSlider = ({ image, i }) => {
         >
           {image.productFor[0]}
         </p>
-        <Link to={`/product-detail/` + image.name.split(" ").join("-")}>
+        <Link to={`/product-detail/` + image.name}>
           {image.name.toString()}
         </Link>
       </div>

@@ -57,10 +57,9 @@ const ProductDetail = () => {
 
   const getProductByName = async () => {
     try {
-      const name = productName.split("-").join(" ");
       const res = await axios.post(
         "https://drcbd-backend.onrender.com/product/product_by_name",
-        { name: name }
+        { name: productName }
       );
       console.log(res.data);
       setProduct(res.data);
@@ -173,7 +172,7 @@ const ProductDetail = () => {
       console.log(err);
     }
   };
-  console.log(icons);
+  console.log(product);
   return (
     <>
       {open && (
@@ -475,7 +474,7 @@ const ProductDetail = () => {
               </div>
             ))}
             <div style={{ display: "flex" }}>
-              {icons[0].icons?.map((item, index) => (
+              {icons[0]?.icons?.map((item, index) => (
                 <div key={index} style={{ marginLeft: "0.3rem" }}>
                   <img
                     src={item}
@@ -519,8 +518,9 @@ const ProductDetail = () => {
             </div>
           ))}
         </div>
-        <div style={{ padding: "50px", background: "#e6e6da" }}>
-          <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/video.png" style={{ width: "100%" }} />
+        <div>
+          {/* <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/video.png" style={{ width: "100%" }} /> */}
+          <iframe width="100%" height="450" src={product.videoLink} title="Unveiling Dr. Pet CBD (2023) - A Better Way to Live a Happy Life" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen/>
         </div>
         <div
           className="review-container"

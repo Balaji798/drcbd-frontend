@@ -26,7 +26,7 @@ const ByPurpose = () => {
       // });
       const productsByCategory = res.data.reduce((acc, product) => {
         //console.log(acc,product)
-        const categoryName = product.category3;
+        const categoryName = product.category2;
         console.log(categoryName);
         if (!acc[categoryName]) {
           acc[categoryName] = [];
