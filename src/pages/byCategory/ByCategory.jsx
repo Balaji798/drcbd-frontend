@@ -14,7 +14,7 @@ const ByCategory = () => {
     try {
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
-        if (item.category2.toLowerCase() == categoryName.toLowerCase()) {
+        if (item.category2.toLowerCase() == categoryName.split("-").join(" ").toLowerCase()) {
           return item;
         }
       });
