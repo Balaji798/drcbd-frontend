@@ -118,12 +118,6 @@ const ImageSlider = () => {
     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/4.jpg",
   ];
 
-  const healthCafe = [
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/nodtiezpix.jpg",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/nodtiezpix.jpg",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/nodtiezpix.jpg",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/nodtiezpix.jpg",
-  ];
   const [people] = useState(data);
   const [slider] = useState(sliderData);
   const [index, setIndex] = useState(0);

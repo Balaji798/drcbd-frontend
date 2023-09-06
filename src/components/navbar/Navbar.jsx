@@ -11,39 +11,39 @@ const naveData = [
       options: [
         {
           title: "CBD OIL",
-          link: "/product-detail/:productName",
+          link: "/by-category/CBD OIL",
         },
         {
           title: "CBD SOFTGEL",
-          link: "/product-detail/:productName",
+          link: "/by-category/CBD SOFTGEL",
         },
         {
           title: "CBD FACIAL CARE",
-          link: "/product-detail/:productName",
+          link: "/by-category/CBD FACIAL CARE",
         },
         {
           title: "CBD BODY CARE",
-          link: "/product-detail/:productName",
+          link: "/by-category/CBD BODY CARE",
         },
         {
           title: "CBD FOR PET",
-          link: "/product-detail/:productName",
+          link: "/by-category/CBD FOR PET",
         },
         {
           title: "CBD FOR MUSCLE & JOINTS",
-          link: "/product-detail/:productName",
+          link: "/by-category/MUSCLE & JOINT",
         },
         {
           title: "BEVERAGE",
-          link: "/product-detail/:productName",
+          link: "/by-category/BEVERAGE",
         },
         {
           title: "HOME USE",
-          link: "/product-detail/:productName",
+          link: "/by-category/home use",
         },
         {
           title: "KRATOM",
-          link: "/product-detail/:productName",
+          link: "/by-category/SKINCARE",
         },
       ],
     },
@@ -89,47 +89,47 @@ const naveData = [
       options: [
         {
           title: "SKINCARE",
-          link: "",
+          link: "/by-category/SKINCARE",
         },
         {
           title: "SLEEP DISORDER",
-          link: "",
+          link: "/by-category/SLEEP DISORDER",
         },
         {
           title: "IMMUNE",
-          link: "",
+          link: "/by-category/IMMUNE",
         },
         {
           title: "MUSCLE & JOINT",
-          link: "",
+          link: "/by-category/MUSCLE & JOINT",
         },
         {
           title: "ENERGY",
-          link: "",
+          link: "/by-category/ENERGY",
         },
         {
           title: "NCD'S",
-          link: "",
+          link: "/by-category/NCD'S",
         },
         {
           title: "WEIGHT MANAGEMENT",
-          link: "",
+          link: "/by-category/WEIGHT-MANAGEMENT",
         },
         {
           title: "CANCER",
-          link: "",
+          link: "/by-category/CANCER",
         },
         {
           title: "RELAXATION",
-          link: "",
+          link: "/by-category/RELAXATION",
         },
         {
           title: "HORMONES",
-          link: "",
+          link: "/by-category/HORMONES",
         },
         {
           title: "OPIOID",
-          link: "",
+          link: "/by-category/OPIOID",
         },
       ],
     },
@@ -219,7 +219,7 @@ const naveData = [
     title: "CONTACT",
     subMenu1: {
       title: "CONTACT",
-      link:"/contact",
+      link: "/contact",
       options: [
         {
           title: "www.drcbdgroup.com",
@@ -279,7 +279,7 @@ const Navbar = () => {
                     >
                       {sub.icon}
                       <Link
-                        to={sub.link}
+                        to={ sub.link}
                         style={{ cursor: "pointer", fontSize: 16 }}
                       >
                         {sub.title}

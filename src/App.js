@@ -46,7 +46,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/brand-purpose" element={<BrandPurpose />} />
           <Route path="/our-esteemed" element={<OurEsteemed />} />
-          <Route path="/cbd-by-category" element={<CBDByCategory />} />
+          <Route path="/cbd-by-category" element={<ByPurpose />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-in" element={<SignIn />} />

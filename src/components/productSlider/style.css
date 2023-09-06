@@ -1,9 +1,9 @@
 .slider-item { 
     background-image: url("./product-bg.jpg");
-    width: 22rem;
+    width: 17rem;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 28em !important;
+    height: 24em !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

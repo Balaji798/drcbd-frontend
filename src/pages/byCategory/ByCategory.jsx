@@ -14,7 +14,16 @@ const ByCategory = () => {
     try {
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
-        if (item.category2.toLowerCase() == categoryName.split("-").join(" ").toLowerCase()) {
+        if (
+          item.category2.toLowerCase() ===
+          categoryName.split("-").join(" ").toLowerCase()
+        ) {
+          return item;
+        } else if (
+          item?.category3?.toLowerCase() ===
+          categoryName.split("-").join(" ").toLowerCase()
+        ) {
+          console.log(item)
           return item;
         }
       });
@@ -31,7 +40,7 @@ const ByCategory = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding:"2rem 0"
+        padding: "2rem 0",
       }}
     >
       <div
