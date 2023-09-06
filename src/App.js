@@ -14,7 +14,7 @@ import Cart from "./pages/cart/Cart";
 import Footer from "./components/footer/Footer";
 import BrandPurpose from "./pages/brand-purpose/BrandPurpose";
 import OurEsteemed from "./pages/our-esteemed/OurEsteemed";
-import ByCategory from "./pages/cbd-by-category/ByCategory";
+import CBDByCategory from "./pages/cbd-by-category/CBDByCategory";
 import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
 import SignIn from "./pages/sign-in/SignIn";
@@ -23,6 +23,7 @@ import OurLeadership from "./pages/our-leadership/OurLeadership";
 import Orders from "./pages/orders/Orders";
 import NHI from "./pages/insights/News";
 import Contact from "./pages/contact/Contact";
+import ByCategory from "./pages/byCategory/ByCategory";
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/brand-purpose" element={<BrandPurpose />} />
           <Route path="/our-esteemed" element={<OurEsteemed />} />
-          <Route path="/cbd-by-category" element={<ByCategory />} />
+          <Route path="/cbd-by-category" element={<CBDByCategory />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-in" element={<SignIn />} />
@@ -54,6 +55,7 @@ function App() {
           <Route path="/order-history" element={<Orders />} />
           <Route path="/insights/:type" element={<NHI/>}/>
           <Route path="/contact" element={<Contact/>}/>
+          <Route path="/by-category/:categoryName" element={<ByCategory/>}/>
         </Routes>
       </div>
       <Footer />

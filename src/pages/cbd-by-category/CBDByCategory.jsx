@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import ApiService from "../../services/ApiService";
 
-const ByCategory = () => {
+const CBDByCategory = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -148,4 +148,4 @@ const ByCategory = () => {
     );
 }
 
-export default ByCategory
+export default CBDByCategory

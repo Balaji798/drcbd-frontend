@@ -235,7 +235,9 @@ const ImageSlider = () => {
                   style={{ backgroundImage: `url(${item.background})` }}
                   key={index}
                 >
-                  <h4>{item.title}</h4>
+                  <Link to={`/by-category/${item.title.split(" ").join("-")}`}>
+                    {item.title}
+                  </Link>
                 </div>
               ))}
             </div>
@@ -306,12 +308,12 @@ const ImageSlider = () => {
                   backgroundImage: `url(${item.background})`,
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
-                  width: '17em',
-                  height: '19em',
+                  width: "17em",
+                  height: "19em",
                   marginBottom: "0.3em",
                 }}
               >
-                <h4>{item.title}</h4>
+                <Link to={`/by-category/${item.title.split(" ").join("-")}`}>{item.title}</Link>
               </div>
             ))}
           </div>
@@ -408,7 +410,7 @@ const ImageSlider = () => {
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%",fontSize:"0.8rem" }}>
+            <p style={{ width: "100%", fontSize: "0.8rem" }}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -467,7 +469,7 @@ const ImageSlider = () => {
               style={{
                 width: "100%",
                 lineHeight: "1.3rem",
-                fontSize:"0.8rem"
+                fontSize: "0.8rem",
               }}
             >
               CBD products have gained popularity due to their potential
