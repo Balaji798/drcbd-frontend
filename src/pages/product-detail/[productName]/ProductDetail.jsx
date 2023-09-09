@@ -35,7 +35,7 @@ const ProductDetail = () => {
   const [feed, setFeed] = useState({
     name: "",
     email: "",
-    message: "",
+    review: "",
     rating: "",
     productId: "",
   });
@@ -69,6 +69,7 @@ const ProductDetail = () => {
       console.log(err.message);
     }
   };
+  console.log(product);
   const about = [
     {
       title: "FDA NO. ",
@@ -168,6 +169,21 @@ const ProductDetail = () => {
 
   const handelSubmit = async () => {
     try {
+      const user = localStorage.getItem("token");
+      console.log(user)
+      if (user) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${user}`,
+            "Content-Type": "application/json", // Set the content type to JSON
+          },
+        };
+        const res = await axios.post(
+          "http://localhost:8080/review/add-review",
+          feed,
+          config
+        );
+      }
     } catch (err) {
       console.log(err);
     }
@@ -632,7 +648,7 @@ const ProductDetail = () => {
                         setReviews(
                           Array.from({ length: item }, (_, index) => index + 1)
                         );
-                        setFeed(item);
+                        setFeed({...feed,rating:item});
                       }}
                     />
                   ))}
@@ -646,7 +662,7 @@ const ProductDetail = () => {
                   padding: "0.2rem 0.5rem",
                 }}
                 onChange={(e) =>
-                  setFeed({ ...feed, message: e.timeStamp.value })
+                  setFeed({ ...feed, review: e.target.value })
                 }
               />
               <label style={{ paddingRight: "5px" }}>Name</label>
@@ -657,7 +673,7 @@ const ProductDetail = () => {
                   margin: "0.5rem 0",
                   padding: "0.2rem 0.5rem",
                 }}
-                onChange={(e) => setFeed({ ...feed, name: e.timeStamp.value })}
+                onChange={(e) => setFeed({ ...feed, name: e.target.value })}
               />
               <label style={{ padding: "0 5px" }}>Email</label>
               <input
@@ -667,7 +683,7 @@ const ProductDetail = () => {
                   margin: "0.5rem 0",
                   padding: "0.2rem 0.5rem",
                 }}
-                onChange={(e) => setFeed({ ...feed, email: e.timeStamp.value })}
+                onChange={(e) => setFeed({ ...feed, email: e.target.value })}
               />
               <input
                 type="checkbox"
@@ -695,7 +711,9 @@ const ProductDetail = () => {
                     fontWeight: "bold",
                     fontSize: 20,
                     padding: "0.5rem 0",
+                    cursor:"pointer"
                   }}
+                  onClick={handelSubmit}
                 >
                   Submit
                 </div>

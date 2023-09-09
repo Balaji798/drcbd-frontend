@@ -23,10 +23,10 @@ const ByCategory = () => {
           item?.category3?.toLowerCase() ===
           categoryName.split("-").join(" ").toLowerCase()
         ) {
-          console.log(item)
           return item;
         }
       });
+      console.log(categoryProduct);
       setData(categoryProduct);
     } catch (err) {
       console.log(err.message);
@@ -53,7 +53,7 @@ const ByCategory = () => {
         }}
       >
         {data.map((item, i) => (
-          <ProductSlider image={item} key={i} />
+          <ProductSlider image={item} key={i} marginB='yes'/>
         ))}
       </div>
     </div>

@@ -2,9 +2,13 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-const ProductSlider = ({ image, i }) => {
+const ProductSlider = ({ image, i, marginB }) => {
   return (
-    <div className="slider-item" key={i}>
+    <div
+      className="slider-item"
+      key={i}
+      style={{ marginBottom: marginB == "Yes" ? "1rem" : "0" }}
+    >
       {image.images && <img src={image.images[0]} alt="/" />}
       <div
         style={{

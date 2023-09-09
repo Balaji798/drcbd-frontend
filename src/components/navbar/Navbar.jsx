@@ -11,27 +11,27 @@ const naveData = [
       options: [
         {
           title: "CBD OIL",
-          link: "/by-category/CBD OIL",
+          link: "/by-category/CBD-OIL",
         },
         {
           title: "CBD SOFTGEL",
-          link: "/by-category/CBD SOFTGEL",
+          link: "/by-category/CBD-SOFTGEL",
         },
         {
           title: "CBD FACIAL CARE",
-          link: "/by-category/CBD FACIAL CARE",
+          link: "/by-category/CBD-FACIAL-CARE",
         },
         {
           title: "CBD BODY CARE",
-          link: "/by-category/CBD BODY CARE",
+          link: "/by-category/CBD-BODY-CARE",
         },
         {
           title: "CBD FOR PET",
-          link: "/by-category/CBD FOR PET",
+          link: "/by-category/CBD-FOR-PET",
         },
         {
           title: "CBD FOR MUSCLE & JOINTS",
-          link: "/by-category/MUSCLE & JOINT",
+          link: "/by-category/MUSCLE-&-JOINT",
         },
         {
           title: "BEVERAGE",
@@ -39,7 +39,7 @@ const naveData = [
         },
         {
           title: "HOME USE",
-          link: "/by-category/home use",
+          link: "/by-category/home-use",
         },
         {
           title: "KRATOM",

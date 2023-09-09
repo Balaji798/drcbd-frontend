@@ -1,9 +1,9 @@
 .slider-item { 
     background-image: url("./product-bg.jpg");
-    width: 17rem;
+    width: 22rem;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 24em !important;
+    height: 22rem !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,12 +13,12 @@
   
   .slider-item > img {
     object-fit: cover;
-    height: 75%;
+    height: 70% !important;
     transition: all 0.5s ease-in-out;
   }
   
   .slider-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.3);
   }
   
   .slider-item a {
