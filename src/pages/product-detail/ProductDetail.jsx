@@ -10,10 +10,10 @@ import {
   FaTiktok,
   FaTwitter,
 } from "react-icons/fa";
-import VerticalCarousel from "../../../components/verticalslider/VerticalSlider";
-import data from "../../../data";
+import VerticalCarousel from "../../components/verticalslider/VerticalSlider";
+import data from "../../data";
 import "./productDetail.css";
-import SeeMore from "../../../components/SeeMore";
+import SeeMore from "../../components/SeeMore";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -22,12 +22,12 @@ import { productIcon } from "./product-icon";
 
 const ProductDetail = () => {
   const { productName } = useParams();
-  console.log(productName);
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
-      if (productName?.split("-").join(" ") == item.title) {
+      if (productName?.toLowerCase().split("-").join(" ") == item.title.toLowerCase()) {
+        console.log(productName?.toLowerCase().split("-").join(" ") , item.title.toLowerCase())
         return item;
       }
     })
@@ -216,8 +216,8 @@ const ProductDetail = () => {
       <div>
         <section className="section">
           <div className="section-center">
-            {data.map((item, indexPeople) => {
-              const { id, image, name, title, quote } = item;
+            {product?.bannerImg?.map((item, indexPeople) => {
+             
               let position = "nextSlide";
               if (indexPeople === activeIndex) {
                 position = "activeSlide";
@@ -229,8 +229,8 @@ const ProductDetail = () => {
                 position = "lastSlide";
               }
               return (
-                <article className={position} key={id}>
-                  <img src={image} alt={name} className="person-img" />
+                <article className={position} key={indexPeople}>
+                  <img src={item} alt={item} className="person-img" />
                 </article>
               );
             })}
@@ -489,7 +489,7 @@ const ProductDetail = () => {
                 )}
               </div>
             ))}
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex",flexWrap:"wrap",maxWidth:"700px" }}>
               {icons[0]?.icons?.map((item, index) => (
                 <div key={index} style={{ marginLeft: "0.3rem" }}>
                   <img

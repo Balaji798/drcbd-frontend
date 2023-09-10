@@ -9,7 +9,7 @@ import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import ByPurpose from "./pages/cbd-by-purpose/ByPurpose";
-import ProductDetail from "./pages/product-detail/[productName]/ProductDetail";
+import ProductDetail from "./pages/product-detail/ProductDetail";
 import Cart from "./pages/cart/Cart";
 import Footer from "./components/footer/Footer";
 import BrandPurpose from "./pages/brand-purpose/BrandPurpose";

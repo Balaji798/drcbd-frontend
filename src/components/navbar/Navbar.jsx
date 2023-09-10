@@ -89,11 +89,11 @@ const naveData = [
       options: [
         {
           title: "SKINCARE",
-          link: "/by-category/SKINCARE",
+          link: "/by-category/SKINCARE-BEAUTY",
         },
         {
           title: "SLEEP DISORDER",
-          link: "/by-category/SLEEP DISORDER",
+          link: "/by-category/SLEEP-DISORDER",
         },
         {
           title: "IMMUNE",
@@ -101,7 +101,7 @@ const naveData = [
         },
         {
           title: "MUSCLE & JOINT",
-          link: "/by-category/MUSCLE & JOINT",
+          link: "/by-category/MUSCLE-&-JOINT",
         },
         {
           title: "ENERGY",
