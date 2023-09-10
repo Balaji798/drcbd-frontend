@@ -1,12 +1,14 @@
 .productDetail {
   display: flex;
+  flex-wrap: wrap;
   padding: 30px;
   justify-content: center;
+  min-width: 1200px;
 }
 
 .description {
   color: #005652;
-  width: 40%;
+  width: 50%;
   margin-left: 10px;
   font-size: 13px;
 }

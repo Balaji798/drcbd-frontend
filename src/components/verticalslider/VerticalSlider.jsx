@@ -3,42 +3,30 @@ import { BsPersonCircle } from "react-icons/bs";
 import { ImStarFull, ImStarHalf } from "react-icons/im";
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 import "./verticalSlider.css";
+import axios from "axios";
 
-const VerticalSlider = () => {
-  const initialArray = [
-    // Sample review data
-    { name: "Mr. Weed1", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed2", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed3", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed4", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed5", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed6", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed7", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed8", verified: true, rating: 4.5, content: "Good Product" },
-    { name: "Mr. Weed9", verified: true, rating: 4.5, content: "Good Product" },
-    {
-      name: "Mr. Weed10",
-      verified: true,
-      rating: 4.5,
-      content: "Good Product",
-    },
-  ];
-
-  const [displayedReviews, setDisplayedReviews] = useState(
-    initialArray.slice(0, 3)
-  );
+const VerticalSlider = ({ reviews,displayedReviews, setDisplayedReviews }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const shiftAmount = 1; // Shift one step at a time
-
   const handleButtonClick = (direction) => {
+    // const shift = direction === "forward" ? shiftAmount : -shiftAmount;
+    // const nextIndex = (currentIndex + shift + reviews.length) % reviews.length;
+    // setCurrentIndex(nextIndex);
+    // const shiftedReviews = reviews.map(
+    //   (_, index) => reviews[(nextIndex + index) % reviews.length]
+    // );
+    // setDisplayedReviews(shiftedReviews.slice(0, 3));
     const shift = direction === "forward" ? shiftAmount : -shiftAmount;
-    const nextIndex =
-      (currentIndex + shift + initialArray.length) % initialArray.length;
-    setCurrentIndex(nextIndex);
-    const shiftedReviews = initialArray.map(
-      (_, index) => initialArray[(nextIndex + index) % initialArray.length]
-    );
-    setDisplayedReviews(shiftedReviews.slice(0, 3));
+    const nextIndex = (currentIndex + shift + reviews.length) % reviews.length;
+
+    // Ensure nextIndex is within the bounds of the reviews array
+    if (nextIndex >= 0 && nextIndex < reviews.length) {
+      setCurrentIndex(nextIndex);
+      const shiftedReviews = reviews.map(
+        (_, index) => reviews[(nextIndex + index) % reviews.length]
+      );
+      setDisplayedReviews(shiftedReviews.slice(0, 3));
+    }
   };
   return (
     <div className="vertical-slider">
@@ -57,6 +45,7 @@ const VerticalSlider = () => {
               justifyContent: "space-between",
               width: "90%",
             }}
+            key={index}
           >
             <div
               style={{
@@ -67,17 +56,23 @@ const VerticalSlider = () => {
               }}
             >
               <BsPersonCircle color="#3cbb90" size={45} />
-              <p>{item.name}</p>
+              <p>{item.userName}</p>
               <p style={{ fontSize: 11 }}>Verified</p>
               <div style={{ color: "yellow", paddingBottom: 3 }}>
+                {/* <ImStarFull />
                 <ImStarFull />
                 <ImStarFull />
                 <ImStarFull />
-                <ImStarFull />
-                <ImStarHalf />
+                <ImStarHalf /> */}
+                {Array.from(
+                  { length: item.rating },
+                  (_, index) => index + 1
+                ).map((ret, i) => {
+                  return <ImStarFull key={i} />;
+                })}
               </div>
             </div>
-            <div style={{ paddingLeft: 5 }}>{item.content}</div>
+            <div style={{ paddingLeft: 5 }}>{item.review}</div>
             <p style={{ fontSize: 10, alignSelf: "flex-end" }}>
               Posted 7 month's ago
             </p>

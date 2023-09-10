@@ -24,10 +24,12 @@ const ProductDetail = () => {
   const { productName } = useParams();
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
+  const [displayedReviews, setDisplayedReviews]=useState([])
+  const [userReviews,setUserReviews]=useState([]);
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
       if (productName?.toLowerCase().split("-").join(" ") == item.title.toLowerCase()) {
-        console.log(productName?.toLowerCase().split("-").join(" ") , item.title.toLowerCase())
+        //console.log(productName?.toLowerCase().split("-").join(" ") , item.title.toLowerCase())
         return item;
       }
     })
@@ -57,11 +59,16 @@ const ProductDetail = () => {
 
   const getProductByName = async () => {
     try {
+    
       const res = await axios.post(
         "https://drcbd-backend.onrender.com/product/product_by_name",
         { name: productName }
       );
-      console.log(res.data);
+      //console.log(res.data);
+      const productReviews = await axios.post("https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
+      { productId: res.data._id });
+      setUserReviews(productReviews.data)
+      setDisplayedReviews(productReviews.data.slice(0,3));
       setProduct(res.data);
       setFeed({ ...feed, productId: res.data._id });
       setPrice(res.data.price);
@@ -69,7 +76,7 @@ const ProductDetail = () => {
       console.log(err.message);
     }
   };
-  console.log(product);
+  
   const about = [
     {
       title: "FDA NO. ",
@@ -149,7 +156,7 @@ const ProductDetail = () => {
           config
         );
 
-        console.log(res.data.status);
+        //console.log(res.data.status);
         if (!res.data.status) {
           setOpen(true);
         }
@@ -179,7 +186,7 @@ const ProductDetail = () => {
           },
         };
         const res = await axios.post(
-          "http://localhost:8080/review/add-review",
+          "https://drcbd-backend.onrender.com/review/add-review",
           feed,
           config
         );
@@ -188,7 +195,7 @@ const ProductDetail = () => {
       console.log(err);
     }
   };
-  console.log(product);
+  //console.log(product);
   return (
     <>
       {open && (
@@ -249,13 +256,13 @@ const ProductDetail = () => {
           </div>
         </section>
         <div className="productDetail">
-          <div style={{ width: "40%", height: "80%" }}>
+          <div style={{ width: "45%", height: "90%" }}>
             {product?.images && (
               <div
                 style={{
                   width: "100%",
                   zIndex: 1,
-                  height: "450px",
+                  height: "500px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -265,8 +272,8 @@ const ProductDetail = () => {
                   src={product?.images[position]}
                   style={{
                     objectFit: "contain",
-                    width: "45%",
-                    height: "90%",
+                    width: "100%",
+                    height: "100%",
                   }}
                 />
               </div>
@@ -278,7 +285,7 @@ const ProductDetail = () => {
                 justifyContent: "space-between",
               }}
             >
-              {product?.images?.map((i, index) => (
+              {product?.images?.length>1&& product?.images?.map((i, index) => (
                 <div
                   style={{
                     width: "150px",
@@ -608,7 +615,7 @@ const ProductDetail = () => {
             style={{ maxWidth: "1200px", width: "100%", paddingBottom: "2rem" }}
           >
             <div className="reviews">
-              <VerticalCarousel />
+              <VerticalCarousel reviews={userReviews} displayedReviews={displayedReviews} setDisplayedReviews={setDisplayedReviews}/>
               <div
                 style={{
                   display: "flex",
