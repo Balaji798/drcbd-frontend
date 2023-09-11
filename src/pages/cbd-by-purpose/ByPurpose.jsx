@@ -22,7 +22,7 @@ const ByPurpose = () => {
       // const categoryProduct = res.data.filter((item) => {
       //   if (item.category2 == "CBD BY PURPOSE") {
       //     return item;
-      //   }
+      //   }g
       // });
       const productsByCategory = res.data.reduce((acc, product) => {
         //console.log(acc,product)

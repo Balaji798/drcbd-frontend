@@ -72,7 +72,7 @@ const VerticalSlider = ({ reviews,displayedReviews, setDisplayedReviews }) => {
                 })}
               </div>
             </div>
-            <div style={{ paddingLeft: 5 }}>{item.review}</div>
+            <p style={{ paddingLeft: 5,width:"70%",wordWrap:"break-word" }}>{item.review}</p>
             <p style={{ fontSize: 10, alignSelf: "flex-end" }}>
               Posted 7 month's ago
             </p>

@@ -20,7 +20,7 @@ const SignIn = () => {
   // }
 
   const handelLogin = async () => {
-    const response = await axios.post("/api/user/login", user);
+    const response = await axios.post("https://drcbd-backend.onrender.com/user/login", user);
     localStorage.setItem("token", response.data.token);
     console.log("Signup success", response.data);
     navigate("/")

@@ -243,13 +243,17 @@ const ProductDetail = () => {
             })}
             <button
               className="prev"
-              onClick={() => setActiveIndex(activeIndex - 1)}
+              onClick={() => {
+                if(product?.bannerImg?.length>1){
+                  setActiveIndex(activeIndex - 1)
+                }
+              }}
             >
               <MdArrowBackIosNew style={{ fontSize: "50px", color: "#fff" }} />
             </button>
             <button
               className="next"
-              onClick={() => setActiveIndex(activeIndex + 1)}
+              onClick={() =>{ if(product?.bannerImg?.length>1)setActiveIndex(activeIndex + 1)}}
             >
               <MdArrowForwardIos style={{ fontSize: "50px", color: "#fff" }} />
             </button>
@@ -608,7 +612,7 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-            <p>445 Reviews count</p>
+            <p>{userReviews.length} Reviews count</p>
           </div>
           <div
             className="review-container"

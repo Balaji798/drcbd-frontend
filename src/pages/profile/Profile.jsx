@@ -126,10 +126,10 @@ const Profile = () => {
           </div>
           <div>
             <div style={{ display: "flex",paddingBottom:"0.5rem",justifyContent:"space-between" }}>
-              <button className="edit-button" onClick={() => setEdit(!edit)}>
+              <button className="edit-button" style={{marginRight:"0.5rem",width:"6.5rem"}} onClick={() => setEdit(!edit)}>
                 EDIT
               </button>
-              <button className="edit-button">SAVE</button>
+              <button className="edit-button" style={{width:"6.5rem"}}>SAVE</button>
             </div>
             <Link href="/orders" className="edit-button">ORDER HISTORY</Link>
           </div>
