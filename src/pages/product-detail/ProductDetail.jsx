@@ -221,7 +221,7 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-        <section className="section">
+       {!product?.bannerImg ?<img src="../info-product-banner.jpg" style={{width:"100%",maxHeight:"25rem",objectFit:"cover"}}/>: <section className="section">
           <div className="section-center">
             {product?.bannerImg?.map((item, indexPeople) => {
              
@@ -258,7 +258,7 @@ const ProductDetail = () => {
               <MdArrowForwardIos style={{ fontSize: "50px", color: "#fff" }} />
             </button>
           </div>
-        </section>
+        </section>}
         <div className="productDetail">
           <div style={{ width: "45%", height: "90%" }}>
             {product?.images && (
