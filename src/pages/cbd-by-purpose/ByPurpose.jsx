@@ -106,7 +106,7 @@ const ByPurpose = () => {
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent:item[1].length > 2&& "space-between",
                 alignItems: "center",
               }}
             >
