@@ -3,7 +3,6 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 const ProductSlider = ({ image, i, marginB }) => {
-  console.log(marginB)
   return (
     <div
       className="slider-item"

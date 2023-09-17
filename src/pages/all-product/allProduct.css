@@ -10,15 +10,15 @@
   position: absolute;
   background-color: transparent;
   border: none;
-  
-  top: 45%;
+  top: 30%;
   width: 2.5rem;
   height: 2.5rem;
   line-height: 60px;
-  z-index: 1;
+  z-index: 1000;
 }
 .control-btn .prev {
-  left: -20px;
+  left: -0px;
+  color: #000;
 }
 .control-btn .next {
   right: -30px;

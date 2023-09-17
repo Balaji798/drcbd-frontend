@@ -1,4 +1,3 @@
- 
 import React, { useState, useEffect } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import "slick-carousel/slick/slick.css";
@@ -7,6 +6,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import ApiService from "../../services/ApiService";
+import Card from "../../components/card/Card";
 
 const ByPurpose = () => {
   const [data, setData] = useState([]);
@@ -96,52 +96,58 @@ const ByPurpose = () => {
   };
 
   return (
-    <div style={{ width: "100%", padding: "20px 50px  0" }}>
-      {data.map((item, index) => (
-        <div style={{ padding: "15px 0" }} key={index}>
-          <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
-            Products / {item[0]}
-          </h2>
-          {item[1].length <= 4 ? (
+    <div style={{ width: "100%", padding: "20px 50px" }}>
+      {data.length == 0 ? (
+        <div style={{display:"flex",justifyContent:"space-between"}}>
+        {[1,2,3].map(()=>(<Card />))}
+        </div>
+       ) : (
+        data.map((item, index) => (
+          <div style={{ padding: "15px 0" }} key={index}>
+            <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
+              Products / {item[0]}
+            </h2>
+            {item[1].length <= 4 ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: item[1].length > 2 && "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {item[1].map((image, i) => (
+                  <ProductSlider image={image} i={i} />
+                ))}
+              </div>
+            ) : (
+              <Slider {...settings}>
+                {item[1].map((image, i) => (
+                  <ProductSlider image={image} i={i} />
+                ))}
+              </Slider>
+            )}
             <div
               style={{
                 display: "flex",
-                justifyContent:item[1].length > 2&& "space-between",
-                alignItems: "center",
+                alignItems: "flex-end",
+                width: "100%",
+                justifyContent: "flex-end",
               }}
             >
-              {item[1].map((image, i) => (
-                <ProductSlider image={image} i={i} />
-              ))}
+              <Link
+                style={{
+                  padding: "20px 0",
+                  textDecoration: "none",
+                  fontSize: "20px",
+                }}
+                to=""
+              >
+                See All
+              </Link>
             </div>
-          ) : (
-            <Slider {...settings}>
-              {item[1].map((image, i) => (
-                <ProductSlider image={image} i={i} />
-              ))}
-            </Slider>
-          )}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              width: "100%",
-              justifyContent: "flex-end",
-            }}
-          >
-            <Link
-              style={{
-                padding: "20px 0",
-                textDecoration: "none",
-                fontSize: "20px",
-              }}
-              href=""
-            >
-              See All
-            </Link>
           </div>
-        </div>
-      ))}
+        ))
+      )} 
     </div>
   );
 };

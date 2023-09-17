@@ -1,4 +1,3 @@
- 
 import React, { useState, useEffect } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
@@ -11,25 +10,32 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import VerticalCarousel from "../../components/verticalslider/VerticalSlider";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import ProductSlider from "../../components/productSlider/ProductSlider";
 import data from "../../data";
 import "./productDetail.css";
-import SeeMore from "../../components/SeeMore";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { productIcon } from "./product-icon";
+import ApiService from "../../services/ApiService";
 
 const ProductDetail = () => {
   const { productName } = useParams();
   const navigate = useNavigate();
+  const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [displayedReviews, setDisplayedReviews]=useState([])
-  const [userReviews,setUserReviews]=useState([]);
+  const [displayedReviews, setDisplayedReviews] = useState([]);
+  const [userReviews, setUserReviews] = useState([]);
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
-      if (productName?.toLowerCase().split("-").join(" ") == item.title.toLowerCase()) {
-        //console.log(productName?.toLowerCase().split("-").join(" ") , item.title.toLowerCase())
+      if (
+        productName?.toLowerCase().split("-").join(" ") ==
+        item.title.toLowerCase()
+      ) {
         return item;
       }
     })
@@ -59,16 +65,16 @@ const ProductDetail = () => {
 
   const getProductByName = async () => {
     try {
-    
       const res = await axios.post(
         "https://drcbd-backend.onrender.com/product/product_by_name",
         { name: productName }
       );
-      //console.log(res.data);
-      const productReviews = await axios.post("https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
-      { productId: res.data._id });
-      setUserReviews(productReviews.data)
-      setDisplayedReviews(productReviews.data.slice(0,3));
+      const productReviews = await axios.post(
+        "https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
+        { productId: res.data._id }
+      );
+      setUserReviews(productReviews.data);
+      setDisplayedReviews(productReviews.data.slice(0, 3));
       setProduct(res.data);
       setFeed({ ...feed, productId: res.data._id });
       setPrice(res.data.price);
@@ -76,7 +82,7 @@ const ProductDetail = () => {
       console.log(err.message);
     }
   };
-  
+
   const about = [
     {
       title: "FDA NO. ",
@@ -130,6 +136,29 @@ const ProductDetail = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    const getProduct = async () => {
+      const res = await ApiService.getAllProduct();
+      const categoryProduct = res.data.filter((item) => {
+        if (
+          item.category2?.toLowerCase() ===
+            product.category2?.split("-")?.join(" ")?.toLowerCase() ||
+          item.category3?.toLowerCase() ===
+            product.category2?.split("-")?.join(" ")?.toLowerCase()
+        ) {
+          return item;
+        } else if (
+          item?.category3?.toLowerCase() ===
+            product.category2?.split("-")?.join(" ")?.toLowerCase()
+        ) {
+          return item;
+        }
+      });
+      console.log(categoryProduct);
+      setSmeCategoryProduct(categoryProduct);
+    };
+    getProduct();
+  }, []);
+  useEffect(() => {
     const lastIndex = data.length - 1;
     if (activeIndex < 0) {
       setActiveIndex(lastIndex);
@@ -155,8 +184,6 @@ const ProductDetail = () => {
           requestBody,
           config
         );
-
-        //console.log(res.data.status);
         if (!res.data.status) {
           setOpen(true);
         }
@@ -177,7 +204,6 @@ const ProductDetail = () => {
   const handelSubmit = async () => {
     try {
       const user = localStorage.getItem("token");
-      console.log(user)
       if (user) {
         const config = {
           headers: {
@@ -195,7 +221,56 @@ const ProductDetail = () => {
       console.log(err);
     }
   };
-  //console.log(product);
+  const PreviousBtn = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="control-btn" onClick={onClick}>
+        <button className="prev" style={{ left: -45 }}>
+          <MdArrowBackIosNew style={{ fontSize: "75px", color: "#28504d" }} />
+        </button>
+      </div>
+    );
+  };
+  const NextBtn = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="control-btn" onClick={onClick}>
+        <button className="next" style={{ right: -60 }}>
+          <MdArrowForwardIos style={{ fontSize: "75px", color: "#28504d" }} />
+        </button>
+      </div>
+    );
+  };
+  const settings = {
+    dots: false,
+    infinite: true,
+    //autoplay: true,
+    speed: 500,
+    slidesToShow: 4,
+    prevArrow: <PreviousBtn />,
+    nextArrow: <NextBtn />,
+    slidesToScroll: 1,
+    initialSlide: 0,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+    ],
+  };
   return (
     <>
       {open && (
@@ -221,44 +296,57 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-       {!product?.bannerImg ?<img src="../info-product-banner.jpg" style={{width:"100%",maxHeight:"25rem",objectFit:"cover"}}/>: <section className="section">
-          <div className="section-center">
-            {product?.bannerImg?.map((item, indexPeople) => {
-             
-              let position = "nextSlide";
-              if (indexPeople === activeIndex) {
-                position = "activeSlide";
-              }
-              if (
-                indexPeople === activeIndex - 1 ||
-                (activeIndex === 0 && indexPeople === data.length - 1)
-              ) {
-                position = "lastSlide";
-              }
-              return (
-                <article className={position} key={indexPeople}>
-                  <img src={item} alt={item} className="person-img" />
-                </article>
-              );
-            })}
-            <button
-              className="prev"
-              onClick={() => {
-                if(product?.bannerImg?.length>1){
-                  setActiveIndex(activeIndex - 1)
+        {!product?.bannerImg ? (
+          <img
+            src="../info-product-banner.jpg"
+            style={{ width: "100%", maxHeight: "25rem", objectFit: "cover" }}
+          />
+        ) : (
+          <section className="section">
+            <div className="section-center">
+              {product?.bannerImg?.map((item, indexPeople) => {
+                let position = "nextSlide";
+                if (indexPeople === activeIndex) {
+                  position = "activeSlide";
                 }
-              }}
-            >
-              <MdArrowBackIosNew style={{ fontSize: "50px", color: "#fff" }} />
-            </button>
-            <button
-              className="next"
-              onClick={() =>{ if(product?.bannerImg?.length>1)setActiveIndex(activeIndex + 1)}}
-            >
-              <MdArrowForwardIos style={{ fontSize: "50px", color: "#fff" }} />
-            </button>
-          </div>
-        </section>}
+                if (
+                  indexPeople === activeIndex - 1 ||
+                  (activeIndex === 0 && indexPeople === data.length - 1)
+                ) {
+                  position = "lastSlide";
+                }
+                return (
+                  <article className={position} key={indexPeople}>
+                    <img src={item} alt={item} className="person-img" />
+                  </article>
+                );
+              })}
+              <button
+                className="prev"
+                onClick={() => {
+                  if (product?.bannerImg?.length > 1) {
+                    setActiveIndex(activeIndex - 1);
+                  }
+                }}
+              >
+                <MdArrowBackIosNew
+                  style={{ fontSize: "50px", color: "#fff" }}
+                />
+              </button>
+              <button
+                className="next"
+                onClick={() => {
+                  if (product?.bannerImg?.length > 1)
+                    setActiveIndex(activeIndex + 1);
+                }}
+              >
+                <MdArrowForwardIos
+                  style={{ fontSize: "50px", color: "#fff" }}
+                />
+              </button>
+            </div>
+          </section>
+        )}
         <div className="productDetail">
           <div style={{ width: "45%", height: "90%" }}>
             {product?.images && (
@@ -289,27 +377,28 @@ const ProductDetail = () => {
                 justifyContent: "space-between",
               }}
             >
-              {product?.images?.length>1&& product?.images?.map((i, index) => (
-                <div
-                  style={{
-                    width: "150px",
-                    height: "150px",
-                    background: "#f3f3f3",
-                  }}
-                  key={index}
-                  onClick={() => setPosition(index)}
-                >
-                  <img
-                    src={i}
-                    alt="/"
+              {product?.images?.length > 1 &&
+                product?.images?.map((i, index) => (
+                  <div
                     style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
+                      width: "150px",
+                      height: "150px",
+                      background: "#f3f3f3",
                     }}
-                  />
-                </div>
-              ))}
+                    key={index}
+                    onClick={() => setPosition(index)}
+                  >
+                    <img
+                      src={i}
+                      alt="/"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                ))}
             </div>
           </div>
           <div className="description">
@@ -500,7 +589,9 @@ const ProductDetail = () => {
                 )}
               </div>
             ))}
-            <div style={{ display: "flex",flexWrap:"wrap",maxWidth:"700px" }}>
+            <div
+              style={{ display: "flex", flexWrap: "wrap", maxWidth: "700px" }}
+            >
               {icons[0]?.icons?.map((item, index) => (
                 <div key={index} style={{ marginLeft: "0.3rem" }}>
                   <img
@@ -547,7 +638,15 @@ const ProductDetail = () => {
         </div>
         <div>
           {/* <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/video.png" style={{ width: "100%" }} /> */}
-          <iframe width="100%" height="450" src={product.videoLink} title="Unveiling Dr. Pet CBD (2023) - A Better Way to Live a Happy Life" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen/>
+          <iframe
+            width="100%"
+            height="450"
+            src={product.videoLink}
+            title="Unveiling Dr. Pet CBD (2023) - A Better Way to Live a Happy Life"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
         </div>
         <div
           className="review-container"
@@ -619,7 +718,11 @@ const ProductDetail = () => {
             style={{ maxWidth: "1200px", width: "100%", paddingBottom: "2rem" }}
           >
             <div className="reviews">
-              <VerticalCarousel reviews={userReviews} displayedReviews={displayedReviews} setDisplayedReviews={setDisplayedReviews}/>
+              <VerticalCarousel
+                reviews={userReviews}
+                displayedReviews={displayedReviews}
+                setDisplayedReviews={setDisplayedReviews}
+              />
               <div
                 style={{
                   display: "flex",
@@ -659,7 +762,7 @@ const ProductDetail = () => {
                         setReviews(
                           Array.from({ length: item }, (_, index) => index + 1)
                         );
-                        setFeed({...feed,rating:item});
+                        setFeed({ ...feed, rating: item });
                       }}
                     />
                   ))}
@@ -672,9 +775,7 @@ const ProductDetail = () => {
                   height: "12rem",
                   padding: "0.2rem 0.5rem",
                 }}
-                onChange={(e) =>
-                  setFeed({ ...feed, review: e.target.value })
-                }
+                onChange={(e) => setFeed({ ...feed, review: e.target.value })}
               />
               <label style={{ paddingRight: "5px" }}>Name</label>
               <input
@@ -722,7 +823,7 @@ const ProductDetail = () => {
                     fontWeight: "bold",
                     fontSize: 20,
                     padding: "0.5rem 0",
-                    cursor:"pointer"
+                    cursor: "pointer",
                   }}
                   onClick={handelSubmit}
                 >
@@ -732,7 +833,31 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-        {/* <SeeMore /> */}
+        <div>
+          <h2 style={{ paddingLeft: "2rem" }}>See More</h2>
+          <div style={{ padding: "0 3em 2em", display: "flex" }}>
+            {sameCategoryProduct?.length > 3 ? (
+              <Slider {...settings}>
+                {sameCategoryProduct?.map((image, i) => (
+                  <ProductSlider image={image} i={i} />
+                ))}
+              </Slider>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent:
+                    sameCategoryProduct.length > 2 && "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {sameCategoryProduct?.map((image, i) => (
+                  <ProductSlider image={image} i={i} />
+                ))}
+              </div>
+            )}
+          </div>{" "}
+        </div>
       </div>
     </>
   );

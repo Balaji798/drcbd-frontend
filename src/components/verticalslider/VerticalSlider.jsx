@@ -53,6 +53,7 @@ const VerticalSlider = ({ reviews,displayedReviews, setDisplayedReviews }) => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
+                width:"6rem"
               }}
             >
               <BsPersonCircle color="#3cbb90" size={45} />
