@@ -96,14 +96,33 @@ const ByPurpose = () => {
   };
 
   return (
-    <div style={{ width: "100%", padding: "20px 50px" }}>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection:"column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "2rem 0px",
+      }}
+    >
       {data.length == 0 ? (
-        <div style={{display:"flex",justifyContent:"space-between"}}>
-        {[1,2,3].map(()=>(<Card />))}
-        </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          maxWidth: "1100px",
+          width:"100%"
+        }}
+      >
+        {[1, 2, 3].map(() => (
+          <Card />
+        ))}
+      </div>
        ) : (
         data.map((item, index) => (
-          <div style={{ padding: "15px 0" }} key={index}>
+          <div style={{ padding: "15px 0" ,  maxWidth: "1100px",
+          width:"100%" }} key={index}>
             <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
               Products / {item[0]}
             </h2>

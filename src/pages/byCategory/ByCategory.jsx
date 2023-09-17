@@ -45,7 +45,7 @@ const ByCategory = () => {
     >
       <div
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1150px",
           width: "100%",
           display: "flex",
           alignItems: "center",

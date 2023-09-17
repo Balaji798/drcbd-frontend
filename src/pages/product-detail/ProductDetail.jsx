@@ -148,7 +148,7 @@ const ProductDetail = () => {
           return item;
         } else if (
           item?.category3?.toLowerCase() ===
-            product.category2?.split("-")?.join(" ")?.toLowerCase()
+          product.category2?.split("-")?.join(" ")?.toLowerCase()
         ) {
           return item;
         }
@@ -833,32 +833,32 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h2 style={{ paddingLeft: "2rem" }}>See More</h2>
-          <div style={{ padding: "0 3em 2em", display: "flex" }}>
-            {sameCategoryProduct?.length > 3 ? (
-              <Slider {...settings}>
-                {sameCategoryProduct?.map((image, i) => (
-                  <ProductSlider image={image} i={i} />
-                ))}
-              </Slider>
-            ) : (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent:
-                    sameCategoryProduct.length > 2 && "space-between",
-                  alignItems: "center",
-                }}
-              >
-                {sameCategoryProduct?.map((image, i) => (
-                  <ProductSlider image={image} i={i} />
-                ))}
-              </div>
-            )}
-          </div>{" "}
-        </div>
       </div>
+      {/* <div>
+        <h2 style={{ padding: "1rem 0 1rem 3rem" }}>See More</h2>
+        <div style={{ padding: "0 3em 2em" }}>
+          {sameCategoryProduct?.length > 3 ? (
+            <Slider {...settings}>
+              {sameCategoryProduct?.map((image, i) => (
+                <ProductSlider image={image} i={i} />
+              ))}
+            </Slider>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                justifyContent:
+                  sameCategoryProduct.length > 2 && "space-between",
+                alignItems: "center",
+              }}
+            >
+              {sameCategoryProduct?.map((image, i) => (
+                <ProductSlider image={image} i={i} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div> */}
     </>
   );
 };
