@@ -56,9 +56,10 @@ const SignIn = () => {
       <input
         style={{
           width: "35%",
-          padding: "10px 5px",
+          padding: "5px",
           fontSize: 20,
           borderRadius: 10,
+          border:"1px solid grey"
         }}
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
@@ -75,10 +76,11 @@ const SignIn = () => {
       <input
         style={{
           width: "35%",
-          padding: "10px 5px",
+          padding: "5px",
           fontSize: 20,
           borderRadius: 10,
           marginBottom: "1.5em",
+          border:"1px solid grey"
         }}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />

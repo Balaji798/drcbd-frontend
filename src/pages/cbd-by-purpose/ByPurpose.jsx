@@ -5,45 +5,24 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
-import ApiService from "../../services/ApiService";
+import { useSelector } from "react-redux";
+import { useRoutes } from "react-router-dom";
 import Card from "../../components/card/Card";
 
 const ByPurpose = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getAllProduct();
-  }, []);
-
-  const getAllProduct = async () => {
-    try {
-      const res = await ApiService.getAllProduct();
-      console.log(res.data);
-      // const categoryProduct = res.data.filter((item) => {
-      //   if (item.category2 == "CBD BY PURPOSE") {
-      //     return item;
-      //   }g
-      // });
-      const productsByCategory = res.data.reduce((acc, product) => {
-        //console.log(acc,product)
-        const categoryName = product.category2;
-        console.log(categoryName);
-        if (!acc[categoryName]) {
-          acc[categoryName] = [];
-        }
-        acc[categoryName].push(product);
-        return acc;
-      }, {});
-
-      // Convert the object to a 2D array
-      const productsArray = Object.entries(productsByCategory);
-      setData(productsArray);
-      console.log(productsArray);
-      //console.log(res.data)
-    } catch (err) {
-      console.log(err.message);
+  const product = useSelector((state) => state.product);
+  const productsByCategory = product.product.reduce((acc, product) => {
+    //console.log(acc,product)
+    const categoryName = product.category2;
+    if (!acc[categoryName]) {
+      acc[categoryName] = [];
     }
-  };
+    acc[categoryName].push(product);
+    return acc;
+  }, {});
+
+  // Convert the object to a 2D array
+  const productsArray = Object.entries(productsByCategory);
   const PreviousBtn = (props) => {
     const { onClick } = props;
     return (
@@ -100,33 +79,55 @@ const ByPurpose = () => {
       style={{
         width: "100%",
         display: "flex",
-        flexDirection:"column",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         padding: "2rem 0px",
       }}
     >
-      {data.length == 0 ? (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          maxWidth: "1100px",
-          width:"100%"
-        }}
-      >
-        {[1, 2, 3].map(() => (
-          <Card />
-        ))}
-      </div>
-       ) : (
-        data.map((item, index) => (
-          <div style={{ padding: "15px 0" ,  maxWidth: "1100px",
-          width:"100%" }} key={index}>
-            <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
+      {product.loading === 0 ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            maxWidth: "1100px",
+            width: "100%",
+          }}
+        >
+          {[1, 2, 3].map(() => (
+            <Card />
+          ))}
+        </div>
+      ) : (
+        productsArray.map((item, index) => (
+          <div
+            style={{ padding: "15px 0", maxWidth: "1100px", width: "100%" }}
+            key={index}
+          >
+           
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                width: "100%",
+                justifyContent: "space-between",
+              }}
+            >
+               <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
               Products / {item[0]}
             </h2>
-            {item[1].length <= 4 ? (
+              <Link
+                style={{
+                  padding: "20px 0",
+                  textDecoration: "none",
+                  fontSize: "20px",
+                }}
+                to={`/by-category/${item[0]}`}
+              >
+                See All
+              </Link>
+            </div>
+            {item[1].length <= 3 ? (
               <div
                 style={{
                   display: "flex",
@@ -145,28 +146,10 @@ const ByPurpose = () => {
                 ))}
               </Slider>
             )}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "flex-end",
-                width: "100%",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Link
-                style={{
-                  padding: "20px 0",
-                  textDecoration: "none",
-                  fontSize: "20px",
-                }}
-                to=""
-              >
-                See All
-              </Link>
-            </div>
+           
           </div>
         ))
-      )} 
+      )}
     </div>
   );
 };

@@ -21,4 +21,10 @@ export default {
     console.log(name)
     return Api().post("/product/product_by_name", {name:name});
   },
+  getOrderById(orderId){
+   return Api().get(`/orders/get_order_by_id/${orderId}`)
+  },
+  updateOrderStatus(orderId){
+    return Api().get(`/orders/update_order/${orderId}`)
+  }
 };

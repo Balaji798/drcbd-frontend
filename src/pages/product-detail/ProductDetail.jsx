@@ -19,17 +19,25 @@ import "./productDetail.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { productIcon } from "./product-icon";
 import ApiService from "../../services/ApiService";
+import { useSelector } from "react-redux";
+import { getCart } from "../../state/actions/cartAction";
 
 const ProductDetail = () => {
+  const dispatch = useDispatch();
+  const { product } = useSelector((state) => state.product);
   const { productName } = useParams();
   const navigate = useNavigate();
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [displayedReviews, setDisplayedReviews] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
+  const productByName = product.filter((item) => {
+    if (item.name?.toLowerCase() === productName?.toLowerCase()) return item;
+  });
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
       if (
@@ -54,7 +62,7 @@ const ProductDetail = () => {
   } else {
     document.body.classList.remove("active-modal");
   }
-  const [product, setProduct] = useState([]);
+  //const [product, setProduct] = useState([]);
   const [position, setPosition] = useState(0);
   const [qty, setQty] = useState(1);
   const [price, setPrice] = useState("");
@@ -65,19 +73,14 @@ const ProductDetail = () => {
 
   const getProductByName = async () => {
     try {
-      const res = await axios.post(
-        "https://drcbd-backend.onrender.com/product/product_by_name",
-        { name: productName }
-      );
       const productReviews = await axios.post(
         "https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
-        { productId: res.data._id }
+        { productId: productByName[0]._id }
       );
       setUserReviews(productReviews.data);
       setDisplayedReviews(productReviews.data.slice(0, 3));
-      setProduct(res.data);
-      setFeed({ ...feed, productId: res.data._id });
-      setPrice(res.data.price);
+      setFeed({ ...feed, productId: productByName[0]._id });
+      setPrice(productByName[0].price);
     } catch (err) {
       console.log(err.message);
     }
@@ -86,31 +89,31 @@ const ProductDetail = () => {
   const about = [
     {
       title: "FDA NO. ",
-      para: product.fda,
+      para: productByName[0]?.fda,
     },
     {
       title: "Dosage From",
-      para: product.dosage,
+      para: productByName[0]?.dosage,
     },
     {
       title: "Ingredient",
-      para: product.ingredient,
+      para: productByName[0]?.ingredient,
     },
     {
       title: "Product details",
-      para: product.productFor,
+      para: productByName[0]?.productFor,
     },
     {
       title: "Suitable for",
-      para: product.suitableFor,
+      para: productByName[0]?.suitableFor,
     },
     {
       title: "How to Use",
-      para: product.use,
+      para: productByName[0]?.use,
     },
     {
       title: "Storage & Contraindication ",
-      para: product.storageContraindication,
+      para: productByName[0]?.storageContraindication,
     },
     // {
     //   title: "Contraindication",
@@ -118,7 +121,7 @@ const ProductDetail = () => {
     // },
     {
       title: "Waring and Precaution",
-      para: product.warningPrecaution,
+      para: productByName[0]?.warningPrecaution,
     },
     // {
     //   title: "Quantity",
@@ -153,7 +156,6 @@ const ProductDetail = () => {
           return item;
         }
       });
-      console.log(categoryProduct);
       setSmeCategoryProduct(categoryProduct);
     };
     getProduct();
@@ -170,7 +172,7 @@ const ProductDetail = () => {
 
   const addToCart = async () => {
     try {
-      const requestBody = { qty, price, productId: product._id };
+      const requestBody = { qty, price, productId:  productByName[0]?._id };
       const user = localStorage.getItem("token");
       if (user) {
         const config = {
@@ -184,10 +186,11 @@ const ProductDetail = () => {
           requestBody,
           config
         );
-        if (!res.data.status) {
+        if (res.data !== "Item Add Successfully") {
           setOpen(true);
         }
-        // const res = await axios.post("/api/add-to-cart", requestBody);
+        await getCart(dispatch);
+        return
       } else {
         alert("You are not login login first");
       }
@@ -197,7 +200,7 @@ const ProductDetail = () => {
   };
   const buy = () => {
     navigate(`/cart/?productId=${product._id}`);
-    // console.log(open);
+   
     // if (user) setOpen(!open);
   };
 
@@ -246,7 +249,7 @@ const ProductDetail = () => {
     infinite: true,
     //autoplay: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     prevArrow: <PreviousBtn />,
     nextArrow: <NextBtn />,
     slidesToScroll: 1,
@@ -296,7 +299,7 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-        {!product?.bannerImg ? (
+        {!productByName[0]?.bannerImg ? (
           <img
             src="../info-product-banner.jpg"
             style={{ width: "100%", maxHeight: "25rem", objectFit: "cover" }}
@@ -304,7 +307,7 @@ const ProductDetail = () => {
         ) : (
           <section className="section">
             <div className="section-center">
-              {product?.bannerImg?.map((item, indexPeople) => {
+              {productByName[0]?.bannerImg?.map((item, indexPeople) => {
                 let position = "nextSlide";
                 if (indexPeople === activeIndex) {
                   position = "activeSlide";
@@ -324,7 +327,7 @@ const ProductDetail = () => {
               <button
                 className="prev"
                 onClick={() => {
-                  if (product?.bannerImg?.length > 1) {
+                  if (productByName[0]?.bannerImg?.length > 1) {
                     setActiveIndex(activeIndex - 1);
                   }
                 }}
@@ -336,7 +339,7 @@ const ProductDetail = () => {
               <button
                 className="next"
                 onClick={() => {
-                  if (product?.bannerImg?.length > 1)
+                  if (productByName[0]?.bannerImg?.length > 1)
                     setActiveIndex(activeIndex + 1);
                 }}
               >
@@ -348,8 +351,8 @@ const ProductDetail = () => {
           </section>
         )}
         <div className="productDetail">
-          <div style={{ width: "45%", height: "90%" }}>
-            {product?.images && (
+          <div className="imageContainer">
+            {productByName[0]?.images && (
               <div
                 style={{
                   width: "100%",
@@ -361,7 +364,7 @@ const ProductDetail = () => {
                 }}
               >
                 <img
-                  src={product?.images[position]}
+                  src={productByName[0]?.images[position]}
                   style={{
                     objectFit: "contain",
                     width: "100%",
@@ -403,7 +406,7 @@ const ProductDetail = () => {
           </div>
           <div className="description">
             <h2 style={{ fontSize: "38px", paddingBottom: "10px" }}>
-              {product.name}
+              {productByName[0].name}
             </h2>
             <p
               style={{
@@ -412,7 +415,7 @@ const ProductDetail = () => {
                 paddingBottom: "1em",
               }}
             >
-              {product.des}
+              {productByName[0].des}
             </p>
 
             <p>Sizes</p>
@@ -498,9 +501,22 @@ const ProductDetail = () => {
                   -
                 </p>
               </div>
+            </div>
+            <h2
+              style={{
+                fontSize: "35px",
+                paddingBottom: "10px",
+                textAlign: "end",
+              }}
+            >
+              Price : {price} ฿
+            </h2>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button style={{ width: 200, fontSize: 18 }} onClick={buy}>
+                BUY NOW
+              </button>
               <button
                 style={{
-                  marginLeft: "2em",
                   fontSize: 18,
                   width: 200,
                   padding: "5px 0",
@@ -514,32 +530,6 @@ const ProductDetail = () => {
                 />{" "}
               </button>{" "}
             </div>
-            <h2
-              style={{
-                fontSize: "35px",
-                paddingBottom: "10px",
-                textAlign: "end",
-              }}
-            >
-              Price : {price} ฿
-            </h2>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <button onClick={buy}>BUY NOW</button>
-            </div>
-            {/* <div
-            style={{
-              width: "46%",
-              height: "3em",
-              marginTop: "1em",
-              background: "#f3f3f3",
-              padding: "0.5em 1em",
-            }}
-          >
-            <img
-              src="../paypal.png"
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            />
-          </div> */}
           </div>
         </div>
         <div
@@ -641,7 +631,7 @@ const ProductDetail = () => {
           <iframe
             width="100%"
             height="450"
-            src={product.videoLink}
+            src={productByName[0]?.videoLink}
             title="Unveiling Dr. Pet CBD (2023) - A Better Way to Live a Happy Life"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -834,7 +824,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      {/* <div>
+      <div>
         <h2 style={{ padding: "1rem 0 1rem 3rem" }}>See More</h2>
         <div style={{ padding: "0 3em 2em" }}>
           {sameCategoryProduct?.length > 3 ? (
@@ -858,7 +848,7 @@ const ProductDetail = () => {
             </div>
           )}
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

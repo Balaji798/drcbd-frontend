@@ -6,6 +6,11 @@
   min-width: 1200px;
 }
 
+ .imageContainer {
+  width: 45%;
+  height: 90%;
+}
+
 .description {
   color: #005652;
   width: 50%;
@@ -30,16 +35,15 @@ button {
   font-size: 25px;
   font-weight: bold;
   width: 300px;
- 
 }
-.review-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.review-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.reviews{
+.reviews {
   width: 50%;
 }
 
@@ -155,43 +159,6 @@ article.nextSlide {
   /* border: 4px solid hsl(210, 31%, 80%); */
 }
 
-.prev,
-.next {
-  position: absolute;
-  top: 200px;
-  transform: translateY(-50%);
-  background-color: transparent;
-  color: #fff;
-  width: 1.25rem;
-  height: 1.25rem;
-  display: grid;
-  place-items: center;
-  border-color: transparent;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: all 0.3s linear;
-}
-.prev {
-  left: 0;
-  margin-left: 20px;
-}
-.next {
-  right: 0;
-  margin-right: 35px;
-}
-@media (min-width: 800px) {
-  .text {
-    max-width: 45em;
-  }
-  .prev,
-  .next {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.5rem;
-  }
-}
-
 .product {
   width: 100%;
   background: #e8eae1;
@@ -218,7 +185,8 @@ article.nextSlide {
   font-size: 18px;
 }
 
-.modal, .overlay {
+.modal,
+.overlay {
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -229,7 +197,7 @@ article.nextSlide {
 }
 
 .overlay {
-  background: rgba(0, 86, 82, 0.7)
+  background: rgba(0, 86, 82, 0.7);
 }
 .modal-content {
   position: absolute;
@@ -243,7 +211,7 @@ article.nextSlide {
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
-  color:#fff;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -255,4 +223,13 @@ article.nextSlide {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+}
+
+@media screen and (max-width: 768px){
+  .imageContainer{
+    width: 100%;
+  }
+  .description{
+    width: 100%;
+  }
 }

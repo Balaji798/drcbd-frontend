@@ -112,10 +112,22 @@ const ImageSlider = () => {
   ];
 
   const products = [
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/1.jpg",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/2.jpg",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/3.jpg",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/4.jpg",
+    {
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/1.jpg",
+      name: "cbd collagen",
+    },
+    {
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/2.jpg",
+      name: "cbd whitening mask",
+    },
+    {
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/3.jpg",
+      name: "ultra cream",
+    },
+    {
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/4.jpg",
+      name: "cbd mineral sun spray",
+    },
   ];
 
   const [people] = useState(data);
@@ -307,7 +319,9 @@ const ImageSlider = () => {
                   marginBottom: "0.3em",
                 }}
               >
-                <Link to={`/by-category/${item.title.split(" ").join("-")}`}>{item.title}</Link>
+                <Link to={`/by-category/${item.title.split(" ").join("-")}`}>
+                  {item.title}
+                </Link>
               </div>
             ))}
           </div>
@@ -357,11 +371,12 @@ const ImageSlider = () => {
           style={{ paddingTop: "2rem", maxWidth: "1200px", width: "100%" }}
         >
           {products.map((item, index) => (
-            <img
-              src={item}
-              style={{ width: "17rem", height: "20em", objectFit: "contain" }}
-              key={index}
-            />
+            <Link to={`/product-detail/` + item.name} key={index}>
+              <img
+                src={item.url}
+                style={{ width: "17rem", height: "20em", objectFit: "contain" }}
+              />
+            </Link>
           ))}
         </div>
       </div>

@@ -1,12 +1,11 @@
- 
 import React, { useState, useEffect } from "react";
 import { FaUserCircle } from "react-icons/fa";
-import { CiLogout } from "react-icons/ci";
-import { FiShoppingBag } from "react-icons/fi";
-import { MdOutlineShoppingBag } from "react-icons/md";
-import { BiEditAlt } from "react-icons/bi";
+// import { CiLogout } from "react-icons/ci";
+// import { FiShoppingBag } from "react-icons/fi";
+// import { MdOutlineShoppingBag } from "react-icons/md";
+//import { BiEditAlt } from "react-icons/bi";
 import ApiService from "../../services/ApiService";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./profile.css";
 
 const Profile = () => {
@@ -22,22 +21,22 @@ const Profile = () => {
     getUser();
   }, []);
 
-  const profileMenu = [
-    {
-      title: "Personal Detail",
-      icon: (
-        <MdOutlineShoppingBag style={{ color: "#004d4a", fontSize: "35px" }} />
-      ),
-    },
-    {
-      title: "My Orders",
-      icon: <FiShoppingBag style={{ color: "#004d4a", fontSize: "35px" }} />,
-    },
-    {
-      title: "Logout",
-      icon: <CiLogout style={{ color: "#004d4a", fontSize: "35px" }} />,
-    },
-  ];
+  // const profileMenu = [
+  //   {
+  //     title: "Personal Detail",
+  //     icon: (
+  //       <MdOutlineShoppingBag style={{ color: "#004d4a", fontSize: "35px" }} />
+  //     ),
+  //   },
+  //   {
+  //     title: "My Orders",
+  //     icon: <FiShoppingBag style={{ color: "#004d4a", fontSize: "35px" }} />,
+  //   },
+  //   {
+  //     title: "Logout",
+  //     icon: <CiLogout style={{ color: "#004d4a", fontSize: "35px" }} />,
+  //   },
+  // ];
 
   return (
     <div
@@ -58,7 +57,7 @@ const Profile = () => {
           padding: "5rem 3rem",
           borderRadius: "40px",
           color: "grey",
-          height: "35rem",
+          height: "30rem",
         }}
       >
         <FaUserCircle style={{ color: "grey", fontSize: "15rem" }} />
@@ -85,17 +84,47 @@ const Profile = () => {
         <div>
           <div>
             <p>First Name</p>
-            <input value={user?.fullName?.split(" ")[0]} readOnly={!edit} />
+            <input
+              value={user?.fullName?.split(" ")[0]}
+              readOnly={!edit}
+              style={{
+                background: edit && "#fff",
+                padding: "5px",
+                fontSize: 16,
+                borderRadius: 10,
+                color:edit&&"#000"
+              }}
+            />
           </div>
           <div>
             <p>Last Name</p>
-            <input value={user?.fullName?.split(" ")[1]} readOnly={!edit} />
+            <input
+              value={user?.fullName?.split(" ")[1]}
+              readOnly={!edit}
+              style={{
+                background: edit && "#fff",
+                padding: "5px",
+                fontSize: 16,
+                borderRadius: 10,
+                color:edit&&"#000"
+              }}
+            />
           </div>
         </div>
         <div>
           <div>
             <p>Email</p>
-            <input value={user?.email} readOnly={!edit} />
+            <input
+              value={user?.email}
+              readOnly={!edit}
+              style={{
+                background: edit && "#fff",
+                padding: "5px",
+                fontSize: 16,
+                borderRadius: 10,
+                color:edit&&"#000"
+              }}
+            />
           </div>
           <div>
             <p>Address</p>
@@ -106,32 +135,83 @@ const Profile = () => {
                   : ""
               }
               readOnly={!edit}
+              style={{
+                background: edit && "#fff",
+                padding: "5px",
+                fontSize: 16,
+                borderRadius: 10,
+                color:edit&&"#000"
+              }}
             />
           </div>
         </div>
         <div>
           <div>
             <p>Phone</p>
-            <input value={user?.phone} readOnly={!edit} />
+            <input
+              value={user?.phone}
+              readOnly={!edit}
+              style={{
+                background: edit && "#fff",
+                padding: "5px",
+                fontSize: 16,
+                borderRadius: 10,
+                color:edit&&"#000"
+              }}
+            />
           </div>
           <div>
             <p>Gender</p>
-            <input value={user?.gender} readOnly={!edit} />
+            <input
+              value={user?.gender}
+              readOnly={!edit}
+              style={{
+                background: edit && "#fff",
+                padding: "5px",
+                fontSize: 16,
+                borderRadius: 10,
+                color:edit&&"#000"
+              }}
+            />
           </div>
         </div>
         <div>
           <div>
             <p>Birthday</p>
-            <input value={user?.dateOfBarth} readOnly={!edit} />
+            <input
+              value={user?.dateOfBarth}
+              readOnly={!edit}
+              style={{
+                background: edit && "#fff",
+                padding: "5px",
+                fontSize: 16,
+                borderRadius: 10,
+                color:edit&&"#000"
+              }}
+            />
           </div>
           <div>
-            <div style={{ display: "flex",paddingBottom:"0.5rem",justifyContent:"space-between" }}>
-              <button className="edit-button" style={{marginRight:"0.5rem",width:"6.5rem"}} onClick={() => setEdit(!edit)}>
+            <div
+              style={{
+                display: "flex",
+                paddingBottom: "0.5rem",
+                justifyContent: "space-between",
+              }}
+            >
+              <button
+                className="edit-button"
+                style={{ marginRight: "0.5rem", width: "6.5rem" }}
+                onClick={() => setEdit(!edit)}
+              >
                 EDIT
               </button>
-              <button className="edit-button" style={{width:"6.5rem"}}>SAVE</button>
+              <button className="edit-button" style={{ width: "6.5rem" }}>
+                SAVE
+              </button>
             </div>
-            <Link href="/orders" className="edit-button">ORDER HISTORY</Link>
+            <Link href="/orders" className="edit-button">
+              ORDER HISTORY
+            </Link>
           </div>
         </div>
       </div>

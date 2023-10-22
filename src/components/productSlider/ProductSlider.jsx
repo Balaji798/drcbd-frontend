@@ -7,7 +7,7 @@ const ProductSlider = ({ image, i, marginB }) => {
     <div
       className="slider-item"
       key={i}
-      style={{ marginBottom:"1rem" }}
+      style={{ marginBottom:"1rem",zIndex:0 }}
     >
       {image.images && <img src={image.images[0]} alt="/" />}
       <div

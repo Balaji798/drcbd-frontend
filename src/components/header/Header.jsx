@@ -26,6 +26,7 @@ const Header = () => {
       console.log("hi");
       setOpen(true);
     } else {
+      console.log(type);
       const res = await ApiService.getUser();
       console.log(res.data, "h2");
       res.data.status ? navigate(type) : setOpen(true);
@@ -35,7 +36,6 @@ const Header = () => {
     <>
       {open && <Modal setOpen={setOpen} user={user} />}
       <header>
-        {/*  */}
         <div className="header-container">
           <div
             style={{
@@ -43,7 +43,7 @@ const Header = () => {
               justifyContent: "space-between",
             }}
           >
-            {/**/}
+           
             <p> TH/EN |</p>
             <Link to="/sign-in">Sign In |</Link>
             <p> Track Orders</p>
@@ -96,9 +96,9 @@ const Header = () => {
               objectFit: "cover",
               height: "45px",
               width: "120px",
-              position: "absolute",
-              top:20,
-              left:"45%"
+            
+              top: 20,
+              left: "45%",
             }}
             alt={""}
           />

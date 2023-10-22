@@ -43,6 +43,17 @@ const ByCategory = () => {
         padding: "2rem 0",
       }}
     >
+      <h2
+        style={{
+          textTransform: "uppercase",
+          maxWidth: "1150px",
+          width: "100%",
+          paddingBottom:"1rem",
+          color: "#005652"
+        }}
+      >
+        {categoryName}
+      </h2>
       <div
         style={{
           maxWidth: "1150px",
@@ -53,7 +64,7 @@ const ByCategory = () => {
         }}
       >
         {data.map((item, i) => (
-          <ProductSlider image={item} key={i} marginB='yes'/>
+          <ProductSlider image={item} key={i} marginB="yes" />
         ))}
       </div>
     </div>

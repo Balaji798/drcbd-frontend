@@ -9,7 +9,7 @@ const Modal = ({ setOpen,user }) => {
       <div className="modal-content">
         <h2>{!user?"You are not Sign In ":'You are not Sign Up Sign up First'}</h2>
         <Link
-          href={!user?"/sign-in":"/register"}
+          to={!user?"/sign-in":"/register"}
           style={{
             background: "#fff",
             color: "#005652",

@@ -4,6 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import {PayPalScriptProvider} from "@paypal/react-paypal-js"
 import "./App.css";
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
@@ -24,9 +25,13 @@ import Orders from "./pages/orders/Orders";
 import NHI from "./pages/insights/News";
 import Contact from "./pages/contact/Contact";
 import ByCategory from "./pages/byCategory/ByCategory";
+import Forms from "./pages/forms/Forms";
+import OrderSummery from "./pages/orderSummery/OrderSummery";
+import PayPal from "./components/paypal/PayPal";
 
 function App() {
   return (
+  
     <Router>
       <Header />
       <Navbar />
@@ -44,6 +49,8 @@ function App() {
             element={<ProductDetail />}
           />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/order-address/:orderId" element={<Forms/>}/>
+          <Route path="/order-summery/:orderId" element={<PayPal/>}/>
           <Route path="/brand-purpose" element={<BrandPurpose />} />
           <Route path="/our-esteemed" element={<OurEsteemed />} />
           <Route path="/cbd-by-category" element={<ByPurpose />} />
@@ -60,6 +67,7 @@ function App() {
       </div>
       <Footer />
     </Router>
+   
   );
 }
 

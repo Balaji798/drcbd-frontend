@@ -1,20 +1,61 @@
- 
-import React, { useState, useEffect } from "react";
-import SeeMore from "../SeeMore";
-import { Link } from "react-router-dom";
-import ApiService from "../../services/ApiService";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { getCart } from "../../state/actions/cartAction";
 
 const CartComponent = (props) => {
-  const [cartItem, setCartItem] = useState([]);
-  useEffect(() => {
-    const getCart = async () => {
-      const res = await ApiService.getCart();
-      setCartItem(res.data);
-      console.log(res.data);
-    };
-    getCart();
-  }, []);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
+  const removeFromCart = async (productId) => {
+    try {
+      console.log(productId);
+      const user = localStorage.getItem("token");
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user}`,
+          "Content-Type": "application/json", // Set the content type to JSON
+        },
+      };
+      const res = await axios.post(
+        "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
+        { productId },
+        config
+      );
+      return await getCart(dispatch);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const handelNext = async () => {
+    try {
+      const user = localStorage.getItem("token");
+      console.log(user);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user}`,
+          "Content-Type": "application/json", // Set the content type to JSON
+        },
+      };
+      const cartId = cart.cart._id;
+      const res = await axios.post(
+        "http://localhost:8080/orders/place_order",
+        { cartId },
+        config
+      );
+      console.log(res.data);
+      if (res.data.status) {
+        navigate("/order-address/"+res.data.orderId);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <div
@@ -26,9 +67,9 @@ const CartComponent = (props) => {
         }}
       >
         <div style={{ width: "55%" }}>
-          {cartItem.items?.map((item) => (
+          {cart.cart?.items?.map((item) => (
             <div
-              key={item.id}
+              key={item?._id}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -69,9 +110,24 @@ const CartComponent = (props) => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <h2 style={{ fontSize: "1em", fontWeight: "bold" }}>
-                    {item?.productId?.category}
-                  </h2>
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "100%",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <h2 style={{ fontSize: "1em", fontWeight: "bold" }}>
+                      {item?.productId?.category}
+                    </h2>
+                    <button
+                      style={{ maxWidth: 100, fontSize: 16 }}
+                      onClick={() => removeFromCart(item?.productId?._id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
                   <div
                     style={{
                       display: "flex",
@@ -103,7 +159,7 @@ const CartComponent = (props) => {
                   </div>
                 </div>
                 <h2 style={{ textAlign: "end", fontSize: "22px" }}>
-                  PRICE-{item.productId.price} ฿
+                  PRICE-{item.productId?.price} ฿
                 </h2>
               </div>
             </div>
@@ -111,7 +167,7 @@ const CartComponent = (props) => {
         </div>
         <div
           style={{
-            width: "20%",
+            width: "16rem",
             padding: "2em 0",
             marginLeft: "7em",
             display: "flex",
@@ -140,21 +196,12 @@ const CartComponent = (props) => {
             }}
           >
             CART SUBTOTAL :-
-            <span style={{ fontSize: "2em" }}>{cartItem.totalPrice} ฿</span>
+            <span style={{ fontSize: "2em" }}>{cart.cart?.totalPrice} ฿</span>
           </p>
-          <button
-            style={{
-              fontSize: "1.5em",
-              width: "80%",
-              padding: "0.4em 0",
-              cursor: "pointer",
-              border: "none",
-            }}
-            onClick={() => props.setPosition([1,2])}
-          >
+          <div className="checkOut-button" onClick={handelNext}>
             CHECK OUT
-          </button>
-          <Link
+          </div>
+          {/* <Link
             href="/paypal"
             style={{
               width: "80%",
@@ -168,7 +215,7 @@ const CartComponent = (props) => {
               src="./paypal.png"
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />
-          </Link>
+          </Link> */}
         </div>
       </div>
       {/* <div style={{ paddingTop: "3em" }}>

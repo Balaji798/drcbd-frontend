@@ -8,6 +8,7 @@ const Footer = () => {
       <div
         style={{
           display: "flex",
+          flexWrap:"wrap",
           alignItems: "center",
           width: "100%",
           justifyContent: "center",
