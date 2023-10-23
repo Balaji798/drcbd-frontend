@@ -40,7 +40,7 @@ const Forms = (props) => {
       };
 
       const res = await axios.post(
-        "http://localhost:8080/user/update-user",
+        "https://drcbd-backend.onrender.com/user/update-user",
         userAdd,
         config
       );
@@ -48,7 +48,7 @@ const Forms = (props) => {
       //console.log(res.data.status);
       if (res.data.status) {
         const response = await axios.post(
-          "http://localhost:8080/orders/update_order/"+orderId,
+          "https://drcbd-backend.onrender.com/orders/update_order/"+orderId,
           userAdd,
           config
         );

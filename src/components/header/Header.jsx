@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
@@ -37,7 +37,7 @@ const Header = () => {
       {open && <Modal setOpen={setOpen} user={user} />}
       <header>
         <div className="header-container">
-          <div
+          <div 
             style={{
               display: "flex",
               justifyContent: "space-between",

@@ -2,9 +2,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
+
 } from "react-router-dom";
-import {PayPalScriptProvider} from "@paypal/react-paypal-js"
 import "./App.css";
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
@@ -15,7 +14,6 @@ import Cart from "./pages/cart/Cart";
 import Footer from "./components/footer/Footer";
 import BrandPurpose from "./pages/brand-purpose/BrandPurpose";
 import OurEsteemed from "./pages/our-esteemed/OurEsteemed";
-import CBDByCategory from "./pages/cbd-by-category/CBDByCategory";
 import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
 import SignIn from "./pages/sign-in/SignIn";
@@ -26,8 +24,7 @@ import NHI from "./pages/insights/News";
 import Contact from "./pages/contact/Contact";
 import ByCategory from "./pages/byCategory/ByCategory";
 import Forms from "./pages/forms/Forms";
-import OrderSummery from "./pages/orderSummery/OrderSummery";
-import PayPal from "./components/paypal/PayPal";
+import PayPal from "./pages/paypal/PayPal";
 
 function App() {
   return (

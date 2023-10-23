@@ -21,7 +21,7 @@ const CartComponent = (props) => {
           "Content-Type": "application/json", // Set the content type to JSON
         },
       };
-      const res = await axios.post(
+     await axios.post(
         "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
         { productId },
         config
@@ -44,11 +44,10 @@ const CartComponent = (props) => {
       };
       const cartId = cart.cart._id;
       const res = await axios.post(
-        "http://localhost:8080/orders/place_order",
+        "https://drcbd-backend.onrender.com/orders/place_order",
         { cartId },
         config
       );
-      console.log(res.data);
       if (res.data.status) {
         navigate("/order-address/"+res.data.orderId);
       }
