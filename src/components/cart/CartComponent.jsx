@@ -74,6 +74,7 @@ const CartComponent = (props) => {
                 justifyContent: "space-between",
                 borderBottom: "1px solid",
                 padding: "1em 0",
+                
               }}
             >
               <div

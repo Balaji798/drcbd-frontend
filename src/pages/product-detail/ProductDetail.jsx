@@ -208,12 +208,14 @@ const ProductDetail = () => {
     try {
       const user = localStorage.getItem("token");
       if (user) {
+        
         const config = {
           headers: {
             Authorization: `Bearer ${user}`,
             "Content-Type": "application/json", // Set the content type to JSON
           },
         };
+        //https://drcbd-backend.onrender.com
         const res = await axios.post(
           "https://drcbd-backend.onrender.com/review/add-review",
           feed,

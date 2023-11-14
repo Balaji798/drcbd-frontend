@@ -46,7 +46,7 @@ const Header = () => {
            
             <p> TH/EN |</p>
             <Link to="/sign-in">Sign In |</Link>
-            <p> Track Orders</p>
+            <Link to="/my-orders"> My Orders</Link>
           </div>
           <div style={{ display: "flex", width: "20%" }}>
             <div className="search-bar">

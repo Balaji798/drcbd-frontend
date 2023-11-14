@@ -26,5 +26,11 @@ export default {
   },
   updateOrderStatus(orderId){
     return Api().get(`/orders/update_order/${orderId}`)
+  },
+  getUserOrder(){
+    return Api().get('/orders/get_user_orders')
+  },
+  getOrder(orderId){
+    return Api().get(`/orders/get_user_order/${orderId}`)
   }
 };

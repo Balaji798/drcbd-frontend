@@ -12,7 +12,7 @@ const PayPal = () => {
   const navigate = useNavigate();
   const { orderId } = useParams();
 
-  console.log(process.env.CLIENT_ID)
+
   useEffect(() => {
     const getOrderData = async () => {
       const res = await ApiService.getOrderById(orderId);
