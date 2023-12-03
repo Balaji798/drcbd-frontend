@@ -21,7 +21,7 @@ const CartComponent = (props) => {
           "Content-Type": "application/json", // Set the content type to JSON
         },
       };
-     await axios.post(
+      await axios.post(
         "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
         { productId },
         config
@@ -49,7 +49,7 @@ const CartComponent = (props) => {
         config
       );
       if (res.data.status) {
-        navigate("/order-address/"+res.data.orderId);
+        navigate("/order-address/" + res.data.orderId);
       }
     } catch (err) {
       console.log(err);
@@ -74,7 +74,6 @@ const CartComponent = (props) => {
                 justifyContent: "space-between",
                 borderBottom: "1px solid",
                 padding: "1em 0",
-                
               }}
             >
               <div
@@ -165,57 +164,60 @@ const CartComponent = (props) => {
             </div>
           ))}
         </div>
-        <div
-          style={{
-            width: "16rem",
-            padding: "2em 0",
-            marginLeft: "7em",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <h1
+        <div>
+          
+          <div
             style={{
-              textAlign: "end",
-              width: "80%",
-              borderBottom: "1px solid",
-              fontSize: "2em",
-              paddingBottom: "0.5em",
-              fontWeight: 900,
-            }}
-          >
-            Summary
-          </h1>
-          <p
-            style={{
+              width: "16rem",
+              padding: "2em 0",
+              marginLeft: "7em",
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
-              justifyContent: "space-between",
-              padding: "0.5em 0",
             }}
           >
-            CART SUBTOTAL :-
-            <span style={{ fontSize: "2em" }}>{cart.cart?.totalPrice} ฿</span>
-          </p>
-          <div className="checkOut-button" onClick={handelNext}>
-            CHECK OUT
+            <h1
+              style={{
+                textAlign: "end",
+                width: "80%",
+                borderBottom: "1px solid",
+                fontSize: "2em",
+                paddingBottom: "0.5em",
+                fontWeight: 900,
+              }}
+            >
+              Summary
+            </h1>
+            <p
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "0.5em 0",
+              }}
+            >
+              CART SUBTOTAL :-
+              <span style={{ fontSize: "2em" }}>{cart.cart?.totalPrice} ฿</span>
+            </p>
+            <div className="checkOut-button" onClick={handelNext}>
+              CHECK OUT
+            </div>
+            {/* <Link
+        href="/paypal"
+        style={{
+          width: "80%",
+          height: "3em",
+          marginTop: "1em",
+          background: "#f3f3f3",
+          padding: "0.5em 1em",
+        }}
+      >
+        <img
+          src="./paypal.png"
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
+      </Link> */}
           </div>
-          {/* <Link
-            href="/paypal"
-            style={{
-              width: "80%",
-              height: "3em",
-              marginTop: "1em",
-              background: "#f3f3f3",
-              padding: "0.5em 1em",
-            }}
-          >
-            <img
-              src="./paypal.png"
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            />
-          </Link> */}
         </div>
       </div>
       {/* <div style={{ paddingTop: "3em" }}>

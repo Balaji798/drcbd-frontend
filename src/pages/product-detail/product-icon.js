@@ -28,7 +28,7 @@ export const productIcon = [
     ],
   },
   {
-    title: "Cannabis TEA",
+    title: "CANNABIS TEA (5 SAC BOX)",
     icons: [
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/product-info-icon/Cannabis+TEA/22.png",
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/product-info-icon/Cannabis+TEA/23.png",

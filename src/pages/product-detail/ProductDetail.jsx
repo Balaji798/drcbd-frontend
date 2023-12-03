@@ -41,7 +41,7 @@ const ProductDetail = () => {
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
       if (
-        productName?.toLowerCase().split("-").join(" ") ==
+        productName?.toLowerCase().split("-").join(" ") ===
         item.title.toLowerCase()
       ) {
         return item;
@@ -80,7 +80,11 @@ const ProductDetail = () => {
       setUserReviews(productReviews.data);
       setDisplayedReviews(productReviews.data.slice(0, 3));
       setFeed({ ...feed, productId: productByName[0]._id });
-      setPrice(productByName[0].price);
+      setPrice(
+        (
+          Number(productByName[0].price) + Number(productByName[0].shippingFee)
+        ).toFixed(2)
+      );
     } catch (err) {
       console.log(err.message);
     }
@@ -131,7 +135,12 @@ const ProductDetail = () => {
   const concatData = [
     { title: "instagram", icon: <FaInstagram size={50} color="#fff" /> },
     { title: "Facebook", icon: <FaFacebookF size={50} color="#fff" /> },
-    { title: "Line", icon: <FaLine size={50} /> },
+    {
+      title: "Line",
+      icon: (
+        <img src="../line-logo.png" alt="/" style={{ width: 60, height: 60 }} />
+      ),
+    },
     { title: "Tiktok", icon: <FaTiktok size={50} color="#fff" /> },
     { title: "Twitter", icon: <FaTwitter size={50} color="#fff" /> },
   ];
@@ -172,7 +181,7 @@ const ProductDetail = () => {
 
   const addToCart = async () => {
     try {
-      const requestBody = { qty, price, productId:  productByName[0]?._id };
+      const requestBody = { qty, price, productId: productByName[0]?._id };
       const user = localStorage.getItem("token");
       if (user) {
         const config = {
@@ -190,7 +199,7 @@ const ProductDetail = () => {
           setOpen(true);
         }
         await getCart(dispatch);
-        return
+        return;
       } else {
         alert("You are not login login first");
       }
@@ -200,7 +209,7 @@ const ProductDetail = () => {
   };
   const buy = () => {
     navigate(`/cart/?productId=${product._id}`);
-   
+
     // if (user) setOpen(!open);
   };
 
@@ -208,7 +217,6 @@ const ProductDetail = () => {
     try {
       const user = localStorage.getItem("token");
       if (user) {
-        
         const config = {
           headers: {
             Authorization: `Bearer ${user}`,
@@ -276,6 +284,7 @@ const ProductDetail = () => {
       },
     ],
   };
+  console.log(productByName);
   return (
     <>
       {open && (
@@ -305,6 +314,7 @@ const ProductDetail = () => {
           <img
             src="../info-product-banner.jpg"
             style={{ width: "100%", maxHeight: "25rem", objectFit: "cover" }}
+            alt="/"
           />
         ) : (
           <section className="section">
@@ -353,7 +363,7 @@ const ProductDetail = () => {
           </section>
         )}
         <div className="productDetail">
-          <div className="imageContainer">
+          <div className="imageContainer" style={{}}>
             {productByName[0]?.images && (
               <div
                 style={{
@@ -363,6 +373,7 @@ const ProductDetail = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  //background: "#d3d3d3",
                 }}
               >
                 <img
@@ -372,6 +383,7 @@ const ProductDetail = () => {
                     width: "100%",
                     height: "100%",
                   }}
+                  alt={productByName[0]?.images[position]}
                 />
               </div>
             )}
@@ -382,8 +394,8 @@ const ProductDetail = () => {
                 justifyContent: "space-between",
               }}
             >
-              {product?.images?.length > 1 &&
-                product?.images?.map((i, index) => (
+              {productByName[0]?.images.length > 1 &&
+                productByName[0]?.images.map((i, index) => (
                   <div
                     style={{
                       width: "150px",
@@ -407,7 +419,13 @@ const ProductDetail = () => {
             </div>
           </div>
           <div className="description">
-            <h2 style={{ fontSize: "38px", paddingBottom: "10px" }}>
+            <h2
+              style={{
+                fontSize: "38px",
+                paddingBottom: "10px",
+                textDecoration: productByName[0].fdaProduct && "underline",
+              }}
+            >
               {productByName[0].name}
             </h2>
             <p
@@ -415,6 +433,7 @@ const ProductDetail = () => {
                 lineHeight: 1.3,
                 borderBottom: "1px solid grey",
                 paddingBottom: "1em",
+                fontWeight: 26,
               }}
             >
               {productByName[0].des}
@@ -504,14 +523,57 @@ const ProductDetail = () => {
                 </p>
               </div>
             </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "18rem",
+                color: "#fff",
+                marginTop: "1rem",
+              }}
+            >
+              <h2
+                style={{
+                  padding: "5px",
+                  background: "#005652",
+                  textAlign: "center",
+                }}
+              >
+                Coupon
+              </h2>{" "}
+              <input
+                style={{
+                  border: "2px solid #005652",
+                  borderRadius: 0,
+                  paddingLeft: 5,
+                }}
+              />
+              <div
+                style={{ padding: "5px", fontSize: 25, background: "#005652" }}
+              >
+                Apply
+              </div>
+            </div>
             <h2
               style={{
-                fontSize: "35px",
+                fontSize: "25px",
                 paddingBottom: "10px",
                 textAlign: "end",
               }}
             >
-              Price : {price} ฿
+              Price :-
+              <span
+                style={{
+                  color: "grey",
+                  textDecoration: "line-through",
+                  paddingLeft: 10,
+                }}
+              >
+                {Number(productByName[0].actualPrice) > 0
+                  ? "฿" + Number(productByName[0].actualPrice).toFixed(2)
+                  : ""}
+              </span>{" "}
+              ฿{price}
             </h2>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <button style={{ width: 200, fontSize: 18 }} onClick={buy}>
@@ -615,7 +677,11 @@ const ProductDetail = () => {
                 style={{
                   background: "#0b4640",
                   borderRadius: "50px",
-                  padding: "1rem",
+                  width: 80,
+                  height: 80,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 {item.icon}

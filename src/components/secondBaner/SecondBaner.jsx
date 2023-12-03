@@ -141,6 +141,7 @@ const SecondBanner = () => {
                 <img
                   src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/jl281.jpeg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
+                  alt="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/jl281.jpeg"
                 />
                 <h3 style={{ padding: "1rem 0" }}>7/11</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -154,6 +155,7 @@ const SecondBanner = () => {
                 <img
                   src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/image-5201.jpg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
+                  alt="/"
                 />
                 <h3 style={{ padding: "1rem 0" }}>CJ</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -180,6 +182,7 @@ const SecondBanner = () => {
                 <img
                   src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
+                  alt="/"
                 />
                 <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -193,6 +196,7 @@ const SecondBanner = () => {
                 <img
                   src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
+                  alt="/"
                 />
                 <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -224,11 +228,11 @@ const SecondBanner = () => {
             ONLINE SHOP
           </h1>
           <h2 style={{ padding: "0.5em 1em" }}>LINE SHOPPING</h2>
-          <img src="./online/a.png" style={{ width: "8em" }} />
-          <img src="./online/ad.png" style={{ width: "8em" }} />
-          <img src="./online/Untitled-1.png" style={{ width: "8em" }} />
-          <img src="./online/h.png" style={{ width: "8em" }} />
-          <img src="./online/va.png" style={{ width: "8em" }} />
+          <img src="./online/a.png" style={{ width: "8em" }} alt="/"/>
+          <img src="./online/ad.png" style={{ width: "8em" }} alt="/"/>
+          <img src="./online/Untitled-1.png" style={{ width: "8em" }} alt="/"/>
+          <img src="./online/h.png" style={{ width: "8em" }} alt="/"/>
+          <img src="./online/va.png" style={{ width: "8em" }} alt="/"/>
         </div>
         <div className="banner">
           <div>
@@ -271,6 +275,7 @@ const SecondBanner = () => {
                 width: "100%",
                 height: "100%",
               }}
+              alt="/"
             />
           </div>
         </div>
@@ -298,6 +303,7 @@ const SecondBanner = () => {
                   <img
                     src={item.icon}
                     style={{ objectFit: "contain", width: 80, height: 80 }}
+                    alt="/"
                   />
                   <p style={{ color: "#005652", fontSize: 20, width: "40%" }}>
                     {item.title}
@@ -326,6 +332,7 @@ const SecondBanner = () => {
                     <img
                       src={item.icon}
                       style={{ objectFit: "contain", width: 80, height: 80 }}
+                      alt="/"
                     />
                     <p style={{ color: "#005652", fontSize: 18 }}>
                       {item.title}
@@ -373,9 +380,9 @@ const SecondBanner = () => {
               style={{
                 width: "17em",
                 background: "#fff",
-                borderRight: index == 2 || index == 5 ? 0 : "1px solid #000",
+                borderRight: index === 2 || index === 5 ? 0 : "1px solid #000",
                 borderBottom:
-                  index == 2 || index == 0 || index == 1 ? "1px solid #000" : 0,
+                  index === 2 || index === 0 || index === 1 ? "1px solid #000" : 0,
                 padding: "1em",
                 margin:"0.1rem",
                 color: "#000",
@@ -384,7 +391,8 @@ const SecondBanner = () => {
             >
               <img
                 src={item.image}
-                style={{ width: "15rem", objectFit: "contain", height: "5em" }}
+                style={{ width: "15rem", objectFit: "contain", height:index===0?"6.7em": "5em" }}
+                alt="/"
               />
               <h2 style={{ padding: "5px 0" }}>{item.title}</h2>
               <p style={{ padding: "5px 0" }}>{item.para}</p>

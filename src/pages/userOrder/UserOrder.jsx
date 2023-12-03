@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import Steps from "../../components/Steps";
+import "./order.css";
 
 const UserOrder = () => {
   const { orderId } = useParams();
   const [orderData, setOrderData] = useState({});
-  const [steps, setSteps] = useState([]);
+  //const [steps, setSteps] = useState([]);
   const steps2 = [
     { image: "../checkoutImage/1.png", title: "Order Placed" },
     { image: "../checkoutImage/2.png", title: "" },
@@ -17,12 +18,11 @@ const UserOrder = () => {
   useEffect(() => {
     const getOrder = async () => {
       const res = await ApiService.getOrder(orderId);
-      console.log(res.status)
-      setSteps(res.data.status === "placed" ? [1] : [0]);
+      console.log(res.data);
       setOrderData(res.data);
     };
     getOrder();
-  }, []);
+  }, [orderId]);
   return (
     <div>
       <Steps stepsColor={[4]} />
@@ -127,23 +127,64 @@ const UserOrder = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          paddingTop: "1rem",
         }}
       >
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
             paddingBottom: 20,
             width: "35%",
             justifyContent: "space-between",
           }}
         >
           <div
-            style={{ width: "0.5rem", height: "18rem", background: "#005652" }}
-          ></div>
-          <div style={{ display: "flex", fontWeight: "bold", fontSize: 20 }}>
-            <p style={{ paddingRight: 25 }}>{orderData.orderTime}</p>
-            <p>Order {orderData.status}</p>
+            style={{
+              width: "0.5rem",
+              height: "18rem",
+              background: "#005652",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <div className="stepStyle" />
+            <div className="stepStyle" style={{ marginTop: "2rem" }} />
+          </div>
+          <div>
+            <div style={{ display: "flex", fontWeight: "bold", fontSize: 20 }}>
+              <p style={{ paddingRight: 25 }}>
+                {
+                  orderData?.orderTime
+                    ?.split("-")
+                    .join("/")
+                    .split("T")
+                    .join(" ")
+                    .split(".")[0]
+                }
+              </p>
+              <p>Order {orderData.status}</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontWeight: "bold",
+                fontSize: 20,
+                paddingTop: "2rem",
+              }}
+            >
+              <p style={{ paddingRight: 25 }}>
+                {
+                  orderData?.orderTime
+                    ?.split("-")
+                    .join("/")
+                    .split("T")
+                    .join(" ")
+                    .split(".")[0]
+                }
+              </p>
+              <p>Order {orderData?.adminStatus}</p>
+            </div>
           </div>
         </div>
       </div>

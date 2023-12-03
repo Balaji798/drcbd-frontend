@@ -28,7 +28,7 @@ const ByPurpose = () => {
     return (
       <div className="control-btn" onClick={onClick}>
         <button className="prev">
-          <MdArrowBackIosNew style={{ fontSize: "45px" }} />
+          <MdArrowBackIosNew style={{ fontSize: "45px",color:"#000" }} />
         </button>
       </div>
     );
@@ -38,7 +38,7 @@ const ByPurpose = () => {
     return (
       <div className="control-btn" onClick={onClick}>
         <button className="next">
-          <MdArrowForwardIos style={{ fontSize: "45px" }} />
+          <MdArrowForwardIos style={{ fontSize: "45px",color:"#000" }} />
         </button>
       </div>
     );

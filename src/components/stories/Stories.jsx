@@ -125,6 +125,7 @@ const Stories = () => {
                       objectFit: "cover",
                       height: "8rem",
                     }}
+                    alt="/"
                   />
                   <div style={{ paddingLeft: "0.5rem" }}>
                     <p>.{item.year}</p>

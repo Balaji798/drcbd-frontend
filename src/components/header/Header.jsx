@@ -46,7 +46,13 @@ const Header = () => {
            
             <p> TH/EN |</p>
             <Link to="/sign-in">Sign In |</Link>
-            <Link to="/my-orders"> My Orders</Link>
+            <p style={{cursor:"pointer"}} onClick={()=>{
+              if(user){
+                navigate("/my-orders")
+              }else{
+                setOpen(true);
+              }
+            }}> My Orders</p>
           </div>
           <div style={{ display: "flex", width: "20%" }}>
             <div className="search-bar">

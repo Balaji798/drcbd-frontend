@@ -1,10 +1,10 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 
 const Orders = () => {
   const [orderData, setOrderData] = useState({});
+  
 
   useEffect(() => {
     const getOrders = async () => {
@@ -55,6 +55,7 @@ const Orders = () => {
                         height: "100%",
                         objectFit: "contain",
                       }}
+                      alt="/"
                     />
                   </div>
                   <div style={{ paddingLeft: 10, height: "100%" }}>

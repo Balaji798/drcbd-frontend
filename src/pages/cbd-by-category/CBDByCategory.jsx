@@ -47,8 +47,8 @@ const CBDByCategory = () => {
       const { onClick } = props;
       return (
         <div className="control-btn" onClick={onClick}>
-          <button className="prev">
-            <MdArrowBackIosNew style={{ fontSize: "45px" }} />
+          <button className="prev" style={{background:"#000"}}>
+            <MdArrowBackIosNew style={{ fontSize: "45px",color:"#000"  }} />
           </button>
         </div>
       );
@@ -58,7 +58,7 @@ const CBDByCategory = () => {
       return (
         <div className="control-btn" onClick={onClick}>
           <button className="next">
-            <MdArrowForwardIos style={{ fontSize: "45px" }} />
+            <MdArrowForwardIos style={{ fontSize: "45px",color:"#000" }} />
           </button>
         </div>
       );
