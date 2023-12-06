@@ -39,7 +39,7 @@ const Profile = () => {
       };
       //https://drcbd-backend.onrender.com
       const res = await axios.post( 
-        "http://localhost:8080/user/edit-user",
+        "https://drcbd-backend.onrender.com/user/edit-user",
         user, 
         config  
       );
