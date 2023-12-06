@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { ImStarFull, ImStarHalf } from "react-icons/im";
@@ -27,6 +27,7 @@ import { useSelector } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
 
 const ProductDetail = () => {
+  const scrollContainerRef = useRef();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
   const { productName } = useParams();
@@ -69,6 +70,9 @@ const ProductDetail = () => {
 
   useEffect(() => {
     getProductByName();
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo(0, 0);
+    }
   }, []);
 
   const getProductByName = async () => {
@@ -286,7 +290,7 @@ const ProductDetail = () => {
   };
   console.log(productByName);
   return (
-    <>
+    <div ref={scrollContainerRef}>
       {open && (
         <div className="modal">
           <div onClick={() => setOpen(false)} className="overlay"></div>
@@ -317,7 +321,7 @@ const ProductDetail = () => {
             alt="/"
           />
         ) : (
-          <section className="section">
+          <section className="section" style={{maxHeight: "25rem"}}>
             <div className="section-center">
               {productByName[0]?.bannerImg?.map((item, indexPeople) => {
                 let position = "nextSlide";
@@ -331,8 +335,8 @@ const ProductDetail = () => {
                   position = "lastSlide";
                 }
                 return (
-                  <article className={position} key={indexPeople}>
-                    <img src={item} alt={item} className="person-img" />
+                  <article className={position} key={indexPeople} style={{maxHeight: "25rem"}}>
+                    <img src={item} alt={item} style={{maxHeight: "25rem"}} className="person-img" />
                   </article>
                 );
               })}
@@ -423,7 +427,7 @@ const ProductDetail = () => {
               style={{
                 fontSize: "38px",
                 paddingBottom: "10px",
-                textDecoration: productByName[0].fdaProduct && "underline",
+                textDecoration: productByName[0]?.fdaProduct && "underline",
               }}
             >
               {productByName[0].name}
@@ -917,7 +921,7 @@ const ProductDetail = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

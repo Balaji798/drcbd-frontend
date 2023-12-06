@@ -7,6 +7,7 @@ import { FaUserCircle } from "react-icons/fa";
 import ApiService from "../../services/ApiService";
 import { Link } from "react-router-dom";
 import "./profile.css";
+import axios from "axios";
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -16,27 +17,36 @@ const Profile = () => {
     const getUser = async () => {
       const res = await ApiService.getUser();
       console.log(res.data.user);
-      setUser(res.data.user);
+      setUser({
+        ...res.data.user,
+        userAddress:
+          res.data.user?.userAddress?.length > 0
+            ? `${res.data.user?.userAddress[0].address},${res.data.user?.userAddress[0].city}`
+            : "",
+      });
     };
     getUser();
   }, []);
 
-  // const profileMenu = [
-  //   {
-  //     title: "Personal Detail",
-  //     icon: (
-  //       <MdOutlineShoppingBag style={{ color: "#004d4a", fontSize: "35px" }} />
-  //     ),
-  //   },
-  //   {
-  //     title: "My Orders",
-  //     icon: <FiShoppingBag style={{ color: "#004d4a", fontSize: "35px" }} />,
-  //   },
-  //   {
-  //     title: "Logout",
-  //     icon: <CiLogout style={{ color: "#004d4a", fontSize: "35px" }} />,
-  //   },
-  // ];
+  const handelUserUpdate = async () => {
+    const user = localStorage.getItem("token");
+    if (user) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user}`,
+          "Content-Type": "application/json", // Set the content type to JSON
+        },
+      };
+      //https://drcbd-backend.onrender.com
+      const res = await axios.post( 
+        "http://localhost:8080/user/edit-user",
+        user, 
+        config  
+      );
+
+      console.log(res.data) 
+    }
+  };
 
   return (
     <div
@@ -81,37 +91,41 @@ const Profile = () => {
       </div>
       <div className="user-det-form">
         <h1 style={{ color: "#003b45" }}>User Profile</h1>
-        <div>
+        <div style={{ width: "100%" }}>
           <div>
-            <p>First Name</p>
+            <p>Name</p>
             <input
-              value={user?.fullName?.split(" ")[0]}
+              value={user?.fullName}
               readOnly={!edit}
               style={{
                 background: edit && "#fff",
                 padding: "5px",
                 fontSize: 16,
                 borderRadius: 10,
-                color:edit&&"#000"
+                color: edit && "#000",
+              }}
+              onChange={(e) => {
+                setUser({ ...user, fullName: e.target.value });
               }}
             />
           </div>
-          <div>
-            <p>Last Name</p>
-            <input
-              value={user?.fullName?.split(" ")[1]}
-              readOnly={!edit}
-              style={{
-                background: edit && "#fff",
-                padding: "5px",
-                fontSize: 16,
-                borderRadius: 10,
-                color:edit&&"#000"
-              }}
-            />
-          </div>
-        </div>
-        <div>
+          {/* // <div>
+          //   <p>Last Name</p>
+          //   <input
+          //     value={user?.fullName?.split(" ")[1]}
+          //     readOnly={!edit}
+          //     style={{
+          //       background: edit && "#fff",
+          //       padding: "5px",
+          //       fontSize: 16,
+          //       borderRadius: 10,
+          //       color: edit && "#000",
+          //     }}
+          //     onChange={(e) => {
+          //       setUser({ ...user, fullName: e.target.value });
+          //     }}
+          //   />
+            // </div>*/}
           <div>
             <p>Email</p>
             <input
@@ -122,25 +136,30 @@ const Profile = () => {
                 padding: "5px",
                 fontSize: 16,
                 borderRadius: 10,
-                color:edit&&"#000"
+                color: edit && "#000",
+              }}
+              onChange={(e) => {
+                setUser({ ...user, email: e.target.value });
               }}
             />
           </div>
-          <div>
+        </div>
+        <div style={{ width: "100%" }}>
+          <div style={{ width: "100%" }}>
             <p>Address</p>
             <input
-              value={
-                user?.userAddress?.length > 0
-                  ? `${user?.userAddress[0].address},${user?.userAddress[0].city}`
-                  : ""
-              }
+              value={user?.userAddress}
               readOnly={!edit}
               style={{
                 background: edit && "#fff",
                 padding: "5px",
                 fontSize: 16,
                 borderRadius: 10,
-                color:edit&&"#000"
+                color: edit && "#000",
+                width: "100%",
+              }}
+              onChange={(e) => {
+                setUser({ ...user, userAddress: e.target.value });
               }}
             />
           </div>
@@ -156,7 +175,10 @@ const Profile = () => {
                 padding: "5px",
                 fontSize: 16,
                 borderRadius: 10,
-                color:edit&&"#000"
+                color: edit && "#000",
+              }}
+              onChange={(e) => {
+                setUser({ ...user, phone: e.target.value });
               }}
             />
           </div>
@@ -170,7 +192,10 @@ const Profile = () => {
                 padding: "5px",
                 fontSize: 16,
                 borderRadius: 10,
-                color:edit&&"#000"
+                color: edit && "#000",
+              }}
+              onChange={(e) => {
+                setUser({ ...user, gender: e.target.value });
               }}
             />
           </div>
@@ -181,12 +206,16 @@ const Profile = () => {
             <input
               value={user?.dateOfBarth}
               readOnly={!edit}
+              type="Date"
               style={{
                 background: edit && "#fff",
                 padding: "5px",
                 fontSize: 16,
                 borderRadius: 10,
-                color:edit&&"#000"
+                color: edit && "#000",
+              }}
+              onChange={(e) => {
+                setUser({ ...user, dateOfBarth: e.target.value });
               }}
             />
           </div>
@@ -205,11 +234,15 @@ const Profile = () => {
               >
                 EDIT
               </button>
-              <button className="edit-button" style={{ width: "6.5rem" }}>
+              <button
+                className="edit-button"
+                style={{ width: "6.5rem" }}
+                onClick={handelUserUpdate}
+              >
                 SAVE
               </button>
             </div>
-            <Link href="/orders" className="edit-button">
+            <Link to="/my-orders" className="edit-button">
               ORDER HISTORY
             </Link>
           </div>

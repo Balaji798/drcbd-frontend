@@ -57,8 +57,9 @@ function App() {
           <Route path="/insights/:type" element={<NHI />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/by-category/:categoryName" element={<ByCategory />} />
-          <Route path="/my-orders" element={<Orders/>}/>
-          <Route path="/order-detail/:orderId" element={<UserOrder/>}/>
+          <Route path="/by-purpose/:categoryName" element={<ByCategory />} />
+          <Route path="/my-orders" element={<Orders />} />
+          <Route path="/order-detail/:orderId" element={<UserOrder />} />
         </Routes>
       </div>
       <Footer />

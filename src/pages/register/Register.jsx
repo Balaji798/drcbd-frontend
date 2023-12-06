@@ -50,7 +50,7 @@ const Register = () => {
           <img
             src="./sub.png"
             alt="/"
-            style={{ width: "100%", objectFit: "contain", height: "30em" }}
+            style={{ width: "100%", objectFit: "contain", height: "20em" }}
           />
           <Link to="/" style={{ color: "#99a79f", width: "35%" }}>
             <button

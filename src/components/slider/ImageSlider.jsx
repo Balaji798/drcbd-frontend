@@ -114,19 +114,19 @@ const ImageSlider = () => {
   const products = [
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/1.jpg",
-      name: "cbd collagen",
+      name: "CBD COLLAGEN PETPITDE 50ML",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/2.jpg",
-      name: "cbd whitening mask",
+      name: "CBD WHITENING MASK SHEET",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/3.jpg",
-      name: "ultra cream",
+      name: "EARTH LAB CBD ULTRA CREAM 30 ML",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/4.jpg",
-      name: "cbd mineral sun spray",
+      name: "CBD MINERAL SUN SPRAY 30 ML",
     },
   ];
 
@@ -375,6 +375,7 @@ const ImageSlider = () => {
               <img
                 src={item.url}
                 style={{ width: "17rem", height: "20em", objectFit: "contain" }}
+                alt='/'
               />
             </Link>
           ))}
@@ -404,6 +405,7 @@ const ImageSlider = () => {
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
                 style={{ width: "40rem", objectFit: "cover" }}
+                alt='/'
               />
               {/* <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (

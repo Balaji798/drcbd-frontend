@@ -89,47 +89,47 @@ const naveData = [
       options: [
         {
           title: "SKINCARE",
-          link: "/by-category/SKINCARE-BEAUTY",
+          link: "/by-purpose/SKINCARE-BEAUTY",
         },
         {
           title: "SLEEP DISORDER",
-          link: "/by-category/SLEEP-DISORDER",
+          link: "/by-purpose/SLEEP-DISORDER",
         },
         {
           title: "IMMUNE",
-          link: "/by-category/IMMUNE",
+          link: "/by-purpose/IMMUNE",
         },
         {
           title: "MUSCLE & JOINT",
-          link: "/by-category/MUSCLE-&-JOINT",
+          link: "/by-purpose/MUSCLE-&-JOINT",
         },
         {
           title: "ENERGY",
-          link: "/by-category/ENERGY",
+          link: "/by-purpose/ENERGY",
         },
         {
           title: "NCD'S",
-          link: "/by-category/NCD'S",
+          link: "/by-purpose/NCD'S",
         },
         {
           title: "WEIGHT MANAGEMENT",
-          link: "/by-category/WEIGHT-MANAGEMENT",
+          link: "/by-purpose/WEIGHT-MANAGEMENT",
         },
         {
           title: "CANCER",
-          link: "/by-category/CANCER",
+          link: "/by-purpose/CANCER",
         },
         {
           title: "RELAXATION",
-          link: "/by-category/RELAXATION",
+          link: "/by-purpose/RELAXATION",
         },
         {
           title: "HORMONES",
-          link: "/by-category/HORMONES",
+          link: "/by-purpose/HORMONES",
         },
         {
           title: "OPIOID",
-          link: "/by-category/OPIOID",
+          link: "/by-purpose/OPIOID",
         },
       ],
     },
@@ -279,7 +279,7 @@ const Navbar = () => {
                     >
                       {sub.icon}
                       <Link
-                        to={ sub.link}
+                        to={sub.link}
                         style={{ cursor: "pointer", fontSize: 16 }}
                       >
                         {sub.title}
