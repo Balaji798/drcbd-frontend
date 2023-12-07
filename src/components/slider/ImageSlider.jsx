@@ -76,8 +76,7 @@ const ImageSlider = () => {
     },
     {
       title: "CBD SOFTGEL",
-      background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-01.jpg",
+      background: "./light-green.jpg",
     },
     {
       title: "CBD FACIAL CARE",
@@ -86,8 +85,7 @@ const ImageSlider = () => {
     },
     {
       title: "BEVERAGE",
-      background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-06.jpg",
+      background: "./black.jpg",
     },
     {
       title: "CBD BODY CARE",
@@ -113,20 +111,24 @@ const ImageSlider = () => {
 
   const products = [
     {
-      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/1.jpg",
-      name: "CBD COLLAGEN PETPITDE 50ML",
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1701968935468.jpg",
+      name: "Earth Lab CBD De' Leep Softgel",
+      link:"EARTH LAB CBD DE'LEEP (30 ML),(2 CAP)"
     },
     {
-      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/2.jpg",
-      name: "CBD WHITENING MASK SHEET",
+      url: "./earth.png",
+      name: "Earth Lab CBD Whitening Mask",
+      link:"CBD WHITENING MASK SHEET"
     },
     {
-      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/3.jpg",
-      name: "EARTH LAB CBD ULTRA CREAM 30 ML",
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694014891114.jpg",
+      name: "CBD I-MUN",
+      link:"CBD I-MUN"
     },
     {
-      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/bestSeller/4.jpg",
-      name: "CBD MINERAL SUN SPRAY 30 ML",
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694015186672.jpg",
+      name: "CBD Collagen peptide",
+      link:"CBD COLLAGEN PETPITDE 50ML"
     },
   ];
 
@@ -177,7 +179,7 @@ const ImageSlider = () => {
     <>
       <div className="banner-black"></div>
       <section className="section" style={{ paddingTop: "1em" }}>
-        <div className="section-center" style={{ height: "30em" }}>
+        <div className="section-center" style={{ height: "34em" }}>
           {slider.map((item, indexPeople) => {
             const { id, image } = item;
             // console.log(image);
@@ -232,7 +234,9 @@ const ImageSlider = () => {
       </section>
       <div className="product">
         <div className="all-background">
-          <div style={{ maxWidth: "1200px", width: "100%" }}>
+          <div
+            style={{ maxWidth: "1200px", width: "100%", paddingTop: "2rem" }}
+          >
             <h1 style={{ textAlign: "center" }}>FIND YOUR CBD BY CATEGORY</h1>
             <div className="product-container">
               {product.map((item, index) => (
@@ -273,6 +277,7 @@ const ImageSlider = () => {
                   textAlign: "center",
                   fontWeight: "500",
                   lineHeight: "1.5em",
+                  fontFamily:"'Montserrat', sans-serif" 
                 }}
               >
                 CBD, short for cannabidiol, has gained significant popularity in
@@ -355,7 +360,7 @@ const ImageSlider = () => {
         <h1 style={{ padding: "2.5rem 0", fontWeight: "bold" }}>
           BEST SELLER PRODUCTS
         </h1>
-        <p style={{ width: "70%", fontWeight: 600, lineHeight: "1.8rem" }}>
+        <p style={{ width: "70%", fontWeight: 400, lineHeight: "1.8rem",fontFamily:"'Montserrat', sans-serif" }}>
           CBD products have gained popularity due to their potential therapeutic
           benefits. While research is ongoing, CBD has shown promise in several
           areas, including: Pain Management: CBD may help alleviate chronic pain
@@ -368,15 +373,27 @@ const ImageSlider = () => {
         </p>
         <div
           className="product-container"
-          style={{ paddingTop: "2rem", maxWidth: "1200px", width: "100%" }}
+          style={{ paddingTop: "2rem", maxWidth: "1270px", width: "100%" }}
         >
           {products.map((item, index) => (
-            <Link to={`/product-detail/` + item.name} key={index}>
+            <Link to={`/product-detail/` + item.link} key={index}>
               <img
                 src={item.url}
-                style={{ width: "17rem", height: "20em", objectFit: "contain" }}
-                alt='/'
+                style={{ width: "18rem", height: "18em", objectFit: "contain" }}
+                alt="/"
               />
+              <p
+                style={{
+                  width: "97%",
+                  textAlign: "end",
+                  textTransform: "uppercase",
+                  fontSize:14,
+                  color:"#d0d0d0"
+                }}
+
+              >
+                {item.name}
+              </p>
             </Link>
           ))}
         </div>
@@ -397,7 +414,7 @@ const ImageSlider = () => {
             <div
               style={{
                 position: "absolute",
-                left: "3rem",
+                left: "6rem",
                 display: "flex",
                 paddingTop: "1.5em",
               }}
@@ -405,7 +422,7 @@ const ImageSlider = () => {
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
                 style={{ width: "40rem", objectFit: "cover" }}
-                alt='/'
+                alt="/"
               />
               {/* <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
@@ -418,10 +435,11 @@ const ImageSlider = () => {
             <img
               src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-02.png"
               style={{ width: "15rem", objectFit: "contain" }}
+              alt="/"
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%", fontSize: "0.8rem" }}>
+            <p style={{ width: "100%", fontSize: "0.8rem",fontWeight:600,lineHeight:"1.3rem" }}>
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -473,6 +491,7 @@ const ImageSlider = () => {
                 objectFit: "cover",
                 marginLeft: "0rem",
               }}
+              alt="/"
             />
             <h2>VITAL MEDI CLINIC</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
@@ -481,6 +500,7 @@ const ImageSlider = () => {
                 width: "100%",
                 lineHeight: "1.3rem",
                 fontSize: "0.8rem",
+                fontWeight:600
               }}
             >
               CBD products have gained popularity due to their potential

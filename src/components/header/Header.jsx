@@ -65,7 +65,7 @@ const Header = () => {
                 style={{
                   outline: "none",
                   width: "100%",
-                  fontSize: 10,
+                  fontSize: 16,
                   border: "none",
                   background: "#fff",
                 }}
@@ -102,7 +102,6 @@ const Header = () => {
               objectFit: "cover",
               height: "45px",
               width: "120px",
-            
               top: 20,
               left: "45%",
             }}

@@ -29,11 +29,11 @@ const OurEsteemed = () => {
         "Advice on building a brand Consultation on all marketing channels",
       ],
     },
-    {
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/DSC_9306.png",
-      title: "CLINIC FRANCHISE",
-      para: "Consider tapping into the holistic healthcare business? Become a part of Dr.CBD Clinic, and consult with us to start up a business with a team of experts. We will help you, from the structural planning and strategy, market analysis to the various other health channels and networks.",
-    },
+    // {
+    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/DSC_9306.png",
+    //   title: "CLINIC FRANCHISE",
+    //   para: "Consider tapping into the holistic healthcare business? Become a part of Dr.CBD Clinic, and consult with us to start up a business with a team of experts. We will help you, from the structural planning and strategy, market analysis to the various other health channels and networks.",
+    // },
     {
       image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/business.png",
       title: "AFFILIATE PROGRAM",

@@ -10,20 +10,14 @@ import "./profile.css";
 import axios from "axios";
 
 const Profile = () => {
-  const [user, setUser] = useState({});
+  const [userData, setUser] = useState({});
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
       console.log(res.data.user);
-      setUser({
-        ...res.data.user,
-        userAddress:
-          res.data.user?.userAddress?.length > 0
-            ? `${res.data.user?.userAddress[0].address},${res.data.user?.userAddress[0].city}`
-            : "",
-      });
+      setUser({...res.data.user,dateOfBarth:res.data.user.dateOfBarth.split("T")[0]});
     };
     getUser();
   }, []);
@@ -34,17 +28,18 @@ const Profile = () => {
       const config = {
         headers: {
           Authorization: `Bearer ${user}`,
-          "Content-Type": "application/json", // Set the content type to JSON
+          "Content-Type": "application/json",
         },
       };
-      //https://drcbd-backend.onrender.com
-      const res = await axios.post( 
-        "https://drcbd-backend.onrender.com/user/edit-user",
-        user, 
-        config  
+      console.log(userData);
+      const res = await axios.put(
+        "https://drcbd-backend.onrender.com/user/update_user",
+        userData,
+        config
       );
 
-      console.log(res.data) 
+      setUser(res.data);
+      setEdit(false)
     }
   };
 
@@ -95,7 +90,7 @@ const Profile = () => {
           <div>
             <p>Name</p>
             <input
-              value={user?.fullName}
+              value={userData?.fullName}
               readOnly={!edit}
               style={{
                 background: edit && "#fff",
@@ -105,14 +100,14 @@ const Profile = () => {
                 color: edit && "#000",
               }}
               onChange={(e) => {
-                setUser({ ...user, fullName: e.target.value });
+                setUser({ ...userData, fullName: e.target.value });
               }}
             />
           </div>
           {/* // <div>
           //   <p>Last Name</p>
           //   <input
-          //     value={user?.fullName?.split(" ")[1]}
+          //     value={userData?.fullName?.split(" ")[1]}
           //     readOnly={!edit}
           //     style={{
           //       background: edit && "#fff",
@@ -129,7 +124,7 @@ const Profile = () => {
           <div>
             <p>Email</p>
             <input
-              value={user?.email}
+              value={userData?.email}
               readOnly={!edit}
               style={{
                 background: edit && "#fff",
@@ -139,7 +134,7 @@ const Profile = () => {
                 color: edit && "#000",
               }}
               onChange={(e) => {
-                setUser({ ...user, email: e.target.value });
+                setUser({ ...userData, email: e.target.value });
               }}
             />
           </div>
@@ -148,7 +143,7 @@ const Profile = () => {
           <div style={{ width: "100%" }}>
             <p>Address</p>
             <input
-              value={user?.userAddress}
+              value={userData?.userAddresses}
               readOnly={!edit}
               style={{
                 background: edit && "#fff",
@@ -159,7 +154,7 @@ const Profile = () => {
                 width: "100%",
               }}
               onChange={(e) => {
-                setUser({ ...user, userAddress: e.target.value });
+                setUser({ ...userData, userAddresses: e.target.value });
               }}
             />
           </div>
@@ -168,7 +163,7 @@ const Profile = () => {
           <div>
             <p>Phone</p>
             <input
-              value={user?.phone}
+              value={userData?.phone}
               readOnly={!edit}
               style={{
                 background: edit && "#fff",
@@ -178,14 +173,14 @@ const Profile = () => {
                 color: edit && "#000",
               }}
               onChange={(e) => {
-                setUser({ ...user, phone: e.target.value });
+                setUser({ ...userData, phone: e.target.value });
               }}
             />
           </div>
           <div>
             <p>Gender</p>
             <input
-              value={user?.gender}
+              value={userData?.gander}
               readOnly={!edit}
               style={{
                 background: edit && "#fff",
@@ -195,7 +190,7 @@ const Profile = () => {
                 color: edit && "#000",
               }}
               onChange={(e) => {
-                setUser({ ...user, gender: e.target.value });
+                setUser({ ...userData, gander: e.target.value });
               }}
             />
           </div>
@@ -204,7 +199,7 @@ const Profile = () => {
           <div>
             <p>Birthday</p>
             <input
-              value={user?.dateOfBarth}
+              value={userData?.dateOfBarth}
               readOnly={!edit}
               type="Date"
               style={{
@@ -215,7 +210,8 @@ const Profile = () => {
                 color: edit && "#000",
               }}
               onChange={(e) => {
-                setUser({ ...user, dateOfBarth: e.target.value });
+                console.log(e.target.value);
+                setUser({ ...userData, dateOfBarth: e.target.value });
               }}
             />
           </div>

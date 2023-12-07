@@ -114,3 +114,14 @@
   background-color: #005652;
   transform: rotate(-20deg);
 }
+
+
+.arrowDown {
+  transform: rotate(180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.arrowUp {
+  transform: rotate(0deg);
+  transition: all 0.5s ease-in-out;
+}

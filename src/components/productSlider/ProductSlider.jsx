@@ -7,26 +7,25 @@ const ProductSlider = ({ image, i, marginB }) => {
     <div
       className="slider-item"
       key={i}
-      style={{ marginBottom:"1rem",zIndex:0 }}
+      style={{ marginBottom: "1rem", zIndex: 0 }}
     >
       {image.images && <img src={image.images[0]} alt="/" />}
       <div
         style={{
           textAlign: "center",
-          // height: "40%",
+          color: "#000",
           width: "100%",
         }}
       >
         <p
           style={{
-            color: "#fff",
             textAlign: "center",
             padding: "5px 0",
           }}
         >
           {image.productFor[0]}
         </p>
-        <Link to={`/product-detail/` + image.name}>
+        <Link to={`/product-detail/` + image.name} style={{color:"#000"}}>
           {image.name.toString()}
         </Link>
       </div>

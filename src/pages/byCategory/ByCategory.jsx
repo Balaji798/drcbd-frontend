@@ -1,77 +1,102 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import ApiService from "../../services/ApiService";
 
-const fiterData = [
-  {
-    title: "CBD CATEGORY",
-    options: [
-      "CBD OIL",
-      "CBD SOFTGEL",
-      "CBD FACIAL CARE",
-      "CBD BODY CARE",
-      "CBD FOR PET",
-      "CBD FOR MUSCLE & JOINTS",
-      "BEVERAGE",
-      "HOME USE",
-      "KRATOM",
-    ],
-  },
-  {
-    title: "CBD BY PURPOSE",
-    options: [
-      "SKINCARE",
-      "SLEEP DISORDER",
-      "IMMUNE",
-      "MUSCLE & JOINT",
-      "ENERGY",
-      "NCD'S",
-      "WEIGHT MANAGEMENT",
-      "CANCER",
-      "RELAXATION",
-      "HORMONES",
-      "OPIOID",
-    ],
-  },
-];
+const fiterData = {
+  title: "CBD CATEGORY",
+  options: [
+    {
+      title: "CBD OIL",
+      link: "/by-category/CBD-OIL",
+    },
+    {
+      title: "CBD SOFTGEL",
+      link: "/by-category/CBD-SOFTGEL",
+    },
+    {
+      title: "CBD FACIAL CARE",
+      link: "/by-category/CBD-FACIAL-CARE",
+    },
+    {
+      title: "CBD BODY CARE",
+      link: "/by-category/CBD-BODY-CARE",
+    },
+    {
+      title: "CBD FOR PET",
+      link: "/by-category/CBD-FOR-PET",
+    },
+    {
+      title: "MUSCLE & JOINT",
+      link: "/by-category/MUSCLE-&-JOINT",
+    },
+    {
+      title: "BEVERAGE",
+      link: "/by-category/BEVERAGE",
+    },
+    {
+      title: "HOME USE",
+      link: "/by-category/home-use",
+    },
+  ],
+};
+// {
+//   title: "CBD BY PURPOSE",
+//   options: [
+//     "SKINCARE",
+//     "SLEEP DISORDER",
+//     "IMMUNE",
+//     "MUSCLE & JOINT",
+//     "ENERGY",
+//     "NCD'S",
+//     "WEIGHT MANAGEMENT",
+//     "CANCER",
+//     "RELAXATION",
+//     "HORMONES",
+//     "OPIOID",
+//   ],
+// },
+
 const ByCategory = () => {
   const { pathname } = useLocation();
   console.log(pathname);
   const [data, setData] = useState([]);
-  const [meanCat, setMeanCat] = useState("");
   const { categoryName } = useParams();
   const [seekbarValue, setSeekbarValue] = useState(50);
 
-  const [cName, setCname] = useState(categoryName.split("-").join(" "));
+  const [cName, setCname] = useState("");
   useEffect(() => {
     getAllProduct();
-    pathname.split("/")[1] === "by-category" ? setMeanCat(0) : setMeanCat(1);
-    setCname(categoryName.split("-").join(" "));
-  }, [cName, pathname]);
+  }, [categoryName]);
 
   const getAllProduct = async () => {
     try {
+      setCname(categoryName.split("-").join(" "));
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
         if (
           item.category2.toLowerCase() ===
-          cName.split("-").join(" ").toLowerCase()
+          categoryName.split("-").join(" ").toLowerCase()
         ) {
           return item;
         } else if (
           item?.category3?.toLowerCase() ===
-          cName.split("-").join(" ").toLowerCase()
+          categoryName.split("-").join(" ").toLowerCase()
         ) {
           return item;
         }
       });
+
       setData(categoryProduct);
     } catch (err) {
       console.log(err.message);
     }
   };
 
+  const handelChang = async (catName) => {
+    try {
+    } catch (err) {}
+  };
   // Event handler for seekbar value change
   const handleSeekbarChange = (event) => {
     const newValue = event.target.value;
@@ -89,42 +114,50 @@ const ByCategory = () => {
       }}
     >
       <div style={{ display: "flex", padding: "2rem 0" }}>
-        <div>
-          <h4>{fiterData[meanCat]?.title}</h4>
+        <div style={{ color: "#005652" }}>
+          <h4>{fiterData?.title}</h4>
           <ul style={{ listStyle: "none", padding: "1.5rem 0 2rem 0" }}>
-            {fiterData[meanCat]?.options.map((item, index) => (
+            {fiterData?.options.map((item, index) => (
               <li
                 key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  paddingBottom: "1rem",
-                  cursor: "pointer",
-                }}
                 onClick={() => {
-                  setCname(item);
+                  setCname(item.title);
+                  handelChang(item.title);
                 }}
               >
-                <div
+                <Link
                   style={{
-                    width: "1rem",
-                    height: "1rem",
-                    borderRadius: "1rem",
-                    border: "1px solid",
-                    marginRight: "0.3rem",
-                    padding: "0.2rem",
+                    display: "flex",
+                    alignItems: "center",
+                    paddingBottom: "1rem",
+                    cursor: "pointer",
+                    fontWeight: 600,
                   }}
+                  to={item.link}
                 >
                   <div
                     style={{
-                      width: "0.5rem",
-                      height: "0.5rem",
-                      borderRadius: "0.5rem",
-                      background: cName === item && "#000",
+                      width: "1rem",
+                      height: "1rem",
+                      borderRadius: "1rem",
+                      border: "1px solid",
+                      marginRight: "0.3rem",
+                      padding: "0.2rem",
                     }}
-                  />
-                </div>
-                {item}
+                  >
+                    <div
+                      style={{
+                        width: "0.5rem",
+                        height: "0.5rem",
+                        borderRadius: "0.5rem",
+                        background:
+                          cName === item.title &&
+                          "#005652",
+                      }}
+                    />
+                  </div>
+                  {item.title}
+                </Link>
               </li>
             ))}
           </ul>
@@ -164,6 +197,7 @@ const ByCategory = () => {
           <div
             style={{
               maxWidth: "1150px",
+              minWidth:"1150px",
               width: "100%",
               display: "flex",
               alignItems: "center",

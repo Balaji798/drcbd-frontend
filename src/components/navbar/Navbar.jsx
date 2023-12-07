@@ -41,98 +41,90 @@ const naveData = [
           title: "HOME USE",
           link: "/by-category/home-use",
         },
-        {
-          title: "KRATOM",
-          link: "/by-category/SKINCARE",
-        },
+        // {
+        //   title: "KRATOM",
+        //   link: "/by-category/SKINCARE",
+        // },
       ],
     },
-    subMenu2: {
-      title: "OUR BRANDS",
+
+  },
+  {
+    title: "OUR BRAND",
+    subMenu1: {
+      title: "",
+      link: "/",
       options: [
         {
           title: "EARTHLAB",
-          link: "/product-detail/:productName",
-        },
-        {
-          title: "CBD LAB",
-          link: "/product-detail/:productName",
-        },
-        {
-          title: "HEMPINESS",
-          link: "/product-detail/:productName",
+          link: "/",
         },
         {
           title: "HAPPII",
-          link: "/product-detail/:productName",
+          link: "/",
         },
         {
-          title: "9CE",
-          link: "/product-detail/:productName",
-        },
-        {
-          title: "KOOZE",
-          link: "/product-detail/:productName",
+          title: "S.TAMINA",
+          link: "/",
         },
         {
           title: "MITRA G",
-          link: "/product-detail/:productName",
+          link: "/",
         },
+       
       ],
     },
-  },
-  {
-    title: "CBD BY PURPOSE",
-    subMenu1: {
-      title: "CBD BY PURPOSE",
-      link: "/cbd-by-purpose",
-      options: [
-        {
-          title: "SKINCARE",
-          link: "/by-purpose/SKINCARE-BEAUTY",
-        },
-        {
-          title: "SLEEP DISORDER",
-          link: "/by-purpose/SLEEP-DISORDER",
-        },
-        {
-          title: "IMMUNE",
-          link: "/by-purpose/IMMUNE",
-        },
-        {
-          title: "MUSCLE & JOINT",
-          link: "/by-purpose/MUSCLE-&-JOINT",
-        },
-        {
-          title: "ENERGY",
-          link: "/by-purpose/ENERGY",
-        },
-        {
-          title: "NCD'S",
-          link: "/by-purpose/NCD'S",
-        },
-        {
-          title: "WEIGHT MANAGEMENT",
-          link: "/by-purpose/WEIGHT-MANAGEMENT",
-        },
-        {
-          title: "CANCER",
-          link: "/by-purpose/CANCER",
-        },
-        {
-          title: "RELAXATION",
-          link: "/by-purpose/RELAXATION",
-        },
-        {
-          title: "HORMONES",
-          link: "/by-purpose/HORMONES",
-        },
-        {
-          title: "OPIOID",
-          link: "/by-purpose/OPIOID",
-        },
-      ],
-    },
+    // title: "CBD BY PURPOSE",
+    // subMenu1: {
+    //   title: "CBD BY PURPOSE",
+    //   link: "/cbd-by-purpose",
+    //   options: [
+    //     {
+    //       title: "SKINCARE",
+    //       link: "/by-purpose/SKINCARE-BEAUTY",
+    //     },
+    //     {
+    //       title: "SLEEP DISORDER",
+    //       link: "/by-purpose/SLEEP-DISORDER",
+    //     },
+    //     {
+    //       title: "IMMUNE",
+    //       link: "/by-purpose/IMMUNE",
+    //     },
+    //     {
+    //       title: "MUSCLE & JOINT",
+    //       link: "/by-purpose/MUSCLE-&-JOINT",
+    //     },
+    //     {
+    //       title: "ENERGY",
+    //       link: "/by-purpose/ENERGY",
+    //     },
+    //     {
+    //       title: "NCD'S",
+    //       link: "/by-purpose/NCD'S",
+    //     },
+    //     {
+    //       title: "WEIGHT MANAGEMENT",
+    //       link: "/by-purpose/WEIGHT-MANAGEMENT",
+    //     },
+    //     {
+    //       title: "CANCER",
+    //       link: "/by-purpose/CANCER",
+    //     },
+    //     {
+    //       title: "RELAXATION",
+    //       link: "/by-purpose/RELAXATION",
+    //     },
+    //     {
+    //       title: "HORMONES",
+    //       link: "/by-purpose/HORMONES",
+    //     },
+    //     {
+    //       title: "OPIOID",
+    //       link: "/by-purpose/OPIOID",
+    //     },
+    //   ],
+    // },
   },
   {
     title: "OUR SERVICES",
@@ -147,10 +139,10 @@ const naveData = [
           title: "OEM/ODM",
           link: "",
         },
-        {
-          title: "CLINIC FRANCHISE",
-          link: "",
-        },
+        // {
+        //   title: "CLINIC FRANCHISE",
+        //   link: "",
+        // },
         {
           title: "VITAL MEDI CLINIC",
           link: "",
@@ -187,9 +179,9 @@ const naveData = [
     },
   },
   {
-    title: "DR.CBD UNIVERSITY",
+    title: "BLOG",
     subMenu1: {
-      title: "DR.CBD UNIVERSITY",
+      title: "BLOG",
       options: [
         {
           title: "HEALTH",
@@ -267,7 +259,7 @@ const Navbar = () => {
                 <div>
                   <Link
                     to={item.subMenu1.link}
-                    style={{ padding: "10px 15px", fontSize: 16 }}
+                    style={{ padding: "10px 15px", fontSize: 16 ,fontFamily:"'Poppins', sans-serif",fontWeight:800}}
                   >
                     {item.subMenu1.title}
                   </Link>
@@ -276,6 +268,7 @@ const Navbar = () => {
                       style={{ display: "flex", alignItems: "center" }}
                       className="dropdown-item"
                       key={i}
+                      onClick={()=>{window.location.reload();}}
                     >
                       {sub.icon}
                       <Link

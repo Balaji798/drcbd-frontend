@@ -3,6 +3,24 @@ import "./stories.css";
 import Accordion from "../accordion/Accordion";
 
 const Stories = () => {
+  const onButtonClick1 = () => {
+    const pdfUrl = "./Company Profile-ENG-FP.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "Company Profile-ENG-FP.pdf"; // specify the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+const onButtonClick2 = () => {
+  const pdfUrl = "./product catalog ENG_2023_smallest_20_07_23.pdf";
+  const link = document.createElement("a");
+  link.href = pdfUrl;
+  link.download = "product catalog ENG_2023_smallest_20_07_23.pdf"; // specify the filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
   const storiesData = [
     {
       title: "ABOUT",
@@ -201,7 +219,7 @@ const Stories = () => {
               <h1 style={{ fontSize: "3rem", paddingBottom: "2rem" }}>
                 COMPANY PROFILE
               </h1>
-              <button className="stories-button-blue-gr">
+              <button className="stories-button-blue-gr" onClick={onButtonClick1}>
                 Download Company Profile
               </button>
             </div>
@@ -209,7 +227,7 @@ const Stories = () => {
               <h1 style={{ fontSize: "3rem", paddingBottom: "2rem" }}>
                 PRODUCT CATALOG
               </h1>
-              <button className="stories-button-blue-gr">
+              <button className="stories-button-blue-gr" onClick={onButtonClick2}>
                 Download Product Catalog
               </button>
             </div>

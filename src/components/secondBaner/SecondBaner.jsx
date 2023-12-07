@@ -1,45 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import "./secondBanner.css";
 import { iconsData } from "./iconsData";
 import { IoIosArrowDown } from "react-icons/io";
 
 const SecondBanner = () => {
+  const [open, setOpen] = useState(null);
+  const toggle = (string) => {
+    if (open === string) {
+      return setOpen(null);
+    }
+    setOpen(string);
+  };
+
+  // <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src= frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2yu.co">2yu</a><br><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}</style><a href="https://embedgooglemap.2yu.co/">html embed google map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div>
   const data = [
     {
       title: "VITAL MEDI CLINIC",
       para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
       tel: "TEL: +66 9 9191 4926",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
+      mapLink:
+        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
       title: "VITAL HEALTH CAFE",
       para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
       tel: "TEL: +66 9 9191 4926",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
+      mapLink:
+        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "VITAL HEALTH CAFE",
+      title: "DR.KRATOM BIO",
       para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
       tel: "TEL: +66 9 9191 4926",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
+      mapLink:
+        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "VITAL HEALTH CAFE",
+      title: "DR.CBD CLINIC : NAVAVEJ",
       para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
       tel: "TEL: +66 9 9191 4926",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
+      mapLink:
+        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "VITAL HEALTH CAFE",
+      title: "DR.CBD CLINIC : HUAHIN",
       para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
       tel: "TEL: +66 9 9191 4926",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
+      mapLink:
+        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "VITAL HEALTH CAFE",
+      title: "DR.PET",
       para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
       tel: "TEL: +66 9 9191 4926",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
+      mapLink:
+        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
   ];
 
@@ -51,7 +78,6 @@ const SecondBanner = () => {
             display: "flex",
             width: "100%",
             maxWidth: "1200px",
-            width: "100%",
             justifyContent: "space-between",
             padding: "2rem 0 0",
           }}
@@ -192,7 +218,7 @@ const SecondBanner = () => {
                   promise in
                 </p>
               </div>
-              <div style={{ width: "48%",marginRight:"1rem" }}>
+              <div style={{ width: "48%", marginRight: "1rem" }}>
                 <img
                   src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
@@ -214,7 +240,7 @@ const SecondBanner = () => {
             display: "flex",
             height: "8em",
             alignItems: "center",
-            width: "100%",
+            width: "80%",
             justifyContent: "space-between",
           }}
         >
@@ -227,12 +253,18 @@ const SecondBanner = () => {
           >
             ONLINE SHOP
           </h1>
-          <h2 style={{ padding: "0.5em 1em" }}>LINE SHOPPING</h2>
-          <img src="./online/a.png" style={{ width: "8em" }} alt="/"/>
-          <img src="./online/ad.png" style={{ width: "8em" }} alt="/"/>
-          <img src="./online/Untitled-1.png" style={{ width: "8em" }} alt="/"/>
-          <img src="./online/h.png" style={{ width: "8em" }} alt="/"/>
-          <img src="./online/va.png" style={{ width: "8em" }} alt="/"/>
+          <a
+            href="https://shop.line.me/@dr.cbd?utm_source=Seller_feature&utm_medium=Storefront-Shopend&utm_keyword=e7d3af3f8879479220333034dd470a4b1701930355066
+          "
+            style={{ padding: "0.5em 1em",fontSize:"25px",fontWeight:"bold" }}
+          >
+            LINE SHOPPING
+          </a>
+          <a href="https://shopee.co.th/earthlab"><img src="./online/a.png" style={{ width: "8em" }} alt="/" /></a>
+          <a href="https://www.lazada.co.th/shop/earth-lab?path=index.htm&lang=en&pageTypeId=1"><img src="./online/ad.png" style={{ width: "8em" }} alt="/" /></a>
+          {/*<img src="./online/Untitled-1.png" style={{ width: "8em" }} alt="/" />*/}
+          <a href="https://www.konvy.com/brand/drcbd/"><img src="./online/h.png" style={{ width: "8em" }} alt="/" /></a>
+          {/*<img src="./online/va.png" style={{ width: "8em" }} alt="/" />*/}
         </div>
         <div className="banner">
           <div>
@@ -251,19 +283,20 @@ const SecondBanner = () => {
             />
             <p
               style={{
-                width: "34.8%",
+                width: "35%",
                 lineHeight: "30px",
                 fontWeight: 300,
-                fontFamily: "'Hind Siliguri', sans-seri",
+                fontFamily: "sans-serif",
                 fontSize: 20,
               }}
             >
-              CBD Oil is extracted from an IES (Isolate Extraction Systems)
-              machine, using Supercritical CO2 extraction technology. A
-              World-class/ certified standard from the USA. CBD Oil has
-              properties that help relax and reduce anxiety. improve sleep
-              quality and fall asleep easier. No hangover feeling when you wake
-              up. Better brain function and ready for a new day
+              CBD oil is extracted from an IES (Isolate Extraction System)
+              machine, using supercritical CO2 extraction technology, the global
+              certified standard of extraction from the USA. This ensures that
+              the properties of the oil are thoroughly extracted for better
+              efficacy. CBD contain properties that help you relax to reduce
+              anxiety, improve the easing into sleep and the sleep quality and
+              depth without the ‘hangover feel’ when you awake.
             </p>
           </div>
           <div className="pointer">
@@ -368,36 +401,78 @@ const SecondBanner = () => {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            maxWidth: "1100px",
+            maxWidth: "900px",
             width: "100%",
             justifyContent: "center",
             alignItems: "center",
             zIndex: 1,
+            background: "#fff",
+            padding: "1rem",
           }}
         >
           {data.map((item, index) => (
             <div
               style={{
-                width: "17em",
+                width: "17.5em",
                 background: "#fff",
-                borderRight: index === 2 || index === 5 ? 0 : "1px solid #000",
-                borderBottom:
-                  index === 2 || index === 0 || index === 1 ? "1px solid #000" : 0,
+                borderRight: index === 2 || index === 5 ? 0 : "2px solid #000",
+                // borderBottom:
+                //   index === 2 || index === 0 || index === 1 ? "1px solid #000" : 0,
                 padding: "1em",
-                margin:"0.1rem",
                 color: "#000",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                overflow: "hidden",
               }}
               key={index}
             >
               <img
                 src={item.image}
-                style={{ width: "15rem", objectFit: "contain", height:index===0?"6.7em": "5em" }}
+                style={{ width: "15rem", objectFit: "contain", height: "5em" }}
                 alt="/"
               />
               <h2 style={{ padding: "5px 0" }}>{item.title}</h2>
               <p style={{ padding: "5px 0" }}>{item.para}</p>
-              <h3 style={{ padding: "5px 0" }}>{item.tel}</h3>
-              <IoIosArrowDown />
+              <h3 style={{ padding: "5px 0",fontFamily: "AvenirNextLTPro-Regular", }}>{item.tel}</h3>
+              <div>
+                <IoIosArrowDown
+                  className={index === open ? "arrowDown" : "arrowUp"}
+                  size={40}
+                  onClick={() => toggle(index)}
+                />
+              </div>
+
+              <div className="wrapper">
+                <div className="accordion">
+                  <div className="item" style={{ border: 0 }}>
+                    <div
+                      className={index === open ? "show content" : "content"}
+                      style={{ marginLeft: "-2rem" }}
+                    >
+                      <iframe
+                        width="30%"
+                        height="100%"
+                        id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"
+                        scrolling="Yes"
+                        marginheight="0"
+                        marginwidth="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {(index === 2 || index === 0 || index === 1) && (
+                <div
+                  style={{
+                    width: "95%",
+                    height: 2,
+                    background: "#000",
+                  }}
+                />
+              )}
             </div>
           ))}
         </div>

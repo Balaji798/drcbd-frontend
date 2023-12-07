@@ -44,7 +44,7 @@ article.nextSlide {
 .prev,
 .next {
   position: absolute;
-  top: 200px;
+  top: 250px;
   transform: translateY(-50%);
   background-color: transparent;
   color: #f4f1f1;
@@ -60,11 +60,11 @@ article.nextSlide {
 }
 .prev {
   left: 0;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .next {
   right: 0;
-  margin-right: 35px;
+  margin-right: 25px;
 }
 @media (min-width: 800px) {
   .text {
@@ -96,6 +96,13 @@ article.nextSlide {
   padding: 20px 0px;
 }
 
+.product-container>a{
+  background-image: url("./product-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 0.7rem;
+}
+
 .all-background {
   background-image: url("./yty12.png");
   background-size: cover;
@@ -111,8 +118,8 @@ article.nextSlide {
   background-size: cover;
   width: 17em;
   height: 17em;
-  margin-bottom: 1em;
-  color: #fff;
+  margin-bottom: 0.5rem;
+  color: #000;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
