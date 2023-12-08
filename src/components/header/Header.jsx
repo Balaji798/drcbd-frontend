@@ -37,23 +37,8 @@ const Header = () => {
       {open && <Modal setOpen={setOpen} user={user} />}
       <header>
         <div className="header-container">
-          <div 
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-           
-            <p> TH/EN |</p>
-            <Link to="/sign-in">Sign In |</Link>
-            <p style={{cursor:"pointer"}} onClick={()=>{
-              if(user){
-                navigate("/my-orders")
-              }else{
-                setOpen(true);
-              }
-            }}> My Orders</p>
-          </div>
+          <div />
+
           <div style={{ display: "flex", width: "20%" }}>
             <div className="search-bar">
               <BsSearch

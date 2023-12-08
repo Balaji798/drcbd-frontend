@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const naveData = [
   {
@@ -47,84 +47,59 @@ const naveData = [
         // },
       ],
     },
-
   },
   {
-    title: "OUR BRAND",
+    title: "CBD BY PURPOSE",
     subMenu1: {
-      title: "",
-      link: "/",
+      title: "CBD BY PURPOSE",
+      link: "/cbd-by-purpose",
       options: [
         {
-          title: "EARTHLAB",
-          link: "/",
+          title: "SKINCARE",
+          link: "/by-purpose/SKINCARE-BEAUTY",
         },
         {
-          title: "HAPPII",
-          link: "/",
+          title: "SLEEP DISORDER",
+          link: "/by-purpose/SLEEP-DISORDER",
         },
         {
-          title: "S.TAMINA",
-          link: "/",
+          title: "IMMUNE",
+          link: "/by-purpose/IMMUNE",
         },
         {
-          title: "MITRA G",
-          link: "/",
+          title: "MUSCLE & JOINT",
+          link: "/by-purpose/MUSCLE-&-JOINT",
         },
-       
+        {
+          title: "ENERGY",
+          link: "/by-purpose/ENERGY",
+        },
+        {
+          title: "NCD'S",
+          link: "/by-purpose/NCD'S",
+        },
+        {
+          title: "WEIGHT MANAGEMENT",
+          link: "/by-purpose/WEIGHT-MANAGEMENT",
+        },
+        {
+          title: "CANCER",
+          link: "/by-purpose/CANCER",
+        },
+        {
+          title: "RELAXATION",
+          link: "/by-purpose/RELAXATION",
+        },
+        {
+          title: "HORMONES",
+          link: "/by-purpose/HORMONES",
+        },
+        {
+          title: "OPIOID",
+          link: "/by-purpose/OPIOID",
+        },
       ],
     },
-    // title: "CBD BY PURPOSE",
-    // subMenu1: {
-    //   title: "CBD BY PURPOSE",
-    //   link: "/cbd-by-purpose",
-    //   options: [
-    //     {
-    //       title: "SKINCARE",
-    //       link: "/by-purpose/SKINCARE-BEAUTY",
-    //     },
-    //     {
-    //       title: "SLEEP DISORDER",
-    //       link: "/by-purpose/SLEEP-DISORDER",
-    //     },
-    //     {
-    //       title: "IMMUNE",
-    //       link: "/by-purpose/IMMUNE",
-    //     },
-    //     {
-    //       title: "MUSCLE & JOINT",
-    //       link: "/by-purpose/MUSCLE-&-JOINT",
-    //     },
-    //     {
-    //       title: "ENERGY",
-    //       link: "/by-purpose/ENERGY",
-    //     },
-    //     {
-    //       title: "NCD'S",
-    //       link: "/by-purpose/NCD'S",
-    //     },
-    //     {
-    //       title: "WEIGHT MANAGEMENT",
-    //       link: "/by-purpose/WEIGHT-MANAGEMENT",
-    //     },
-    //     {
-    //       title: "CANCER",
-    //       link: "/by-purpose/CANCER",
-    //     },
-    //     {
-    //       title: "RELAXATION",
-    //       link: "/by-purpose/RELAXATION",
-    //     },
-    //     {
-    //       title: "HORMONES",
-    //       link: "/by-purpose/HORMONES",
-    //     },
-    //     {
-    //       title: "OPIOID",
-    //       link: "/by-purpose/OPIOID",
-    //     },
-    //   ],
-    // },
   },
   {
     title: "OUR SERVICES",
@@ -243,68 +218,112 @@ const naveData = [
 ];
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate();
+  const user = localStorage.getItem("token");
+
+  if (open) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
   return (
     <nav>
-      <div class="navbar">
-        {naveData.map((item, index) => (
-          <div className="dropdown" key={index}>
-            <Link to="#">{item.title}</Link>
+    <div className="navContainer">
+
+    <div class="navbar">
+      {naveData.map((item, index) => (
+        <div className="dropdown" key={index}>
+          <Link to="#">{item.title}</Link>
+          <div
+            className="dropdown-content"
+            //style={{}}
+          >
             <div
-              className="dropdown-content"
-              //style={{}}
+              style={{ width: "auto", paddingRight: "10px", display: "flex" }}
             >
-              <div
-                style={{ width: "auto", paddingRight: "10px", display: "flex" }}
-              >
-                <div>
-                  <Link
-                    to={item.subMenu1.link}
-                    style={{ padding: "10px 15px", fontSize: 16 ,fontFamily:"'Poppins', sans-serif",fontWeight:800}}
+              <div>
+                <Link
+                  to={item.subMenu1.link}
+                  style={{
+                    padding: "10px 15px",
+                    fontSize: 16,
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: 800,
+                  }}
+                >
+                  {item.subMenu1.title}
+                </Link>
+                {item?.subMenu1?.options?.map((sub, i) => (
+                  <div
+                    style={{ display: "flex", alignItems: "center" }}
+                    className="dropdown-item"
+                    key={i}
+                    onClick={() => {
+                      window.location.reload();
+                    }}
                   >
-                    {item.subMenu1.title}
-                  </Link>
-                  {item?.subMenu1?.options?.map((sub, i) => (
-                    <div
-                      style={{ display: "flex", alignItems: "center" }}
-                      className="dropdown-item"
-                      key={i}
-                      onClick={()=>{window.location.reload();}}
+                    {sub.icon}
+                    <Link
+                      to={sub.link}
+                      style={{ cursor: "pointer", fontSize: 16 }}
                     >
-                      {sub.icon}
-                      <Link
-                        to={sub.link}
-                        style={{ cursor: "pointer", fontSize: 16 }}
-                      >
-                        {sub.title}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <Link style={{ padding: "10px 15px", fontSize: 22 }}>
-                    {item?.subMenu2?.title}
-                  </Link>
-                  {item?.subMenu2?.options?.map((sub, i) => (
-                    <div
-                      style={{ display: "flex", alignItems: "center" }}
-                      className="dropdown-item"
-                      key={i}
-                    >
-                      {sub.icon}
-                      <Link to="#" style={{ cursor: "pointer", fontSize: 16 }}>
-                        {sub.title}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
+                      {sub.title}
+                    </Link>
+                  </div>
+                ))}
               </div>
-              <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/contact.png"
-                style={{ width: "50%" }}
-              />
+              <div>
+                <Link style={{ padding: "10px 15px", fontSize: 22 }}>
+                  {item?.subMenu2?.title}
+                </Link>
+                {item?.subMenu2?.options?.map((sub, i) => (
+                  <div
+                    style={{ display: "flex", alignItems: "center" }}
+                    className="dropdown-item"
+                    key={i}
+                  >
+                    {sub.icon}
+                    <Link to="#" style={{ cursor: "pointer", fontSize: 16 }}>
+                      {sub.title}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
+            <img
+              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/contact.png"
+              style={{ width: "50%" }}
+              alt="/"
+            />
           </div>
-        ))}
+        </div>
+      ))}
+    </div>
+    </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          color:"#fff"
+        }}
+      >
+        <p> TH/EN |</p>
+        <Link to="/sign-in">Sign In |</Link>
+        <p
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            if (user) {
+              navigate("/my-orders");
+            } else {
+              setOpen(true);
+            }
+          }}
+        >
+          {" "}
+          My Orders
+        </p>
       </div>
     </nav>
   );

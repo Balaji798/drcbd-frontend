@@ -73,70 +73,77 @@ const SecondBanner = () => {
   return (
     <>
       <div className="secondBanner">
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            maxWidth: "1200px",
-            justifyContent: "space-between",
-            padding: "2rem 0 0",
-          }}
-        >
+        <div>
+          <h2 style={{textAlign:"center",padding: "2rem 0",}}>WHERE TO FIND US</h2>
           <div
             style={{
-              width: "49.6%",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
+              width: "100%",
+              maxWidth: "1200px",
+              justifyContent: "space-between",
+              
             }}
           >
-            <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/LINE_ALBUM.jpg"
-              style={{ objectFit: "cover", width: "100%" }}
-            />
-            <h2 style={{ textAlign: "center", padding: "1rem 0" }}>
-              TOP DEPARTMENT STORES
-            </h2>
-            <p
+            <div
               style={{
-                textAlign: "center",
-                lineHeight: "2rem",
-                fontWeight: 500,
-                width: "80%",
+                width: "49.6%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              CBD products have gained popularity due to their potential
-              therapeutic benefits. While research is ongoing, CBD has shown
-              promise in several areas, including:
-            </p>
-          </div>
-          <div
-            style={{
-              width: "49.6%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_8944.jpg"
-              style={{ objectFit: "cover", width: "100%", height: "24.7em" }}
-            />
-            <h2 style={{ textAlign: "center", padding: "1rem 0" }}>FASCINO</h2>
-            <p
+              <img
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/LINE_ALBUM.jpg"
+                style={{ objectFit: "cover", width: "100%" }}
+                alt="/"
+              />
+              <h2 style={{ textAlign: "center", padding: "1rem 0" }}>
+                TOP DEPARTMENT STORES
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                  lineHeight: "2rem",
+                  fontWeight: 500,
+                  width: "80%",
+                }}
+              >
+                CBD products have gained popularity due to their potential
+                therapeutic benefits. While research is ongoing, CBD has shown
+                promise in several areas, including:
+              </p>
+            </div>
+            <div
               style={{
-                textAlign: "center",
-                lineHeight: "2rem",
-                fontWeight: 500,
-                width: "80%",
+                width: "49.6%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              CBD products have gained popularity due to their potential
-              therapeutic benefits. While research is ongoing, CBD has shown
-              promise in several areas, including:
-            </p>
+              <img
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_8944.jpg"
+                style={{ objectFit: "cover", width: "100%", height: "24.7em" }}
+                alt="/"
+              />
+              <h2 style={{ textAlign: "center", padding: "1rem 0" }}>
+                FASCINO
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                  lineHeight: "2rem",
+                  fontWeight: 500,
+                  width: "80%",
+                }}
+              >
+                CBD products have gained popularity due to their potential
+                therapeutic benefits. While research is ongoing, CBD has shown
+                promise in several areas, including:
+              </p>
+            </div>
           </div>
         </div>
         <div
@@ -195,7 +202,7 @@ const SecondBanner = () => {
           </div>
           <div style={{ width: "49.7%", textAlign: "center" }}>
             <h1 style={{ fontSize: "2.5rem", padding: "1rem 0" }}>
-              MODERNTRADE
+              MODERN TRADE
             </h1>
             <div
               style={{
@@ -256,14 +263,24 @@ const SecondBanner = () => {
           <a
             href="https://shop.line.me/@dr.cbd?utm_source=Seller_feature&utm_medium=Storefront-Shopend&utm_keyword=e7d3af3f8879479220333034dd470a4b1701930355066
           "
-            style={{ padding: "0.5em 1em",fontSize:"25px",fontWeight:"bold" }}
+            style={{
+              padding: "0.5em 1em",
+              fontSize: "25px",
+              fontWeight: "bold",
+            }}
           >
             LINE SHOPPING
           </a>
-          <a href="https://shopee.co.th/earthlab"><img src="./online/a.png" style={{ width: "8em" }} alt="/" /></a>
-          <a href="https://www.lazada.co.th/shop/earth-lab?path=index.htm&lang=en&pageTypeId=1"><img src="./online/ad.png" style={{ width: "8em" }} alt="/" /></a>
+          <a href="https://shopee.co.th/earthlab">
+            <img src="./online/a.png" style={{ width: "8em" }} alt="/" />
+          </a>
+          <a href="https://www.lazada.co.th/shop/earth-lab?path=index.htm&lang=en&pageTypeId=1">
+            <img src="./online/ad.png" style={{ width: "8em" }} alt="/" />
+          </a>
           {/*<img src="./online/Untitled-1.png" style={{ width: "8em" }} alt="/" />*/}
-          <a href="https://www.konvy.com/brand/drcbd/"><img src="./online/h.png" style={{ width: "8em" }} alt="/" /></a>
+          <a href="https://www.konvy.com/brand/drcbd/">
+            <img src="./online/h.png" style={{ width: "8em" }} alt="/" />
+          </a>
           {/*<img src="./online/va.png" style={{ width: "8em" }} alt="/" />*/}
         </div>
         <div className="banner">
@@ -434,7 +451,14 @@ const SecondBanner = () => {
               />
               <h2 style={{ padding: "5px 0" }}>{item.title}</h2>
               <p style={{ padding: "5px 0" }}>{item.para}</p>
-              <h3 style={{ padding: "5px 0",fontFamily: "AvenirNextLTPro-Regular", }}>{item.tel}</h3>
+              <h3
+                style={{
+                  padding: "5px 0",
+                  fontFamily: "AvenirNextLTPro-Regular",
+                }}
+              >
+                {item.tel}
+              </h3>
               <div>
                 <IoIosArrowDown
                   className={index === open ? "arrowDown" : "arrowUp"}

@@ -6,7 +6,7 @@ export const iconsData = [
     },
     {
       icon: "./icons/2.png",
-      title: "Multiple sclerosis(spasm)",
+      title: "Multiple sclerosis",
     },
     {
       icon: "./icons/3.png",
@@ -14,19 +14,19 @@ export const iconsData = [
     },
     {
       icon: "./icons/4.png",
-      title: "Weight loss in AIDS illness",
+      title: "Excessive Weight Loss",
     },
     {
       icon: "./icons/5.png",
-      title: "Improve quality of life in palliative care",
+      title: "Palliative care",
     },
     {
       icon: "./icons/6.png",
-      title: "insomnia",
+      title: "Insomnia",
     },
     {
       icon: "./icons/7.png",
-      title: "Parkinson",
+      title: "Parkinson's",
     },
   ],
   [
@@ -36,7 +36,7 @@ export const iconsData = [
     },
     {
       icon: "./icons/9.png",
-      title: "Generalized anxiety disorder",
+      title: "Anxiety",
     },
     {
       icon: "./icons/10.png",
@@ -44,7 +44,7 @@ export const iconsData = [
     },
     {
       icon: "./icons/11.png",
-      title: "Insomnia",
+      title: "Epilepsy",
     },
   ],
 ];

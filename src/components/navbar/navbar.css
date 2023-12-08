@@ -11,6 +11,12 @@ nav {
   justify-content: center;
 }
 
+.navContainer {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .navbar {
   width: 1050px;
   display: flex;

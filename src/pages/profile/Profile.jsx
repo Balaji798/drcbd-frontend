@@ -17,7 +17,7 @@ const Profile = () => {
     const getUser = async () => {
       const res = await ApiService.getUser();
       console.log(res.data.user);
-      setUser({...res.data.user,dateOfBarth:res.data.user.dateOfBarth.split("T")[0]});
+      setUser({...res.data.user,dateOfBarth:res.data.user?.dateOfBarth?.split("T")[0]});
     };
     getUser();
   }, []);

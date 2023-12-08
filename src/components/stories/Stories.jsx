@@ -360,64 +360,8 @@ const onButtonClick2 = () => {
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            justifyContent: "space-between",
-            paddingTop: "2rem",
-          }}
-        >
-          <div style={{ width: "47.5%", background: "#263f44", height: 3 }} />
-          <h1 style={{ color: "#263f44" }}>FAQS</h1>
-          <div style={{ width: "47.5%", background: "#263f44", height: 3 }} />
-        </div>
-        <div
-          className="stories-container"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            color: "#2b3d3f",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                background: "#e3e3e3",
-                padding: "1rem 0.5rem",
-                marginBottom: "0.1rem",
-                fontWeight: "bold",
-                borderLeft: "2px solid",
-              }}
-            >
-              About CBD
-            </div>
-            <div
-              style={{
-                background: "#e3e3e3",
-                padding: "1rem 0.5rem",
-                marginBottom: "0.1rem",
-                fontWeight: "bold",
-              }}
-            >
-              How to use CBD
-            </div>
-            <div
-              style={{
-                background: "#e3e3e3",
-                padding: "1rem 0.5rem",
-                marginBottom: "0.1rem",
-                fontWeight: "bold",
-              }}
-            >
-              Traveling Thailand with CBD
-            </div>
-          </div>
-          <div>
-            <Accordion />
-          </div>
-        </div>
+
+      
         <div className="subscribe">
           <h1>
             SIGN UP AND GET <br />
@@ -435,3 +379,63 @@ const onButtonClick2 = () => {
 };
 
 export default Stories;
+
+
+// <div
+// style={{
+//   display: "flex",
+//   alignItems: "center",
+//   width: "100%",
+//   justifyContent: "space-between",
+//   paddingTop: "2rem",
+// }}
+// >
+// <div style={{ width: "47.5%", background: "#263f44", height: 3 }} />
+// <h1 style={{ color: "#263f44" }}>FAQS</h1>
+// <div style={{ width: "47.5%", background: "#263f44", height: 3 }} />
+// </div>
+// <div
+// className="stories-container"
+// style={{
+//   display: "flex",
+//   justifyContent: "center",
+//   color: "#2b3d3f",
+// }}
+// >
+// <div>
+//   <div
+//     style={{
+//       background: "#e3e3e3",
+//       padding: "1rem 0.5rem",
+//       marginBottom: "0.1rem",
+//       fontWeight: "bold",
+//       borderLeft: "2px solid",
+//     }}
+//   >
+//     About CBD
+//   </div>
+//   <div
+//     style={{
+//       background: "#e3e3e3",
+//       padding: "1rem 0.5rem",
+//       marginBottom: "0.1rem",
+//       fontWeight: "bold",
+//     }}
+//   >
+//     How to use CBD
+//   </div>
+//   <div
+//     style={{
+//       background: "#e3e3e3",
+//       padding: "1rem 0.5rem",
+//       marginBottom: "0.1rem",
+//       fontWeight: "bold",
+//     }}
+//   >
+//     Traveling Thailand with CBD
+//   </div>
+// </div>
+// <div>
+//   <Accordion />
+// </div>
+// </div>

@@ -4,7 +4,9 @@ import axios from "axios";
 
 const Register = () => {
   const [login, setLogin] = useState(false);
-
+  const [verified, setVerified] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [token, setToken] = useState("");
   const [user, setUser] = useState({
     fullName: "",
     email: "",
@@ -23,12 +25,27 @@ const Register = () => {
       );
       console.log(response.data);
       localStorage.setItem("token", response.data);
+      setToken(response.data);
       setLogin(true);
     } catch (error) {
       console.log("Signup failed", error.message);
     }
   };
 
+  const verifyEmail = async () => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+    };
+    const res = await axios.post(
+      "https://drcbd-backend.onrender.com/user/email_verification",
+      { otp: otp },
+      config
+    );
+    if (res.data.status) setVerified(true);
+  };
   return (
     <div
       style={{
@@ -41,18 +58,64 @@ const Register = () => {
       }}
     >
       {login ? (
-        <>
-          <h1 style={{ fontSize: "50px", textAlign: "center" }}>
-            You Have Successfully
-            <br />
-            Registered !
-          </h1>
-          <img
-            src="./sub.png"
-            alt="/"
-            style={{ width: "100%", objectFit: "contain", height: "20em" }}
-          />
-          <Link to="/" style={{ color: "#99a79f", width: "35%" }}>
+        verified ? (
+          <>
+            <h1 style={{ fontSize: "50px", textAlign: "center" }}>
+              You Have Successfully
+              <br />
+              Registered !
+            </h1>
+            <img
+              src="./sub.png"
+              alt="/"
+              style={{ width: "100%", objectFit: "contain", height: "20em" }}
+            />
+            <Link to="/" style={{ color: "#99a79f", width: "35%" }}>
+              <button
+                style={{
+                  marginTop: "1em",
+                  fontSize: "30px",
+                  textAlign: "center",
+                  width: "100%",
+                  padding: "10px",
+                  border: "none",
+                  background: "#0b4640",
+                  color: "#fff",
+                  fontWeight: "bold",
+                }}
+                onClick={() => setLogin(true)}
+              >
+                Go Home
+              </button>
+            </Link>
+          </>
+        ) : (
+          <div>
+            <h3 style={{ textTransform: "capitalize" }}>
+              {" "}
+              We have send an otp to your email please use that otp to verify
+              your email
+            </h3>
+            <p
+              style={{
+                width: "35%",
+                fontSize: "16px",
+                padding: "0.7em 0",
+                fontWeight: "bold",
+              }}
+            >
+              OTP(One Time Password)
+            </p>
+            <input
+              style={{
+                width: "35%",
+                padding: "5px",
+                fontSize: 20,
+                borderRadius: 10,
+                border: "1px solid grey",
+              }}
+              onChange={(e)=>{setOtp(e.target.value)}}
+            />
             <button
               style={{
                 marginTop: "1em",
@@ -65,12 +128,12 @@ const Register = () => {
                 color: "#fff",
                 fontWeight: "bold",
               }}
-              onClick={() => setLogin(true)}
+              onClick={verifyEmail}
             >
-              Go Home
+              Verify Email
             </button>
-          </Link>
-        </>
+          </div>
+        )
       ) : (
         <>
           <h1 style={{ fontSize: "50px" }}>
@@ -95,7 +158,7 @@ const Register = () => {
               padding: "5px",
               fontSize: 20,
               borderRadius: 10,
-              border:"1px solid grey"
+              border: "1px solid grey",
             }}
             onChange={(e) => {
               setUser({ ...user, fullName: e.target.value });
@@ -117,7 +180,7 @@ const Register = () => {
               padding: "5px",
               fontSize: 20,
               borderRadius: 10,
-              border:"1px solid grey"
+              border: "1px solid grey",
             }}
             onChange={(e) => {
               setUser({ ...user, email: e.target.value });
@@ -140,7 +203,7 @@ const Register = () => {
               fontSize: 16,
               borderRadius: 10,
               marginBottom: "1em",
-              border:"1px solid grey"
+              border: "1px solid grey",
             }}
             onChange={(e) => {
               setUser({ ...user, password: e.target.value });
@@ -163,7 +226,7 @@ const Register = () => {
               fontSize: 16,
               borderRadius: 10,
               marginBottom: "1em",
-              border:"1px solid grey"
+              border: "1px solid grey",
             }}
             onChange={(e) => {
               setUser({ ...user, confirmPassword: e.target.value });

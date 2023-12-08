@@ -75,17 +75,17 @@ const ImageSlider = () => {
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2.jpg",
     },
     {
-      title: "CBD SOFTGEL",
-      background: "./light-green.jpg",
+      title: "BEVERAGE",
+      background: "./black.jpg",
     },
     {
-      title: "CBD FACIAL CARE",
+      title: "CBD SKIN & CARE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-04.jpg",
     },
     {
-      title: "BEVERAGE",
-      background: "./black.jpg",
+      title: "CBD SUPPLEMENTS",
+      background: "./light-green.jpg",
     },
     {
       title: "CBD BODY CARE",
@@ -93,7 +93,7 @@ const ImageSlider = () => {
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-03.jpg",
     },
     {
-      title: "CBD FOR PET",
+      title: "CBD FOR PETS",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-05.jpg",
     },
@@ -113,22 +113,22 @@ const ImageSlider = () => {
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1701968935468.jpg",
       name: "Earth Lab CBD De' Leep Softgel",
-      link:"EARTH LAB CBD DE'LEEP (30 ML),(2 CAP)"
+      link: "EARTH LAB CBD DE'LEEP (30 ML),(2 CAP)",
     },
     {
       url: "./earth.png",
       name: "Earth Lab CBD Whitening Mask",
-      link:"CBD WHITENING MASK SHEET"
+      link: "CBD WHITENING MASK SHEET",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694014891114.jpg",
       name: "CBD I-MUN",
-      link:"CBD I-MUN"
+      link: "CBD I-MUN",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694015186672.jpg",
       name: "CBD Collagen peptide",
-      link:"CBD COLLAGEN PETPITDE 50ML"
+      link: "CBD COLLAGEN PETPITDE 50ML",
     },
   ];
 
@@ -277,7 +277,7 @@ const ImageSlider = () => {
                   textAlign: "center",
                   fontWeight: "500",
                   lineHeight: "1.5em",
-                  fontFamily:"'Montserrat', sans-serif" 
+                  fontFamily: "'Montserrat', sans-serif",
                 }}
               >
                 CBD, short for cannabidiol, has gained significant popularity in
@@ -349,7 +349,7 @@ const ImageSlider = () => {
 
       <div
         style={{
-          textAlign: "center",
+          
           paddingBottom: "1rem",
           display: "flex",
           flexDirection: "column",
@@ -357,20 +357,33 @@ const ImageSlider = () => {
           alignItems: "center",
         }}
       >
-        <h1 style={{ padding: "2.5rem 0", fontWeight: "bold" }}>
-          BEST SELLER PRODUCTS
-        </h1>
-        <p style={{ width: "70%", fontWeight: 400, lineHeight: "1.8rem",fontFamily:"'Montserrat', sans-serif" }}>
+        <h1 style={{ padding: "2.5rem 0", fontWeight: "bold" }}>BEST SELLER</h1>
+        <p
+          style={{
+            width: "70%",
+            fontWeight: 400,
+            lineHeight: "1.8rem",
+            fontFamily: "'Montserrat', sans-serif",
+          
+          }}
+        >
           CBD products have gained popularity due to their potential therapeutic
           benefits. While research is ongoing, CBD has shown promise in several
-          areas, including: Pain Management: CBD may help alleviate chronic pain
-          by interacting with receptors in the endocannabinoid system, reducing
-          inflammation and influencing neurotransmitter activity. Anxiety and
-          Depression: Preliminary studies suggest that CBD may have an
-          anxiolytic effect, potentially reducing symptoms of anxiety and
-          depression. However, further research is needed to establish its
-          efficacy.
+          areas, including:
         </p>
+        <ul style={{width:"50%"}}>
+          <li>
+            Pain Management: CBD may help alleviate chronic pain by interacting
+            with receptors in the endocannabinoid system, reducing inflammation
+            and influencing neurotransmitter activity.
+          </li>
+          <li style={{paddingTop:"0.5rem"}}>
+            Anxiety and Depression: Preliminary studies suggest that CBD may
+            have an anxiolytic effect, potentially reducing symptoms of anxiety
+            and depression. However, further research is needed to establish its
+            efficacy.
+          </li>
+        </ul>
         <div
           className="product-container"
           style={{ paddingTop: "2rem", maxWidth: "1270px", width: "100%" }}
@@ -387,10 +400,9 @@ const ImageSlider = () => {
                   width: "97%",
                   textAlign: "end",
                   textTransform: "uppercase",
-                  fontSize:14,
-                  color:"#d0d0d0"
+                  fontSize: 14,
+                  color: "#d0d0d0",
                 }}
-
               >
                 {item.name}
               </p>
@@ -420,7 +432,7 @@ const ImageSlider = () => {
               }}
             >
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
+              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
                 style={{ width: "40rem", objectFit: "cover" }}
                 alt="/"
               />
@@ -439,7 +451,14 @@ const ImageSlider = () => {
             />
             <h2>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p style={{ width: "100%", fontSize: "0.8rem",fontWeight:600,lineHeight:"1.3rem" }}>
+            <p
+              style={{
+                width: "100%",
+                fontSize: "0.8rem",
+                fontWeight: 600,
+                lineHeight: "1.3rem",
+              }}
+            >
               CBD products have gained popularity due to their potential
               therapeutic benefits. While research is ongoing, CBD has shown
               promise in several areas, including: Pain Management: CBD may help
@@ -500,7 +519,7 @@ const ImageSlider = () => {
                 width: "100%",
                 lineHeight: "1.3rem",
                 fontSize: "0.8rem",
-                fontWeight:600
+                fontWeight: 600,
               }}
             >
               CBD products have gained popularity due to their potential
@@ -524,8 +543,10 @@ const ImageSlider = () => {
               }}
             >
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
+               
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
                 style={{ width: "42rem", objectFit: "cover" }}
+                alt="/"
               />
               {/* <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
                 {healthCafe.map((item, index) => (
