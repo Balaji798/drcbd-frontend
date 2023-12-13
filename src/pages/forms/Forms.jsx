@@ -31,6 +31,7 @@ const Forms = (props) => {
   //console.log(user);
   const handelNext = async () => {
     try {
+
       const user = localStorage.getItem("token");
       const config = {
         headers: {
@@ -38,20 +39,21 @@ const Forms = (props) => {
           "Content-Type": "application/json", // Set the content type to JSON
         },
       };
-
+      console.log('hii')
       const res = await axios.post(
-        "https://drcbd-backend.onrender.com/user/update-user",
+        "https://drcbd-backend.onrender.com/user/edit-user",
         userAdd,
         config
       );
 
-      //console.log(res.data.status);
+      console.log(res.data.status);
       if (res.data.status) {
         const response = await axios.post(
           "https://drcbd-backend.onrender.com/orders/update_order/"+orderId,
           userAdd,
           config
         );
+        
         if (response.data.status)
         navigate("/order-summery/"+orderId);
       }

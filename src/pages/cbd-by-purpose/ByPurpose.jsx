@@ -11,18 +11,21 @@ import Card from "../../components/card/Card";
 
 const ByPurpose = () => {
   const product = useSelector((state) => state.product);
-  const productsByCategory = product.product.reduce((acc, product) => {
-    //console.log(acc,product)
-    const categoryName = product.category2;
-    if (!acc[categoryName]) {
-      acc[categoryName] = [];
-    }
-    acc[categoryName].push(product);
-    return acc;
-  }, {});
 
-  // Convert the object to a 2D array
-  const productsArray = Object.entries(productsByCategory);
+  const productsByCategory={}
+   product.product.forEach(product => {
+    if (product.cbdByCategory) {
+      const categoryName = product?.categoryName[0];
+      
+      if (!productsByCategory[categoryName]) {
+        productsByCategory[categoryName] = [];
+      }
+  
+      productsByCategory[categoryName].push(product);
+    }
+  });
+  
+  const productsArray =Object.entries(productsByCategory);
   const PreviousBtn = (props) => {
     const { onClick } = props;
     return (

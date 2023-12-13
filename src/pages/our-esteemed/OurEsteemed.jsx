@@ -20,7 +20,7 @@ const OurEsteemed = () => {
     {
       image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/product.png",
       title: "OEM",
-      para: 'Start a business under your own brand. We provide manufacture and branding service. Basically a "One Stop Service" for OEM, ODM, COA',
+      para: `Start a business under your own brand. We provide manufacture and branding service. Basically a "One Stop Service" for OEM, ODM, COA`,
       option: [
         "own you products anf formular from our experts.",
         "World-class production technology",
@@ -68,6 +68,7 @@ const OurEsteemed = () => {
         <img
           src="../free-phone.png"
           style={{ objectFit: "cover", height: "30px" }}
+          alt="/"
         />
       ),
     },
@@ -125,7 +126,7 @@ const OurEsteemed = () => {
             }}
           >
             <div>
-              <p style={{ fontSize: "25px", width: "73%", padding: "1em 0" }}>
+              <p style={{ fontSize: "25px", width: "83%", padding: "1em 0" }}>
                 {item.title}
               </p>
               <p
@@ -147,6 +148,7 @@ const OurEsteemed = () => {
             <img
               src={item.image}
               style={{ width: "60%", height: "25em", objectFit: "contain" }}
+              alt="/"
             />
           </div>
         </div>

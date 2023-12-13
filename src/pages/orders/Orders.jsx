@@ -49,7 +49,7 @@ const Orders = () => {
                     }}
                   >
                     <img
-                      src={product.productId.images[0]}
+                      src={product.productId?.images[0]}
                       style={{
                         width: "100%",
                         height: "100%",
@@ -60,17 +60,17 @@ const Orders = () => {
                   </div>
                   <div style={{ paddingLeft: 10, height: "100%" }}>
                     <h4 style={{ paddingBottom: 10 }}>
-                      {product.productId.name}
+                      {product.productId?.name}
                     </h4>
 
                     <h4 style={{ paddingBottom: 10 }}>
-                      Quantity:- {product.quantity}
+                      Quantity:- {product?.quantity}
                     </h4>
                   </div>
                 </div>
                 <div>
                   <h4 style={{ paddingBottom: 10 }}>
-                    Total Price:- ฿{product.productId.price * product.quantity}
+                    Total Price:- ฿{product.productId?.price * product?.quantity}
                   </h4>
                   <h5>Delivery Time:- 24/12/2023</h5>
                 </div>

@@ -22,6 +22,7 @@ import Forms from "./pages/forms/Forms";
 import PayPal from "./pages/paypal/PayPal";
 import env from "react-dotenv";
 import UserOrder from "./pages/userOrder/UserOrder";
+import CancelOrder from "./pages/cancelOrder/CancelOrder";
 
 function App() {
   console.log(env);
@@ -57,9 +58,10 @@ function App() {
           <Route path="/insights/:type" element={<NHI />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/by-category/:categoryName" element={<ByCategory />} />
-          {/*<Route path="/by-purpose/:categoryName" element={<ByCategory />} />*/}
+          <Route path="/by-purpose/:categoryName" element={<ByCategory />} />
           <Route path="/my-orders" element={<Orders />} />
           <Route path="/order-detail/:orderId" element={<UserOrder />} />
+          <Route path="/cancel_order" element={<CancelOrder/>}/>
         </Routes>
       </div>
       <Footer />

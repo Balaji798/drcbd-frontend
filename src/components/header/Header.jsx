@@ -32,19 +32,45 @@ const Header = () => {
       res.data.status ? navigate(type) : setOpen(true);
     }
   };
+
+  const handelSearch = () => {
+    
+  };
   return (
     <>
       {open && <Modal setOpen={setOpen} user={user} />}
       <header>
         <div className="header-container">
-          <div />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "#fff",
+            }}
+          >
+            <Link to="/sign-in">Sign In |</Link>
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                if (user) {
+                  navigate("/my-orders");
+                } else {
+                  setOpen(true);
+                }
+              }}
+            >
+              {" "}
+              My Orders
+            </p>
+          </div>
 
-          <div style={{ display: "flex", width: "20%" }}>
+          <div style={{ display: "flex", width: "30%" }}>
             <div className="search-bar">
               <BsSearch
                 color="#000"
-                style={{ marginRight: "0.5em" }}
+                style={{ marginRight: "0.5em", cursor: "pointer" }}
                 size={16}
+                onClick={handelSearch}
               />
               <input
                 style={{
@@ -77,6 +103,19 @@ const Header = () => {
               onClick={() => handelNext("/profile")}
             >
               <FaUserCircle style={{ fontSize: "25px", alignSelf: "end" }} />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "27%",
+                marginLeft: 10,
+              }}
+            >
+              <img src="./england.jpg" style={{ width: "30px" }} alt="/" />
+              |
+              <img src="./thailand.png" style={{ width: "24px" }} alt="/" />
             </div>
           </div>
         </div>

@@ -113,8 +113,8 @@ const UserOrder = () => {
             >
               <div className="steps" style={{ padding: 0, background: "#fff" }}>
                 <img
-                  src={item.image}
-                  alt={item.image}
+                  src={item?.image}
+                  alt={item?.image}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
@@ -187,6 +187,18 @@ const UserOrder = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <button style={{ width: 170, fontSize: 16, marginRight: 15 }}>
+          CANCEL ORDER
+        </button>
+        <button style={{ width: 160, fontSize: 16 }}>Send FeedBack</button>
       </div>
     </div>
   );

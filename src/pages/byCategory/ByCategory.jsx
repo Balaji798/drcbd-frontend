@@ -11,32 +11,33 @@ const fiterData = {
       link: "/by-category/CBD-OIL",
     },
     {
-      title: "CBD SOFTGEL",
-      link: "/by-category/CBD-SOFTGEL",
+      title: "CBD SUPPLEMENTS",
+      link: "/by-category/CBD-SUPPLEMENTS",
     },
     {
-      title: "CBD FACIAL CARE",
-      link: "/by-category/CBD-FACIAL-CARE",
+      title: "CBD FACE",
+      link: "/by-category/CBD-FACE",
     },
     {
-      title: "CBD BODY CARE",
-      link: "/by-category/CBD-BODY-CARE",
+      title: "CBD BODY",
+      link: "/by-category/CBD-CARE",
+    },
+
+    {
+      title: "CBD BEVERAGE",
+      link: "/by-category/CBD-BEVERAGE",
     },
     {
-      title: "CBD FOR PET",
-      link: "/by-category/CBD-FOR-PET",
+      title: "AROMATHERAPY",
+      link: "/by-category/AROMATHERAPY",
     },
+    // {
+    //   title: "HOME USE",
+    //   link: "/by-category/home-use",
+    // },
     {
-      title: "MUSCLE & JOINT",
-      link: "/by-category/MUSCLE-&-JOINT",
-    },
-    {
-      title: "BEVERAGE",
-      link: "/by-category/BEVERAGE",
-    },
-    {
-      title: "HOME USE",
-      link: "/by-category/home-use",
+      title: "CBD FOR PETS",
+      link: "/by-category/CBD-FOR-PETS",
     },
   ],
 };
@@ -59,7 +60,7 @@ const fiterData = {
 
 const ByCategory = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
+  //console.log(pathname);
   const [data, setData] = useState([]);
   const { categoryName } = useParams();
   const [seekbarValue, setSeekbarValue] = useState(50);
@@ -74,18 +75,20 @@ const ByCategory = () => {
       setCname(categoryName.split("-").join(" "));
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
+        console.log(item.categoryName)
         if (
-          item.category2.toLowerCase() ===
-          categoryName.split("-").join(" ").toLowerCase()
-        ) {
-          return item;
-        } else if (
-          item?.category3?.toLowerCase() ===
-          categoryName.split("-").join(" ").toLowerCase()
+          item.categoryName.includes(categoryName.split("-").join(" "))
         ) {
           return item;
         }
-      });
+        // } else if (
+        //   item?.category3?.toLowerCase() ===
+        //   categoryName.split("-").join(" ").toLowerCase()
+        // ) {
+         // return item;
+        //}
+      }
+      );
 
       setData(categoryProduct);
     } catch (err) {

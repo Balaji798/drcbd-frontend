@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalButton } from "react-paypal-button-v2";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BiSolidBadgeCheck } from "react-icons/bi";
@@ -12,39 +13,46 @@ const PayPal = () => {
   const navigate = useNavigate();
   const { orderId } = useParams();
 
+  // useEffect(() => {
+  //   const getOrderData = async () => {
+  //     const res = await ApiService.getOrderById(orderId);
+  //     setOrderData(res.data);
+  //   };
+  //   getOrderData();
+  // }, [orderId]);
 
-  useEffect(() => {
-    const getOrderData = async () => {
-      const res = await ApiService.getOrderById(orderId);
-      setOrderData(res.data);
-    };
-    getOrderData();
-  }, [orderId]);
+  // useEffect(() => {
+  //   const updateOrderStatus = async () => {
+  //     if (orderStatus) {
+  //       const user = localStorage.getItem("token");
+  //       const config = {
+  //         headers: {
+  //           Authorization: `Bearer ${user}`,
+  //           "Content-Type": "application/json", // Set the content type to JSON
+  //         },
+  //       };
 
-  useEffect(() => {
-    const updateOrderStatus = async () => {
-      console.log("hi2");
-      if (orderStatus) {
-        console.log("hi1");
-        const user = localStorage.getItem("token");
-        const config = {
-          headers: {
-            Authorization: `Bearer ${user}`,
-            "Content-Type": "application/json", // Set the content type to JSON
-          },
-        };
+  //       await axios.post(
+  //         `https://drcbd-backend.onrender.com/orders/update_order/${orderId}`,
+  //         { orderId, status: "placed" },
+  //         config
+  //       );
+  //     }
+  //   };
+  //   updateOrderStatus();
+  // }, [orderStatus, orderId]);
 
-         await axios.post(
-          `https://drcbd-backend.onrender.com/orders/update_order/${orderId}`,
-          { orderId, status: "placed" },
-          config
-        );
-      }
-    };
-    updateOrderStatus();
-  }, [orderStatus,orderId]);
 
-  console.log(orderStatus);
+  const [paymentID, setPaymentID] = useState("");
+
+  const createPayment = async () => {
+    try {
+      const response = await axios.post("/place_order");
+      setPaymentID(response.data.id);
+    } catch (error) {
+      console.error("Error creating PayPal payment:", error);
+    }
+  };
   return (
     <>
       {orderStatus && (
@@ -78,7 +86,7 @@ const PayPal = () => {
         </div>
       )}
 
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -90,7 +98,7 @@ const PayPal = () => {
       >
         {orderData?.totalPrice && (
           <div style={{ maxWidth: 400, width: "100%" }}>
-            {/* <button onClick={() => setOrderStatus(true)}>Place Order</button> */}
+         
             <PayPalScriptProvider
               options={{
                 clientId:
@@ -126,7 +134,20 @@ const PayPal = () => {
             </PayPalScriptProvider>
           </div>
         )}
-      </div>
+              </div>*/}
+
+      <PayPalButton
+        amount="10.00"
+        onSuccess={(details, data) => {
+          // Handle successful payment
+          console.log("Payment completed successfully", details, data);
+        }}
+        options={{
+          clientId: process.env.REACT_APP_CLIENT_ID,
+          currency: "USD",
+        }}
+        createOrder={() => createPayment()}
+      />
     </>
   );
 };

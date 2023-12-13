@@ -75,16 +75,17 @@ const ImageSlider = () => {
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2.jpg",
     },
     {
-      title: "BEVERAGE",
+      title: "CBD SUPPLEMENTS",
       background: "./black.jpg",
     },
+
     {
       title: "CBD SKIN & CARE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-04.jpg",
     },
     {
-      title: "CBD SUPPLEMENTS",
+      title: "BEVERAGE",
       background: "./light-green.jpg",
     },
     {
@@ -349,7 +350,6 @@ const ImageSlider = () => {
 
       <div
         style={{
-          
           paddingBottom: "1rem",
           display: "flex",
           flexDirection: "column",
@@ -357,30 +357,35 @@ const ImageSlider = () => {
           alignItems: "center",
         }}
       >
-        <h1 style={{ padding: "2.5rem 0", fontWeight: "bold" }}>BEST SELLER</h1>
+        <h1 style={{ padding: "2.5rem 0 1.5rem", fontWeight: "bold" }}>
+          BEST SELLER
+        </h1>
         <p
           style={{
             width: "70%",
-            fontWeight: 400,
-            lineHeight: "1.8rem",
+            fontWeight: 500,
+            lineHeight: "1.2rem",
             fontFamily: "'Montserrat', sans-serif",
-          
+            paddingBottom: "0.8rem",
           }}
         >
           CBD products have gained popularity due to their potential therapeutic
-          benefits. While research is ongoing, CBD has shown promise in several
-          areas, including:
+          benefits. While research is ongoing,
+          <br /> CBD has shown promise in several areas, including:
         </p>
-        <ul style={{width:"50%"}}>
+        <ul style={{ width: "65%" }}>
           <li>
             Pain Management: CBD may help alleviate chronic pain by interacting
-            with receptors in the endocannabinoid system, reducing inflammation
-            and influencing neurotransmitter activity.
+            with receptors in the
+            <br /> endocannabinoid system, reducing inflammation and influencing
+            neurotransmitter activity.
           </li>
-          <li style={{paddingTop:"0.5rem"}}>
+          <li style={{ paddingTop: "0.8rem" }}>
             Anxiety and Depression: Preliminary studies suggest that CBD may
-            have an anxiolytic effect, potentially reducing symptoms of anxiety
-            and depression. However, further research is needed to establish its
+            have an anxiolytic effect, potentially <br />
+            reducing symptoms of anxiety and depression. However, further
+            research is needed to establish its
+            <br />
             efficacy.
           </li>
         </ul>
@@ -432,7 +437,7 @@ const ImageSlider = () => {
               }}
             >
               <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
                 style={{ width: "40rem", objectFit: "cover" }}
                 alt="/"
               />
@@ -449,25 +454,24 @@ const ImageSlider = () => {
               style={{ width: "15rem", objectFit: "contain" }}
               alt="/"
             />
-            <h2>VITAL HEALTH CAFE</h2>
-            <p style={{ padding: "0.3rem 0" }}>CBD products</p>
+            <h2 style={{ textAlign: "end" }}>VITAL HEALTH CAFE</h2>
+            <p style={{ padding: "0.3rem 0", textAlign: "end" }}>
+              Vital Health Cafe
+            </p>
             <p
               style={{
                 width: "100%",
                 fontSize: "0.8rem",
                 fontWeight: 600,
                 lineHeight: "1.3rem",
+                textAlign: "end",
               }}
             >
-              CBD products have gained popularity due to their potential
-              therapeutic benefits. While research is ongoing, CBD has shown
-              promise in several areas, including: Pain Management: CBD may help
-              alleviate chronic pain by interacting with receptors in the
-              endocannabinoid system, reducing inflammation and influencing
-              neurotransmitter activity. Anxiety and Depression: Preliminary
-              studies suggest that CBD may have an anxiolytic effect,
-              potentially reducing symptoms of anxiety and depression. However,
-              further research is needed to establish its efficacy.
+              Vital Health Café offer you wide range of food
+              <br /> nutrients ranging from healthy food, beverages
+              <br /> and CBD-infused drinks. Looking for more CBD
+              <br /> products, visit us at “The Marche” Thonglor Soi 4,
+              <br /> 1st floor.
             </p>
           </div>
           <div
@@ -522,15 +526,11 @@ const ImageSlider = () => {
                 fontWeight: 600,
               }}
             >
-              CBD products have gained popularity due to their potential
-              therapeutic benefits. While research is ongoing, CBD has shown
-              promise in several areas, including: Pain Management: CBD may help
-              alleviate chronic pain by interacting with receptors in the
-              endocannabinoid system, reducing inflammation and influencing
-              neurotransmitter activity. Anxiety and Depression: Preliminary
-              studies suggest that CBD may have an anxiolytic effect,
-              potentially reducing symptoms of anxiety and depression. However,
-              further research is needed to establish its efficacy.
+              Vital Medi Clinic is an Integrative Medical clinic which
+              <br /> combines Preventive Medicine, Applied Thai Traditional
+              <br /> Medicine (ATTM) and Traditional Chinese Medicine (TCM)
+              <br /> altogether. We personalized treatment plans individually to
+              <br /> reach practical and sustainable optimum health.
             </p>
           </div>
           <div style={{ width: "45%", background: "#fff", height: "24rem" }}>
@@ -543,7 +543,6 @@ const ImageSlider = () => {
               }}
             >
               <img
-               
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
                 style={{ width: "42rem", objectFit: "cover" }}
                 alt="/"

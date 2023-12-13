@@ -1,14 +1,10 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { ImStarFull, ImStarHalf } from "react-icons/im";
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaLine,
-  FaTiktok,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import VerticalCarousel from "../../components/verticalslider/VerticalSlider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -203,6 +199,7 @@ const ProductDetail = () => {
           setOpen(true);
         }
         await getCart(dispatch);
+        toast("Item Added To Cart");
         return;
       } else {
         alert("You are not login login first");
@@ -291,6 +288,9 @@ const ProductDetail = () => {
   console.log(productByName);
   return (
     <div ref={scrollContainerRef}>
+      <div>
+        <ToastContainer />
+      </div>
       {open && (
         <div className="modal">
           <div onClick={() => setOpen(false)} className="overlay"></div>
@@ -321,7 +321,7 @@ const ProductDetail = () => {
             alt="/"
           />
         ) : (
-          <section className="section" style={{maxHeight: "25rem"}}>
+          <section className="section" style={{ maxHeight: "25rem" }}>
             <div className="section-center">
               {productByName[0]?.bannerImg?.map((item, indexPeople) => {
                 let position = "nextSlide";
@@ -335,8 +335,17 @@ const ProductDetail = () => {
                   position = "lastSlide";
                 }
                 return (
-                  <article className={position} key={indexPeople} style={{maxHeight: "25rem"}}>
-                    <img src={item} alt={item} style={{maxHeight: "25rem"}} className="person-img" />
+                  <article
+                    className={position}
+                    key={indexPeople}
+                    style={{ maxHeight: "25rem" }}
+                  >
+                    <img
+                      src={item}
+                      alt={item}
+                      style={{ maxHeight: "25rem" }}
+                      className="person-img"
+                    />
                   </article>
                 );
               })}

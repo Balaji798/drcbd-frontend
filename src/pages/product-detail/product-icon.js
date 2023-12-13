@@ -44,7 +44,7 @@ export const productIcon = [
     ],
   },
   {
-    title: "CBD Collagen Peptide",
+    title: "CBD COLLAGEN PETPITDE 50ML",
     icons: [
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/product-info-icon/CBD+Collagen+Peptide/20.png",
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/product-info-icon/CBD+Collagen+Peptide/Anti-Sebum.png",

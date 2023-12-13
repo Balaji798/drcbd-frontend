@@ -194,13 +194,13 @@ const onButtonClick2 = () => {
               <div
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  
                   alignItems: "center",
                   color: "#fff",
                 }}
               >
-                <div className="stories-button">Affiliate</div>
-                <div className="stories-button">About Us</div>
+              { /* <div className="stories-button">Affiliate</div>*/}
+                <div className="stories-button" style={{marginRight:"1rem"}}>About Us</div>
                 <div className="stories-button">CBD Products</div>
               </div>
             </div>

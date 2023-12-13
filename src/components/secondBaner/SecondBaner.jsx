@@ -106,12 +106,10 @@ const SecondBanner = () => {
                   textAlign: "center",
                   lineHeight: "2rem",
                   fontWeight: 500,
-                  width: "80%",
+                 
                 }}
               >
-                CBD products have gained popularity due to their potential
-                therapeutic benefits. While research is ongoing, CBD has shown
-                promise in several areas, including:
+              Our CBD Products are available at Tops Supermarket across Thailand.
               </p>
             </div>
             <div
@@ -136,12 +134,10 @@ const SecondBanner = () => {
                   textAlign: "center",
                   lineHeight: "2rem",
                   fontWeight: 500,
-                  width: "80%",
+                
                 }}
               >
-                CBD products have gained popularity due to their potential
-                therapeutic benefits. While research is ongoing, CBD has shown
-                promise in several areas, including:
+              Our CBD products are available at Fascino Drug Store across Bangkok.
               </p>
             </div>
           </div>

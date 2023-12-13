@@ -55,16 +55,17 @@ const CartComponent = (props) => {
       console.log(err);
     }
   };
+  console.log(cart)
   return (
     <>
-      <div
+     {cart.cart.length===0?<h1 style={{padding:"2rem 0",textAlign:"center"}}>Cart is empty</h1>: <div
         style={{
           padding: "1em 4em",
           display: "flex",
           color: "#005652",
           justifyContent: "center",
         }}
-      >
+       >
         <div style={{ width: "55%" }}>
           {cart.cart?.items?.map((item) => (
             <div
@@ -211,18 +212,17 @@ const CartComponent = (props) => {
           background: "#f3f3f3",
           padding: "0.5em 1em",
         }}
-      >
+       >
         <img
           src="./paypal.png"
           style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
-      </Link> */}
+       </Link> */}
           </div>
         </div>
-      </div>
-      {/* <div style={{ paddingTop: "3em" }}>
-        <SeeMore />
-      </div> */}
+       </div>
+  
+      }
     </>
   );
 };

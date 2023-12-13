@@ -14,32 +14,33 @@ const naveData = [
           link: "/by-category/CBD-OIL",
         },
         {
-          title: "CBD SOFTGEL",
-          link: "/by-category/CBD-SOFTGEL",
+          title: "CBD SUPPLEMENTS",
+          link: "/by-category/CBD-SUPPLEMENTS",
         },
         {
-          title: "CBD FACIAL CARE",
-          link: "/by-category/CBD-FACIAL-CARE",
+          title: "CBD FACE",
+          link: "/by-category/CBD-FACE",
         },
         {
-          title: "CBD BODY CARE",
-          link: "/by-category/CBD-BODY-CARE",
+          title: "CBD BODY",
+          link: "/by-category/CBD-CARE",
+        },
+
+        {
+          title: "CBD BEVERAGE",
+          link: "/by-category/CBD-BEVERAGE",
         },
         {
-          title: "CBD FOR PET",
-          link: "/by-category/CBD-FOR-PET",
+          title: "AROMATHERAPY",
+          link: "/by-category/AROMATHERAPY",
         },
+        // {
+        //   title: "HOME USE",
+        //   link: "/by-category/home-use",
+        // },
         {
-          title: "CBD FOR MUSCLE & JOINTS",
-          link: "/by-category/MUSCLE-&-JOINT",
-        },
-        {
-          title: "BEVERAGE",
-          link: "/by-category/BEVERAGE",
-        },
-        {
-          title: "HOME USE",
-          link: "/by-category/home-use",
+          title: "CBD FOR PETS",
+          link: "/by-category/CBD-FOR-PETS",
         },
         // {
         //   title: "KRATOM",
@@ -55,48 +56,57 @@ const naveData = [
       link: "/cbd-by-purpose",
       options: [
         {
-          title: "SKINCARE",
-          link: "/by-purpose/SKINCARE-BEAUTY",
-        },
-        {
-          title: "SLEEP DISORDER",
-          link: "/by-purpose/SLEEP-DISORDER",
+          title: "SLEEP",
+          link: "/"
+          //"/by-purpose/SLEEP-DISORDER",
         },
         {
           title: "IMMUNE",
-          link: "/by-purpose/IMMUNE",
-        },
-        {
-          title: "MUSCLE & JOINT",
-          link: "/by-purpose/MUSCLE-&-JOINT",
+          link: "/"//"/by-purpose/IMMUNE",
         },
         {
           title: "ENERGY",
-          link: "/by-purpose/ENERGY",
+          link: "/"//"/by-purpose/ENERGY",
         },
         {
-          title: "NCD'S",
-          link: "/by-purpose/NCD'S",
+          title:"ANXIETY",
+          link:"/"//"/by-purpose/ANXIETY"
         },
         {
-          title: "WEIGHT MANAGEMENT",
-          link: "/by-purpose/WEIGHT-MANAGEMENT",
+          title: "MUSCLE & JOINT",
+          link: "/"//"/by-purpose/MUSCLE-&-JOINT",
         },
         {
           title: "CANCER",
-          link: "/by-purpose/CANCER",
+          link: "/"//"/by-purpose/CANCER",
+        },
+        {
+          title:"PALLIATIVE CARE",
+          link:"/"//"/by-purpose/PALLIATIVE-CARE"
+        },
+        {
+          title: "SKINCARE",
+          link: "/"//"/by-purpose/SKINCARE-BEAUTY",
+        },
+        {
+          title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+          link: "/"//"/by-purpose/NCD'S",
         },
         {
           title: "RELAXATION",
-          link: "/by-purpose/RELAXATION",
+          link: "/"//"/by-purpose/RELAXATION",
         },
         {
           title: "HORMONES",
-          link: "/by-purpose/HORMONES",
+          link: "/"//"/by-purpose/HORMONES",
         },
         {
           title: "OPIOID",
-          link: "/by-purpose/OPIOID",
+          link: "/"//"/by-purpose/OPIOID",
+        },
+        {
+          title: "WEIGHT MANAGEMENT",
+          link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
         },
       ],
     },
@@ -143,20 +153,20 @@ const naveData = [
           link: "/brand-purpose",
         },
         {
-          title: "OUR LEADERSHIP",
+          title: "OUR TEAM",
           link: "/our-leadership",
         },
         {
-          title: "JOIN OUR ESTEEMED",
+          title: "JOIN US",
           link: "/our-esteemed",
         },
       ],
     },
   },
   {
-    title: "BLOG",
+    title: "DR.CBD UNIVERSITY",
     subMenu1: {
-      title: "BLOG",
+      title: "DR.CBD UNIVERSITY",
       options: [
         {
           title: "HEALTH",
@@ -302,29 +312,7 @@ const Navbar = () => {
       ))}
     </div>
     </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          color:"#fff"
-        }}
-      >
-        <p> TH/EN |</p>
-        <Link to="/sign-in">Sign In |</Link>
-        <p
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            if (user) {
-              navigate("/my-orders");
-            } else {
-              setOpen(true);
-            }
-          }}
-        >
-          {" "}
-          My Orders
-        </p>
-      </div>
+      
     </nav>
   );
 };
