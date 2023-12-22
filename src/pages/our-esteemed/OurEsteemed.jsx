@@ -113,7 +113,7 @@ const OurEsteemed = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            background: index % 2 != 0 ? "#e8eae1" : "#fff",
+            background: index % 2 !==0 ? "#e8eae1" : "#fff",
           }}
         >
           <div
@@ -121,7 +121,7 @@ const OurEsteemed = () => {
               maxWidth: "60em",
               display: "flex",
               alignItems: "center",
-              flexDirection: index % 2 != 0 ? "row-reverse" : "row",
+              flexDirection: index % 2 !==0 ? "row-reverse" : "row",
               borderBottom: "5px solid #005652",
             }}
           >

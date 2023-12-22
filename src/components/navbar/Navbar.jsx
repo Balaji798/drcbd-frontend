@@ -48,10 +48,7 @@ const naveData = [
         // },
       ],
     },
-  },
-  {
-    title: "CBD BY PURPOSE",
-    subMenu1: {
+    subMenu2: {
       title: "CBD BY PURPOSE",
       link: "/cbd-by-purpose",
       options: [
@@ -111,6 +108,68 @@ const naveData = [
       ],
     },
   },
+  // {
+  //   title: "CBD BY PURPOSE",
+  //   subMenu1: {
+  //     title: "CBD BY PURPOSE",
+  //     link: "/cbd-by-purpose",
+  //     options: [
+  //       {
+  //         title: "SLEEP",
+  //         link: "/"
+  //         //"/by-purpose/SLEEP-DISORDER",
+  //       },
+  //       {
+  //         title: "IMMUNE",
+  //         link: "/"//"/by-purpose/IMMUNE",
+  //       },
+  //       {
+  //         title: "ENERGY",
+  //         link: "/"//"/by-purpose/ENERGY",
+  //       },
+  //       {
+  //         title:"ANXIETY",
+  //         link:"/"//"/by-purpose/ANXIETY"
+  //       },
+  //       {
+  //         title: "MUSCLE & JOINT",
+  //         link: "/"//"/by-purpose/MUSCLE-&-JOINT",
+  //       },
+  //       {
+  //         title: "CANCER",
+  //         link: "/"//"/by-purpose/CANCER",
+  //       },
+  //       {
+  //         title:"PALLIATIVE CARE",
+  //         link:"/"//"/by-purpose/PALLIATIVE-CARE"
+  //       },
+  //       {
+  //         title: "SKINCARE",
+  //         link: "/"//"/by-purpose/SKINCARE-BEAUTY",
+  //       },
+  //       {
+  //         title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+  //         link: "/"//"/by-purpose/NCD'S",
+  //       },
+  //       {
+  //         title: "RELAXATION",
+  //         link: "/"//"/by-purpose/RELAXATION",
+  //       },
+  //       {
+  //         title: "HORMONES",
+  //         link: "/"//"/by-purpose/HORMONES",
+  //       },
+  //       {
+  //         title: "OPIOID",
+  //         link: "/"//"/by-purpose/OPIOID",
+  //       },
+  //       {
+  //         title: "WEIGHT MANAGEMENT",
+  //         link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
+  //       },
+  //     ],
+  //   },
+  // },
   {
     title: "OUR SERVICES",
     subMenu1: {
@@ -285,7 +344,12 @@ const Navbar = () => {
                 ))}
               </div>
               <div>
-                <Link style={{ padding: "10px 15px", fontSize: 22 }}>
+                <Link style={{
+                  padding: "10px 15px",
+                  fontSize: 16,
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: 800,
+                }}>
                   {item?.subMenu2?.title}
                 </Link>
                 {item?.subMenu2?.options?.map((sub, i) => (
