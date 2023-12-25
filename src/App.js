@@ -23,16 +23,25 @@ import PayPal from "./pages/paypal/PayPal";
 import env from "react-dotenv";
 import UserOrder from "./pages/userOrder/UserOrder";
 import CancelOrder from "./pages/cancelOrder/CancelOrder";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getProduct } from "./state/actions/productAction";
 
 function App() {
-  console.log(env);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+   const getProducts=async()=>{
+    await getProduct(dispatch);
+   }
+   getProducts();
+  },[dispatch])
   return (
     <Router>
       <Header />
       <Navbar />
       <div
         style={{
-          paddingTop: "9rem",
+          paddingTop: "8.9rem",
           backgroundColor: "#f6f9fa",
         }}
       >

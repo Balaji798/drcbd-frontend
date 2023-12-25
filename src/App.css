@@ -116,6 +116,10 @@ input,textarea{
   cursor: pointer;
 }
 
+input[type="range"] {
+  accent-color: #005652;
+}
+
 @media screen and (max-width: 768px) {
   .project-main-container {
     width: 100%;

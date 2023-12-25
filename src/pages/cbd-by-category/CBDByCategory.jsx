@@ -19,7 +19,7 @@ const CBDByCategory = () => {
       try {
         const res = await ApiService.getAllProduct();
          const categoryProduct=res.data.filter(item=>{
-          if(item.category2=="CBD BY CATEGORY"){
+          if(item.category2==="CBD BY CATEGORY"){
             return item
           }
          })

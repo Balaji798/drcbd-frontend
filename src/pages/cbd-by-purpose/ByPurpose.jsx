@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import { useSelector } from "react-redux";
-import { useRoutes } from "react-router-dom";
+//import { useRoutes } from "react-router-dom";
 import Card from "../../components/card/Card";
 
 const ByPurpose = () => {

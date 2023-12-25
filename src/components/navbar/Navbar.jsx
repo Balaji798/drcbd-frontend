@@ -4,9 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const naveData = [
   {
-    title: "CBD CATEGORY",
+    title: "SHOP CBD",
     subMenu1: {
-      title: "CBD CATEGORY",
+      title: "CBD BY CATEGORY",
       link: "/cbd-by-category",
       options: [
         {
@@ -42,10 +42,15 @@ const naveData = [
           title: "CBD FOR PETS",
           link: "/by-category/CBD-FOR-PETS",
         },
-        // {
-        //   title: "KRATOM",
-        //   link: "/by-category/SKINCARE",
-        // },
+        {
+          title: "EXTRACTS & CONCENTRATES",
+          link: "/",
+          //by-category/SKINCARE
+        },
+        {
+          title:"GIFT SETS & PROMOTIONS",
+          link:"/"
+        }
       ],
     },
     subMenu2: {
@@ -90,7 +95,7 @@ const naveData = [
           link: "/"//"/by-purpose/NCD'S",
         },
         {
-          title: "RELAXATION",
+          title: "AROMATHERAPY",
           link: "/"//"/by-purpose/RELAXATION",
         },
         {
@@ -103,6 +108,14 @@ const naveData = [
         },
         {
           title: "WEIGHT MANAGEMENT",
+          link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
+        },
+        {
+          title: "GIFT SETS & PROMOTIONS",
+          link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
+        },
+        {
+          title: "CBD CONCENTRATION & EXTRACTS",
           link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
         },
       ],

@@ -626,7 +626,7 @@ const ProductDetail = () => {
               >
                 <div
                   style={{
-                    width: "35%",
+                    width: "25%",
                     display: "flex",
                     justifyContent: "space-between",
                     fontWeight: "bold",

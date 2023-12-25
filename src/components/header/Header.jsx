@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
@@ -8,10 +8,16 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import Modal from "../modal/Modal";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { product } = useSelector((state) => state.product);
   const [open, setOpen] = useState(false);
-
+  const [isFocus, setIsFocus] = useState(false);
+  const inputRef = useRef();
+  const [isHovered, setIsHover] = useState(false);
+  const [search, setSearch] = useState("");
+  console.log(product);
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
 
@@ -33,9 +39,7 @@ const Header = () => {
     }
   };
 
-  const handelSearch = () => {
-    
-  };
+  const handelSearch = () => {};
   return (
     <>
       {open && <Modal setOpen={setOpen} user={user} />}
@@ -63,8 +67,7 @@ const Header = () => {
               My Orders
             </p>
           </div>
-
-          <div style={{ display: "flex", width: "30%" }}>
+          <div style={{ display: "flex", width: "35%" }}>
             <div className="search-bar">
               <BsSearch
                 color="#000"
@@ -73,6 +76,16 @@ const Header = () => {
                 onClick={handelSearch}
               />
               <input
+                onFocus={() => setIsFocus(true)}
+                onBlur={() => {
+                  if (!isHovered) {
+                    setIsHover(false);
+                  }
+                }}
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
                 style={{
                   outline: "none",
                   width: "100%",
@@ -80,8 +93,38 @@ const Header = () => {
                   border: "none",
                   background: "#fff",
                 }}
+                ref={inputRef}
               />
             </div>
+            {search !== "" && isFocus ? (
+              <div className="searchQuery" style={{ display: "box" }}>
+                {product.map((item, index) => {
+                  const isMatch =
+                    item.name.toLowerCase().indexOf(search.toLowerCase()) > -1;
+                  return (
+                    <ul style={{ listStyle: "none" }}>
+                      {isMatch && (
+                        <li
+                          style={{
+                            padding: "2.5px 0",
+                            fontSize: 13,
+                            fontWeight: "bold",
+                            borderBottom:"1px solid"
+                          }}
+                          key={index}
+                          onClick={()=>setSearch('')}
+                        >
+                          <Link to={`/product-detail/` + item.name}>{item.name}</Link>
+                        </li>
+                      )}
+                    </ul>
+                  );
+                })}
+              </div>
+            ) : (
+              <></>
+            )}
+            <div></div>
             <div
               style={{
                 color: "#fff",
