@@ -63,7 +63,7 @@ const naveData = [
         },
         {
           title: "IMMUNE",
-          link: "/by-purpose/IMMUNE",
+          link: "/by-purpose/immunity",
         },
         {
           title: "ENERGY",
@@ -74,8 +74,8 @@ const naveData = [
           link:"/by-purpose/ANXIETY"
         },
         {
-          title: "MUSCLE & JOINT",
-          link: "/by-purpose/MUSCLE-&-JOINT",
+          title: "MUSCLES & JOINT",
+          link: "/by-purpose/MUSCLES-&-JOINTS",
         },
         {
           title: "CANCER",

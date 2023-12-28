@@ -119,10 +119,10 @@ const ProductDetail = () => {
       title: "Storage & Condition",
       para: productByName[0]?.storageContraindication,
     },
-    // {
-    //   title: "Contraindication",
-    //   para: "Do not take this supplement if you are pregnant, breastfeeding.",
-    // },
+    {
+      title: "Contraindication",
+      para: productByName[0]?.contraindication,
+    },
     {
       title: "Waring and Precaution",
       para: productByName[0]?.warningPrecaution,

@@ -51,7 +51,7 @@ const fiterData = [
       },
       {
         title: "IMMUNE",
-        link: "/by-purpose/IMMUNE",
+        link: "/by-purpose/immunity",
       },
       {
         title: "ENERGY",
@@ -62,8 +62,8 @@ const fiterData = [
         link:"/by-purpose/ANXIETY"
       },
       {
-        title: "MUSCLE & JOINT",
-        link: "/by-purpose/MUSCLE-&-JOINT",
+        title: "MUSCLES & JOINTS",
+        link: "/by-purpose/MUSCLES-&-JOINTS",
       },
       {
         title: "CANCER",
@@ -112,13 +112,12 @@ const ByCategory = () => {
   useEffect(() => {
     getAllProduct();
   }, [categoryName]);
-
+console.log(categoryName.split("-").join(" ").toLowerCase())
   const getAllProduct = async () => {
     try {
       setCname(categoryName.split("-").join(" "));
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
-        console.log(item.purposeName[0]);
         if (
           item.categoryName.includes(categoryName.split("-").join(" ").toLowerCase()) &&
           "by-category" === pathname.split("/")[1]
@@ -129,6 +128,7 @@ const ByCategory = () => {
           item?.purposeName?.includes(categoryName.split("-").join(" ").toLowerCase()) &&
           "by-purpose" === pathname.split("/")[1]
         ) {
+          console.log(item)
           return item;
         }
       });
