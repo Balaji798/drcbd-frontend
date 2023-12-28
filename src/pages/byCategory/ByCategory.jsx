@@ -21,7 +21,7 @@ const fiterData = [
       },
       {
         title: "CBD BODY",
-        link: "/by-category/CBD-CARE",
+        link: "/by-category/cbd-body",
       },
 
       {
