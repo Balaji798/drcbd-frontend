@@ -95,7 +95,7 @@ const naveData = [
         },
         {
           title: "AROMATHERAPY",
-          link: "/by-purpose/RELAXATION",
+          link: "/by-purpose/AROMATHERAPY",
         },
         {
           title: "HORMONES",
