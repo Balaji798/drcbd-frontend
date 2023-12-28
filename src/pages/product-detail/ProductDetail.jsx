@@ -100,7 +100,7 @@ const ProductDetail = () => {
       para: productByName[0]?.dosage,
     },
     {
-      title: "Ingredient",
+      title: "Active Ingredients",
       para: productByName[0]?.ingredient,
     },
     {
@@ -112,11 +112,11 @@ const ProductDetail = () => {
       para: productByName[0]?.suitableFor,
     },
     {
-      title: "How to Use",
+      title: "Direction",
       para: productByName[0]?.use,
     },
     {
-      title: "Storage & Contraindication ",
+      title: "Storage & Condition",
       para: productByName[0]?.storageContraindication,
     },
     // {

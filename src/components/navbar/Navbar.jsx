@@ -59,56 +59,55 @@ const naveData = [
       options: [
         {
           title: "SLEEP",
-          link: "/"
-          //"/by-purpose/SLEEP-DISORDER",
+          link: "/by-purpose/SLEEP",
         },
         {
           title: "IMMUNE",
-          link: "/"//"/by-purpose/IMMUNE",
+          link: "/by-purpose/IMMUNE",
         },
         {
           title: "ENERGY",
-          link: "/"//"/by-purpose/ENERGY",
+          link: "/by-purpose/ENERGY",
         },
         {
           title:"ANXIETY",
-          link:"/"//"/by-purpose/ANXIETY"
+          link:"/by-purpose/ANXIETY"
         },
         {
           title: "MUSCLE & JOINT",
-          link: "/"//"/by-purpose/MUSCLE-&-JOINT",
+          link: "/by-purpose/MUSCLE-&-JOINT",
         },
         {
           title: "CANCER",
-          link: "/"//"/by-purpose/CANCER",
+          link: "/by-purpose/CANCER",
         },
         {
           title:"PALLIATIVE CARE",
-          link:"/"//"/by-purpose/PALLIATIVE-CARE"
+          link:"/by-purpose/PALLIATIVE-CARE"
         },
         {
           title: "SKINCARE",
-          link: "/"//"/by-purpose/SKINCARE-BEAUTY",
+          link: "/by-purpose/SKINCARE",
         },
         {
           title: "NCD'S(NON-COMMUNICABLE DISEASES)",
-          link: "/"//"/by-purpose/NCD'S",
+          link: "/by-purpose/NCD'S",
         },
         {
           title: "AROMATHERAPY",
-          link: "/"//"/by-purpose/RELAXATION",
+          link: "/by-purpose/RELAXATION",
         },
         {
           title: "HORMONES",
-          link: "/"//"/by-purpose/HORMONES",
+          link: "/by-purpose/HORMONES",
         },
         {
           title: "OPIOID",
-          link: "/"//"/by-purpose/OPIOID",
+          link: "/by-purpose/OPIOID",
         },
         {
           title: "WEIGHT MANAGEMENT",
-          link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
+          link: "/by-purpose/WEIGHT-MANAGEMENT",
         },
         {
           title: "GIFT SETS & PROMOTIONS",
@@ -362,7 +361,7 @@ const Navbar = () => {
                   fontSize: 16,
                   fontFamily: "'Poppins', sans-serif",
                   fontWeight: 800,
-                }}>
+                }} to={item?.subMenu2?.link}>
                   {item?.subMenu2?.title}
                 </Link>
                 {item?.subMenu2?.options?.map((sub, i) => (
@@ -372,7 +371,7 @@ const Navbar = () => {
                     key={i}
                   >
                     {sub.icon}
-                    <Link to="#" style={{ cursor: "pointer", fontSize: 16 }}>
+                    <Link to={sub.link} style={{ cursor: "pointer", fontSize: 16 }}>
                       {sub.title}
                     </Link>
                   </div>
@@ -389,7 +388,6 @@ const Navbar = () => {
       ))}
     </div>
     </div>
-      
     </nav>
   );
 };

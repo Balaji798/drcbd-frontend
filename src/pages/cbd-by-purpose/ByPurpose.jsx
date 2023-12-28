@@ -6,32 +6,50 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import { useSelector } from "react-redux";
-//import { useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import Card from "../../components/card/Card";
 
 const ByPurpose = () => {
-  const product = useSelector((state) => state.product);
+  const { product } = useSelector((state) => state.product);
 
-  const productsByCategory={}
-   product.product.forEach(product => {
-    if (product.cbdByCategory) {
+  const productsByCategory = {};
+  product.forEach((product) => {
+    if (
+      product.cbdByCategory &&
+      "/cbd-by-category" === window.location.pathname &&
+      product?.categoryName.length !== 0
+    ) {
       const categoryName = product?.categoryName[0];
-      
+
       if (!productsByCategory[categoryName]) {
         productsByCategory[categoryName] = [];
       }
-  
+
+      productsByCategory[categoryName].push(product);
+    }
+    if (
+      product.cbdByPurpose &&
+      "/cbd-by-purpose" === window.location.pathname &&
+      product?.purposeName.length !== 0
+    ) {
+      const categoryName = product?.purposeName[0];
+
+      if (!productsByCategory[categoryName]) {
+        productsByCategory[categoryName] = [];
+      }
+
       productsByCategory[categoryName].push(product);
     }
   });
-  
-  const productsArray =Object.entries(productsByCategory);
+
+  const productsArray = Object.entries(productsByCategory);
+  console.log(window.location.pathname);
   const PreviousBtn = (props) => {
     const { onClick } = props;
     return (
       <div className="control-btn" onClick={onClick}>
         <button className="prev">
-          <MdArrowBackIosNew style={{ fontSize: "45px",color:"#000" }} />
+          <MdArrowBackIosNew style={{ fontSize: "45px", color: "#000" }} />
         </button>
       </div>
     );
@@ -41,7 +59,7 @@ const ByPurpose = () => {
     return (
       <div className="control-btn" onClick={onClick}>
         <button className="next">
-          <MdArrowForwardIos style={{ fontSize: "45px",color:"#000" }} />
+          <MdArrowForwardIos style={{ fontSize: "45px", color: "#000" }} />
         </button>
       </div>
     );
@@ -107,7 +125,6 @@ const ByPurpose = () => {
             style={{ padding: "15px 0", maxWidth: "1100px", width: "100%" }}
             key={index}
           >
-           
             <div
               style={{
                 display: "flex",
@@ -116,9 +133,9 @@ const ByPurpose = () => {
                 justifyContent: "space-between",
               }}
             >
-               <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
-              Products / {item[0]}
-            </h2>
+              <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
+                Products / {item[0]}
+              </h2>
               <Link
                 style={{
                   padding: "20px 0",
@@ -149,7 +166,6 @@ const ByPurpose = () => {
                 ))}
               </Slider>
             )}
-           
           </div>
         ))
       )}

@@ -3,64 +3,107 @@ import { useParams, useLocation, Link } from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import ApiService from "../../services/ApiService";
 
-const fiterData = {
-  title: "CBD CATEGORY",
-  options: [
-    {
-      title: "CBD OIL",
-      link: "/by-category/CBD-OIL",
-    },
-    {
-      title: "CBD SUPPLEMENTS",
-      link: "/by-category/CBD-SUPPLEMENTS",
-    },
-    {
-      title: "CBD FACE",
-      link: "/by-category/CBD-FACE",
-    },
-    {
-      title: "CBD BODY",
-      link: "/by-category/CBD-CARE",
-    },
+const fiterData = [
+  {
+    title: "CBD CATEGORY",
+    options: [
+      {
+        title: "CBD OIL",
+        link: "/by-category/CBD-OIL",
+      },
+      {
+        title: "CBD SUPPLEMENTS",
+        link: "/by-category/CBD-SUPPLEMENTS",
+      },
+      {
+        title: "CBD FACE",
+        link: "/by-category/CBD-FACE",
+      },
+      {
+        title: "CBD BODY",
+        link: "/by-category/CBD-CARE",
+      },
 
-    {
-      title: "CBD BEVERAGE",
-      link: "/by-category/CBD-BEVERAGE",
-    },
-    {
-      title: "AROMATHERAPY",
-      link: "/by-category/AROMATHERAPY",
-    },
-    // {
-    //   title: "HOME USE",
-    //   link: "/by-category/home-use",
-    // },
-    {
-      title: "CBD FOR PETS",
-      link: "/by-category/CBD-FOR-PETS",
-    },
-  ],
-};
-// {
-//   title: "CBD BY PURPOSE",
-//   options: [
-//     "SKINCARE",
-//     "SLEEP DISORDER",
-//     "IMMUNE",
-//     "MUSCLE & JOINT",
-//     "ENERGY",
-//     "NCD'S",
-//     "WEIGHT MANAGEMENT",
-//     "CANCER",
-//     "RELAXATION",
-//     "HORMONES",
-//     "OPIOID",
-//   ],
-// },
+      {
+        title: "CBD BEVERAGE",
+        link: "/by-category/CBD-BEVERAGE",
+      },
+      {
+        title: "AROMATHERAPY",
+        link: "/by-category/AROMATHERAPY",
+      },
+      // {
+      //   title: "HOME USE",
+      //   link: "/by-category/home-use",
+      // },
+      {
+        title: "CBD FOR PETS",
+        link: "/by-category/CBD-FOR-PETS",
+      },
+    ],
+  },
+  {
+    title: "CBD BY PURPOSE",
+    options: [
+      {
+        title: "SLEEP",
+        link: "/by-purpose/SLEEP-DISORDER",
+      },
+      {
+        title: "IMMUNE",
+        link: "/by-purpose/IMMUNE",
+      },
+      {
+        title: "ENERGY",
+        link: "/by-purpose/ENERGY",
+      },
+      {
+        title:"ANXIETY",
+        link:"/by-purpose/ANXIETY"
+      },
+      {
+        title: "MUSCLE & JOINT",
+        link: "/by-purpose/MUSCLE-&-JOINT",
+      },
+      {
+        title: "CANCER",
+        link: "/by-purpose/CANCER",
+      },
+      {
+        title:"PALLIATIVE CARE",
+        link:"/by-purpose/PALLIATIVE-CARE"
+      },
+      {
+        title: "SKINCARE",
+        link: "/by-purpose/SKINCARE",
+      },
+      {
+        title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+        link: "/by-purpose/NCD'S",
+      },
+      {
+        title: "AROMATHERAPY",
+        link: "/by-purpose/RELAXATION",
+      },
+      {
+        title: "HORMONES",
+        link: "/by-purpose/HORMONES",
+      },
+      {
+        title: "OPIOID",
+        link: "/by-purpose/OPIOID",
+      },
+      {
+        title: "WEIGHT MANAGEMENT",
+        link: "/by-purpose/WEIGHT-MANAGEMENT",
+      },
+    ],
+  },
+];
 
 const ByCategory = () => {
   const { pathname } = useLocation();
-  //console.log(pathname);
+  //console.log(pathname.split("/")[1]);
   const [data, setData] = useState([]);
   const { categoryName } = useParams();
   const [seekbarValue, setSeekbarValue] = useState(50);
@@ -75,16 +118,19 @@ const ByCategory = () => {
       setCname(categoryName.split("-").join(" "));
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
-        console.log(item.categoryName);
-        if (item.categoryName.includes(categoryName.split("-").join(" "))) {
+        console.log(item.purposeName[0]);
+        if (
+          item.categoryName.includes(categoryName.split("-").join(" ").toLowerCase()) &&
+          "by-category" === pathname.split("/")[1]
+        ) {
+          return item;
+        } else 
+        if (
+          item?.purposeName?.includes(categoryName.split("-").join(" ").toLowerCase()) &&
+          "by-purpose" === pathname.split("/")[1]
+        ) {
           return item;
         }
-        // } else if (
-        //   item?.category3?.toLowerCase() ===
-        //   categoryName.split("-").join(" ").toLowerCase()
-        // ) {
-        // return item;
-        //}
       });
 
       setData(categoryProduct);
@@ -134,9 +180,16 @@ const ByCategory = () => {
               width: "15rem",
             }}
           >
-            <h3>{fiterData?.title}</h3>
+            <h3>
+              {
+                fiterData["by-category" === pathname.split("/")[1] ? 0 : 1]
+                  ?.title
+              }
+            </h3>
             <ul style={{ listStyle: "none", padding: "1.5rem 0 2rem 0" }}>
-              {fiterData?.options.map((item, index) => (
+              {fiterData[
+                "by-category" === pathname.split("/")[1] ? 0 : 1
+              ]?.options.map((item, index) => (
                 <li
                   key={index}
                   onClick={() => {
@@ -203,13 +256,13 @@ const ByCategory = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                paddingBottom:5
+                paddingBottom: 5,
               }}
             >
               <p>฿10</p>
               <p>฿{seekbarValue}</p>
             </div>
-            <button style={{ width: "100%",fontSize:16 }}>Filter</button>
+            <button style={{ width: "100%", fontSize: 16 }}>Filter</button>
           </div>
         </div>
         <div
