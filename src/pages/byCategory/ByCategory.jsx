@@ -38,7 +38,7 @@ const fiterData = [
       // },
       {
         title: "CBD FOR PETS",
-        link: "/by-category/CBD-FOR-PET",
+        link: "/by-category/CBD-FOR-PETS",
       },
     ],
   },
