@@ -39,7 +39,7 @@ const naveData = [
         //   link: "/by-category/home-use",
         // },
         {
-          title: "CBD FOR PETS",
+          title: "CBD FOR PET",
           link: "/by-category/CBD-FOR-PETS",
         },
         {
