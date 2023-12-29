@@ -58,8 +58,8 @@ const fiterData = [
         link: "/by-purpose/ENERGY",
       },
       {
-        title:"ANXIETY",
-        link:"/by-purpose/ANXIETY"
+        title: "ANXIETY",
+        link: "/by-purpose/ANXIETY",
       },
       {
         title: "MUSCLES & JOINTS",
@@ -70,8 +70,8 @@ const fiterData = [
         link: "/by-purpose/CANCER",
       },
       {
-        title:"PALLIATIVE CARE",
-        link:"/by-purpose/PALLIATIVE-CARE"
+        title: "PALLIATIVE CARE",
+        link: "/by-purpose/PALLIATIVE-CARE",
       },
       {
         title: "SKINCARE",
@@ -105,6 +105,7 @@ const ByCategory = () => {
   const { pathname } = useLocation();
   //console.log(pathname.split("/")[1]);
   const [data, setData] = useState([]);
+  const [meanData, setMeanData] = useState([]);
   const { categoryName } = useParams();
   const [seekbarValue, setSeekbarValue] = useState(50);
 
@@ -112,42 +113,48 @@ const ByCategory = () => {
   useEffect(() => {
     getAllProduct();
   }, [categoryName]);
-console.log(categoryName.split("-").join(" ").toLowerCase())
+
   const getAllProduct = async () => {
     try {
       setCname(categoryName.split("-").join(" "));
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
         if (
-          item.categoryName.includes(categoryName.split("-").join(" ").toLowerCase()) &&
+          item.categoryName.includes(
+            categoryName.split("-").join(" ").toLowerCase()
+          ) &&
           "by-category" === pathname.split("/")[1]
         ) {
           return item;
-        } else 
-        if (
-          item?.purposeName?.includes(categoryName.split("-").join(" ").toLowerCase()) &&
+        } else if (
+          item?.purposeName?.includes(
+            categoryName.split("-").join(" ").toLowerCase()
+          ) &&
           "by-purpose" === pathname.split("/")[1]
         ) {
-          console.log(item)
           return item;
         }
       });
 
       setData(categoryProduct);
+      setMeanData(categoryProduct);
     } catch (err) {
       console.log(err.message);
     }
   };
 
-  const handelChang = async (catName) => {
-    try {
-    } catch (err) {}
-  };
   // Event handler for seekbar value change
   const handleSeekbarChange = (event) => {
     const newValue = event.target.value;
     setSeekbarValue(newValue);
     // You can perform additional actions with the new value here
+  };
+
+  const handelPriceFilter = () => {
+    const filterData = meanData.filter(
+      (item) =>  Number(item.price)<=Number(seekbarValue)
+    );
+    setData(filterData);
   };
   return (
     <div
@@ -194,7 +201,7 @@ console.log(categoryName.split("-").join(" ").toLowerCase())
                   key={index}
                   onClick={() => {
                     setCname(item.title);
-                    handelChang(item.title);
+                    // handelChang(item.title);
                   }}
                 >
                   <Link
@@ -262,7 +269,12 @@ console.log(categoryName.split("-").join(" ").toLowerCase())
               <p>฿10</p>
               <p>฿{seekbarValue}</p>
             </div>
-            <button style={{ width: "100%", fontSize: 16 }}>Filter</button>
+            <button
+              style={{ width: "100%", fontSize: 16 }}
+              onClick={handelPriceFilter}
+            >
+              Filter
+            </button>
           </div>
         </div>
         <div
