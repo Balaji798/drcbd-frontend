@@ -41,7 +41,7 @@ const Register = () => {
       },
     };
     const res = await axios.post(
-      "http://localhost:8080/user/email_verification",
+      "https://drcbd-backend.onrender.com/user/email_verification",
       //https://drcbd-backend.onrender.com
       { otp: otp },
       config

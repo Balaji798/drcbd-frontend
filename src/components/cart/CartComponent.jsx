@@ -22,7 +22,7 @@ const CartComponent = (props) => {
         },
       };
       await axios.post(
-        "http://localhost:8080/cart/remove_item_from_cart",
+        "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
         //https://drcbd-backend.onrender.com
         { productId },
         config

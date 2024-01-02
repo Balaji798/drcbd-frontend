@@ -33,7 +33,7 @@ const Profile = () => {
       };
       
       const res = await axios.put(
-        "http://localhost:8080/user/update_user",
+        "https://drcbd-backend.onrender.com/user/update_user",
         //https://drcbd-backend.onrender.com
         userData,
         config
