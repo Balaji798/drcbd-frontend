@@ -24,10 +24,12 @@ const Forms = (props) => {
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
+     
       setUser(res.data.user.userAddress);
     };
     getUser();
   }, []);
+
   //console.log(user);
   const handelNext = async () => {
     try {
@@ -55,9 +57,11 @@ const Forms = (props) => {
           userAdd,
           config
         );
-        
+        const res = await ApiService.getOrderById(orderId);
+        const totalPrice = res.data.totalPrice;
+console.log(totalPrice)
         if (response.data.status)
-        navigate("/order-summery/"+orderId);
+        navigate("/order-summery/"+orderId,{ state: { price:totalPrice } });
       }
     } catch (err) {
       console.log(err.message);

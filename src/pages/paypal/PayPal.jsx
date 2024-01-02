@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BiSolidBadgeCheck } from "react-icons/bi";
-import ApiService from "../../services/ApiService";
 
 const PayPal = () => {
   const [orderStatus, setOrderStatus] = useState(false);
-  const [orderData, setOrderData] = useState(null);
   const navigate = useNavigate();
-  const { orderId } = useParams();
-
-  useEffect(() => {
-  const getOrderData = async () => {
-    const res = await ApiService.getOrderById(orderId);
-    console.log(res.data.totalPrice)
-    setOrderData(parseFloat(res.data.totalPrice));
-  };
-  getOrderData();
-}, [orderId]);
+  const { state } = useLocation();
+  const { price } = state;
+  //const { orderId } = useParams();
 
   return (
     <>
@@ -52,35 +43,51 @@ const PayPal = () => {
           </div>
         </div>
       )}
-
-      
-        <PayPalButtons
-          style={{ layout: "vertical" }}
-          createOrder={(data, actions) => {
-            
-            return actions.order.create({
-              purchase_units: [
-                {
-                  description: "abcd",
-                  amount: {
-                    currency_code: "USD",
-                    value: orderData?.toFixed(2),
-                  },
-                },
-              ],
-            });
-          }}
-          onApprove={async (data, actions) => {
-            const order = await actions.order.capture();
-            if (order.status === "COMPLETED") {
-              setOrderStatus(true);
-            }
-          }}
-          onError={(err) => {
-            console.log(err);
-          }}
-        />
-      
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          paddingTop: "3rem",
+          maxHeight: "25rem",
+          height: "100%",
+        }}
+      >
+        <div style={{ maxWidth: 400, width: "100%" }}>
+          <PayPalButtons
+            style={{ layout: "vertical" }}
+            createOrder={async (data, actions) => {
+              try {
+                const order = await actions.order.create({
+                  purchase_units: [
+                    {
+                      description: "abcd",
+                      amount: {
+                        currency_code: "USD",
+                        value: `${price.toFixed(2)}`,
+                      },
+                    },
+                  ],
+                });
+                console.log(order);
+                return order;
+              } catch (error) {
+                console.error("Error creating order:", error);
+                return null;
+              }
+            }}
+            onApprove={async (data, actions) => {
+              const order = await actions.order.capture();
+              if (order.status === "COMPLETED") {
+                setOrderStatus(true);
+              }
+            }}
+            onError={(err) => {
+              console.log(err);
+            }}
+          />
+        </div>
+      </div>
     </>
   );
 };
