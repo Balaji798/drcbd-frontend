@@ -17,7 +17,7 @@ const Header = () => {
   const inputRef = useRef();
   const [isHovered, setIsHover] = useState(false);
   const [search, setSearch] = useState("");
-  console.log(product);
+ 
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
 
@@ -156,9 +156,9 @@ const Header = () => {
                 marginLeft: 10,
               }}
             >
-              <img src="./england.jpg" style={{ width: "30px" }} alt="/" />
+              <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/england.jpg" style={{ width: "30px" }} alt="/" />
               |
-              <img src="./thailand.png" style={{ width: "24px" }} alt="/" />
+              <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/thailand.png" style={{ width: "24px" }} alt="/" />
             </div>
           </div>
         </div>

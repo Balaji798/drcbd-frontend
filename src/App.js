@@ -26,56 +26,64 @@ import CancelOrder from "./pages/cancelOrder/CancelOrder";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getProduct } from "./state/actions/productAction";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(()=>{
-   const getProducts=async()=>{
-    await getProduct(dispatch);
-   }
-   getProducts();
-  },[dispatch])
+  useEffect(() => {
+    const getProducts = async () => {
+      await getProduct(dispatch);
+    };
+    getProducts();
+  }, [dispatch]);
   return (
-    <Router>
-      <Header />
-      <Navbar />
-      <div
-        style={{
-          paddingTop: "8.9rem",
-          backgroundColor: "#f6f9fa",
-        }}
-      >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cbd-by-purpose" element={<ByPurpose />} />
-          <Route
-            path="/product-detail/:productName"
-            element={<ProductDetail />}
-          />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/order-address/:orderId" element={<Forms />} />
-          <Route path="/order-summery/:orderId" element={<PayPal />} />
-          <Route path="/brand-purpose" element={<BrandPurpose />} />
-          <Route path="/our-esteemed" element={<OurEsteemed />} />
-          <Route path="/cbd-by-category" element={<ByPurpose />} />
-          <Route path="/cbd-by-purpose" element={<ByPurpose />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/our-companies" element={<OurCompanies />} />
-          <Route path="/our-leadership" element={<OurLeadership />} />
-          <Route path="/order-history" element={<Orders />} />
-          <Route path="/insights/:type" element={<NHI />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/by-category/:categoryName" element={<ByCategory />} />
-          <Route path="/by-purpose/:categoryName" element={<ByCategory />} />
-          <Route path="/my-orders" element={<Orders />} />
-          <Route path="/order-detail/:orderId" element={<UserOrder />} />
-          <Route path="/cancel_order" element={<CancelOrder/>}/>
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+    <PayPalScriptProvider
+      options={{
+        "client-id": process.env.REACT_APP_CLIENT_ID,
+        
+      }}
+    >
+      <Router>
+        <Header />
+        <Navbar />
+        <div
+          style={{
+            paddingTop: "8.9rem",
+            backgroundColor: "#f6f9fa",
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cbd-by-purpose" element={<ByPurpose />} />
+            <Route
+              path="/product-detail/:productName"
+              element={<ProductDetail />}
+            />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/order-address/:orderId" element={<Forms />} />
+            <Route path="/order-summery/:orderId" element={<PayPal />} />
+            <Route path="/brand-purpose" element={<BrandPurpose />} />
+            <Route path="/our-esteemed" element={<OurEsteemed />} />
+            <Route path="/cbd-by-category" element={<ByPurpose />} />
+            <Route path="/cbd-by-purpose" element={<ByPurpose />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/our-companies" element={<OurCompanies />} />
+            <Route path="/our-leadership" element={<OurLeadership />} />
+            <Route path="/order-history" element={<Orders />} />
+            <Route path="/insights/:type" element={<NHI />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/by-category/:categoryName" element={<ByCategory />} />
+            <Route path="/by-purpose/:categoryName" element={<ByCategory />} />
+            <Route path="/my-orders" element={<Orders />} />
+            <Route path="/order-detail/:orderId" element={<UserOrder />} />
+            <Route path="/cancel_order" element={<CancelOrder />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </PayPalScriptProvider>
   );
 }
 

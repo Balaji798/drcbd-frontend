@@ -22,12 +22,12 @@ const Footer = () => {
         />
         <div className="footer-container">
           {footerData.map((item, index) => (
-            <ul>
+            <ul key={index}>
               <li>
                 <span>{item.title}</span>
                 <ul className="subMenu">
                   {item.subMenu.map((sub, i) => (
-                    <li style={{ alignItems: "center", display: "flex" }}>
+                    <li style={{ alignItems: "center", display: "flex" }} key={i}>
                       <div style={{ marginRight: "0.2em" }}>{sub.icon}</div>
                       <Link to={sub.link} style={{ padding: "0.6em 0", cursor: "pointer" }}>
                         {sub.title}

@@ -37,7 +37,7 @@ const CBDByCategory = () => {
         // Convert the object to a 2D array
         const productsArray = Object.entries(productsByCategory);
         setData(productsArray);
-        console.log(productsArray);
+        
         //console.log(res.data)
       } catch (err) {
         console.log(err.message);

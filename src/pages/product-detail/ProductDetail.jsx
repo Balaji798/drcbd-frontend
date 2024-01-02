@@ -33,8 +33,9 @@ const ProductDetail = () => {
   const [displayedReviews, setDisplayedReviews] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
   const productByName = product.filter((item) => {
-    if (item.name?.toLowerCase() === productName?.toLowerCase()) return item;
+    return item.name?.toLowerCase().trim() === productName?.toLowerCase().trim()
   });
+  console.log(product[34]?.name.toLowerCase())
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
       if (
@@ -75,16 +76,17 @@ const ProductDetail = () => {
     try {
       const productReviews = await axios.post(
         "https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
+        //https://drcbd-backend.onrender.com
         { productId: productByName[0]._id }
       );
       setUserReviews(productReviews.data);
       setDisplayedReviews(productReviews.data.slice(0, 3));
       setFeed({ ...feed, productId: productByName[0]._id });
       setPrice(
-        (
-          Number(productByName[0].price) + Number(productByName[0].shippingFee)
+        
+          Number(productByName[0].price) 
         ).toFixed(2)
-      );
+      
     } catch (err) {
       console.log(err.message);
     }
@@ -192,6 +194,7 @@ const ProductDetail = () => {
         };
         const res = await axios.post(
           "https://drcbd-backend.onrender.com/cart/add-to-card",
+          //https://drcbd-backend.onrender.com
           requestBody,
           config
         );
@@ -227,6 +230,7 @@ const ProductDetail = () => {
         //https://drcbd-backend.onrender.com
         const res = await axios.post(
           "https://drcbd-backend.onrender.com/review/add-review",
+          //https://drcbd-backend.onrender.com
           feed,
           config
         );
@@ -285,7 +289,7 @@ const ProductDetail = () => {
       },
     ],
   };
-  console.log(productByName);
+  
   return (
     <div ref={scrollContainerRef}>
       <div>
@@ -439,7 +443,7 @@ const ProductDetail = () => {
                 textDecoration: productByName[0]?.fdaProduct && "underline",
               }}
             >
-              {productByName[0].name}
+              {productByName[0]?.name}
             </h2>
             <p
               style={{
@@ -449,7 +453,7 @@ const ProductDetail = () => {
                 fontWeight: 26,
               }}
             >
-              {productByName[0].des}
+              {productByName[0]?.des}
             </p>
 
             <p>Sizes</p>
@@ -582,8 +586,8 @@ const ProductDetail = () => {
                   paddingLeft: 10,
                 }}
               >
-                {Number(productByName[0].actualPrice) > 0
-                  ? "฿" + Number(productByName[0].actualPrice).toFixed(2)
+                {Number(productByName[0]?.actualPrice) > 0
+                  ? "฿" + Number(productByName[0]?.actualPrice).toFixed(2)
                   : ""}
               </span>{" "}
               ฿{price}

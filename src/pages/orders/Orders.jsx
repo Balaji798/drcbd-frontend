@@ -14,7 +14,7 @@ const Orders = () => {
     };
     getOrders();
   }, []);
-  console.log(orderData);
+ 
   return (
     <div className="" style={{ padding: "2rem" }}>
       <h1

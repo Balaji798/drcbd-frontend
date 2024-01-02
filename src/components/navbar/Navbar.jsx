@@ -313,7 +313,7 @@ const Navbar = () => {
     <nav>
     <div className="navContainer">
 
-    <div class="navbar">
+    <div className="navbar">
       {naveData.map((item, index) => (
         <div className="dropdown" key={index}>
           <Link to="#">{item.title}</Link>

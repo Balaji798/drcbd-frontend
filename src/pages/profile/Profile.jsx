@@ -16,7 +16,7 @@ const Profile = () => {
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
-      console.log(res.data.user);
+      
       setUser({...res.data.user,dateOfBarth:res.data.user?.dateOfBarth?.split("T")[0]});
     };
     getUser();
@@ -31,9 +31,10 @@ const Profile = () => {
           "Content-Type": "application/json",
         },
       };
-      console.log(userData);
+      
       const res = await axios.put(
-        "https://drcbd-backend.onrender.com/user/update_user",
+        "http://localhost:8080/user/update_user",
+        //https://drcbd-backend.onrender.com
         userData,
         config
       );
@@ -210,7 +211,7 @@ const Profile = () => {
                 color: edit && "#000",
               }}
               onChange={(e) => {
-                console.log(e.target.value);
+                
                 setUser({ ...userData, dateOfBarth: e.target.value });
               }}
             />

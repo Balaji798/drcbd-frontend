@@ -39,17 +39,19 @@ const Forms = (props) => {
           "Content-Type": "application/json", // Set the content type to JSON
         },
       };
-      console.log('hii')
+      
       const res = await axios.post(
         "https://drcbd-backend.onrender.com/user/edit-user",
+        //https://drcbd-backend.onrender.com
         userAdd,
         config
       );
 
-      console.log(res.data.status);
+      
       if (res.data.status) {
         const response = await axios.post(
           "https://drcbd-backend.onrender.com/orders/update_order/"+orderId,
+          //https://drcbd-backend.onrender.com
           userAdd,
           config
         );

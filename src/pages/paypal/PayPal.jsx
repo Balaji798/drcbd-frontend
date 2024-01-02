@@ -1,37 +1,25 @@
-import React, { useState } from "react";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import React, { useEffect, useState } from "react";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BiSolidBadgeCheck } from "react-icons/bi";
-import axios from "axios";
+import ApiService from "../../services/ApiService";
 
 const PayPal = () => {
   const [orderStatus, setOrderStatus] = useState(false);
-  const [productId, setProductId] = useState(null);
+  const [orderData, setOrderData] = useState(null);
   const navigate = useNavigate();
   const { orderId } = useParams();
-  const [paymentID, setPaymentID] = useState("");
 
-  const createPayment = async () => {
-    try {
-      const user = localStorage.getItem("token");
-      if (user) {
-        const config = {
-          headers: {
-            Authorization: `Bearer ${user}`,
-            "Content-Type": "application/json", // Set the content type to JSON
-          },
-        };
-        const response = await axios.post(
-          `http://localhost:8080/orders/place_order/${orderId}`,{},config
-        );
-        setPaymentID(response.data.id);
-      }
-    } catch (error) {
-      console.error("Error creating PayPal payment:", error);
-    }
+  useEffect(() => {
+  const getOrderData = async () => {
+    const res = await ApiService.getOrderById(orderId);
+    console.log(res.data.totalPrice)
+    setOrderData(parseFloat(res.data.totalPrice));
   };
-console.log(process.env.REACT_APP_CLIENT_ID)
+  getOrderData();
+}, [orderId]);
+
   return (
     <>
       {orderStatus && (
@@ -65,25 +53,34 @@ console.log(process.env.REACT_APP_CLIENT_ID)
         </div>
       )}
 
-      <PayPalScriptProvider
-        options={{ "client-id": process.env.REACT_APP_CLIENT_ID }}
-      >
+      
         <PayPalButtons
-          createOrder={() => createPayment()}
-          onApprove={(data, actions) => {
-            // Handle successful payment
-            console.log("Payment completed successfully", data);
+          style={{ layout: "vertical" }}
+          createOrder={(data, actions) => {
+            
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: "abcd",
+                  amount: {
+                    currency_code: "USD",
+                    value: orderData?.toFixed(2),
+                  },
+                },
+              ],
+            });
           }}
-          onCancel={() => {
-            // Handle canceled payment
-            console.log("Payment canceled");
+          onApprove={async (data, actions) => {
+            const order = await actions.order.capture();
+            if (order.status === "COMPLETED") {
+              setOrderStatus(true);
+            }
           }}
           onError={(err) => {
-            // Handle errors during payment
-            console.error("Error during payment", err);
+            console.log(err);
           }}
         />
-      </PayPalScriptProvider>
+      
     </>
   );
 };

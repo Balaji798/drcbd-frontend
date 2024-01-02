@@ -21,9 +21,10 @@ const Register = () => {
       }
       const response = await axios.post(
         "https://drcbd-backend.onrender.com/user/signup",
+        //https://drcbd-backend.onrender.com
         user
       );
-      console.log(response.data);
+      
       localStorage.setItem("token", response.data);
       setToken(response.data);
       setLogin(true);
@@ -40,7 +41,8 @@ const Register = () => {
       },
     };
     const res = await axios.post(
-      "https://drcbd-backend.onrender.com/user/email_verification",
+      "http://localhost:8080/user/email_verification",
+      //https://drcbd-backend.onrender.com
       { otp: otp },
       config
     );
