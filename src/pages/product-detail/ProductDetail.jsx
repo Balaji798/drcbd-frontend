@@ -683,6 +683,7 @@ const ProductDetail = () => {
                   <img
                     src={item}
                     style={{ width: "8rem", objectFit: "cover" }}
+                    alt={item}
                   />
                 </div>
               ))}
@@ -721,23 +722,18 @@ const ProductDetail = () => {
               </a>
               <p style={{ color: "#0b4640" }}>
                 Share On
-                
                 {item.title}
               </p>
             </div>
           ))}
         </div>
-        <div>
-          {/* <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/video.png" style={{ width: "100%" }} /> */}
-          <iframe
-            width="100%"
-            height="450"
-            src={productByName[0]?.videoLink}
-            title="Unveiling Dr. Pet CBD (2023) - A Better Way to Live a Happy Life"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          />
+
+        <div
+          style={{ height: "80vh", margin: 0, padding: 0, overflow: "hidden" }}
+        >
+          <video autoPlay loop muted playsInline>
+            <source src={productByName[0]?.videoLink} type="video/mp4" />
+          </video>
         </div>
         <div
           className="review-container"
@@ -925,9 +921,9 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <div>
-        <h2 style={{ padding: "1rem 0 1rem 3rem" }}>See More</h2>
-        <div style={{ padding: "0 3em 2em" }}>
+      <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+        <h2 style={{ maxWidth:"1300px",width:"100%",padding: "1rem 0 1rem 3rem" }}>See More</h2>
+        <div style={{ padding: "0 3em 2em",maxWidth:"1300px",width:"100%" }}>
           {sameCategoryProduct?.length > 3 ? (
             <Slider {...settings}>
               {sameCategoryProduct?.map((image, i) => (

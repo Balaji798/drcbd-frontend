@@ -96,7 +96,7 @@ article.nextSlide {
   padding: 20px 0px;
 }
 
-.product-container>a{
+.product-container > a {
   background-image: url("./product-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -158,4 +158,12 @@ article.nextSlide {
   display: flex;
   align-items: center;
   padding-left: 5em;
+}
+
+video {
+  min-width: 100%;
+  min-height: 80%;
+  width: auto;
+  height: auto;
+  z-index: -1;
 }

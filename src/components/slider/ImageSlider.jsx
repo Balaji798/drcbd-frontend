@@ -178,15 +178,16 @@ const ImageSlider = () => {
 
   return (
     <>
-      <iframe
-        width="100%"
-        height="450"
-        src="https://www.youtube.com/embed/M4JRTjT5nvA"
-        title="Unveiling Dr. Pet CBD (2023) - A Better Way to Live a Happy Life"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      />
+      <div
+        style={{ height: "75vh", margin: 0, padding: 0, overflow: "hidden" }}
+      >
+        <video autoPlay loop muted playsInline>
+          <source
+            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/video.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
       <section className="section" style={{ paddingTop: "1em" }}>
         <div className="section-center" style={{ height: "34em" }}>
           {slider.map((item, indexPeople) => {
