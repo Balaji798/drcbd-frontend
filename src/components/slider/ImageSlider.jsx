@@ -178,7 +178,15 @@ const ImageSlider = () => {
 
   return (
     <>
-      <div className="banner-black"></div>
+      <iframe
+        width="100%"
+        height="450"
+        src="https://www.youtube.com/embed/M4JRTjT5nvA"
+        title="Unveiling Dr. Pet CBD (2023) - A Better Way to Live a Happy Life"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      />
       <section className="section" style={{ paddingTop: "1em" }}>
         <div className="section-center" style={{ height: "34em" }}>
           {slider.map((item, indexPeople) => {

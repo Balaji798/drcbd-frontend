@@ -33,9 +33,11 @@ const ProductDetail = () => {
   const [displayedReviews, setDisplayedReviews] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
   const productByName = product.filter((item) => {
-    return item.name?.toLowerCase().trim() === productName?.toLowerCase().trim()
+    return (
+      item.name?.toLowerCase().trim() === productName?.toLowerCase().trim()
+    );
   });
-  console.log(product[34]?.name.toLowerCase())
+  console.log(product[34]?.name.toLowerCase());
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
       if (
@@ -82,11 +84,7 @@ const ProductDetail = () => {
       setUserReviews(productReviews.data);
       setDisplayedReviews(productReviews.data.slice(0, 3));
       setFeed({ ...feed, productId: productByName[0]._id });
-      setPrice(
-        
-          Number(productByName[0].price) 
-        ).toFixed(2)
-      
+      setPrice(Number(productByName[0].price)).toFixed(2);
     } catch (err) {
       console.log(err.message);
     }
@@ -135,16 +133,33 @@ const ProductDetail = () => {
     // },
   ];
   const concatData = [
-    { title: "instagram", icon: <FaInstagram size={50} color="#fff" /> },
-    { title: "Facebook", icon: <FaFacebookF size={50} color="#fff" /> },
+    {
+      title: "instagram",
+      icon: <FaInstagram size={50} color="#fff" />,
+      link: "https://www.instagramcom/drcbdinnovation/",
+    },
+    {
+      title: "Facebook",
+      icon: <FaFacebookF size={50} color="#fff" />,
+      link: "https://www.facebook.com/drcbdinnovation/",
+    },
     {
       title: "Line",
       icon: (
         <img src="../line-logo.png" alt="/" style={{ width: 60, height: 60 }} />
       ),
+      link: "https://lin.ee/KhI4rwQ",
     },
-    { title: "Tiktok", icon: <FaTiktok size={50} color="#fff" /> },
-    { title: "Twitter", icon: <FaTwitter size={50} color="#fff" /> },
+    {
+      title: "Tiktok",
+      icon: <FaTiktok size={50} color="#fff" />,
+      link: "https://www.tiktok.com/@drcbd.innovation",
+    },
+    {
+      title: "Twitter",
+      icon: <FaTwitter size={50} color="#fff" />,
+      link: "https://twitter.com/drcbdgroup",
+    },
   ];
   const reviewStar = [1, 2, 3, 4, 5];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -289,7 +304,7 @@ const ProductDetail = () => {
       },
     ],
   };
-  
+
   return (
     <div ref={scrollContainerRef}>
       <div>
@@ -690,7 +705,8 @@ const ProductDetail = () => {
                 paddingRight: "1rem",
               }}
             >
-              <div
+              <a
+                href={item.link}
                 style={{
                   background: "#0b4640",
                   borderRadius: "50px",
@@ -702,10 +718,10 @@ const ProductDetail = () => {
                 }}
               >
                 {item.icon}
-              </div>
+              </a>
               <p style={{ color: "#0b4640" }}>
                 Share On
-                <br />
+                
                 {item.title}
               </p>
             </div>
