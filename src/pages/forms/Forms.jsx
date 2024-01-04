@@ -4,11 +4,11 @@ import axios from "axios";
 import ApiService from "../../services/ApiService";
 import Steps from "../../components/Steps";
 import { Link } from "react-router-dom";
-import { useNavigate,useParams } from 'react-router-dom';
+import { useNavigate, useParams } from "react-router-dom";
 
 const Forms = (props) => {
   const navigate = useNavigate();
-  const {orderId}= useParams();
+  const { orderId } = useParams();
   const [user, setUser] = useState([]);
   const [select, setSelect] = useState(0);
   const [userAdd, setUserAdd] = useState({
@@ -24,7 +24,7 @@ const Forms = (props) => {
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
-     
+
       setUser(res.data.user.userAddress);
     };
     getUser();
@@ -33,7 +33,6 @@ const Forms = (props) => {
   //console.log(user);
   const handelNext = async () => {
     try {
-
       const user = localStorage.getItem("token");
       const config = {
         headers: {
@@ -41,7 +40,7 @@ const Forms = (props) => {
           "Content-Type": "application/json", // Set the content type to JSON
         },
       };
-      
+
       const res = await axios.post(
         "https://drcbd-backend.onrender.com/user/edit-user",
         //https://drcbd-backend.onrender.com
@@ -49,19 +48,20 @@ const Forms = (props) => {
         config
       );
 
-      
       if (res.data.status) {
         const response = await axios.post(
-          "https://drcbd-backend.onrender.com/orders/update_order/"+orderId,
+          "https://drcbd-backend.onrender.com/orders/update_order/" + orderId,
           //https://drcbd-backend.onrender.com
           userAdd,
           config
         );
         const res = await ApiService.getOrderById(orderId);
         const totalPrice = res.data.totalPrice;
-console.log(totalPrice)
+        console.log(totalPrice);
         if (response.data.status)
-        navigate("/order-summery/"+orderId,{ state: { price:totalPrice } });
+          navigate("/order-summery/" + orderId, {
+            state: { price: totalPrice },
+          });
       }
     } catch (err) {
       console.log(err.message);
@@ -276,9 +276,9 @@ console.log(totalPrice)
               color: "#fff",
               padding: "7px 25px",
               fontweight: "bold",
-              fontSize:"2rem",
-              borderRadius:5,
-              marginRight:"2rem"
+              fontSize: "2rem",
+              borderRadius: 5,
+              marginRight: "2rem",
             }}
             to="/cart"
           >

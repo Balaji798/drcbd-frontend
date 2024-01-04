@@ -5,8 +5,56 @@ import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 import "./verticalSlider.css";
 import axios from "axios";
 
-const VerticalSlider = ({ reviews,displayedReviews, setDisplayedReviews }) => {
+const VerticalSlider = ({ productId }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [reviews, setReviews] = useState([]);
+  const [displayedReviews, setDisplayedReviews] = useState([]);
+  const [userReviews, setUserReviews] = useState([]);
+  const reviewStar = [1, 2, 3, 4, 5];
+  const [feed, setFeed] = useState({
+    name: "",
+    email: "",
+    review: "",
+    rating: "",
+    productId: productId,
+  });
+  useEffect(() => {
+   
+    getFeed();
+  }, []);
+  const handelSubmit = async () => {
+    try {
+      const user = localStorage.getItem("token");
+      if (user) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${user}`,
+            "Content-Type": "application/json", // Set the content type to JSON
+          },
+        };
+        //https://drcbd-backend.onrender.com
+        const res = await axios.post(
+          "https://drcbd-backend.onrender.com/review/add-review",
+          //https://drcbd-backend.onrender.com
+          feed,
+          config
+        );
+        getFeed()
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+ 
+  const getFeed = async () => {
+    const productReviews = await axios.post(
+      "https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
+      //https://drcbd-backend.onrender.com
+      { productId: productId }
+    );
+    setUserReviews(productReviews.data)
+    setDisplayedReviews(productReviews.data.slice(0, 3))
+  };
   const shiftAmount = 1; // Shift one step at a time
   const handleButtonClick = (direction) => {
     // const shift = direction === "forward" ? shiftAmount : -shiftAmount;
@@ -17,74 +65,258 @@ const VerticalSlider = ({ reviews,displayedReviews, setDisplayedReviews }) => {
     // );
     // setDisplayedReviews(shiftedReviews.slice(0, 3));
     const shift = direction === "forward" ? shiftAmount : -shiftAmount;
-    const nextIndex = (currentIndex + shift + reviews.length) % reviews.length;
+    const nextIndex = (currentIndex + shift + userReviews.length) % userReviews.length;
 
-    // Ensure nextIndex is within the bounds of the reviews array
-    if (nextIndex >= 0 && nextIndex < reviews.length) {
+    // Ensure nextIndex is within the bounds of the userReviews array
+    if (nextIndex >= 0 && nextIndex < userReviews.length) {
       setCurrentIndex(nextIndex);
-      const shiftedReviews = reviews.map(
+      const shiftedReviews = userReviews.map(
         (_, index) => reviews[(nextIndex + index) % reviews.length]
       );
       setDisplayedReviews(shiftedReviews.slice(0, 3));
     }
   };
   return (
-    <div className="vertical-slider">
-      <SlArrowUp
-        onClick={() => handleButtonClick("forward")}
-        style={{ cursor: "pointer", alignSelf: "center", fontSize: "55px" }}
-      />
-      <div style={{ width: "100%" }}>
-        {displayedReviews.map((item, index) => (
+    <div
+      className="review-container"
+      style={{ flexDirection: "column", background: "#ededed" }}
+    >
+      <div style={{ maxWidth: "1200px", width: "100%", paddingTop: "2rem" }}>
+        <h1 style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
+          Reviews
+        </h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingBottom: 5,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                padding: "0.5rem 3rem",
+                clipPath: "polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)",
+                width: "18rem",
+                background: "#0b4640",
+                color: "#fff",
+              }}
+            >
+              <h1 style={{ fontSize: "30px" }}>4.5</h1>
+            </div>
+            <div
+              style={{
+                filter: "drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5))",
+                position: "absolute",
+                marginLeft: "7rem",
+              }}
+            >
+              <div
+                style={{
+                  background: "#fff",
+                  padding: "0.3rem 3rem",
+                  width: "15rem",
+                  clipPath: "polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)",
+                }}
+              >
+                <div
+                  style={{
+                    width: "90%",
+                    color: "#fdba09",
+                    paddingBottom: 3,
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <ImStarFull style={{ fontSize: 20 }} />
+                  <ImStarFull style={{ fontSize: 20 }} />
+                  <ImStarFull style={{ fontSize: 20 }} />
+                  <ImStarFull style={{ fontSize: 20 }} />
+                  <ImStarHalf style={{ fontSize: 20 }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>{userReviews.length} Reviews count</p>
+      </div>
+      <div
+        className="review-container"
+        style={{ maxWidth: "1200px", width: "100%", paddingBottom: "2rem" }}
+      >
+        <div className="reviews">
+          <div className="vertical-slider">
+            <SlArrowUp
+              onClick={() => handleButtonClick("forward")}
+              style={{
+                cursor: "pointer",
+                alignSelf: "center",
+                fontSize: "55px",
+              }}
+            />
+            <div style={{ width: "100%" }}>
+              {displayedReviews.map((item, index) => (
+                <div
+                  className="review"
+                  key={index}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "6rem",
+                    }}
+                  >
+                    <BsPersonCircle color="#3cbb90" size={45} />
+                    <p>{item.userName}</p>
+                    <p style={{ fontSize: 11 }}>Verified</p>
+                    <div style={{ color: "yellow", paddingBottom: 3 }}>
+                      {Array.from(
+                        { length: item.rating },
+                        (_, index) => index + 1
+                      ).map((ret, i) => {
+                        return <ImStarFull key={i} />;
+                      })}
+                    </div>
+                  </div>
+                  <p
+                    style={{
+                      paddingLeft: 5,
+                      width: "70%",
+                      wordWrap: "break-word",
+                    }}
+                  >
+                    {item.review}
+                  </p>
+                  <p style={{ fontSize: 10, alignSelf: "flex-end" }}>
+                    Posted 7 month's ago
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <SlArrowDown
+              onClick={() => handleButtonClick("backward")}
+              style={{
+                cursor: "pointer",
+                alignSelf: "center",
+                fontSize: "55px",
+              }}
+            />
+          </div>
           <div
             style={{
-              background: "#e6e6da",
-              marginBottom: 10,
-              padding: 20,
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "flex-end",
               width: "90%",
             }}
-            key={index}
+          >
+            <a style={{ textAlign: "end" }} href="#"> See More {">>"}</a>
+          </div>
+        </div>
+        <div
+          style={{
+            background: "#0b4640",
+            color: "#fff",
+            height: "100%",
+            width: "50%",
+            padding: "1rem",
+            borderRadius:10,
+            boxShadow:"box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2)"
+          }}
+        >
+          <h2>Add Review</h2>
+          <p style={{ padding: "0.5rem 0" }}>Your Rating</p>
+          <div
+            style={{
+              paddingLeft: 5,
+              height: 50,
+            }}
+          >
+            <div style={{ paddingBottom: 3 }}>
+              {reviewStar.map((item) => (
+                <ImStarFull
+                  style={{
+                    fontSize: 35,
+                    color: reviews?.includes(item) ? "#fdba09" : "#fff",
+                    marginRight: "0.5rem",
+                  }}
+                  onClick={() => {
+                    setReviews(
+                      Array.from({ length: item }, (_, index) => index + 1)
+                    );
+                    setFeed({ ...feed, rating: item });
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+          <p style={{ padding: "0.5rem 0" }}>Your Review</p>
+          <textarea
+            style={{
+              width: "100%",
+              height: "12rem",
+              padding: "0.2rem 0.5rem",
+            }}
+            onChange={(e) => setFeed({ ...feed, review: e.target.value })}
+          />
+          <label style={{ paddingRight: "5px" }}>Name</label>
+          <input
+            style={{
+              width: "40%",
+              fontSize: 20,
+              margin: "0.5rem 0",
+              padding: "0.2rem 0.5rem",
+            }}
+            onChange={(e) => setFeed({ ...feed, name: e.target.value })}
+          />
+          <label style={{ padding: "0 5px" }}>Email</label>
+          <input
+            style={{
+              width: "42.4%",
+              fontSize: 20,
+              margin: "0.5rem 0",
+              padding: "0.2rem 0.5rem",
+            }}
+            onChange={(e) => setFeed({ ...feed, email: e.target.value })}
+          />
+          <input
+            type="checkbox"
+            style={{
+              width: "1.5rem",
+              height: "1.5rem",
+              margin: "0.5rem 0",
+            }}
+          />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              width: "100%",
+              justifyContent: "flex-end",
+            }}
           >
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                width:"6rem"
+                alignSelf: "flex-end",
+                background: "#fff",
+                width: "5rem",
+                color: "#0b4640",
+                textAlign: "center",
+                fontWeight: "bold",
+                fontSize: 20,
+                padding: "0.5rem 0",
+                cursor: "pointer",
               }}
+              onClick={handelSubmit}
             >
-              <BsPersonCircle color="#3cbb90" size={45} />
-              <p>{item.userName}</p>
-              <p style={{ fontSize: 11 }}>Verified</p>
-              <div style={{ color: "yellow", paddingBottom: 3 }}>
-                {/* <ImStarFull />
-                <ImStarFull />
-                <ImStarFull />
-                <ImStarFull />
-                <ImStarHalf /> */}
-                {Array.from(
-                  { length: item.rating },
-                  (_, index) => index + 1
-                ).map((ret, i) => {
-                  return <ImStarFull key={i} />;
-                })}
-              </div>
+              Submit
             </div>
-            <p style={{ paddingLeft: 5,width:"70%",wordWrap:"break-word" }}>{item.review}</p>
-            <p style={{ fontSize: 10, alignSelf: "flex-end" }}>
-              Posted 7 month's ago
-            </p>
           </div>
-        ))}
+        </div>
       </div>
-
-      <SlArrowDown
-        onClick={() => handleButtonClick("backward")}
-        style={{ cursor: "pointer", alignSelf: "center", fontSize: "55px" }}
-      />
     </div>
   );
 };

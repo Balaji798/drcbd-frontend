@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import { ImStarFull, ImStarHalf } from "react-icons/im";
 import { FaInstagram, FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,15 +28,12 @@ const ProductDetail = () => {
   const { productName } = useParams();
   const navigate = useNavigate();
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [displayedReviews, setDisplayedReviews] = useState([]);
-  const [userReviews, setUserReviews] = useState([]);
+
   const productByName = product.filter((item) => {
     return (
       item.name?.toLowerCase().trim() === productName?.toLowerCase().trim()
     );
   });
-  console.log(product[34]?.name.toLowerCase());
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
       if (
@@ -48,13 +44,7 @@ const ProductDetail = () => {
       }
     })
   );
-  const [feed, setFeed] = useState({
-    name: "",
-    email: "",
-    review: "",
-    rating: "",
-    productId: "",
-  });
+ 
   const [open, setOpen] = useState(false);
 
   if (open) {
@@ -76,15 +66,7 @@ const ProductDetail = () => {
 
   const getProductByName = async () => {
     try {
-      const productReviews = await axios.post(
-        "https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
-        //https://drcbd-backend.onrender.com
-        { productId: productByName[0]._id }
-      );
-      setUserReviews(productReviews.data);
-      setDisplayedReviews(productReviews.data.slice(0, 3));
-      setFeed({ ...feed, productId: productByName[0]._id });
-      setPrice(Number(productByName[0].price)).toFixed(2);
+      setPrice(Number(productByName[0]?.price)?.toFixed(2));
     } catch (err) {
       console.log(err.message);
     }
@@ -161,7 +143,7 @@ const ProductDetail = () => {
       link: "https://twitter.com/drcbdgroup",
     },
   ];
-  const reviewStar = [1, 2, 3, 4, 5];
+
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -232,28 +214,7 @@ const ProductDetail = () => {
     // if (user) setOpen(!open);
   };
 
-  const handelSubmit = async () => {
-    try {
-      const user = localStorage.getItem("token");
-      if (user) {
-        const config = {
-          headers: {
-            Authorization: `Bearer ${user}`,
-            "Content-Type": "application/json", // Set the content type to JSON
-          },
-        };
-        //https://drcbd-backend.onrender.com
-        const res = await axios.post(
-          "https://drcbd-backend.onrender.com/review/add-review",
-          //https://drcbd-backend.onrender.com
-          feed,
-          config
-        );
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
   const PreviousBtn = (props) => {
     const { onClick } = props;
     return (
@@ -735,191 +696,7 @@ const ProductDetail = () => {
             <source src={productByName[0]?.videoLink} type="video/mp4" />
           </video>
         </div>
-        <div
-          className="review-container"
-          style={{ flexDirection: "column", background: "#ededed" }}
-        >
-          <div
-            style={{ maxWidth: "1200px", width: "100%", paddingTop: "2rem" }}
-          >
-            <h1 style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
-              Reviews
-            </h1>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                paddingBottom: 5,
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <div
-                  style={{
-                    padding: "0.5rem 3rem",
-                    clipPath: "polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)",
-                    width: "18rem",
-                    background: "#0b4640",
-                    color: "#fff",
-                  }}
-                >
-                  <h1 style={{ fontSize: "30px" }}>4.5</h1>
-                </div>
-                <div
-                  style={{
-                    filter: "drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5))",
-                    position: "absolute",
-                    marginLeft: "7rem",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: "#fff",
-                      padding: "0.3rem 3rem",
-                      width: "15rem",
-                      clipPath: "polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "90%",
-                        color: "#fdba09",
-                        paddingBottom: 3,
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <ImStarFull style={{ fontSize: 20 }} />
-                      <ImStarFull style={{ fontSize: 20 }} />
-                      <ImStarFull style={{ fontSize: 20 }} />
-                      <ImStarFull style={{ fontSize: 20 }} />
-                      <ImStarHalf style={{ fontSize: 20 }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p>{userReviews.length} Reviews count</p>
-          </div>
-          <div
-            className="review-container"
-            style={{ maxWidth: "1200px", width: "100%", paddingBottom: "2rem" }}
-          >
-            <div className="reviews">
-              <VerticalCarousel
-                reviews={userReviews}
-                displayedReviews={displayedReviews}
-                setDisplayedReviews={setDisplayedReviews}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  width: "90%",
-                }}
-              >
-                <a style={{ textAlign: "end" }}> See More {">>"}</a>
-              </div>
-            </div>
-            <div
-              style={{
-                background: "#0b4640",
-                color: "#fff",
-                height: "100%",
-                width: "50%",
-                padding: "1rem",
-              }}
-            >
-              <h2>Add Review</h2>
-              <p style={{ padding: "0.5rem 0" }}>Your Rating</p>
-              <div
-                style={{
-                  paddingLeft: 5,
-                  height: 50,
-                }}
-              >
-                <div style={{ paddingBottom: 3 }}>
-                  {reviewStar.map((item) => (
-                    <ImStarFull
-                      style={{
-                        fontSize: 35,
-                        color: reviews?.includes(item) ? "#fdba09" : "#fff",
-                        marginRight: "0.5rem",
-                      }}
-                      onClick={() => {
-                        setReviews(
-                          Array.from({ length: item }, (_, index) => index + 1)
-                        );
-                        setFeed({ ...feed, rating: item });
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-              <p style={{ padding: "0.5rem 0" }}>Your Review</p>
-              <textarea
-                style={{
-                  width: "100%",
-                  height: "12rem",
-                  padding: "0.2rem 0.5rem",
-                }}
-                onChange={(e) => setFeed({ ...feed, review: e.target.value })}
-              />
-              <label style={{ paddingRight: "5px" }}>Name</label>
-              <input
-                style={{
-                  width: "40%",
-                  fontSize: 20,
-                  margin: "0.5rem 0",
-                  padding: "0.2rem 0.5rem",
-                }}
-                onChange={(e) => setFeed({ ...feed, name: e.target.value })}
-              />
-              <label style={{ padding: "0 5px" }}>Email</label>
-              <input
-                style={{
-                  width: "42.4%",
-                  fontSize: 20,
-                  margin: "0.5rem 0",
-                  padding: "0.2rem 0.5rem",
-                }}
-                onChange={(e) => setFeed({ ...feed, email: e.target.value })}
-              />
-              <input
-                type="checkbox"
-                style={{
-                  width: "1.5rem",
-                  height: "1.5rem",
-                  margin: "0.5rem 0",
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-end",
-                  width: "100%",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <div
-                  style={{
-                    alignSelf: "flex-end",
-                    background: "#fff",
-                    width: "5rem",
-                    color: "#0b4640",
-                    textAlign: "center",
-                    fontWeight: "bold",
-                    fontSize: 20,
-                    padding: "0.5rem 0",
-                    cursor: "pointer",
-                  }}
-                  onClick={handelSubmit}
-                >
-                  Submit
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <VerticalCarousel productId={productByName[0]?._id}/>
       </div>
       <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
         <h2 style={{ maxWidth:"1300px",width:"100%",padding: "1rem 0 1rem 3rem" }}>See More</h2>
