@@ -663,8 +663,10 @@ const ProductDetail = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
+                justifyContent:"center",
                 borderRight: "2px solid #0b4640",
                 paddingRight: "1rem",
+                width:"25%"
               }}
             >
               <a
@@ -681,7 +683,7 @@ const ProductDetail = () => {
               >
                 {item.icon}
               </a>
-              <p style={{ color: "#0b4640" }}>
+              <p style={{ color: "#0b4640",paddingLeft:"0.5rem" }}>
                 Share On
                 {item.title}
               </p>

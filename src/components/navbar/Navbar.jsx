@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./navbar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const naveData = [
   {
+    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
     title: "SHOP CBD",
     subMenu1: {
       title: "CBD BY CATEGORY",
@@ -48,9 +49,9 @@ const naveData = [
           //by-category/SKINCARE
         },
         {
-          title:"GIFT SETS & PROMOTIONS",
-          link:"/"
-        }
+          title: "GIFT SETS & PROMOTIONS",
+          link: "/",
+        },
       ],
     },
     subMenu2: {
@@ -70,8 +71,8 @@ const naveData = [
           link: "/by-purpose/ENERGY",
         },
         {
-          title:"ANXIETY",
-          link:"/by-purpose/ANXIETY"
+          title: "ANXIETY",
+          link: "/by-purpose/ANXIETY",
         },
         {
           title: "MUSCLES & JOINT",
@@ -82,8 +83,8 @@ const naveData = [
           link: "/by-purpose/CANCER",
         },
         {
-          title:"PALLIATIVE CARE",
-          link:"/by-purpose/PALLIATIVE-CARE"
+          title: "PALLIATIVE CARE",
+          link: "/by-purpose/PALLIATIVE-CARE",
         },
         {
           title: "SKINCARE",
@@ -111,11 +112,11 @@ const naveData = [
         },
         {
           title: "GIFT SETS & PROMOTIONS",
-          link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
+          link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
         },
         {
           title: "CBD CONCENTRATION & EXTRACTS",
-          link: "/"//"/by-purpose/WEIGHT-MANAGEMENT",
+          link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
         },
       ],
     },
@@ -183,6 +184,7 @@ const naveData = [
   //   },
   // },
   {
+    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home2.jpeg",
     title: "OUR SERVICES",
     subMenu1: {
       title: "OUR SERVICES",
@@ -215,6 +217,7 @@ const naveData = [
     },
   },
   {
+    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home1.jpeg",
     title: "ABOUT",
     subMenu1: {
       title: "ABOUT",
@@ -235,6 +238,7 @@ const naveData = [
     },
   },
   {
+    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home5.jpeg",
     title: "DR.CBD UNIVERSITY",
     subMenu1: {
       title: "DR.CBD UNIVERSITY",
@@ -264,6 +268,7 @@ const naveData = [
     },
   },
   {
+    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home3.jpeg",
     title: "CONTACT",
     subMenu1: {
       title: "CONTACT",
@@ -299,95 +304,93 @@ const naveData = [
 ];
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
-
-  const navigate = useNavigate();
-  const user = localStorage.getItem("token");
-
-  if (open) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
   return (
     <nav>
-    <div className="navContainer">
-
-    <div className="navbar">
-      {naveData.map((item, index) => (
-        <div className="dropdown" key={index}>
-          <Link to="#">{item.title}</Link>
-          <div
-            className="dropdown-content"
-            //style={{}}
-          >
+      <div className="navContainer">
+        <div className="navbar">
+          {naveData.map((item, index) => (
             <div
-              style={{ width: "auto", paddingRight: "10px", display: "flex" }}
+              className="dropdown"
+              key={index}
             >
-              <div>
-                <Link
-                  to={item.subMenu1.link}
+              <Link to="#">{item.title}</Link>
+              <div
+                className="dropdown-content"
+                //style={{}}
+              >
+                <div
                   style={{
-                    padding: "10px 15px",
-                    fontSize: 16,
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 800,
+                    width: "auto",
+                    paddingRight: "10px",
+                    display: "flex",
                   }}
                 >
-                  {item.subMenu1.title}
-                </Link>
-                {item?.subMenu1?.options?.map((sub, i) => (
-                  <div
-                    style={{ display: "flex", alignItems: "center" }}
-                    className="dropdown-item"
-                    key={i}
-                    onClick={() => {
-                      window.location.reload();
-                    }}
-                  >
-                    {sub.icon}
+                  <div>
                     <Link
-                      to={sub.link}
-                      style={{ cursor: "pointer", fontSize: 16 }}
+                      to={item.subMenu1.link}
+                      style={{
+                        padding: "10px 15px",
+                        fontSize: 16,
+                        fontFamily: "'Poppins', sans-serif",
+                        fontWeight: 800,
+                      }}
                     >
-                      {sub.title}
+                      {item.subMenu1.title}
                     </Link>
+                    {item?.subMenu1?.options?.map((sub, i) => (
+                      <div
+                        style={{ display: "flex", alignItems: "center" }}
+                        className="dropdown-item"
+                        key={i}
+                        onClick={() => {
+                          window.location.reload();
+                        }}
+                      >
+                        {sub.icon}
+                        <Link
+                          to={sub.link}
+                          style={{ cursor: "pointer", fontSize: 16 }}
+                        >
+                          {sub.title}
+                        </Link>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <div>
-                <Link style={{
-                  padding: "10px 15px",
-                  fontSize: 16,
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 800,
-                }} to={item?.subMenu2?.link}>
-                  {item?.subMenu2?.title}
-                </Link>
-                {item?.subMenu2?.options?.map((sub, i) => (
-                  <div
-                    style={{ display: "flex", alignItems: "center" }}
-                    className="dropdown-item"
-                    key={i}
-                  >
-                    {sub.icon}
-                    <Link to={sub.link} style={{ cursor: "pointer", fontSize: 16 }}>
-                      {sub.title}
+                  <div>
+                    <Link
+                      style={{
+                        padding: "10px 15px",
+                        fontSize: 16,
+                        fontFamily: "'Poppins', sans-serif",
+                        fontWeight: 800,
+                      }}
+                      to={item?.subMenu2?.link}
+                    >
+                      {item?.subMenu2?.title}
                     </Link>
+                    {item?.subMenu2?.options?.map((sub, i) => (
+                      <div
+                        style={{ display: "flex", alignItems: "center" }}
+                        className="dropdown-item"
+                        key={i}
+                      >
+                        {sub.icon}
+                        <Link
+                          to={sub.link}
+                          style={{ cursor: "pointer", fontSize: 16 }}
+                        >
+                          {sub.title}
+                        </Link>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+                <img src={item.image} style={{ width: "50%" }} alt="/" />
               </div>
             </div>
-            <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/contact.png"
-              style={{ width: "50%" }}
-              alt="/"
-            />
-          </div>
+          ))}
         </div>
-      ))}
-    </div>
-    </div>
+      </div>
     </nav>
   );
 };

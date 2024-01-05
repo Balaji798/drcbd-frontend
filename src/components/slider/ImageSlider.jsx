@@ -463,8 +463,8 @@ const ImageSlider = () => {
               style={{ width: "15rem", objectFit: "contain" }}
               alt="/"
             />
-            <h2 style={{ textAlign: "end" }}>VITAL HEALTH CAFE</h2>
-            <p style={{ padding: "0.3rem 0", textAlign: "end" }}>
+            <h2 style={{ }}>VITAL HEALTH CAFE</h2>
+            <p style={{ padding: "0.3rem 0", }}>
               Vital Health Cafe
             </p>
             <p
@@ -473,7 +473,7 @@ const ImageSlider = () => {
                 fontSize: "0.8rem",
                 fontWeight: 600,
                 lineHeight: "1.3rem",
-                textAlign: "end",
+                
               }}
             >
               Vital Health Café offer you wide range of food
