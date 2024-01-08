@@ -369,20 +369,22 @@ const ImageSlider = () => {
         <h1 style={{ padding: "2.5rem 0 1.5rem", fontWeight: "bold" }}>
           BEST SELLER
         </h1>
+        
         <p
           style={{
-            width: "70%",
+            width: "60%",
             fontWeight: 500,
             lineHeight: "1.2rem",
-            fontFamily: "'Montserrat', sans-serif",
+            fontFamily: "Avenir",
             paddingBottom: "0.8rem",
+            marginLeft:"5rem"
           }}
         >
           CBD products have gained popularity due to their potential therapeutic
           benefits. While research is ongoing,
           <br /> CBD has shown promise in several areas, including:
         </p>
-        <ul style={{ width: "65%" }}>
+        <ul style={{ width: "55%",fontFamily: "Avenir",marginLeft:"5rem" }}>
           <li>
             Pain Management: CBD may help alleviate chronic pain by interacting
             with receptors in the
@@ -458,12 +460,14 @@ const ImageSlider = () => {
             </div>
           </div>
           <div style={{ width: "29%", marginLeft: "0.5rem" }}>
-            <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-02.png"
-              style={{ width: "15rem", objectFit: "contain" }}
-              alt="/"
-            />
-            <h2 style={{ }}>VITAL HEALTH CAFE</h2>
+          <a href="https://www.instagram.com/vitalhealthcafeofficial/">
+          <img
+            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-02.png"
+            style={{ width: "15rem", objectFit: "contain" }}
+            alt="/"
+          />
+          </a>
+          <h2 style={{ }}>VITAL HEALTH CAFE</h2>
             <p style={{ padding: "0.3rem 0", }}>
               Vital Health Cafe
             </p>
@@ -473,7 +477,7 @@ const ImageSlider = () => {
                 fontSize: "0.8rem",
                 fontWeight: 600,
                 lineHeight: "1.3rem",
-                
+                fontFamily: "Avenir",
               }}
             >
               Vital Health Café offer you wide range of food
@@ -516,16 +520,18 @@ const ImageSlider = () => {
             />
           </div>
           <div style={{ width: "29%", marginLeft: "-8rem" }}>
-            <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-01.png"
-              style={{
-                width: "18rem",
-                objectFit: "cover",
-                marginLeft: "0rem",
-              }}
-              alt="/"
-            />
-            <h2>VITAL MEDI CLINIC</h2>
+          <a href="https://www.facebook.com/realvitalmediclinic/">
+          <img
+            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-01.png"
+            style={{
+              width: "18rem",
+              objectFit: "cover",
+              marginLeft: "0rem",
+            }}
+            alt="/"
+          />
+          </a>
+          <h2>VITAL MEDI CLINIC</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
             <p
               style={{
@@ -533,6 +539,7 @@ const ImageSlider = () => {
                 lineHeight: "1.3rem",
                 fontSize: "0.8rem",
                 fontWeight: 600,
+                fontFamily: "Avenir",
               }}
             >
               Vital Medi Clinic is an Integrative Medical clinic which

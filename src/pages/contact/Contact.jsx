@@ -93,7 +93,7 @@ const Contact = () => {
                 style={{
                   fontSize: item.fontSize,
                   color: "#41631c",
-                  fontFamily: "AvenirNextLTPro-Regular",
+                  fontFamily: "Avenir",
                   width: "55%",
                   paddingLeft: 10,
                 }}

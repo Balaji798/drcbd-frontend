@@ -106,7 +106,7 @@ const ProductDetail = () => {
       para: productByName[0]?.contraindication,
     },
     {
-      title: "Waring and Precaution",
+      title: "Warning and Precaution",
       para: productByName[0]?.warningPrecaution,
     },
     // {
@@ -459,7 +459,7 @@ const ProductDetail = () => {
                   fontSize: 18,
                 }}
               >
-                10 Piece
+                10 Pieces
               </p>
             </div>
             <div
@@ -644,7 +644,7 @@ const ProductDetail = () => {
                   <img
                     src={item}
                     style={{ width: "8rem", objectFit: "cover" }}
-                    alt={item}
+                    alt='/'
                   />
                 </div>
               ))}

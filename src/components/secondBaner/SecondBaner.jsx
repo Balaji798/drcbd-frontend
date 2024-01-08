@@ -450,7 +450,7 @@ const SecondBanner = () => {
               <h3
                 style={{
                   padding: "5px 0",
-                  fontFamily: "AvenirNextLTPro-Regular",
+                  fontFamily: "Avenir",
                 }}
               >
                 {item.tel}

@@ -1,6 +1,7 @@
 import { BsFacebook } from "react-icons/bs";
 import { SlSocialInstagram } from "react-icons/sl";
 import { AiOutlineGlobal } from "react-icons/ai";
+import { FaPhone } from "react-icons/fa6";
 
 export const footerData = [
   {
@@ -16,16 +17,12 @@ export const footerData = [
         link: "/our-companies",
       },
       {
-        title: "Our Leadership",
+        title: "Our Team",
         link: "/our-leadership",
       },
       {
         title: "Join Our Esteemed",
         link: "/our-esteemed",
-      },
-      {
-        title: "Company",
-        link: "/company",
       },
     ],
   },
@@ -68,16 +65,25 @@ export const footerData = [
     link: "",
     subMenu: [
       {
-        title: "NEWS",
-        link: "/insights",
-      },
-      {
         title: "HEALTH",
-        link: "/insights",
+        link: "/insights/health",
+      },
+
+      {
+        title: "MEDICAL",
+        link: "/insights/medical",
       },
       {
-        title: "INNOVATION",
-        link: "/insights",
+        title: "RESEARCH",
+        link: "/insights/research",
+      },
+      {
+        title: "NEWS",
+        link: "/insights/news",
+      },
+      {
+        title: "PRESS RELEASE",
+        link: "/insights/press-release",
       },
     ],
   },
@@ -104,10 +110,7 @@ export const footerData = [
         title: "+66 65 141 6999",
         link: "/join-our-esteemed",
         icon: (
-          <img
-            src="../free-phone.png"
-            style={{ objectFit: "cover", height: "30px" }}
-          />
+          <FaPhone size={25} color="#000"/>
         ),
       },
     ],
