@@ -226,14 +226,14 @@ const Profile = () => {
             >
               <button
                 className="edit-button"
-                style={{ width: "50%" }}
+                style={{ width: "50%",borderRight:"2px solid #fff",borderTopRightRadius:0,borderBottomRightRadius:0 }}
                 onClick={() => setEdit(!edit)}
               >
                 EDIT
               </button>
               <button
                 className="edit-button"
-                style={{ width: "50%" }}
+                style={{ width: "50%",borderTopLeftRadius:0,borderBottomLeftRadius:0 }}
                 onClick={handelUserUpdate}
               >
                 SAVE
