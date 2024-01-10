@@ -6,7 +6,7 @@ const Register = () => {
   const [login, setLogin] = useState(false);
   const [verified, setVerified] = useState(false);
   const [otp, setOtp] = useState("");
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(false);
   const [user, setUser] = useState({
     fullName: "",
     email: "",
@@ -26,7 +26,6 @@ const Register = () => {
       );
       
       localStorage.setItem("token", response.data);
-      setToken(response.data);
       setLogin(true);
     } catch (error) {
       console.log("Signup failed", error.message);
@@ -46,7 +45,10 @@ const Register = () => {
       { otp: otp },
       config
     );
-    if (res.data.status) setVerified(true);
+    if(!res.data.status){
+      setToken(true)
+    }
+    if (res.data.status===true) setVerified(true);
   };
   return (
     <div
@@ -118,6 +120,7 @@ const Register = () => {
               }}
               onChange={(e)=>{setOtp(e.target.value)}}
             />
+            {token&&<p style={{color:"red",paddingTop:10}}>Not a valid OTP</p>}
             <button
               style={{
                 marginTop: "1em",
