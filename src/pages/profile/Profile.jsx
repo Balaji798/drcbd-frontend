@@ -226,14 +226,14 @@ const Profile = () => {
             >
               <button
                 className="edit-button"
-                style={{ marginRight: "0.5rem", width: "6.5rem" }}
+                style={{ width: "50%" }}
                 onClick={() => setEdit(!edit)}
               >
                 EDIT
               </button>
               <button
                 className="edit-button"
-                style={{ width: "6.5rem" }}
+                style={{ width: "50%" }}
                 onClick={handelUserUpdate}
               >
                 SAVE

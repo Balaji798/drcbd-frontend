@@ -313,7 +313,8 @@ const Navbar = () => {
               className="dropdown"
               key={index}
             >
-              <Link to="#">{item.title}</Link>
+              <Link to="#" className="different">
+              <span>{item.title}</span></Link>
               <div
                 className="dropdown-content"
                 //style={{}}
