@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
@@ -28,6 +29,8 @@ import { getProduct } from "./state/actions/productAction";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 function App() {
+  const [openNav,setOpenNav]= useState(false);
+  console.log(openNav)
   const dispatch = useDispatch();
   useEffect(() => {
     const getProducts = async () => {
@@ -43,10 +46,10 @@ function App() {
       }}
     >
       <Router>
-      <div>
+      <div >
    
-      <Header />
-      <Navbar />
+      <Header setOpenNav={setOpenNav} openNav={openNav}/>
+      <Navbar setOpenNav={setOpenNav} openNav={openNav}/>
       </div>
         <div
           style={{

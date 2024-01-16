@@ -138,6 +138,9 @@ nav {
   display: table;
   clear: both;
 }
+.nav-active{
+
+}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -168,11 +171,11 @@ nav {
     top: 2rem;
   }
 
-  #check:checked ~ nav {
-    transform: translateX(0);
+  .nav-active{
+    transform: translateX(0) !important;
   }
 
-  #check:checked ~ nav {
+  .nav-active {
     animation: animation 0.5s ease forwards 0.85s;
   }
   .column {

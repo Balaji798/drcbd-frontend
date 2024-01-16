@@ -303,9 +303,9 @@ const naveData = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({openNav,setOpenNav}) => {
   return (
-    <nav>
+    <nav className={openNav&&'nav-active'}>
       <div className="navContainer">
         <div className="navbar">
           {naveData.map((item, index) => (

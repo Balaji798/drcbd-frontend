@@ -10,7 +10,7 @@ import ApiService from "../../services/ApiService";
 import Modal from "../modal/Modal";
 import { useSelector } from "react-redux";
 
-const Header = () => {
+const Header = ({openNav,setOpenNav}) => {
   const { product } = useSelector((state) => state.product);
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -42,7 +42,6 @@ const Header = () => {
     <>
       {open && <Modal setOpen={setOpen} user={user} />}
       <header>
-        <input type="checkbox" name="" id="check" />
         <div className="header-container">
           <div
             className="sign-profile"
@@ -174,7 +173,7 @@ const Header = () => {
                 alt={""}
               />
             </a>
-            <div className="hamburger-menu-container">
+            <div className="hamburger-menu-container" onClick={()=>{setOpenNav(!openNav)}}>
               <div className="hamburger-menu">
                 <div></div>
               </div>
