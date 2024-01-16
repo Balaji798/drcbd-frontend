@@ -142,7 +142,7 @@ const Register = () => {
         )
       ) : (
         <div className="register-container">
-          <h1 style={{ fontSize: "50px" }}>
+          <h1>
             <Link to="/sign-in" style={{ color: "#99a79f" }}>
               Sign in |{" "}
             </Link>
