@@ -1,16 +1,19 @@
 import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-import { useLocation,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProductSlider = ({ image, i, marginB,categoryName }) => {
   const navigate = useNavigate();
+  console.log(categoryName)
   return (
-    <Link
-    to={`/product-detail/` + image.name}
+    <div
       className="slider-item"
       key={i}
       style={{ marginBottom: "1rem", zIndex: 0 }}
+      onClick={()=>{navigate(`/product-detail/` + image.name, {
+        state: { catName1: categoryName},
+      });}}
     >
       {image.images && <img src={image.images[0]} alt="/" />}
       <div
@@ -28,15 +31,13 @@ const ProductSlider = ({ image, i, marginB,categoryName }) => {
         >
           {image.productFor[0]}
         </p>*/}
-        <h3 style={{color:"#000"}} onClick={()=>{navigate(`/product-detail/` + image.name, {
-          state: { catName1: categoryName},
-        });}}>
+        <h3 style={{color:"#000"}} >
           {image.name.toString()}
         </h3>
       </div>
 
       {/* <Link to="/product-detail">View Product</Link> */}
-    </Link>
+    </div>
   );
 };
 

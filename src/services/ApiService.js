@@ -2,7 +2,6 @@ import Api from "./Api";
 
 export default {
   addToCart(req) {
-    console.log(req)
     return Api().post("/cart/add-to-card", req);
   },
   getCart() {
@@ -18,7 +17,6 @@ export default {
     return Api().get("/product/get_products");
   },
   getProductById(name) {
-    console.log(name)
     return Api().post("/product/product_by_name", {name:name});
   },
   getOrderById(orderId){

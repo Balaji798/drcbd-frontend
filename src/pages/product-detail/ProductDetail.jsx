@@ -13,7 +13,7 @@ import data from "../../data";
 import "./productDetail.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { productIcon } from "./product-icon";
@@ -29,7 +29,9 @@ const ProductDetail = () => {
   const { productName } = useParams();
   const navigate = useNavigate();
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
+  const {state} =useLocation()
 
+  console.log(state,"h123")
   const scrollToTarget = () => {
     // Scroll to the target element
     if (targetRef.current) {
@@ -157,15 +159,15 @@ const ProductDetail = () => {
       const res = await ApiService.getAllProduct();
       const categoryProduct = res.data.filter((item) => {
         if (
-          item.category2?.toLowerCase() ===
-            product.category2?.split("-")?.join(" ")?.toLowerCase() ||
-          item.category3?.toLowerCase() ===
-            product.category2?.split("-")?.join(" ")?.toLowerCase()
+          item.categoryName.includes(
+            state.catName1.split("-").join(" ").toLowerCase()
+          )
         ) {
           return item;
         } else if (
-          item?.category3?.toLowerCase() ===
-          product.category2?.split("-")?.join(" ")?.toLowerCase()
+          item?.purposeName?.includes(
+            state.catName1.split("-").join(" ").toLowerCase()
+          )
         ) {
           return item;
         }

@@ -12,7 +12,6 @@ const CartComponent = (props) => {
 
   const removeFromCart = async (productId) => {
     try {
-      console.log(productId);
       const user = localStorage.getItem("token");
 
       const config = {
@@ -36,7 +35,6 @@ const CartComponent = (props) => {
   const handelNext = async () => {
     try {
       const user = localStorage.getItem("token");
-      console.log(user);
       const config = {
         headers: {
           Authorization: `Bearer ${user}`,
@@ -57,7 +55,6 @@ const CartComponent = (props) => {
       console.log(err);
     }
   };
-  console.log(cart)
   return (
     <>
      {cart.cart.length===0?<h1 style={{padding:"2rem 0",textAlign:"center"}}>Cart is empty</h1>: <div

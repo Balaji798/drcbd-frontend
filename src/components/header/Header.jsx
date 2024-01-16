@@ -19,7 +19,6 @@ const Header = () => {
   const [search, setSearch] = useState("");
   const { cart } = useSelector((state) => state.cart);
 
-  console.log(cart);
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
 
@@ -31,12 +30,9 @@ const Header = () => {
 
   const handelNext = async (type) => {
     if (!user) {
-      console.log("hi");
       setOpen(true);
     } else {
-      console.log(type);
       const res = await ApiService.getUser();
-      console.log(res.data, "h2");
       res.data.status ? navigate(type) : setOpen(true);
     }
   };

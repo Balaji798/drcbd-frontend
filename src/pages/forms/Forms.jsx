@@ -57,7 +57,6 @@ const Forms = (props) => {
         );
         const res = await ApiService.getOrderById(orderId);
         const totalPrice = res.data.totalPrice;
-        console.log(totalPrice);
         if (response.data.status)
           navigate("/order-summery/" + orderId, {
             state: { price: totalPrice },

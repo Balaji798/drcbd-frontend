@@ -69,7 +69,6 @@ const PayPal = () => {
                     },
                   ],
                 });
-                console.log(order);
                 return order;
               } catch (error) {
                 console.error("Error creating order:", error);

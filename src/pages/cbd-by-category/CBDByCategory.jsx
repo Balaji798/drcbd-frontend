@@ -26,7 +26,6 @@ const CBDByCategory = () => {
         const productsByCategory = categoryProduct.reduce((acc, product) => {
           //console.log(acc,product)
           const categoryName = product.category3;
-          console.log(categoryName);
           if (!acc[categoryName]) {
             acc[categoryName] = [];
           }

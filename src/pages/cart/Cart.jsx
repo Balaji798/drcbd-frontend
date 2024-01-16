@@ -8,8 +8,6 @@ const Cart = () => {
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("productId");
 
-  console.log(productId);
-
 
   return (
     <div style={{ color: "#005256" }}>

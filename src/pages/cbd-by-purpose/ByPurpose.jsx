@@ -43,7 +43,6 @@ const ByPurpose = () => {
   });
 
   const productsArray = Object.entries(productsByCategory);
-  console.log(window.location.pathname);
   const PreviousBtn = (props) => {
     const { onClick } = props;
     return (

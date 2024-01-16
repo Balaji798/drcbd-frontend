@@ -20,7 +20,6 @@ import Contact from "./pages/contact/Contact";
 import ByCategory from "./pages/byCategory/ByCategory";
 import Forms from "./pages/forms/Forms";
 import PayPal from "./pages/paypal/PayPal";
-import env from "react-dotenv";
 import UserOrder from "./pages/userOrder/UserOrder";
 import CancelOrder from "./pages/cancelOrder/CancelOrder";
 import { useDispatch } from "react-redux";
