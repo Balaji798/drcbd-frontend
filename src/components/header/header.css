@@ -6,7 +6,7 @@ header {
   justify-content: center;
   align-items: center;
   align-self: flex-end;
-  padding: 10px 7em;
+  padding: 10px 2em 10px 7em;
   color: #fff;
   position: fixed;
   overflow: hidden;
@@ -48,10 +48,10 @@ header {
   right: calc(20.7%);
   z-index: 1000;
   background-color: #fff;
-  color:#000;
+  color: #000;
   margin: 0;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
 
 .searchQuery::-webkit-scrollbar {
@@ -107,23 +107,59 @@ header {
   padding: 5px 7px;
 }
 
+.cart-profile {
+  display: flex;
+  width: 35%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  background-image: url("https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/cart.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sign-profile{
+  display: flex;
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
+  .sign-profile{
+    display: none;
+  }
   header {
     flex-direction: row-reverse;
     justify-content: space-between;
     padding: 10px 1rem;
     padding-bottom: 30px;
   }
-  header > a {
-  }
+
   .search-bar {
     position: absolute;
     top: 60%;
     left: 3%;
     height: 2rem;
     width: 94%;
+    display: none;
   }
   .header-container {
-    justify-self: end;
+    width: 50%;
+    justify-content: flex-end;
+  }
+  .old-web {
+    display: none;
+  }
+  .cart-profile{
+    width: 70%;
+    flex-wrap: wrap;
   }
 }

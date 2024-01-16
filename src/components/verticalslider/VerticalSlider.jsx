@@ -78,8 +78,8 @@ const VerticalSlider = ({ productId }) => {
   };
   return (
     <div
-      className="review-container"
-      style={{ flexDirection: "column", background: "#ededed" }}
+      className="review-container center"
+      style={{ background: "#ededed" }}
     >
       <div style={{ maxWidth: "1200px", width: "100%", paddingTop: "2rem" }}>
         <h1 style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
@@ -142,7 +142,7 @@ const VerticalSlider = ({ productId }) => {
       </div>
       <div
         className="review-container"
-        style={{ maxWidth: "1200px", width: "100%", paddingBottom: "2rem" }}
+        style={{ maxWidth: "1200px", width: "100%", paddingBottom: "2rem",display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center" }}
       >
         <div className="reviews">
           <div className="vertical-slider">
@@ -217,15 +217,7 @@ const VerticalSlider = ({ productId }) => {
           </div>
         </div>
         <div
-          style={{
-            background: "#0b4640",
-            color: "#fff",
-            height: "100%",
-            width: "50%",
-            padding: "1rem",
-            borderRadius:10,
-            boxShadow:"box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2)"
-          }}
+          className="add-review"
         >
           <h2>Add Review</h2>
           <p style={{ padding: "0.5rem 0" }}>Your Rating</p>

@@ -1,6 +1,7 @@
 .slider-item { 
     background-image: url("./product-bg.jpg");
-    width: 22rem;
+    max-width: 20rem;
+    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     height: 22rem !important;
@@ -32,8 +33,6 @@
     text-decoration: none;
   }
   
-  /* .slider-item:hover a {
-    transition: 0.3s;
-    opacity: 1;
-  } */
+  @media screen and (max-width: 768px){
+  }
   

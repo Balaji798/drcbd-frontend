@@ -119,17 +119,9 @@ const onButtonClick2 = () => {
         <div className="stories-background">
           <div
             className="stories-container"
-            style={{ display: "flex", justifyContent: "space-between" }}
+            style={{ display: "flex", justifyContent: "space-between",flexWrap:"wrap" }}
           >
-            <div
-              style={{
-                width: "50%",
-                zIndex: 1,
-                background: "#000",
-                padding: "2rem",
-                paddingBottom: "1.5rem",
-                color: "#fff",
-              }}
+            <div className="stories-container-childe2"
             >
               {howItStarted.map((item, index) => (
                 <div
@@ -154,25 +146,10 @@ const onButtonClick2 = () => {
               ))}
             </div>
             <div
-              style={{
-                maxWidth: "400px",
-                width: "100%",
-                background: "#00504c",
-                height: "20em",
-                position: "absolute",
-                zIndex: 0,
-                marginLeft: "10rem",
-                marginTop: "11rem",
-              }}
+              className="stories-container-childe3"
             />
             <div
-              style={{
-                width: "45%",
-                paddingTop: "4rem",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
+              className="stories-container-childe1"
             >
               <div>
                 <h1 style={{ fontSize: "2.6rem", paddingBottom: "3.4rem" }}>
@@ -207,13 +184,13 @@ const onButtonClick2 = () => {
           </div>
           <div
             className="stories-container"
-            style={{ display: "flex", justifyContent: "space-between" }}
+            style={{ display: "flex", justifyContent: "space-between",flexWrap:"wrap" }}
           >
             <div
               style={{
                 textAlign: "center",
                 borderRight: "4px solid #000",
-                width: "51%",
+                minWidth: "51%",
               }}
             >
               <h1 style={{ fontSize: "3rem", paddingBottom: "2rem" }}>
@@ -254,10 +231,11 @@ const onButtonClick2 = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              width: "100%",
+              flexWrap:"wrap",
               justifyContent: "space-between",
-              maxWidth: 1200,
+              maxWidth: 1250,
               width: "100%",
+              padding:"1rem"
             }}
           >
             {followData.map((item, index) => (
@@ -286,6 +264,7 @@ const onButtonClick2 = () => {
             alignItems: "center",
             width: "100%",
             justifyContent: "center",
+            flexWrap:"wrap",
             background: "#000",
           }}
         >
@@ -296,7 +275,6 @@ const onButtonClick2 = () => {
               width: "100%",
               justifyContent: "center",
               maxWidth: 1200,
-              width: "100%",
               color: "#fff",
               padding: "3rem 0",
             }}

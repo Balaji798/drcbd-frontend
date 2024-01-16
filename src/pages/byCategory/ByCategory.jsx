@@ -2,30 +2,31 @@ import React, { useState, useEffect } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import ApiService from "../../services/ApiService";
+import "./byCategory.css"
 
 const fiterData = [
   {
     title: "CBD CATEGORY",
     options: [
       {
-        title: "CBD OIL",
+        title: "OIL",
         link: "/by-category/CBD-OIL",
       },
       {
-        title: "CBD SUPPLEMENTS",
+        title: "SUPPLEMENTS",
         link: "/by-category/CBD-SUPPLEMENTS",
       },
       {
-        title: "CBD FACE",
+        title: "FACE",
         link: "/by-category/CBD-FACE",
       },
       {
-        title: "CBD BODY",
+        title: "BODY",
         link: "/by-category/cbd-body",
       },
 
       {
-        title: "CBD BEVERAGE",
+        title: "BEVERAGE",
         link: "/by-category/CBD-BEVERAGE",
       },
       {
@@ -37,7 +38,7 @@ const fiterData = [
       //   link: "/by-category/home-use",
       // },
       {
-        title: "CBD FOR PETS",
+        title: "FOR PETS",
         link: "/by-category/CBD-FOR-PETS",
       },
     ],
@@ -158,21 +159,10 @@ const ByCategory = () => {
   };
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "2rem 0",
-      }}
+      className="filter-container center"
     >
       <div
-        style={{
-          display: "flex",
-          padding: "2rem 0",
-          maxWidth: "1300px",
-          width: "100%",
-        }}
+        className="content-container"
       >
         <div
           style={{
@@ -180,12 +170,7 @@ const ByCategory = () => {
           }}
         >
           <div
-            style={{
-              boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2)",
-              padding: "10px",
-              borderRadius: "5px",
-              width: "15rem",
-            }}
+            className="filter"
           >
             <h3>
               {
@@ -240,13 +225,7 @@ const ByCategory = () => {
             </ul>
           </div>
           <div
-            style={{
-              padding: "10px",
-              boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2)",
-              marginTop: "1rem",
-              borderRadius: "5px",
-              width: "15rem",
-            }}
+            className="filter-meter"
           >
             <input
               type="range"
@@ -278,13 +257,7 @@ const ByCategory = () => {
           </div>
         </div>
         <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "0 2rem 0 ",
-          }}
+          className="center by-category-product"
         >
           <h2
             style={{
@@ -300,8 +273,7 @@ const ByCategory = () => {
           <div
             style={{
               maxWidth: "1150px",
-              minWidth: "1150px",
-              width: "100%",
+              width:"100%",
               display: "flex",
               alignItems: "center",
               flexWrap: "wrap",

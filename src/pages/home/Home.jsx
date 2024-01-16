@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div>
       <ImageSlider />
-      <SecondBanner />
-      <Stories />
+     <SecondBanner />
+     <Stories />
     </div>
   );
 }

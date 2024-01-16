@@ -161,7 +161,7 @@ const CartComponent = (props) => {
                   </div>
                 </div>
                 <h2 style={{ textAlign: "end", fontSize: "22px" }}>
-                  PRICE-{item.productId?.price} ฿
+                  PRICE :- {item.productId?.price} ฿
                 </h2>
               </div>
             </div>
@@ -200,7 +200,7 @@ const CartComponent = (props) => {
               }}
             >
               CART SUBTOTAL :-
-              <span style={{ fontSize: "2em" }}>{cart.cart?.totalPrice} ฿</span>
+              <span style={{ fontSize: "2em",marginLeft:"2px" }}>{" "}{cart.cart?.totalPrice} ฿</span>
             </p>
             <div className="checkOut-button" onClick={handelNext}>
               CHECK OUT

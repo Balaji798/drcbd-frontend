@@ -1,0 +1,9 @@
+.purpose{
+    width: 63%;
+}
+
+@media screen and (max-width: 768px){
+    .purpose{
+        width: 100%;
+    }
+}

@@ -309,12 +309,10 @@ const Navbar = () => {
       <div className="navContainer">
         <div className="navbar">
           {naveData.map((item, index) => (
-            <div
-              className="dropdown"
-              key={index}
-            >
+            <div className="dropdown" key={index}>
               <Link to="#" className="different">
-              <span>{item.title}</span></Link>
+                <span>{item.title}</span>
+              </Link>
               <div
                 className="dropdown-content"
                 //style={{}}
@@ -392,6 +390,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
+
     </nav>
   );
 };

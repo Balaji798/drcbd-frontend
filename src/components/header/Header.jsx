@@ -17,7 +17,9 @@ const Header = () => {
   const inputRef = useRef();
   const [isHovered, setIsHover] = useState(false);
   const [search, setSearch] = useState("");
- 
+  const { cart } = useSelector((state) => state.cart);
+
+  console.log(cart);
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
 
@@ -44,17 +46,25 @@ const Header = () => {
     <>
       {open && <Modal setOpen={setOpen} user={user} />}
       <header>
+        <input type="checkbox" name="" id="check" />
         <div className="header-container">
           <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              color: "#fff",
-            }}
+            className="sign-profile"
           >
-            <Link to="/sign-in">Sign In |</Link>
+            {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/england.jpg" style={{ width: "30px" }} alt="/" />*/}
+            <a href="#" style={{ marginRight: "2px" }}>
+              EN
+            </a>
+            |
+            <a href="#" style={{ marginLeft: "2px" }}>
+              TH |{" "}
+            </a>
+            {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/thailand.png" style={{ width: "24px" }} alt="/" />*/}
+            <Link to="/sign-in" style={{ marginLeft: "2px" }}>
+              Sign In |
+            </Link>
             <p
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", marginLeft: "2px" }}
               onClick={() => {
                 if (user) {
                   navigate("/my-orders");
@@ -67,7 +77,7 @@ const Header = () => {
               My Orders
             </p>
           </div>
-          <div style={{ display: "flex", width: "35%" }}>
+          <div className="cart-profile" style={{}}>
             <div className="search-bar">
               <BsSearch
                 color="#000"
@@ -109,12 +119,14 @@ const Header = () => {
                             padding: "2.5px 0",
                             fontSize: 13,
                             fontWeight: "bold",
-                            borderBottom:"1px solid"
+                            borderBottom: "1px solid",
                           }}
                           key={index}
-                          onClick={()=>setSearch('')}
+                          onClick={() => setSearch("")}
                         >
-                          <Link to={`/product-detail/` + item.name}>{item.name}</Link>
+                          <Link to={`/product-detail/` + item.name}>
+                            {item.name}
+                          </Link>
                         </li>
                       )}
                     </ul>
@@ -124,41 +136,52 @@ const Header = () => {
             ) : (
               <></>
             )}
-            <div></div>
+
             <div
               style={{
                 color: "#fff",
-                marginLeft: "2em",
+                marginLeft: "1em",
                 cursor: "pointer",
               }}
               onClick={() => handelNext("/cart")}
             >
-              <MdOutlineAddShoppingCart
+              <div className="cart-item">
+                <p style={{ marginLeft: "2.5px" }}>
+                  {cart ? cart.items.length : "0"}
+                </p>
+              </div>
+              {/*<MdOutlineAddShoppingCart
                 style={{ fontSize: "25px", alignSelf: "end" }}
-              />
+          />*/}
             </div>
             <div
               style={{
                 color: "#fff",
-                marginLeft: "2em",
+                marginLeft: "1em",
                 cursor: "pointer",
               }}
               onClick={() => handelNext("/profile")}
             >
               <FaUserCircle style={{ fontSize: "25px", alignSelf: "end" }} />
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                width: "27%",
-                marginLeft: 10,
-              }}
-            >
-              <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/england.jpg" style={{ width: "30px" }} alt="/" />
-              |
-              <img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/thailand.png" style={{ width: "24px" }} alt="/" />
+            <a href="https://drcbdgroup.com/" className="old-web">
+              <img
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
+                style={{
+                  objectFit: "cover",
+                  height: "25px",
+                  width: "80px",
+                  top: 20,
+                  left: "45%",
+                  marginLeft: "0.5rem",
+                }}
+                alt={""}
+              />
+            </a>
+            <div className="hamburger-menu-container">
+              <div className="hamburger-menu">
+                <div></div>
+              </div>
             </div>
           </div>
         </div>

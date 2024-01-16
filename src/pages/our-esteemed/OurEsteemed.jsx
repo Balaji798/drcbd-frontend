@@ -121,6 +121,7 @@ const OurEsteemed = () => {
               maxWidth: "60em",
               display: "flex",
               alignItems: "center",
+              flexWrap:"wrap",
               flexDirection: index % 2 !==0 ? "row-reverse" : "row",
               borderBottom: "5px solid #005652",
             }}
@@ -147,7 +148,7 @@ const OurEsteemed = () => {
             </div>
             <img
               src={item.image}
-              style={{ width: "60%", height: "25em", objectFit: "contain" }}
+              className="esteemed-container"
               alt="/"
             />
           </div>

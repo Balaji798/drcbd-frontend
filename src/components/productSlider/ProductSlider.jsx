@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const ProductSlider = ({ image, i, marginB }) => {
   return (
-    <div
+    <Link
+    to={`/product-detail/` + image.name}
       className="slider-item"
       key={i}
       style={{ marginBottom: "1rem", zIndex: 0 }}
@@ -17,21 +18,21 @@ const ProductSlider = ({ image, i, marginB }) => {
           width: "100%",
         }}
       >
-        <p
+        {/*<p
           style={{
             textAlign: "center",
             padding: "5px 0",
           }}
         >
           {image.productFor[0]}
-        </p>
+        </p>*/}
         <Link to={`/product-detail/` + image.name} style={{color:"#000"}}>
           {image.name.toString()}
         </Link>
       </div>
 
       {/* <Link to="/product-detail">View Product</Link> */}
-    </div>
+    </Link>
   );
 };
 

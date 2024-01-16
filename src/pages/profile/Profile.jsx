@@ -52,19 +52,14 @@ const Profile = () => {
         color: "#fff",
         justifyContent: "center",
         alignItems: "center",
+        flexWrap:"wrap"
       }}
     >
       <div
         style={{
-          background: "#fff",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "5rem 3rem",
-          borderRadius: "40px",
-          color: "grey",
-          height: "30rem",
+          
         }}
+        className="user-profile-container"
       >
         <FaUserCircle style={{ color: "grey", fontSize: "15rem" }} />
         <div

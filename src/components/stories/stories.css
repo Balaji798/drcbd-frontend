@@ -12,6 +12,34 @@
   padding: 3rem 0 5rem;
 }
 
+.stories-container-childe2 {
+  width: 50%;
+  z-index: 1;
+  background: #000;
+  padding: 2rem;
+  padding-bottom: 1.5rem;
+  color: #fff;
+}
+
+.stories-container-childe3{
+    max-Width: 400px;
+    width: 100%;
+    background: #00504c;
+    height: 20em;
+    position: absolute;
+    z-Index: 0;
+    margin-Left: 10rem;
+    margin-Top: 11rem;
+}
+
+.stories-container-childe1 {
+  width: 45%;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .stories-background {
   background-image: url("./yty12.png");
   background-size: cover;
@@ -33,6 +61,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .stories-button {
@@ -89,4 +118,19 @@
   color: #fff;
   margin-top: 1rem;
   width: 15rem;
+}
+
+@media screen and (max-width: 768px) {
+  .stories-container-childe1 {
+    padding: 2rem 1rem;
+    width: 100%;
+  }
+  .stories-container-childe2{
+    width: 95%;
+  }
+  .stories-container-childe3{
+    height: 24em;
+    margin-Left: 0.5rem;
+    margin-Top: 10rem;
+  }
 }

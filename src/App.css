@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
 @font-face {
   font-family: Avenir;
   src: url("../public/fonts/Avenir.ttc");
@@ -20,10 +20,16 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-
 }
 
-.center{
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.space {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,13 +41,13 @@ a {
   text-decoration: none;
 }
 
-.buttonStyle{
+.buttonStyle {
   font-size: 20px;
   font-weight: bold;
   padding: 0.5em 1.8em;
   background: #005652;
-  color:#fff;
-  border:none;
+  color: #fff;
+  border: none;
   border-radius: 10px;
 }
 
@@ -49,10 +55,12 @@ a {
   background-image: linear-gradient(to right, #040404, #004d4a);
 }
 
-input,textarea{
+input,
+textarea {
   border: none;
   outline: none;
   border-radius: 5px;
+  font-family: Avenir;
 }
 
 .slick-slide > div {
@@ -107,7 +115,7 @@ input,textarea{
   margin-top: 50px;
 }
 
-.checkOut-button{
+.checkOut-button {
   background-color: #005652;
   color: #fff;
   padding: 10px 25px;
@@ -120,7 +128,115 @@ input[type="range"] {
   accent-color: #005652;
 }
 
+.hamburger-menu-container {
+  float: right;
+  flex: 1;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  color: #fff;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.hamburger-menu {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hamburger-menu div {
+  width: 1.6rem;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #fff;
+  position: relative;
+  z-index: 1001;
+  transition: 0.5s;
+}
+
+.hamburger-menu div:before,
+.hamburger-menu div:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+.hamburger-menu div:before {
+  transform: translateY(-7px);
+}
+
+.hamburger-menu div:after {
+  transform: translateY(7px);
+}
+
+#check {
+  position: absolute;
+  top: 5%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 90000;
+  cursor: pointer;
+  opacity: 0;
+  display: none;
+  background-color: #fff;
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div {
+  background-color: transparent;
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:before {
+  transform: translateY(0) rotate(-45deg);
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:after {
+  transform: translateY(0) rotate(45deg);
+}
+
 @media screen and (max-width: 768px) {
+  nav {
+    height: calc(100vh-3rem);
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: 0.65s;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .dropdown-content > img {
+    display: none;
+  }
+  .hamburger-menu-container {
+    display: flex;
+  }
+
+  #check {
+    display: block;
+    color: #fff !important;
+    top: 2rem;
+  }
+
+  #check:checked ~ nav {
+    transform: translateX(0);
+  }
+
+  #check:checked ~ nav {
+    animation: animation 0.5s ease forwards 0.85s;
+  }
   .project-main-container {
     width: 100%;
   }

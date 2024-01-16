@@ -105,13 +105,13 @@ const BrandPurpose = () => {
           width: "100%",
           padding: "4.5em 0 4.5em 7em",
           display: "flex",
+          flexWrap:"wrap",
           position: "relative",
-          width: "100%",
           overflowX: "hidden",
           overflowY: "hidden",
         }}
       >
-        <div style={{ width: "63%" }}>
+        <div className="purpose">
           <p
             style={{
               fontSize: "55px",
@@ -189,7 +189,8 @@ const BrandPurpose = () => {
           display: "flex",
           padding: "3em 5em",
           alignItems:"center",
-          justifyContent:"center"
+          justifyContent:"center",
+          flexWrap:"wrap"
         }}
       >
         {operation.map((item, index) => (

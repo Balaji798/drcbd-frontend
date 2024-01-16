@@ -23,11 +23,19 @@ import { getCart } from "../../state/actions/cartAction";
 
 const ProductDetail = () => {
   const scrollContainerRef = useRef();
+  const targetRef = useRef(null);
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
   const { productName } = useParams();
   const navigate = useNavigate();
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
+
+  const scrollToTarget = () => {
+    // Scroll to the target element
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const productByName = product.filter((item) => {
     return (
@@ -44,7 +52,7 @@ const ProductDetail = () => {
       }
     })
   );
- 
+
   const [open, setOpen] = useState(false);
 
   if (open) {
@@ -117,29 +125,27 @@ const ProductDetail = () => {
   const concatData = [
     {
       title: "instagram",
-      icon: <FaInstagram size={50} color="#fff" />,
+      icon: <FaInstagram color="#fff" />,
       link: "https://www.instagramcom/drcbdinnovation/",
     },
     {
       title: "Facebook",
-      icon: <FaFacebookF size={50} color="#fff" />,
+      icon: <FaFacebookF color="#fff" />,
       link: "https://www.facebook.com/drcbdinnovation/",
     },
     {
       title: "Line",
-      icon: (
-        <img src="../line-logo.png" alt="/" style={{ width: 60, height: 60 }} />
-      ),
+      icon: <img src="../line-logo.png" alt="/" style={{}} />,
       link: "https://lin.ee/KhI4rwQ",
     },
     {
       title: "Tiktok",
-      icon: <FaTiktok size={50} color="#fff" />,
+      icon: <FaTiktok color="#fff" />,
       link: "https://www.tiktok.com/@drcbd.innovation",
     },
     {
       title: "Twitter",
-      icon: <FaTwitter size={50} color="#fff" />,
+      icon: <FaTwitter color="#fff" />,
       link: "https://twitter.com/drcbdgroup",
     },
   ];
@@ -213,7 +219,6 @@ const ProductDetail = () => {
 
     // if (user) setOpen(!open);
   };
-
 
   const PreviousBtn = (props) => {
     const { onClick } = props;
@@ -294,8 +299,8 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-        {!productByName[0]?.bannerImg ? (
-          <img
+        {/* {!productByName[0]?.bannerImg ? (
+         <img
             src="../info-product-banner.jpg"
             style={{ width: "100%", maxHeight: "25rem", objectFit: "cover" }}
             alt="/"
@@ -354,41 +359,27 @@ const ProductDetail = () => {
               </button>
             </div>
           </section>
-        )}
-        <div className="productDetail">
-          <div className="imageContainer" style={{}}>
+              )}*/}
+        <div className="productDetail" ref={targetRef} id="targetElement">
+          <div className="imageContainer">
             {productByName[0]?.images && (
-              <div
-                style={{
-                  width: "100%",
-                  zIndex: 1,
-                  height: "500px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  //background: "#d3d3d3",
-                }}
-              >
+              <div style={{}} className="center">
                 <img
                   src={productByName[0]?.images[position]}
-                  style={{
-                    objectFit: "contain",
-                    width: "100%",
-                    height: "100%",
-                  }}
+                  style={{}}
                   alt={productByName[0]?.images[position]}
                 />
               </div>
             )}
-            <div
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              {productByName[0]?.images.length > 1 &&
-                productByName[0]?.images.map((i, index) => (
+            {productByName[0]?.images.length > 1 && (
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                {productByName[0]?.images.map((i, index) => (
                   <div
                     style={{
                       width: "150px",
@@ -409,7 +400,8 @@ const ProductDetail = () => {
                     />
                   </div>
                 ))}
-            </div>
+              </div>
+            )}
           </div>
           <div className="description">
             <h2
@@ -589,35 +581,27 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div style={{ maxWidth: "1200px", width: "100%", color: "#005652" }}>
+        <div className="center">
+          <div style={{}} className="product-detail-container">
             <h5 style={{ paddingTop: 15, fontSize: 25 }}>
               Product Description / Indications
             </h5>
             {about.map((item, index) => (
               <div
-                style={{ width: "100%", display: "flex", padding: "0.3em 0" }}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  padding: "0.3em 0",
+                  flexWrap: "wrap",
+                }}
+                className="description-container"
               >
-                <div
-                  style={{
-                    width: "25%",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                  }}
-                >
-                  <p style={{ textDecoration: "underline" }}>{item.title}</p>
-                  <p style={{ marginRight: "1em" }}>:</p>
-                </div>
+                <p className="description-container-title">
+                  {item.title} {":"}
+                </p>
+
                 {Array.isArray(item.para) ? (
-                  <div>
+                  <div className="description-container-title2">
                     {item?.para?.map((des, i) => (
                       <p
                         style={{
@@ -632,7 +616,7 @@ const ProductDetail = () => {
                     ))}
                   </div>
                 ) : (
-                  <p style={{ width: "65%", fontSize: "17px" }}>{item.para}</p>
+                  <p className="description-container-title2">{item.para}</p>
                 )}
               </div>
             ))}
@@ -644,53 +628,40 @@ const ProductDetail = () => {
                   <img
                     src={item}
                     style={{ width: "8rem", objectFit: "cover" }}
-                    alt='/'
+                    alt="/"
                   />
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <div
+        <div style={{display:"flex" ,justifyContent:"flex-end",padding:" 10px 1rem 10px 0"}}>
+        <button
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            padding: "1.5rem",
+            fontSize: 18,
+            width: 200,
+            padding: "5px 0",
+            cursor: "pointer",
           }}
+          onClick={scrollToTarget}
         >
+          ADD TO CART{" "}
+          <MdOutlineAddShoppingCart
+            style={{ paddingLeft: 5, fontSize: "35px" }}
+          />{" "}
+        </button>{" "}
+        </div>
+        <div className="social-media-container">
           {concatData.map((item, index) => (
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent:"center",
-                borderRight: "2px solid #0b4640",
-                paddingRight: "1rem",
-                width:"25%"
-              }}
-            >
-              <a
-                href={item.link}
-                style={{
-                  background: "#0b4640",
-                  borderRadius: "50px",
-                  width: 80,
-                  height: 80,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {item.icon}
-              </a>
-              <p style={{ color: "#0b4640",paddingLeft:"0.5rem" }}>
+            <a href={item.link} className="social-media">
+              <div className="social-icon">{item.icon}</div>
+              <p style={{ color: "#0b4640", paddingLeft: "0.5rem" }}>
                 Share On
                 {item.title}
               </p>
-            </div>
+            </a>
           ))}
         </div>
-
         <div
           style={{ height: "80vh", margin: 0, padding: 0, overflow: "hidden" }}
         >
@@ -698,11 +669,60 @@ const ProductDetail = () => {
             <source src={productByName[0]?.videoLink} type="video/mp4" />
           </video>
         </div>
-        <VerticalCarousel productId={productByName[0]?._id}/>
+        <div style={{display:"flex" ,justifyContent:"flex-end",padding:" 10px 1rem 10px 0"}}>
+        <button
+          style={{
+            fontSize: 18,
+            width: 200,
+            padding: "5px 0",
+            cursor: "pointer",
+          }}
+          onClick={scrollToTarget}
+        >
+          ADD TO CART{" "}
+          <MdOutlineAddShoppingCart
+            style={{ paddingLeft: 5, fontSize: "35px" }}
+          />{" "}
+        </button>{" "}
+        </div>
+        <VerticalCarousel productId={productByName[0]?._id} />
       </div>
-      <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-        <h2 style={{ maxWidth:"1300px",width:"100%",padding: "1rem 0 1rem 3rem" }}>See More</h2>
-        <div style={{ padding: "0 3em 2em",maxWidth:"1300px",width:"100%" }}>
+      <div style={{display:"flex" ,justifyContent:"flex-end",padding:" 10px 1rem 10px 0"}}>
+      <button
+        style={{
+          fontSize: 18,
+          width: 200,
+          padding: "5px 0",
+          cursor: "pointer",
+        }}
+        onClick={scrollToTarget}
+      >
+        ADD TO CART{" "}
+        <MdOutlineAddShoppingCart
+          style={{ paddingLeft: 5, fontSize: "35px" }}
+        />{" "}
+      </button>{" "}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h2
+          style={{
+            maxWidth: "1300px",
+            width: "100%",
+            padding: "1rem 0 1rem 3rem",
+          }}
+        >
+          See More
+        </h2>
+        <div
+          style={{ padding: "0 3em 2em", maxWidth: "1300px", width: "100%" }}
+        >
           {sameCategoryProduct?.length > 3 ? (
             <Slider {...settings}>
               {sameCategoryProduct?.map((image, i) => (

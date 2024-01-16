@@ -178,8 +178,9 @@ const ImageSlider = () => {
 
   return (
     <>
-      <div
-        style={{ height: "75vh", margin: 0, padding: 0, overflow: "hidden" }}
+    <div
+        style={{  }}
+        className="video"
       >
         <video autoPlay loop muted playsInline>
           <source
@@ -189,7 +190,7 @@ const ImageSlider = () => {
         </video>
       </div>
       <section className="section" style={{ paddingTop: "1em" }}>
-        <div className="section-center" style={{ height: "34em" }}>
+        <div className="section-center-home">
           {slider.map((item, indexPeople) => {
             const { id, image } = item;
             // console.log(image);
@@ -215,27 +216,17 @@ const ImageSlider = () => {
                   className="person-img"
                   style={{ width: "100%", objectFit: "cover", height: "100%" }}
                 />
-                {/* {image[1] !== "" && (
-                  <img
-                    src={image[1]}
-                    alt={name}
-                    className="person-img"
-                    style={{ width: "50%" }}
-                  />
-                )} */}
               </article>
             );
           })}
           <button
             className="prev"
-            style={{ marginLeft: "60px" }}
             onClick={() => setSecondIndex(secondIndex - 1)}
           >
             <MdArrowBackIosNew style={{ fontSize: "50px", color: "#fff" }} />
           </button>
           <button
             className="next"
-            style={{ right: "50px" }}
             onClick={() => setSecondIndex(secondIndex + 1)}
           >
             <MdArrowForwardIos style={{ fontSize: "50px", color: "#fff" }} />
@@ -248,7 +239,7 @@ const ImageSlider = () => {
             style={{ maxWidth: "1200px", width: "100%", paddingTop: "2rem" }}
           >
             <h1 style={{ textAlign: "center" }}>FIND YOUR CBD BY CATEGORY</h1>
-            <div className="product-container">
+            <div className="product-container-home">
               {product.map((item, index) => (
                 <div
                   className="home-product-item"
@@ -321,16 +312,14 @@ const ImageSlider = () => {
           >
             FIND YOUR CBD BY PURPOSE
           </h1>
-          <div className="product-container">
+          <div className="product-container-home">
             {affiliates.map((item, index) => (
               <div
-                className="product-item"
+                className="home-product-item"
                 style={{
                   backgroundImage: `url(${item.background})`,
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
-                  width: "17em",
-                  height: "19em",
                   marginBottom: "0.3em",
                 }}
               >
@@ -360,11 +349,9 @@ const ImageSlider = () => {
       <div
         style={{
           paddingBottom: "1rem",
-          display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
         }}
+        className="center best-seller"
       >
         <h1 style={{ padding: "2.5rem 0 1.5rem", fontWeight: "bold" }}>
           BEST SELLER
@@ -372,19 +359,18 @@ const ImageSlider = () => {
         
         <p
           style={{
-            width: "60%",
             fontWeight: 500,
             lineHeight: "1.2rem",
             fontFamily: "Avenir",
             paddingBottom: "0.8rem",
-            marginLeft:"5rem"
+
           }}
         >
           CBD products have gained popularity due to their potential therapeutic
           benefits. While research is ongoing,
           <br /> CBD has shown promise in several areas, including:
         </p>
-        <ul style={{ width: "55%",fontFamily: "Avenir",marginLeft:"5rem" }}>
+        <ul>
           <li>
             Pain Management: CBD may help alleviate chronic pain by interacting
             with receptors in the
@@ -401,7 +387,7 @@ const ImageSlider = () => {
           </li>
         </ul>
         <div
-          className="product-container"
+          className="product-container-home best-seller-container"
           style={{ paddingTop: "2rem", maxWidth: "1270px", width: "100%" }}
         >
           {products.map((item, index) => (
@@ -425,67 +411,61 @@ const ImageSlider = () => {
             </Link>
           ))}
         </div>
-      </div>
+              </div>
       <div
         style={{
           background: "#000",
           padding: "2em 0",
           color: "#fff",
-          height: "68em",
         }}
       >
         <h1 style={{ textAlign: "center", padding: "0.5em 0" }}>
           AVAILABLE AT
         </h1>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ width: "45%", background: "#fff", height: "23.5em" }}>
-            <div
-              style={{
-                position: "absolute",
-                left: "6rem",
-                display: "flex",
-                paddingTop: "1.5em",
-              }}
-            >
-              <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
-                style={{ width: "40rem", objectFit: "cover" }}
-                alt="/"
-              />
-              {/* <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
-                {healthCafe.map((item, index) => (
-                  <img src={item} style={{ width: "9.5em", height: "12em" }} />
-                ))}
-              </div> */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flex: "flexWrap",
+            width: "100%",
+          }}
+        >
+          <div className="cafe-container">
+            <div style={{ background: "#fff" }} className="cafe-image">
+              <div>
+                <img
+                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
+                
+                  alt="/"
+                />
+              </div>
             </div>
-          </div>
-          <div style={{ width: "29%", marginLeft: "0.5rem" }}>
-          <a href="https://www.instagram.com/vitalhealthcafeofficial/">
-          <img
-            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-02.png"
-            style={{ width: "15rem", objectFit: "contain" }}
-            alt="/"
-          />
-          </a>
-          <h2 style={{ }}>VITAL HEALTH CAFE</h2>
-            <p style={{ padding: "0.3rem 0", }}>
-              Vital Health Cafe
-            </p>
-            <p
-              style={{
-                width: "100%",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                lineHeight: "1.3rem",
-                fontFamily: "Avenir",
-              }}
-            >
-              Vital Health Café offer you wide range of food
-              <br /> nutrients ranging from healthy food, beverages
-              <br /> and CBD-infused drinks. Looking for more CBD
-              <br /> products, visit us at “The Marche” Thonglor Soi 4,
-              <br /> 1st floor.
-            </p>
+            <div className="cafe-content">
+              <a href="https://www.instagram.com/vitalhealthcafeofficial/">
+                <img
+                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-02.png"
+                  style={{ width: "15rem", objectFit: "contain" }}
+                  alt="/"
+                />
+              </a>
+              <h2>VITAL HEALTH CAFE</h2>
+              <p style={{ padding: "0.3rem 0" }}>Vital Health Cafe</p>
+              <p
+                style={{
+                  width: "100%",
+                  fontSize: "0.8rem",
+                  fontWeight: 600,
+                  lineHeight: "1.3rem",
+                  fontFamily: "Avenir",
+                }}
+              >
+                Vital Health Café offer you wide range of food
+                <br /> nutrients ranging from healthy food, beverages
+                <br /> and CBD-infused drinks. Looking for more CBD
+                <br /> products, visit us at “The Marche” Thonglor Soi 4,
+                <br /> 1st floor.
+              </p>
+            </div>
           </div>
           <div
             style={{
@@ -495,9 +475,7 @@ const ImageSlider = () => {
               alignItems: "flex-end",
             }}
           >
-            <div
-              style={{ background: "#42b2be", width: "2.5em", height: "10em" }}
-            />
+            <div className="blue-dev" />
           </div>
         </div>
         <div
@@ -516,22 +494,23 @@ const ImageSlider = () => {
             }}
           >
             <div
-              style={{ background: "#42b2be", width: "3.5em", height: "10em" }}
+            className="blue-dev"
             />
           </div>
-          <div style={{ width: "29%", marginLeft: "-8rem" }}>
-          <a href="https://www.facebook.com/realvitalmediclinic/">
-          <img
-            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-01.png"
-            style={{
-              width: "18rem",
-              objectFit: "cover",
-              marginLeft: "0rem",
-            }}
-            alt="/"
-          />
-          </a>
-          <h2>VITAL MEDI CLINIC</h2>
+          <div className="second-cafe-container">
+          <div className="cafe-content">
+            <a href="https://www.facebook.com/realvitalmediclinic/">
+              <img
+                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-01.png"
+                style={{
+                  width: "18rem",
+                  objectFit: "cover",
+                  marginLeft: "0rem",
+                }}
+                alt="/"
+              />
+            </a>
+            <h2>VITAL MEDI CLINIC</h2>
             <p style={{ padding: "0.3rem 0" }}>CBD products</p>
             <p
               style={{
@@ -549,26 +528,16 @@ const ImageSlider = () => {
               <br /> reach practical and sustainable optimum health.
             </p>
           </div>
-          <div style={{ width: "45%", background: "#fff", height: "24rem" }}>
+          <div className="second-cafe-image">
             <div
-              style={{
-                position: "absolute",
-                right: "5%",
-                display: "flex",
-                paddingTop: "1.5em",
-              }}
             >
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
-                style={{ width: "42rem", objectFit: "cover" }}
+                style={{  }}
                 alt="/"
               />
-              {/* <div style={{ display: "flex", flexWrap: "wrap", width: "20em" }}>
-                {healthCafe.map((item, index) => (
-                  <img src={item} style={{ width: "9.5em", height: "12em" }} />
-                ))}
-              </div> */}
             </div>
+          </div>
           </div>
         </div>
       </div>

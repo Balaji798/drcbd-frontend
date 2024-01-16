@@ -32,3 +32,9 @@ footer {
   background-image: linear-gradient(to right, #000, #005652);
   color: #fff;
 }
+
+@media screen and (max-width: 768px){
+  .footer-container{
+    padding: 20px 1rem 20px;
+  }
+}

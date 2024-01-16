@@ -44,8 +44,11 @@ function App() {
       }}
     >
       <Router>
-        <Header />
-        <Navbar />
+      <div>
+   
+      <Header />
+      <Navbar />
+      </div>
         <div
           style={{
             paddingTop: "8.9rem",

@@ -141,8 +141,47 @@ nav {
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
+  nav {
+    height: calc(100vh-3rem);
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(0%);
+    transition: 0.65s;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .dropdown-content > img {
+    display: none;
+  }
+  .hamburger-menu-container {
+    display: flex;
+  }
+
+  #check {
+    display: block;
+    color: #fff !important;
+    top: 2rem;
+  }
+
+  #check:checked ~ nav {
+    transform: translateX(0);
+  }
+
+  #check:checked ~ nav {
+    animation: animation 0.5s ease forwards 0.85s;
+  }
   .column {
     width: 100%;
     height: auto;
+  }
+  .dropdown-content{
+    height: auto;
+    left: 0;
+    position: block;
   }
 }

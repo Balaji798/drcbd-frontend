@@ -76,23 +76,9 @@ const SecondBanner = () => {
         <div>
           <h2 style={{textAlign:"center",padding: "2rem 0",}}>WHERE TO FIND US</h2>
           <div
-            style={{
-              display: "flex",
-              width: "100%",
-              maxWidth: "1200px",
-              justifyContent: "space-between",
-              
-            }}
+            className="second-banner-container"
           >
-            <div
-              style={{
-                width: "49.6%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <div>
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/LINE_ALBUM.jpg"
                 style={{ objectFit: "cover", width: "100%" }}
@@ -112,15 +98,7 @@ const SecondBanner = () => {
               Our CBD Products are available at Tops Supermarket across Thailand.
               </p>
             </div>
-            <div
-              style={{
-                width: "49.6%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <div>
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_8944.jpg"
                 style={{ objectFit: "cover", width: "100%", height: "24.7em" }}
@@ -142,19 +120,8 @@ const SecondBanner = () => {
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            height: "32em",
-            width: "100%",
-            justifyContent: "space-between",
-            marginTop: "1em",
-            background: "#000",
-            color: "#fff",
-            padding: "1em 0",
-          }}
-        >
-          <div style={{ width: "49.7%", textAlign: "center" }}>
+        <div className="second-banner-container2">
+          <div>
             <h1 style={{ fontSize: "2.5rem", padding: "1rem 0" }}>
               CONVENIENCE
             </h1>
@@ -196,7 +163,7 @@ const SecondBanner = () => {
               </div>
             </div>
           </div>
-          <div style={{ width: "49.7%", textAlign: "center" }}>
+          <div>
             <h1 style={{ fontSize: "2.5rem", padding: "1rem 0" }}>
               MODERN TRADE
             </h1>
@@ -205,9 +172,10 @@ const SecondBanner = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                width:"100%"
               }}
             >
-              <div style={{ width: "49.2%" }}>
+              <div style={{ width: "48%" }}>
                 <img
                   src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}

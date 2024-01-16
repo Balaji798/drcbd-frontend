@@ -7,24 +7,45 @@
   height: 35rem;
 }
 
-.user-det-form>div{
-    display: flex;
-    width: 100%;
-    justify-Content: space-between;
-    padding: 1rem 0;
+.user-det-form > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 0;
+  flex-wrap: wrap;
 }
 
-.user-det-form>div>div>input,.user-det-form>div>input{
-    margin: 0.5rem 0;
-    background-color: transparent;
-    color:#c5cccd
+.user-det-form > div > div > input,
+.user-det-form > div > input {
+  margin: 0.5rem 0;
+  background-color: transparent;
+  color: #c5cccd;
 }
 
-.edit-button{
-    background:#003b45;
-    color:#fff;
-    font-size: 25px;
-    border:none;
-    outline: none;
-    padding: 5px 20px;
+.edit-button {
+  background: #003b45;
+  color: #fff;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  padding: 5px 20px;
+}
+
+.user-profile-container {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 3rem;
+  border-radius: 40px;
+  color: grey;
+  height: 30rem;
+  margin: 2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .user-det-form{
+        margin: 0 1rem 2rem;
+        height: 100%;
+    }
 }
