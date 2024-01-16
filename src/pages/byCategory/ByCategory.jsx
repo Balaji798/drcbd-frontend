@@ -283,7 +283,7 @@ const ByCategory = () => {
               <h1>Products Not Available</h1>
             ) : (
               data.map((item, i) => (
-                <ProductSlider image={item} key={i} marginB="yes" />
+                <ProductSlider image={item} key={i} marginB="yes" categoryName={categoryName}/>
               ))
             )}
           </div>
