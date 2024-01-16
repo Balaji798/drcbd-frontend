@@ -310,9 +310,9 @@ const Navbar = ({openNav,setOpenNav}) => {
         <div className="navbar">
           {naveData.map((item, index) => (
             <div className="dropdown" key={index}>
-              <Link to="#" className="different">
+              <p className="different">
                 <span>{item.title}</span>
-              </Link>
+              </p>
               <div
                 className="dropdown-content"
                 //style={{}}

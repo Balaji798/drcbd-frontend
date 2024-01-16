@@ -40,7 +40,7 @@ nav {
   list-style: none;
 }
 
-.dropdown > a {
+.dropdown > a,.dropdown > .different {
   border: none;
   outline: none;
   color: white;
@@ -54,7 +54,7 @@ nav {
   align-items: center;
 }
 
-.dropdown>a>span{
+.dropdown>a>span,.dropdown > .different{
   font-size: 16px;
   font-weight: 500;
 }
@@ -145,7 +145,7 @@ nav {
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   nav {
-    height: calc(100vh-3rem);
+    height: 100%;
     top: 3rem;
     left: 0;
     width: 100%;
