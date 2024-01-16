@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import './register.css'
 
 const Register = () => {
   const [login, setLogin] = useState(false);
@@ -140,7 +141,7 @@ const Register = () => {
           </div>
         )
       ) : (
-        <>
+        <div className="register-container">
           <h1 style={{ fontSize: "50px" }}>
             <Link to="/sign-in" style={{ color: "#99a79f" }}>
               Sign in |{" "}
@@ -148,91 +149,39 @@ const Register = () => {
             Register
           </h1>
           <p
-            style={{
-              width: "35%",
-              fontSize: "16px",
-              padding: "0.7em 0",
-              fontWeight: "bold",
-            }}
           >
             User Name
           </p>
           <input
-            style={{
-              width: "35%",
-              padding: "5px",
-              fontSize: 20,
-              borderRadius: 10,
-              border: "1px solid grey",
-            }}
             onChange={(e) => {
               setUser({ ...user, fullName: e.target.value });
             }}
           />
           <p
-            style={{
-              width: "35%",
-              fontSize: "16px",
-              padding: "0.7em 0",
-              fontWeight: "bold",
-            }}
           >
             Email Address
           </p>
           <input
-            style={{
-              width: "35%",
-              padding: "5px",
-              fontSize: 20,
-              borderRadius: 10,
-              border: "1px solid grey",
-            }}
             onChange={(e) => {
               setUser({ ...user, email: e.target.value });
             }}
           />
           <p
-            style={{
-              width: "35%",
-              fontSize: "16px",
-              padding: "0.7em 0",
-              fontWeight: "bold",
-            }}
           >
             Password
           </p>
           <input
-            style={{
-              width: "35%",
-              padding: "5px",
-              fontSize: 16,
-              borderRadius: 10,
-              marginBottom: "1em",
-              border: "1px solid grey",
-            }}
+            
             onChange={(e) => {
               setUser({ ...user, password: e.target.value });
             }}
           />
           <p
-            style={{
-              width: "35%",
-              fontSize: "16px",
-              padding: "0.7em 0",
-              fontWeight: "bold",
-            }}
           >
             Confirm Password
           </p>
           <input
-            style={{
-              width: "35%",
-              padding: "5px",
-              fontSize: 16,
-              borderRadius: 10,
-              marginBottom: "1em",
-              border: "1px solid grey",
-            }}
+            
             onChange={(e) => {
               setUser({ ...user, confirmPassword: e.target.value });
             }}
@@ -261,7 +210,7 @@ const Register = () => {
           >
             Register
           </button>
-        </>
+        </div>
       )}
     </div>
   );

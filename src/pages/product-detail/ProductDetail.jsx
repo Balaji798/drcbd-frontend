@@ -301,7 +301,7 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-        {/* {!productByName[0]?.bannerImg ? (
+{!productByName[0]?.bannerImg ? (
          <img
             src="../info-product-banner.jpg"
             style={{ width: "100%", maxHeight: "25rem", objectFit: "cover" }}
@@ -361,7 +361,7 @@ const ProductDetail = () => {
               </button>
             </div>
           </section>
-              )}*/}
+              )}
         <div className="productDetail" ref={targetRef} id="targetElement">
           <div className="imageContainer">
             {productByName[0]?.images && (
