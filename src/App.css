@@ -21,7 +21,10 @@ body {
 body {
   color: rgb(var(--foreground-rgb));
 }
-
+.route-container {
+  padding-top: 8.9rem;
+  background-color: #f6f9fa;
+}
 .center {
   display: flex;
   flex-direction: column;
@@ -203,39 +206,8 @@ input[type="range"] {
 }
 
 @media screen and (max-width: 768px) {
-  nav {
-    height: calc(100vh-3rem);
-    top: 3rem;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-    transform: translateX(100%);
-    transition: 0.65s;
-  }
-  .navbar {
-    flex-direction: column;
-  }
-  .dropdown-content > img {
-    display: none;
-  }
-  .hamburger-menu-container {
-    display: flex;
-  }
-
-  #check {
-    display: block;
-    color: #fff !important;
-    top: 2rem;
-  }
-
-  #check:checked ~ nav {
-    transform: translateX(0);
-  }
-
-  #check:checked ~ nav {
-    animation: animation 0.5s ease forwards 0.85s;
+  .route-container{
+    padding-top: 0;
   }
   .project-main-container {
     width: 100%;

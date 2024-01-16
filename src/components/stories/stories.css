@@ -21,15 +21,15 @@
   color: #fff;
 }
 
-.stories-container-childe3{
-    max-Width: 400px;
-    width: 100%;
-    background: #00504c;
-    height: 20em;
-    position: absolute;
-    z-Index: 0;
-    margin-Left: 10rem;
-    margin-Top: 11rem;
+.stories-container-childe3 {
+  max-width: 400px;
+  width: 100%;
+  background: #00504c;
+  height: 20em;
+  position: absolute;
+  z-index: 0;
+  margin-left: 10rem;
+  margin-top: 11rem;
 }
 
 .stories-container-childe1 {
@@ -120,17 +120,86 @@
   width: 15rem;
 }
 
+.composes-logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1250px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.composes-logo > div > div {
+  width: 9.5rem;
+  height: 9.5rem;
+  border-radius: 50%;
+  background: #fff;
+  padding: 1rem;
+}
+
+.composes-logo > div > p {
+  color: #fff;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+}
+
+.profile-company {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.profile-company > div {
+  text-align: center;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.company1{
+  border-right: 4px solid #000;
+}
+
 @media screen and (max-width: 768px) {
+  .stories-container{
+    padding: 1rem;
+  }
   .stories-container-childe1 {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 0rem;
     width: 100%;
   }
-  .stories-container-childe2{
+  .stories-container-childe2 {
     width: 95%;
   }
-  .stories-container-childe3{
+  .stories-container-childe3 {
+    width: 80%;
     height: 24em;
-    margin-Left: 0.5rem;
-    margin-Top: 10rem;
+    margin-left: 3rem;
+    margin-top: 10rem;
+  }
+  .composes-logo {
+    justify-content: center;
+  }
+  .composes-logo > div {
+    width: 7rem;
+  }
+  .composes-logo > div > p {
+    font-size: 0.6rem;
+  }
+  .composes-logo > div > div {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .stories-button-blue-gr {
+    font-size: 1rem;
+    width: 95%;
+  }
+  .profile-company {
+    justify-content: center;
+  }
+  .company1{
+    border: none;
   }
 }

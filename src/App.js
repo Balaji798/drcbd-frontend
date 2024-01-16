@@ -53,9 +53,9 @@ function App() {
       </div>
         <div
           style={{
-            paddingTop: "8.9rem",
-            backgroundColor: "#f6f9fa",
+           
           }}
+          className="route-container"
         >
           <Routes>
             <Route path="/" element={<Home />} />

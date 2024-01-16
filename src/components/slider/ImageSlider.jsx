@@ -363,7 +363,6 @@ const ImageSlider = () => {
             lineHeight: "1.2rem",
             fontFamily: "Avenir",
             paddingBottom: "0.8rem",
-
           }}
         >
           CBD products have gained popularity due to their potential therapeutic
@@ -387,7 +386,7 @@ const ImageSlider = () => {
           </li>
         </ul>
         <div
-          className="product-container-home best-seller-container"
+          className="best-seller-container"
           style={{ paddingTop: "2rem", maxWidth: "1270px", width: "100%" }}
         >
           {products.map((item, index) => (

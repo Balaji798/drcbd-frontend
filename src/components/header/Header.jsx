@@ -10,7 +10,7 @@ import ApiService from "../../services/ApiService";
 import Modal from "../modal/Modal";
 import { useSelector } from "react-redux";
 
-const Header = ({openNav,setOpenNav}) => {
+const Header = ({ openNav, setOpenNav }) => {
   const { product } = useSelector((state) => state.product);
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -43,19 +43,17 @@ const Header = ({openNav,setOpenNav}) => {
       {open && <Modal setOpen={setOpen} user={user} />}
       <header>
         <div className="header-container">
-          <div
-            className="sign-profile"
-          >
+          <div className="sign-profile">
             {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/england.jpg" style={{ width: "30px" }} alt="/" />*/}
             <a href="#" style={{ marginRight: "2px" }}>
               EN
             </a>
-            |
+            /
             <a href="#" style={{ marginLeft: "2px" }}>
               TH |{" "}
             </a>
             {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/thailand.png" style={{ width: "24px" }} alt="/" />*/}
-            <Link to="/sign-in" style={{ marginLeft: "2px" }}>
+            <Link to="/sign-in" style={{ marginLeft: "2px" }} className="sig">
               Sign In |
             </Link>
             <p
@@ -67,6 +65,7 @@ const Header = ({openNav,setOpenNav}) => {
                   setOpen(true);
                 }
               }}
+              className="ord"
             >
               {" "}
               My Orders
@@ -145,18 +144,15 @@ const Header = ({openNav,setOpenNav}) => {
                   {cart ? cart?.items?.length : "0"}
                 </p>
               </div>
-              {/*<MdOutlineAddShoppingCart
-                style={{ fontSize: "25px", alignSelf: "end" }}
-          />*/}
-            </div>
-            <div
+             </div>
+             <div
               style={{
                 color: "#fff",
                 marginLeft: "1em",
                 cursor: "pointer",
               }}
               onClick={() => handelNext("/profile")}
-            >
+             >
               <FaUserCircle style={{ fontSize: "25px", alignSelf: "end" }} />
             </div>
             <a href="https://drcbdgroup.com/" className="old-web">
@@ -173,7 +169,12 @@ const Header = ({openNav,setOpenNav}) => {
                 alt={""}
               />
             </a>
-            <div className="hamburger-menu-container" onClick={()=>{setOpenNav(!openNav)}}>
+            <div
+              className="hamburger-menu-container"
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+            >
               <div className="hamburger-menu">
                 <div></div>
               </div>

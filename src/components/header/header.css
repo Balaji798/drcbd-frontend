@@ -129,11 +129,19 @@ header {
 
 .sign-profile{
   display: flex;
+  justify-content: space-between;
   color: #fff;
 }
 
 @media screen and (max-width: 768px) {
+  .header-container{
+    flex-direction: column;
+  }
   .sign-profile{
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .sig, .ord{
     display: none;
   }
   header {
@@ -145,11 +153,10 @@ header {
 
   .search-bar {
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 3%;
     height: 2rem;
     width: 94%;
-    display: none;
   }
   .header-container {
     width: 50%;
@@ -160,6 +167,7 @@ header {
   }
   .cart-profile{
     width: 70%;
-    flex-wrap: wrap;
+    
+    justify-content: flex-end;
   }
 }

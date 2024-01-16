@@ -1,6 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import { MdArrowForwardIos } from "react-icons/md";
 
 const naveData = [
   {
@@ -303,15 +304,16 @@ const naveData = [
   },
 ];
 
-const Navbar = ({openNav,setOpenNav}) => {
+const Navbar = ({ openNav, setOpenNav }) => {
   return (
-    <nav className={openNav&&'nav-active'}>
+    <nav className={openNav && "nav-active"}>
       <div className="navContainer">
         <div className="navbar">
           {naveData.map((item, index) => (
             <div className="dropdown" key={index}>
               <p className="different">
                 <span>{item.title}</span>
+                <MdArrowForwardIos />
               </p>
               <div
                 className="dropdown-content"
@@ -390,7 +392,15 @@ const Navbar = ({openNav,setOpenNav}) => {
           ))}
         </div>
       </div>
-
+      <div className="user-profile-lang">
+        <Link to="/sign-in" style={{ marginLeft: "2px" }}>
+          Sign In
+        </Link>
+        <p style={{ cursor: "pointer", marginLeft: "2px" }} onClick={() => {}}>
+          {" "}
+          My Orders
+        </p>
+      </div>
     </nav>
   );
 };

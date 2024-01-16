@@ -380,16 +380,9 @@ const SecondBanner = () => {
         <h1>OUR COMPANIES</h1>
         <div
           style={{
-            display: "flex",
-            flexWrap: "wrap",
-            maxWidth: "900px",
-            width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 1,
-            background: "#fff",
-            padding: "1rem",
+            
           }}
+          className="back-childe"
         >
           {data.map((item, index) => (
             <div

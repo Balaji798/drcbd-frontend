@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useRef} from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,8 +11,9 @@ import Card from "../../components/card/Card";
 
 const ByPurpose = () => {
   const { product } = useSelector((state) => state.product);
-
+  const windowSize = useRef([window.innerWidth]);
   const productsByCategory = {};
+  console.log(windowSize)
   product.forEach((product) => {
     if (
       product.cbdByCategory &&
@@ -128,6 +129,7 @@ const ByPurpose = () => {
               style={{
                 display: "flex",
                 alignItems: "flex-end",
+                flexWrap:"wrap",
                 width: "100%",
                 justifyContent: "space-between",
               }}
@@ -146,7 +148,7 @@ const ByPurpose = () => {
                 See All
               </Link>
             </div>
-            {item[1].length <= 3 ? (
+            {item[1].length <= 3 && windowSize[0]>=798 ? (
               <div
                 style={{
                   display: "flex",

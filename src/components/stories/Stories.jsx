@@ -183,15 +183,11 @@ const onButtonClick2 = () => {
             </div>
           </div>
           <div
-            className="stories-container"
+            className="stories-container profile-company"
             style={{ display: "flex", justifyContent: "space-between",flexWrap:"wrap" }}
           >
             <div
-              style={{
-                textAlign: "center",
-                borderRight: "4px solid #000",
-                minWidth: "51%",
-              }}
+              className="company1"
             >
               <h1 style={{ fontSize: "3rem", paddingBottom: "2rem" }}>
                 COMPANY PROFILE
@@ -228,30 +224,14 @@ const onButtonClick2 = () => {
             FOLLOW US
           </h1>
           <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              flexWrap:"wrap",
-              justifyContent: "space-between",
-              maxWidth: 1250,
-              width: "100%",
-              padding:"1rem"
-            }}
+            className="composes-logo"
           >
             {followData.map((item, index) => (
               <div>
-                <div
-                  style={{
-                    width: "9.5rem",
-                    height: "9.5rem",
-                    borderRadius: "50%",
-                    background: "#fff",
-                    padding: "1rem",
-                  }}
-                >
+                <div>
                   <img src={item.image} style={{ width: "100%" }} />
                 </div>
-                <p style={{ color: "#fff", padding: "0.5rem 0",fontSize:"0.8rem" }}>
+                <p>
                   {item.name}
                 </p>
               </div>
@@ -274,6 +254,7 @@ const onButtonClick2 = () => {
               alignItems: "center",
               width: "100%",
               justifyContent: "center",
+              flexWrap:"wrap",
               maxWidth: 1200,
               color: "#fff",
               padding: "3rem 0",
@@ -296,6 +277,7 @@ const onButtonClick2 = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
+                flexWrap:"wrap",
                 paddingLeft: "4rem",
               }}
             >
