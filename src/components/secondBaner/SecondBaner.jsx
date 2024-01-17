@@ -369,7 +369,7 @@ const SecondBanner = () => {
                   <div className="item" style={{ border: 0 }}>
                     <div
                       className={index === open ? "show content" : "content"}
-                      style={{ marginLeft: "-2rem" }}
+                      style={{ marginLeft: "-0.8rem" }}
                     >
                       <iframe
                         width="30%"

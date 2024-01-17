@@ -304,16 +304,15 @@ const naveData = [
   },
 ];
 
-const Navbar = ({ openNav, setOpenNav }) => {
+const Navbar = () => {
   return (
-    <nav className={openNav && "nav-active"}>
+    <nav>
       <div className="navContainer">
         <div className="navbar">
           {naveData.map((item, index) => (
             <div className="dropdown" key={index}>
               <p className="different">
                 <span>{item.title}</span>
-                <MdArrowForwardIos />
               </p>
               <div
                 className="dropdown-content"
@@ -391,15 +390,6 @@ const Navbar = ({ openNav, setOpenNav }) => {
             </div>
           ))}
         </div>
-      </div>
-      <div className="user-profile-lang">
-        <Link to="/sign-in" style={{ marginLeft: "2px" }}>
-          Sign In
-        </Link>
-        <p style={{ cursor: "pointer", marginLeft: "2px" }} onClick={() => {}}>
-          {" "}
-          My Orders
-        </p>
       </div>
     </nav>
   );

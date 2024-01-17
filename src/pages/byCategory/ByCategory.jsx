@@ -38,7 +38,7 @@ const fiterData = [
       //   link: "/by-category/home-use",
       // },
       {
-        title: "FOR PETS",
+        title: "PETS",
         link: "/by-category/CBD-FOR-PETS",
       },
     ],
@@ -178,7 +178,7 @@ const ByCategory = () => {
                   ?.title
               }
             </h3>
-            <ul style={{ listStyle: "none", padding: "1.5rem 0 2rem 0" }}>
+            <ul style={{ listStyle: "none"}}>
               {fiterData[
                 "by-category" === pathname.split("/")[1] ? 0 : 1
               ]?.options.map((item, index) => (

@@ -179,7 +179,6 @@ const ImageSlider = () => {
   return (
     <>
     <div
-        style={{  }}
         className="video"
       >
         <video autoPlay loop muted playsInline>

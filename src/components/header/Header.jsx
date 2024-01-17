@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import Modal from "../modal/Modal";
 import { useSelector } from "react-redux";
+import { HiBars3 } from "react-icons/hi2";
+import { RxCross2 } from "react-icons/rx";
 
 const Header = ({ openNav, setOpenNav }) => {
   const [openSearch,setOpenSearch]=useState(false)
@@ -176,9 +178,7 @@ const Header = ({ openNav, setOpenNav }) => {
                 setOpenNav(!openNav);
               }}
             >
-              <div className="hamburger-menu">
-                <div></div>
-              </div>
+            {openNav?<RxCross2 size={25}/>:<HiBars3 />}
             </div>
           </div>
         </div>

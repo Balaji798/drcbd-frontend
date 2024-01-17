@@ -81,7 +81,7 @@ const VerticalSlider = ({ productId }) => {
       className="review-container center"
       style={{ background: "#ededed" }}
     >
-      <div style={{ maxWidth: "1200px", width: "100%", paddingTop: "2rem" }}>
+      <div style={{ maxWidth: "1200px", width: "100%", padding: "2rem 1rem 0" }}>
         <h1 style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
           Reviews
         </h1>
@@ -254,34 +254,26 @@ const VerticalSlider = ({ productId }) => {
             }}
             onChange={(e) => setFeed({ ...feed, review: e.target.value })}
           />
-          <label style={{ paddingRight: "5px" }}>Name</label>
+          <div className="user-review">
+          <p style={{ paddingRight: "5px" }}>Name</p>
           <input
             style={{
-              width: "40%",
               fontSize: 20,
               margin: "0.5rem 0",
               padding: "0.2rem 0.5rem",
             }}
             onChange={(e) => setFeed({ ...feed, name: e.target.value })}
           />
-          <label style={{ padding: "0 5px" }}>Email</label>
+          <p style={{ padding: "0 5px" }}>Email</p>
           <input
             style={{
-              width: "42.4%",
               fontSize: 20,
               margin: "0.5rem 0",
               padding: "0.2rem 0.5rem",
             }}
             onChange={(e) => setFeed({ ...feed, email: e.target.value })}
           />
-          <input
-            type="checkbox"
-            style={{
-              width: "1.5rem",
-              height: "1.5rem",
-              margin: "0.5rem 0",
-            }}
-          />
+          </div>
           <div
             style={{
               display: "flex",

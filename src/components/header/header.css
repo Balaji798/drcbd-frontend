@@ -174,7 +174,7 @@ header {
     display: none;
   }
   .cart-profile{
-    width: 80%;
+    width: 100%;
     
     justify-content: flex-end;
   }

@@ -47,7 +47,7 @@ const ProductDetail = () => {
   const [icons, setIcons] = useState(
     productIcon.filter((item) => {
       if (
-        productName?.toLowerCase().split("-").join(" ") ===
+        productName?.toLowerCase()?.split("-").join(" ") ===
         item.title.toLowerCase()
       ) {
         return item;
@@ -160,13 +160,13 @@ const ProductDetail = () => {
       const categoryProduct = res.data.filter((item) => {
         if (
           item.categoryName.includes(
-            state.catName1.split("-").join(" ").toLowerCase()
+            state.catName1?.split("-").join(" ").toLowerCase()
           )
         ) {
           return item;
         } else if (
           item?.purposeName?.includes(
-            state.catName1.split("-").join(" ").toLowerCase()
+            state.catName1?.split("-").join(" ").toLowerCase()
           )
         ) {
           return item;
@@ -665,7 +665,7 @@ const ProductDetail = () => {
           ))}
         </div>
         <div
-          style={{ height: "80vh", margin: 0, padding: 0, overflow: "hidden" }}
+          className="video"
         >
           <video autoPlay loop muted playsInline>
             <source src={productByName[0]?.videoLink} type="video/mp4" />

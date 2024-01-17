@@ -1,5 +1,5 @@
 .filter-container {
-  padding: 2rem 0;
+  padding: 4rem 0 2rem;
 }
 
 .content-container {
@@ -17,6 +17,7 @@
 .filter > ul {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem 0 2rem 0
 }
 
 .by-category-product {
@@ -35,25 +36,40 @@
 
 @media screen and (max-width: 768px) {
   .filter {
-    width: 95%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top:10%
   }
   .content-container{
     flex-wrap: wrap;
     padding: 2rem;
   }
   .filter > ul {
+    width: 100%;
     flex-direction: row;
-    flex-wrap: wrap;
+    overflow-x: scroll;
+    padding: 0.5rem 0
+  }
+
+  .filter>ul>li{
+    max-width: 50rem;
+    width: 100%;
+    border: 1px solid;
+    padding: 0.5rem;
+    margin-right: 1rem;
   }
 
   .filter > ul > li > a > div {
     display: none;
   }
   .filter > ul > li > a{
-    padding: 0 0.5rem;
+    
+    
+
   }
   .by-category-product {
-    padding: 1rem;
+    padding: 12rem 1rem 1rem;
     width: 100%;
   }
   .content-container > div {
@@ -63,6 +79,6 @@
     align-items: center;
   }
   .filter-meter{
-    width: 95%;
+    display: none;
   }
 }

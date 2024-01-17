@@ -143,16 +143,6 @@ nav {
   display: none;
 }
 
-.user-profile-lang{
-  width: 100%;
-  padding-right: 2rem;
-  display: none;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: end;
-  font-size: 1.4rem;
-  font-weight: bold;
-}
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   nav {
@@ -197,13 +187,6 @@ nav {
     top: 2rem;
   }
 
-  .nav-active{
-    transform: translateX(45%) !important;
-  }
-
-  .nav-active {
-    animation: animation 0.5s ease forwards 0.85s;
-  }
   .column {
     width: 100%;
     height: auto;

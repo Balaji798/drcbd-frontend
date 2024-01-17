@@ -28,6 +28,7 @@ import { useEffect } from "react";
 import { getProduct } from "./state/actions/productAction";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import CBDByCategory from "./pages/cbd-by-category/CBDByCategory";
+import SecondeNave from "./components/secondeNave/SecondeNave";
 
 function App() {
   const [openNav,setOpenNav]= useState(false);
@@ -50,7 +51,7 @@ function App() {
       <div >
    
       <Header setOpenNav={setOpenNav} openNav={openNav}/>
-      <Navbar setOpenNav={setOpenNav} openNav={openNav}/>
+      {window.innerWidth >= 798?<Navbar />:<SecondeNave setOpenNav={setOpenNav} openNav={openNav}/>}
       </div>
         <div
           style={{

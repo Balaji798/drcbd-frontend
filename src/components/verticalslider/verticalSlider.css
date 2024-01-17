@@ -68,8 +68,21 @@ button {
   border-Radius:10px;
   box-Shadow:0 1px 25px rgba(0, 0, 0, 0.2)
 }
+.user-review{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.user-review>input{
+  width: 40%;
+}
 @media screen and (max-width: 768px){
   .add-review{
     width: 96%;
+  }
+  .user-review>input{
+    flex-direction: column;
+    width: 100%;
   }
 }

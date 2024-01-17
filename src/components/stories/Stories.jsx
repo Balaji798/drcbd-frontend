@@ -277,6 +277,7 @@ const onButtonClick2 = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
+                justifyContent:"center",
                 flexWrap:"wrap",
                 paddingLeft: "4rem",
               }}
@@ -320,8 +321,6 @@ const onButtonClick2 = () => {
             </div>
           </div>
         </div>
-
-      
         <div className="subscribe">
           <h1>
             SIGN UP AND GET <br />
