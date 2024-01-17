@@ -294,7 +294,6 @@ const SecondBanner = () => {
                 <div key={index}>
                   <img
                     src={item.icon}
-                    
                     alt="/"
                   />
                   <p style={{ }}>{item.title}</p>

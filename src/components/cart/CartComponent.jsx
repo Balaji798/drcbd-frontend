@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { getCart } from "../../state/actions/cartAction";
+import './cart.css'
 
 const CartComponent = (props) => {
   const navigate = useNavigate();
@@ -57,85 +58,82 @@ const CartComponent = (props) => {
   };
   return (
     <>
-     {cart.cart.length===0?<h1 style={{padding:"2rem 0",textAlign:"center"}}>Cart is empty</h1>: <div
-        style={{
-          padding: "1em 4em",
-          display: "flex",
-          color: "#005652",
-          justifyContent: "center",
-        }}
-       >
-        <div style={{ width: "55%" }}>
-          {cart.cart?.items?.map((item) => (
-            <div
-              key={item?._id}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                borderBottom: "1px solid",
-                padding: "1em 0",
-              }}
-            >
+      {cart.cart.length === 0 ? (
+        <h1 style={{ padding: "2rem 0", textAlign: "center" }}>
+          Cart is empty
+        </h1>
+      ) : (
+        <div className="cart-container"
+        >
+          <div className="cart-items">
+            {cart.cart?.items?.map((item) => (
               <div
+                key={item?._id}
                 style={{
-                  background: "#264043",
-                  width: "8em",
-                  height: "8em",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  borderBottom: "1px solid",
+                  padding: "1em 0",
                 }}
               >
-                <img
-                  src={item?.productId?.images[0]}
-                  alt={item?.productId?.images[0]}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                  }}
-                />
-              </div>
-              <div
-                style={{
-                  paddingLeft: "0.5em",
-                  width: "85%",
-                }}
-              >
-                <h2 style={{ fontSize: "1.3em", fontWeight: "bold" }}>
-                  {item?.productId?.name}
-                </h2>
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
+                    background: "#264043",
+                    width: "8em",
+                    height: "8em",
                   }}
                 >
-                  <div
+                  <img
+                    src={item?.productId?.images[0]}
+                    alt={item?.productId?.images[0]}
                     style={{
-                      display: "flex",
+                      width: "100%",
                       height: "100%",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
+                      objectFit: "contain",
                     }}
-                  >
-                    <h2 style={{ fontSize: "1em", fontWeight: "bold" }}>
-                      {item?.productId?.category}
-                    </h2>
-                    <button
-                      style={{ maxWidth: 100, fontSize: 16 }}
-                      onClick={() => removeFromCart(item?.productId?._id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
+                  />
+                </div>
+                <div
+                  className="items-detail"
+                >
+                  <h2 style={{  }}>
+                    {item?.productId?.name}
+                  </h2>
                   <div
                     style={{
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
+                      flexWrap:"wrap"
                     }}
                   >
-                    <p style={{ fontSize: "25px" }}>Quantity :</p>
-                    {/* <div
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "100%",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <h2 style={{ fontSize: "1em", fontWeight: "bold" }}>
+                        {item?.productId?.category}
+                      </h2>
+                      <button
+                        style={{ maxWidth: 100, fontSize: 16 }}
+                        onClick={() => removeFromCart(item?.productId?._id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <p style={{ fontSize: "25px" }}>Quantity :</p>
+                      {/* <div
                       style={{
                         fontSize: "65px",
                         paddingLeft: "0.2em",
@@ -144,65 +142,67 @@ const CartComponent = (props) => {
                     >
                       -
                     </div> */}
-                    <p
-                      style={{
-                        padding: "0px 5px",
-                        margin: "10px",
-                        //border: "1px solid #005256",
-                        fontSize: "30px",
-                      }}
-                    >
-                      {item.quantity}
-                    </p>
-                    {/* <div style={{ fontSize: "40px" }}>+</div> */}
+                      <p
+                        style={{
+                          padding: "0px 5px",
+                          margin: "10px",
+                          //border: "1px solid #005256",
+                          fontSize: "30px",
+                        }}
+                      >
+                        {item.quantity}
+                      </p>
+                      {/* <div style={{ fontSize: "40px" }}>+</div> */}
+                    </div>
                   </div>
+                  <h2 style={{ textAlign: "end", fontSize: "22px" }}>
+                    PRICE :- {item.productId?.price} ฿
+                  </h2>
                 </div>
-                <h2 style={{ textAlign: "end", fontSize: "22px" }}>
-                  PRICE :- {item.productId?.price} ฿
-                </h2>
               </div>
-            </div>
-          ))}
-        </div>
-        <div>
-          
-          <div
-            style={{
-              width: "16rem",
-              padding: "2em 0",
-              marginLeft: "7em",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <h1
+            ))}
+          </div>
+          <div>
+            <div
               style={{
-                textAlign: "end",
-                width: "80%",
-                borderBottom: "1px solid",
-                fontSize: "2em",
-                paddingBottom: "0.5em",
-                fontWeight: 900,
-              }}
-            >
-              Summary
-            </h1>
-            <p
-              style={{
+                width: "16rem",
+                padding: "2em 0",
+                marginLeft: "7em",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "space-between",
-                padding: "0.5em 0",
               }}
             >
-              CART SUBTOTAL :-
-              <span style={{ fontSize: "2em",marginLeft:"2px" }}>{" "}{cart.cart?.totalPrice} ฿</span>
-            </p>
-            <div className="checkOut-button" onClick={handelNext}>
-              CHECK OUT
-            </div>
-            {/* <Link
+              <h1
+                style={{
+                  textAlign: "end",
+                  width: "80%",
+                  borderBottom: "1px solid",
+                  fontSize: "2em",
+                  paddingBottom: "0.5em",
+                  fontWeight: 900,
+                }}
+              >
+                Summary
+              </h1>
+              <p
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "0.5em 0",
+                }}
+              >
+                CART SUBTOTAL :-
+                <span style={{ fontSize: "2em", marginLeft: "2px" }}>
+                  {" "}
+                  {cart.cart?.totalPrice} ฿
+                </span>
+              </p>
+              <div className="checkOut-button" onClick={handelNext}>
+                CHECK OUT
+              </div>
+              {/* <Link
         href="/paypal"
         style={{
           width: "80%",
@@ -217,11 +217,10 @@ const CartComponent = (props) => {
           style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
        </Link> */}
+            </div>
           </div>
         </div>
-       </div>
-  
-      }
+      )}
     </>
   );
 };

@@ -10,7 +10,7 @@ const Cart = () => {
 
 
   return (
-    <div style={{ color: "#005256" }}>
+    <div style={{ color: "#005256",paddingTop:"3rem" }}>
       <Steps stepsColor={[1]}/>
       <CartComponent />
     </div>

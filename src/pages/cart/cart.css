@@ -27,3 +27,8 @@
   align-items: center;
   border-radius: 50%;
 }
+@media screen and (max-width: 768px){
+  .step-container{
+    left: 0;
+  }
+}
