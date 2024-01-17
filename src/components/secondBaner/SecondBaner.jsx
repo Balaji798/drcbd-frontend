@@ -164,44 +164,44 @@ const SecondBanner = () => {
             </div>
           </div>
           <div>
-            <h1 style={{ fontSize: "2.5rem", padding: "1rem 0" }}>
-              MODERN TRADE
-            </h1>
+          <h1 style={{ fontSize: "2.5rem", padding: "1rem 0" }}>
+          MODERN TRADE
+        </h1>
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                width: "100%",
+                padding: "0 0.5rem",
               }}
             >
-              <div style={{ width: "48%" }}>
-                <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
-                  style={{ objectFit: "cover", width: "100%", height: "15em" }}
-                  alt="/"
-                />
-                <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
-                <p style={{ lineHeight: "1.8rem" }}>
-                  {" "}
-                  CBD products have gained popularity due to their potential
-                  therapeutic benefits. While research is ongoing, CBD has shown
-                  promise in
-                </p>
+              <div style={{ width: "49.2%" }}>
+              <img
+              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
+              style={{ objectFit: "cover", width: "100%", height: "15em" }}
+              alt="/"
+            />
+            <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
+            <p style={{ lineHeight: "1.8rem" }}>
+              {" "}
+              CBD products have gained popularity due to their potential
+              therapeutic benefits. While research is ongoing, CBD has shown
+              promise in
+            </p>
               </div>
-              <div style={{ width: "48%", marginRight: "1rem" }}>
-                <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
-                  style={{ objectFit: "cover", width: "100%", height: "15em" }}
-                  alt="/"
-                />
-                <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
-                <p style={{ lineHeight: "1.8rem" }}>
-                  {" "}
-                  CBD products have gained popularity due to their potential
-                  therapeutic benefits. While research is ongoing, CBD has shown
-                  promise in
-                </p>
+              <div style={{ width: "49.2%" }}>
+              <img
+              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
+              style={{ objectFit: "cover", width: "100%", height: "15em" }}
+              alt="/"
+            />
+            <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
+            <p style={{ lineHeight: "1.8rem" }}>
+              {" "}
+              CBD products have gained popularity due to their potential
+              therapeutic benefits. While research is ongoing, CBD has shown
+              promise in
+            </p>
               </div>
             </div>
           </div>

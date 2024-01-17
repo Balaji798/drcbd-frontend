@@ -242,6 +242,9 @@
   .banner-second {
     padding-top: 0px;
   }
+  .second-banner-container,.second-banner-container2{
+    justify-content: center;
+  }
   .second-banner-container > div {
     width: 97%;
   }
@@ -252,7 +255,9 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
   .shop-olin {
+    width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .banner {
     padding-top: 4rem;
@@ -264,6 +269,9 @@
     font-size: 15px;
     line-height: 17px;
     width: 85%;
+  }
+  .childe1{
+    margin-left: 2rem;
   }
   .childe1 >div>p{
     font-Size: 12px

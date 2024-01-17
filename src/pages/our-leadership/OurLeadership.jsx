@@ -76,7 +76,7 @@ const OurLeadership = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: "3rem",
+        paddingTop: "6rem",
         background: "#000",
         color: "#fff",
       }}
@@ -97,10 +97,11 @@ const OurLeadership = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
             flexWrap: "wrap",
+            alignItems:"center",
             width: "100%",
           }}
+          className="leaders"
         >
           {data.map((item, index) => (
             <div

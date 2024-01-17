@@ -202,4 +202,15 @@
   .company1{
     border: none;
   }
+  .subscribe{
+    flex-wrap: wrap;
+  }
+  .subscribe>h1{
+    width: 100%;
+    text-align: center;
+  }
+  .subscribe-form{
+    padding: 0 2rem;
+    width: 100%;
+  }
 }

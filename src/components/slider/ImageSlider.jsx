@@ -236,7 +236,7 @@ const ImageSlider = () => {
       <div className="product">
         <div className="all-background">
           <div
-            style={{ maxWidth: "1200px", width: "100%", paddingTop: "2rem" }}
+            style={{ maxWidth: "1100px", width: "100%", paddingTop: "2rem" }}
           >
             <h1 style={{ textAlign: "center" }}>FIND YOUR CBD BY CATEGORY</h1>
             <div className="product-container-home">

@@ -205,6 +205,10 @@ input[type="range"] {
   transform: translateY(0) rotate(45deg);
 }
 
+.leaders{
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 768px) {
   .route-container{
     padding-top: 0;
@@ -214,5 +218,8 @@ input[type="range"] {
   }
   .project-container {
     flex-direction: column;
+  }
+  .leaders{
+    justify-content: center;
   }
 }

@@ -125,9 +125,9 @@ const OurEsteemed = () => {
               flexDirection: index % 2 !==0 ? "row-reverse" : "row",
               borderBottom: "5px solid #005652",
             }}
-          >
+          > 
             <div>
-              <p style={{ fontSize: "25px", width: "83%", padding: "1em 0" }}>
+              <p style={{ fontSize: "25px", width: "63%", padding: "1em 0" }}>
                 {item.title}
               </p>
               <p
@@ -175,7 +175,7 @@ const OurEsteemed = () => {
             color: "#fff",
           }}
         >
-          <div style={{ width: "60%" }}>
+          <div>
             <p
               style={{
                 fontSize: "35px",

@@ -52,7 +52,8 @@ const Profile = () => {
         color: "#fff",
         justifyContent: "center",
         alignItems: "center",
-        flexWrap:"wrap"
+        flexWrap:"wrap",
+        paddingTop:"6rem"
       }}
     >
       <div
