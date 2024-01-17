@@ -74,10 +74,10 @@ const SecondBanner = () => {
     <>
       <div className="secondBanner">
         <div>
-          <h2 style={{textAlign:"center",padding: "2rem 0",}}>WHERE TO FIND US</h2>
-          <div
-            className="second-banner-container"
-          >
+          <h2 style={{ textAlign: "center", padding: "2rem 0" }}>
+            WHERE TO FIND US
+          </h2>
+          <div className="second-banner-container">
             <div>
               <img
                 src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/LINE_ALBUM.jpg"
@@ -92,10 +92,10 @@ const SecondBanner = () => {
                   textAlign: "center",
                   lineHeight: "2rem",
                   fontWeight: 500,
-                 
                 }}
               >
-              Our CBD Products are available at Tops Supermarket across Thailand.
+                Our CBD Products are available at Tops Supermarket across
+                Thailand.
               </p>
             </div>
             <div>
@@ -112,10 +112,10 @@ const SecondBanner = () => {
                   textAlign: "center",
                   lineHeight: "2rem",
                   fontWeight: 500,
-                
                 }}
               >
-              Our CBD products are available at Fascino Drug Store across Bangkok.
+                Our CBD products are available at Fascino Drug Store across
+                Bangkok.
               </p>
             </div>
           </div>
@@ -172,7 +172,7 @@ const SecondBanner = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                width:"100%"
+                width: "100%",
               }}
             >
               <div style={{ width: "48%" }}>
@@ -206,15 +206,7 @@ const SecondBanner = () => {
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            height: "8em",
-            alignItems: "center",
-            width: "80%",
-            justifyContent: "space-between",
-          }}
-        >
+        <div className="shop-olin">
           <h1
             style={{
               padding: "0.5em 1em",
@@ -248,8 +240,8 @@ const SecondBanner = () => {
           {/*<img src="./online/va.png" style={{ width: "8em" }} alt="/" />*/}
         </div>
         <div className="banner">
-          <div>
-            <h1 style={{ fontSize: "45px" }}>
+          <div className="banner-first">
+            <h1>
               WHY OUR CBD OIL
               <br />
               IS DIFFERENT?
@@ -262,15 +254,7 @@ const SecondBanner = () => {
                 margin: "10px 0",
               }}
             />
-            <p
-              style={{
-                width: "35%",
-                lineHeight: "30px",
-                fontWeight: 300,
-                fontFamily: "sans-serif",
-                fontSize: 20,
-              }}
-            >
+            <p>
               CBD oil is extracted from an IES (Isolate Extraction System)
               machine, using supercritical CO2 extraction technology, the global
               certified standard of extraction from the USA. This ensures that
@@ -294,64 +278,26 @@ const SecondBanner = () => {
           </div>
         </div>
         <div className="banner-second">
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              width: "100%",
-              padding: " 0em 0 2em 0",
-            }}
-          >
-            <div style={{ width: "40%" }}>
+          <div className="banner-second-parent">
+            <div style={{ width: "40%" }} className="childe1">
               {iconsData[0].map((item, index) => (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "100%",
-                    padding: "10px 0",
-                  }}
-                >
-                  <img
-                    src={item.icon}
-                    style={{ objectFit: "contain", width: 80, height: 80 }}
-                    alt="/"
-                  />
-                  <p style={{ color: "#005652", fontSize: 20, width: "40%" }}>
+                <div>
+                  <img src={item.icon} style={{}} alt="/" />
+                  <p>
                     {item.title}
                   </p>
                 </div>
               ))}
             </div>
-            <div style={{ width: "45%", paddingTop: "15em" }}>
+            <div style={{ paddingTop: "15em" }} className="childe1">
               {iconsData[1].map((item, index) => (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    width: "100%",
-                    padding: "20px 0 20px 0em",
-                  }}
-                  key={index}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      width: "60%",
-                    }}
-                  >
-                    <img
-                      src={item.icon}
-                      style={{ objectFit: "contain", width: 80, height: 80 }}
-                      alt="/"
-                    />
-                    <p style={{ color: "#005652", fontSize: 18 }}>
-                      {item.title}
-                    </p>
-                  </div>
+                <div key={index}>
+                  <img
+                    src={item.icon}
+                    
+                    alt="/"
+                  />
+                  <p style={{ }}>{item.title}</p>
                 </div>
               ))}
             </div>
@@ -378,12 +324,7 @@ const SecondBanner = () => {
       </div>
       <div className="back">
         <h1>OUR COMPANIES</h1>
-        <div
-          style={{
-            
-          }}
-          className="back-childe"
-        >
+        <div style={{}} className="back-childe">
           {data.map((item, index) => (
             <div
               style={{

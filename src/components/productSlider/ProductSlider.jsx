@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const ProductSlider = ({ image, i, marginB,categoryName }) => {
   const navigate = useNavigate();
-  console.log(categoryName)
   return (
     <div
       className="slider-item"

@@ -27,6 +27,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getProduct } from "./state/actions/productAction";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import CBDByCategory from "./pages/cbd-by-category/CBDByCategory";
 
 function App() {
   const [openNav,setOpenNav]= useState(false);
@@ -69,7 +70,7 @@ function App() {
             <Route path="/order-summery/:orderId" element={<PayPal />} />
             <Route path="/brand-purpose" element={<BrandPurpose />} />
             <Route path="/our-esteemed" element={<OurEsteemed />} />
-            <Route path="/cbd-by-category" element={<ByPurpose />} />
+            <Route path="/cbd-by-category" element={<CBDByCategory />} />
             <Route path="/cbd-by-purpose" element={<ByPurpose />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />

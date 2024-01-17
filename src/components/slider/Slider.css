@@ -117,6 +117,7 @@ article.nextSlide {
 }
 
 .home-product-item {
+  background-repeat: no-repeat;
   background-size: cover;
   max-width: 17em;
   width: 100%;
@@ -251,6 +252,19 @@ video {
 }
 
 @media screen and (max-width: 768px) {
+  .home-product-item{
+    height: 12rem;
+    background-size: contain;
+    padding: 0.5rem;
+  }
+  .home-product-top{
+     height: 10rem;
+  }
+  .home-product-item>a{
+    font-size: 10px;
+    width: 100%;
+    text-align: center;
+  }
   .video{
     height: 30rem !important;
   }

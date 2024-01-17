@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import "./header.css";
@@ -11,6 +10,7 @@ import Modal from "../modal/Modal";
 import { useSelector } from "react-redux";
 
 const Header = ({ openNav, setOpenNav }) => {
+  const [openSearch,setOpenSearch]=useState(false)
   const { product } = useSelector((state) => state.product);
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -130,7 +130,8 @@ const Header = ({ openNav, setOpenNav }) => {
             ) : (
               <></>
             )}
-
+           {/* <BsSearch size={25} 
+            onClick={()=>{setOpenSearch(!openSearch)}} className="search-icon"/>*/}
             <div
               style={{
                 color: "#fff",

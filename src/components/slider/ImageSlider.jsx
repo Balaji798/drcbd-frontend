@@ -242,7 +242,7 @@ const ImageSlider = () => {
             <div className="product-container-home">
               {product.map((item, index) => (
                 <div
-                  className="home-product-item"
+                  className="home-product-item home-product-top"
                   style={{ backgroundImage: `url(${item.background})` }}
                   key={index}
                 >
