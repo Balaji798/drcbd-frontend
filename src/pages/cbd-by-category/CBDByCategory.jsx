@@ -122,7 +122,7 @@ const CBDByCategory = () => {
               }}
             >
               <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
-                Products / {item[0]}
+                {item[0]}
               </h2>
               <Link
                 style={{
