@@ -43,7 +43,8 @@ const Contact = () => {
     <div>
       <img
         src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/contact.png"
-        style={{ width: "100%", objectFit: "cover", height: "23em" }}
+        className="contact-banner"
+        alt="/"
       />
       <div
         style={{
@@ -78,7 +79,7 @@ const Contact = () => {
             transform: "rotate(60deg)",
           }}
         />
-        <div style={{ maxWidth: 900, width: "100%", paddingTop: 50 }}>
+        <div style={{ maxWidth: 900, width: "100%", padding:'50px 1rem 0' }}>
           {contact.map((item, index) => (
             <div
               style={{

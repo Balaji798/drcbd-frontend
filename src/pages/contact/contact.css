@@ -5,3 +5,17 @@
   scrollbar-width: none; /* For Firefox */
   -webkit-overflow-scrolling: auto; /* For Safari and Chrome */
 }
+
+.contact-banner {
+  width: 100%;
+  object-fit: cover;
+  height: 23em;
+}
+
+@media screen and (max-width: 768px){
+  .contact-banner{
+    margin-top: 4rem;
+    object-fit: contain;
+    height: 12rem;
+  }
+}
