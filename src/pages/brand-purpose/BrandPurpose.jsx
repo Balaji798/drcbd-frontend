@@ -51,6 +51,7 @@ const BrandPurpose = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        paddingTop:"4rem"
       }}
     >
       <div
@@ -68,12 +69,13 @@ const BrandPurpose = () => {
             color: "#005652",
             fontSize: "35px",
             paddingBottom: 20,
+            padding:"0 1rem"
           }}
         >
           {" "}
           Brand Purpose
         </p>
-        <p>
+        <p style={{padding:"0 1rem"}}>
           Immediately when we saw Epilepsy Patients and Insomnia Patients which
           are major problems and obstacles to their daily lives that they have
           to endure no matter how much suffering and distress. we found that the
@@ -94,14 +96,14 @@ const BrandPurpose = () => {
           }}
           alt="/"
         />
-        <p>
+        <p style={{padding:"0 1rem"}}>
           To enhance and elevate the overall quality of life, including the
           health and beauty of people and pets (dogs & cats) better with Eastern
           and Western medical science. Using raw materials, extracts from
           marijuana, hemp, kratom, and Thai herbs. Using science and modern
           medicine that is Evidence-Based and Preventive Healthcare
         </p>
-        <p style={{ paddingTop: "10px" }}>
+        <p style={{ paddingTop: "10px",padding:"0 1rem" }}>
           Along with the royal initiative of King Rama IX that… “If people have
           deteriorated health, they will not be able to develop the nation.
           Because the country's most important resource is its citizens” That's

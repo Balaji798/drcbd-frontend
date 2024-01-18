@@ -253,7 +253,7 @@ const onButtonClick2 = () => {
               display: "flex",
               alignItems: "center",
               width: "100%",
-              justifyContent: "center",
+              justifyContent: "space-between",
               flexWrap:"wrap",
               maxWidth: 1200,
               color: "#fff",
@@ -279,7 +279,7 @@ const onButtonClick2 = () => {
                 alignItems: "center",
                 justifyContent:"center",
                 flexWrap:"wrap",
-                paddingLeft: "4rem",
+                
               }}
             >
               {newsData.map((item, index) => (

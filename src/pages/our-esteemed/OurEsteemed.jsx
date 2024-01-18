@@ -80,6 +80,7 @@ const OurEsteemed = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        paddingTop:"4rem"
       }}
     >
       <div className="esteemed">

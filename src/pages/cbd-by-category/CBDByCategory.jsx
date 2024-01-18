@@ -19,6 +19,7 @@ const CBDByCategory = () => {
       const uniquePurposes = Array.from(
         new Set(product.flatMap((item) => item.categoryName))
       );
+      console.log(uniquePurposes)
       uniquePurposes.forEach((purpose) => {
         groupedData[purpose] = product.filter((item) =>
           item.categoryName.includes(purpose)
