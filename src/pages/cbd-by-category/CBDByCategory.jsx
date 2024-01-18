@@ -119,9 +119,10 @@ const CBDByCategory = () => {
                 flexWrap: "wrap",
                 width: "100%",
                 justifyContent: "space-between",
+                padding:"0 1rem"
               }}
             >
-              <h2 style={{ paddingBottom: "15px", color: "#005652" }}>
+              <h2 style={{ paddingBottom: "15px", color: "#005652",textTransform:"capitalize" }}>
                 {item[0]}
               </h2>
               <Link

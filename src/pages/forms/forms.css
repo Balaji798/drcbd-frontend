@@ -4,4 +4,34 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 2em;
+    flex-wrap: wrap;
+}
+.input-container>input{
+    width: 40%;
+    padding: 1em 0px;
+    border-radius: 10px;
+    border: 0.5px solid;
+    margin-left: 1em;
+}
+.input-container>p{
+    font-size: 25px;
+    width: 15%;
+    text-align: end;
+}
+.title-text{
+    font-size: 45px
+}
+@media screen and (max-width: 768px){
+    .input-container{
+        padding: 0 1rem;
+      }
+.input-container>input,.input-container>p{
+  width: 100%;
+  text-align: left;
+  margin-left: 0;
+}
+.title-text{
+    font-size: 24px;
+}
+
 }

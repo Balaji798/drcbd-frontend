@@ -19,11 +19,17 @@
     font-Weight: bold
 }
 
+.text-end{
+    text-align: end;
+}
 @media screen and (max-width: 768px){
     .cart-container{
         padding: 1rem;
     }
     .cart-items{
         width: 100%;
+    }
+    .text-end{
+        text-align: left;
     }
 }

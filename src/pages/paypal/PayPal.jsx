@@ -48,12 +48,14 @@ const PayPal = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          paddingTop: "3rem",
+          flexDirection:"column",
+          paddingTop: "5rem",
           maxHeight: "25rem",
           height: "100%",
         }}
       >
-        <div style={{ maxWidth: 400, width: "100%" }}>
+      <h1 className="title-text" style={{paddingBottom:"1rem"}}>Complete you order</h1>
+        <div style={{ maxWidth: 400, width: "100%",padding:'0 2rem' }}>
           <PayPalButtons
             style={{ layout: "vertical" }}
             createOrder={async (data, actions) => {

@@ -69,7 +69,7 @@ const Forms = (props) => {
   // props.setPosition(3);
 
   return (
-    <>
+    <div style={{paddingTop:'4rem'}}>
       <Steps stepsColor={[1, 2]} />
       <div
         style={{
@@ -80,10 +80,10 @@ const Forms = (props) => {
           padding: "2em 0 3em 0",
         }}
       >
-        <h1 style={{ fontSize: "45px", fontWeight: 800 }}>
+        <h1 style={{ fontWeight: 800 }} className="title-text">
           Address Document Information
         </h1>
-        <div style={{ maxWidth: "600px", width: "100%", margin: "2rem 0" }}>
+        <div style={{ maxWidth: "650px", width: "100%", margin: "2rem 0",padding:"0 1rem" }}>
           {user.map((item, index) => (
             <div
               key={index}
@@ -140,119 +140,70 @@ const Forms = (props) => {
           ))}
         </div>
         <div className="input-container">
-          <p style={{ fontSize: "25px", width: "15%", textAlign: "end" }}>
+          <p>
             City:
           </p>{" "}
           <input
-            style={{
-              width: "40%",
-              padding: "1em 0",
-              borderRadius: "10px",
-              border: "0.5px solid",
-              marginLeft: "1em",
-            }}
             onChange={(e) => {
               setUserAdd({ ...userAdd, city: e.target.value });
             }}
           />
         </div>
         <div className="input-container">
-          <p style={{ fontSize: "25px", width: "15%", textAlign: "end" }}>
+          <p>
             Country:
           </p>{" "}
           <input
-            style={{
-              width: "40%",
-              padding: "1em 0",
-              borderRadius: "10px",
-              border: "0.5px solid",
-              marginLeft: "1em",
-            }}
             onChange={(e) => {
               setUserAdd({ ...userAdd, country: e.target.value });
             }}
           />
         </div>
         <div className="input-container">
-          <p style={{ fontSize: "25px", width: "15%", textAlign: "end" }}>
+          <p>
             Address:
           </p>{" "}
           <input
-            style={{
-              width: "40%",
-              padding: "1em 0",
-              borderRadius: "10px",
-              border: "0.5px solid",
-              marginLeft: "1em",
-            }}
             onChange={(e) => {
               setUserAdd({ ...userAdd, address: e.target.value });
             }}
           />
         </div>
         <div className="input-container">
-          <p style={{ fontSize: "25px", width: "15%", textAlign: "end" }}>
+          <p>
             Postal Code:
           </p>{" "}
           <input
-            style={{
-              width: "40%",
-              padding: "1em 0",
-              borderRadius: "10px",
-              border: "0.5px solid",
-              marginLeft: "1em",
-            }}
             onChange={(e) => {
               setUserAdd({ ...userAdd, postalCode: e.target.value });
             }}
           />
         </div>
         <div className="input-container">
-          <p style={{ fontSize: "25px", width: "15%", textAlign: "end" }}>
+          <p>
             Contact Number:
           </p>{" "}
           <input
-            style={{
-              width: "40%",
-              padding: "1em 0",
-              borderRadius: "10px",
-              border: "0.5px solid",
-              marginLeft: "1em",
-            }}
             onChange={(e) => {
               setUserAdd({ ...userAdd, contactNumber: e.target.value });
             }}
           />
         </div>
         <div className="input-container">
-          <p style={{ fontSize: "25px", width: "15%", textAlign: "end" }}>
+          <p>
             Tax ID:
           </p>{" "}
           <input
-            style={{
-              width: "40%",
-              padding: "1em 0",
-              borderRadius: "10px",
-              border: "0.5px solid",
-              marginLeft: "1em",
-            }}
             onChange={(e) => {
               setUserAdd({ ...userAdd, taxId: e.target.value });
             }}
           />
         </div>
         <div className="input-container">
-          <p style={{ fontSize: "25px", width: "15%", textAlign: "end" }}>
+          <p>
             Other:
           </p>{" "}
           <input
-            style={{
-              width: "40%",
-              padding: "1em 0",
-              borderRadius: "10px",
-              border: "0.5px solid",
-              marginLeft: "1em",
-            }}
             onChange={(e) => {
               setUserAdd({ ...userAdd, other: e.target.value });
             }}
@@ -300,7 +251,7 @@ const Forms = (props) => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

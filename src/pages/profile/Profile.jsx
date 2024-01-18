@@ -53,13 +53,10 @@ const Profile = () => {
         justifyContent: "center",
         alignItems: "center",
         flexWrap:"wrap",
-        paddingTop:"6rem"
+        padding:"6rem 0"
       }}
     >
-      <div
-        style={{
-          
-        }}
+      {/* div
         className="user-profile-container"
       >
         <FaUserCircle style={{ color: "grey", fontSize: "15rem" }} />
@@ -80,7 +77,7 @@ const Profile = () => {
         >
           <h1>+</h1>
         </div>
-      </div>
+        </div> */}
       <div className="user-det-form">
         <h1 style={{ color: "#003b45" }}>User Profile</h1>
         <div style={{ width: "100%" }}>

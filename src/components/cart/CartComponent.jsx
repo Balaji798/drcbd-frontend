@@ -155,7 +155,7 @@ const CartComponent = (props) => {
                       {/* <div style={{ fontSize: "40px" }}>+</div> */}
                     </div>
                   </div>
-                  <h2 style={{ textAlign: "end", fontSize: "22px" }}>
+                  <h2 style={{fontSize: "22px" }} className='text-end'>
                     PRICE :- {item.productId?.price} ฿
                   </h2>
                 </div>

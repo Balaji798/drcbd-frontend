@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { navData } from "./navData";
 import "./secondNave.css";
 import { MdArrowForwardIos } from "react-icons/md";
