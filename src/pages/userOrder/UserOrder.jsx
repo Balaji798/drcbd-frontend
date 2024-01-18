@@ -24,7 +24,7 @@ const UserOrder = () => {
     getOrder();
   }, [orderId]);
   return (
-    <div>
+    <div style={{paddingTop:"4rem"}}>
       <Steps stepsColor={[4]} />
       <div
         style={{

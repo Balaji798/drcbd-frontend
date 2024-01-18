@@ -182,7 +182,9 @@ const Header = ({ openNav, setOpenNav }) => {
             </div>
           </div>
         </div>
-        <Link to="/">
+        <Link to="/" onClick={() => {
+          setOpenNav(false);
+        }}>
           <img
             src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
             style={{

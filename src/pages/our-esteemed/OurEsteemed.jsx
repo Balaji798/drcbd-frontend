@@ -114,7 +114,9 @@ const OurEsteemed = () => {
             justifyContent: "center",
             alignItems: "center",
             background: index % 2 !==0 ? "#e8eae1" : "#fff",
+            padding:"1rem"
           }}
+          className="estimate"
         >
           <div
             style={{
@@ -154,27 +156,8 @@ const OurEsteemed = () => {
           </div>
         </div>
       ))}
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background:"#000",
-          padding:"5rem 0"
-        }}
-      >
-        <div
-          style={{
-            background: "#005652",
-            maxWidth: "60em",
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-            padding: "1em 2em",
-            color: "#fff",
-          }}
-        >
+      <div className="scanner-container">
+        <div>
           <div>
             <p
               style={{
@@ -187,11 +170,9 @@ const OurEsteemed = () => {
               {socialMedia.map((item, index) => (
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    width: "50%",
-                    padding: "1.5em 0",
+                    
                   }}
+                  className="scanner-item"
                 >
                   {item.icon}
                   <p
@@ -235,7 +216,9 @@ const OurEsteemed = () => {
                   height: "10em",
                   objectFit: "contain",
                   background: "#fff",
+                  
                 }}
+                alt="/"
               />
             </div>
           </div>

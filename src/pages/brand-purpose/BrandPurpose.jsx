@@ -1,19 +1,22 @@
 import React from "react";
+import "./purpose.css";
 
 const BrandPurpose = () => {
   const data = [
     {
-      title:"CANNABIS CULTIVATION",
+      title: "CANNABIS CULTIVATION",
       text: "Dr. CBD uses cutting edge technologyin the cultivation of cannabis, hempand kratom with full control over the production process. Controlling growth factors including light,humidity, temperature, minerals, as well as in pest protection and the prevention of microbial contarination. We also comply with GMP (Good Manufacturing Practice)and GAP (Good Agricultural Practice) standards, ensuring the efficacy of quality raw materials in the production of innovative medigrade products",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/P1034199.jpg",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/P1034199.jpg",
     },
     {
-      title:"MEDICAL GRADE EXTRACTION",
+      title: "MEDICAL GRADE EXTRACTION",
       text: " Dr. CBD has signed a memorandum of understanding with the Department of Medical Sciences on the research & development and extraction of cannabis and hemp for medicinal purposes. We, therefore, specialize in the analysis, testing and extraction of active substances in cannabis plants.We use Supercritical CO2 extraction equipment from the USA resulting in high purity extracts that are non contaminant, non-toxic and environmentally friendly. We also have a research and development facility for medical and health products allowing consumers to be confident in the quality and safety or row materials in use by Dr. CBD",
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/DSC02077.png",
+      image:
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/DSC02077.png",
     },
     {
-      title:"PRODUCTION",
+      title: "PRODUCTION",
       text: "Dr. CDB has signed a memorandum of understanding to promote and support the development of herbal medicines alongside cannabis, hemp and kratom. We prioritize our 3 main purposes in production, namely 1. Safety & Toxicity, meaning that the product must be safe for consumers and non toxic to the body. 2. Consistency being the standard in production for every batch and 3. Efficacy being the product effectiveness. We are committed to delivering what we say",
       image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/4.png",
     },
@@ -27,20 +30,20 @@ const BrandPurpose = () => {
     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/certificate/a6.png",
     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/certificate/a7.png",
   ];
-  const operation=[
+  const operation = [
     {
-      image:"./operation/1.png",
-      title:"Environment"
+      image: "./operation/1.png",
+      title: "Environment",
     },
     {
-      image:"./operation/2.png",
-      title:"Social"
+      image: "./operation/2.png",
+      title: "Social",
     },
     {
-      image:"./operation/3.png",
-      title:"Governance"
+      image: "./operation/3.png",
+      title: "Governance",
     },
-  ]
+  ];
   return (
     <div
       style={{
@@ -64,7 +67,7 @@ const BrandPurpose = () => {
           style={{
             color: "#005652",
             fontSize: "35px",
-            paddingBottom:20
+            paddingBottom: 20,
           }}
         >
           {" "}
@@ -83,7 +86,13 @@ const BrandPurpose = () => {
         </p>
         <img
           src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/images/brand-purpose.jpg"
-          style={{ width: "100%", height: "30em", objectFit: "cover",margin:"1em 0" }}
+          style={{
+            width: "100%",
+            height: "30em",
+            objectFit: "cover",
+            margin: "1em 0",
+          }}
+          alt="/"
         />
         <p>
           To enhance and elevate the overall quality of life, including the
@@ -99,37 +108,10 @@ const BrandPurpose = () => {
           what sparks and inspires us to do these things.
         </p>
       </div>
-      <div
-        style={{
-          background: "#e8eae1",
-          width: "100%",
-          padding: "4.5em 0 4.5em 7em",
-          display: "flex",
-          flexWrap:"wrap",
-          position: "relative",
-          overflowX: "hidden",
-          overflowY: "hidden",
-        }}
-      >
+      <div className="purpose-container">
         <div className="purpose">
-          <p
-            style={{
-              fontSize: "55px",
-              paddingBottom: "20px",
-              fontFamily: "'Roboto Condensed', sans-serif",
-            }}
-          >
-            {" "}
-            WHO WE ARE ?
-          </p>
-          <p
-            style={{
-              fontSize: "25.5px",
-              lineHeight: "1.3em",
-              fontFamily: "'Raleway', sans-serif",
-              fontWeight: 500,
-            }}
-          >
+          <p className="purpose-title"> WHO WE ARE ?</p>
+          <p className="purpose-para">
             Dr.CBD Group is a fully integrated medical grade Cannabis, Hemp and
             Kratom business. Our operations include upstream (Indoor
             cultivation), midstream (extraction) to downstream (medical grade
@@ -139,33 +121,24 @@ const BrandPurpose = () => {
         </div>
         <img
           src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/images/s11-11507.png"
-          style={{
-            objectFit: "contain",
-            position: "absolute",
-            right: "0em",
-            width: "35em",
-            height: "35em",
-            top: "1.5em",
-          }}
+          className="purpose-img"
           alt="/"
         />
       </div>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "2em 5em",
-        }}
-      >
+      <div className="purpose-second">
         {data.map((item, index) => (
-          <div style={{ width: "32%" }} key={index}>
+          <div key={index}>
             <img
               src={item.image}
-              style={{ objectFit: "cover", width: "100%", height: "20em",marginTop:index==1&&"4em" }}
+              style={{
+                objectFit: "cover",
+                width: "100%",
+                height: "20em",
+                marginTop: index == 1 && "4em",
+              }}
+              alt="/"
             />
-            <h2 style={{padding:"1em 0"}}>{item.title}</h2>
+            <h2 style={{ padding: "1em 0" }}>{item.title}</h2>
             <p>{item.text}</p>
           </div>
         ))}
@@ -188,15 +161,22 @@ const BrandPurpose = () => {
         style={{
           display: "flex",
           padding: "3em 5em",
-          alignItems:"center",
-          justifyContent:"center",
-          flexWrap:"wrap"
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
         }}
       >
         {operation.map((item, index) => (
-          <div style={{ width: "33%",margin:"1em" }}>
-          <img src={item.image} key={index} alt={item.image}  style={{width:"100%"}}/>
-          <p style={{textAlign:"center",fontSize:"20px"}}>{item.title}</p>
+          <div style={{ width: "33%", margin: "1em" }}>
+            <img
+              src={item.image}
+              key={index}
+              alt={item.image}
+              style={{ width: "100%" }}
+            />
+            <p style={{ textAlign: "center", fontSize: "20px" }}>
+              {item.title}
+            </p>
           </div>
         ))}
       </div>
@@ -220,12 +200,17 @@ const BrandPurpose = () => {
           display: "flex",
           flexWrap: "wrap",
           padding: "5em 3em",
-          alignItems:"center",
-          justifyContent:"center"
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         {certificate.map((item, index) => (
-          <img src={item} key={index} alt={item} style={{ width: "20%",margin:"1em" }} />
+          <img
+            src={item}
+            key={index}
+            alt={item}
+            style={{ width: "20%", margin: "1em" }}
+          />
         ))}
       </div>
     </div>

@@ -16,8 +16,50 @@
   object-fit: contain;
 }
 
-@media screen and (max-width: 768px){
-  .esteemed-container{
+.scanner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  padding: 5rem 0;
+}
+
+.scanner-container > div {
+  background: rgb(0, 86, 82);
+  max-width: 60em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1em 2em;
+  color: rgb(255, 255, 255);
+}
+
+.scanner-item {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 1.5em 0;
+}
+
+.estimate{
+  
+}
+
+@media screen and (max-width: 768px) {
+  .esteemed-container {
+    width: 100%;
+  }
+  .scanner-container>div{
+    align-items: center;
+    justify-content: center;
+  }
+  .scanner-container,
+  .scanner-container > div {
+    padding: 2rem;
+  }
+  .scanner-item{
     width: 100%;
   }
 }

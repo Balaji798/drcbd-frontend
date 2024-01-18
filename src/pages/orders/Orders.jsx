@@ -34,10 +34,11 @@ const Orders = () => {
                 style={{
                   marginBottom: "1rem",
                   borderBottom: "1px solid #000",
-                  padding: "0.5rem",
+                  padding: "0.5rem 0.5rem 2rem",
                   width: "100%",
                   display: "flex",
                   justifyContent: "space-between",
+                  flexWrap:"wrap"
                 }}
               >
                 <div style={{ display: "flex" }}>
