@@ -301,7 +301,7 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-{!productByName[0]?.bannerImg ? (
+     {!productByName[0]?.bannerImg ? (
          <img
             src="../info-product-banner.jpg"
             style={{ width: "100%", maxHeight: "25rem", objectFit: "cover" }}

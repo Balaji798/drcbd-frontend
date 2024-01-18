@@ -35,8 +35,8 @@ const CBDByCategory = () => {
     const { onClick } = props;
     return (
       <div className="control-btn" onClick={onClick}>
-        <button className="prev">
-          <MdArrowBackIosNew style={{ fontSize: "45px", color: "#000" }} />
+        <button className="prev" style={{ left: -45 }}>
+          <MdArrowBackIosNew style={{ fontSize: "75px", color: "#28504d" }} />
         </button>
       </div>
     );
@@ -45,8 +45,8 @@ const CBDByCategory = () => {
     const { onClick } = props;
     return (
       <div className="control-btn" onClick={onClick}>
-        <button className="next">
-          <MdArrowForwardIos style={{ fontSize: "45px", color: "#000" }} />
+        <button className="next" style={{ right: -60 }}>
+          <MdArrowForwardIos style={{ fontSize: "75px", color: "#28504d" }} />
         </button>
       </div>
     );
@@ -90,7 +90,7 @@ const CBDByCategory = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "2rem 0px",
+        padding: "3rem 0px 2rem",
       }}
     >
       {product?.loading === 0 ? (
@@ -135,6 +135,7 @@ const CBDByCategory = () => {
                 See All
               </Link>
             </div>
+            <div  style={{ padding: "0 3em 2em", maxWidth: "1300px", width: "100%" }}>
             {item[1]?.length <= 3 && window.innerWidth >= 798 ? (
               <div
                 style={{
@@ -154,6 +155,7 @@ const CBDByCategory = () => {
                 ))}
               </Slider>
             )}
+            </div>
           </div>
         ))
       )}
