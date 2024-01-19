@@ -80,6 +80,7 @@ const PayPal = () => {
             onApprove={async (data, actions) => {
               const order = await actions.order.capture();
               if (order.status === "COMPLETED") {
+                
                 setOrderStatus(true);
               }
             }}

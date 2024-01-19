@@ -30,5 +30,8 @@ export default {
   },
   getOrder(orderId){
     return Api().get(`/orders/get_user_order/${orderId}`)
+  },
+  sendOrderMail(){
+    return Api().get('/orders/confirm-payment')
   }
 };

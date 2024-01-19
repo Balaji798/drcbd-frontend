@@ -54,7 +54,6 @@ button {
   width: 300px;
 }
 .review-container {
-  
   width: 100%;
 }
 
@@ -294,7 +293,10 @@ article.nextSlide {
   width: 65%;
   font-size: 17px;
 }
-
+.orderButton > button {
+  width: 200px;
+  font-size: 18;
+}
 @media screen and (max-width: 768px) {
   .product-detail-container {
     padding: 0 1rem;
@@ -339,7 +341,16 @@ article.nextSlide {
     padding-left: 2.3rem;
   }
 
-  .description-container-title,.description-container-title2{
+  .description-container-title,
+  .description-container-title2 {
     width: 100%;
+  }
+  .orderButton > button {
+    width: 150px;
+    font-size: 12;
+  }
+
+  button{
+    font-size: 14px;
   }
 }

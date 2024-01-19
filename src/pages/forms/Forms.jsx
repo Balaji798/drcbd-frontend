@@ -49,14 +49,26 @@ const Forms = (props) => {
       );
 
       if (res.data.status) {
+        const user = localStorage.getItem("token");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${user}`,
+            "Content-Type": "application/json", // Set the content type to JSON
+          },
+        };
         const response = await axios.post(
           "https://drcbd-backend.onrender.com/orders/update_order/" + orderId,
           //https://drcbd-backend.onrender.com
           userAdd,
           config
         );
-        const res = await ApiService.getOrderById(orderId);
-        const totalPrice = res.data.totalPrice;
+        const respo = await axios.post(
+          "https://drcbd-backend.onrender.com/orders/place_order",
+          //https://drcbd-backend.onrender.com
+          { orderId },
+          config
+        );
+        const totalPrice = respo.data.totalPrice;
         if (response.data.status)
           navigate("/order-summery/" + orderId, {
             state: { price: totalPrice },
@@ -69,7 +81,7 @@ const Forms = (props) => {
   // props.setPosition(3);
 
   return (
-    <div style={{paddingTop:'4rem'}}>
+    <div style={{ paddingTop: "4rem" }}>
       <Steps stepsColor={[1, 2]} />
       <div
         style={{
@@ -83,7 +95,14 @@ const Forms = (props) => {
         <h1 style={{ fontWeight: 800 }} className="title-text">
           Address Document Information
         </h1>
-        <div style={{ maxWidth: "650px", width: "100%", margin: "2rem 0",padding:"0 1rem" }}>
+        <div
+          style={{
+            maxWidth: "650px",
+            width: "100%",
+            margin: "2rem 0",
+            padding: "0 1rem",
+          }}
+        >
           {user.map((item, index) => (
             <div
               key={index}
@@ -140,9 +159,7 @@ const Forms = (props) => {
           ))}
         </div>
         <div className="input-container">
-          <p>
-            City:
-          </p>{" "}
+          <p>City:</p>{" "}
           <input
             onChange={(e) => {
               setUserAdd({ ...userAdd, city: e.target.value });
@@ -150,9 +167,7 @@ const Forms = (props) => {
           />
         </div>
         <div className="input-container">
-          <p>
-            Country:
-          </p>{" "}
+          <p>Country:</p>{" "}
           <input
             onChange={(e) => {
               setUserAdd({ ...userAdd, country: e.target.value });
@@ -160,9 +175,7 @@ const Forms = (props) => {
           />
         </div>
         <div className="input-container">
-          <p>
-            Address:
-          </p>{" "}
+          <p>Address:</p>{" "}
           <input
             onChange={(e) => {
               setUserAdd({ ...userAdd, address: e.target.value });
@@ -170,9 +183,7 @@ const Forms = (props) => {
           />
         </div>
         <div className="input-container">
-          <p>
-            Postal Code:
-          </p>{" "}
+          <p>Postal Code:</p>{" "}
           <input
             onChange={(e) => {
               setUserAdd({ ...userAdd, postalCode: e.target.value });
@@ -180,9 +191,7 @@ const Forms = (props) => {
           />
         </div>
         <div className="input-container">
-          <p>
-            Contact Number:
-          </p>{" "}
+          <p>Contact Number:</p>{" "}
           <input
             onChange={(e) => {
               setUserAdd({ ...userAdd, contactNumber: e.target.value });
@@ -190,9 +199,7 @@ const Forms = (props) => {
           />
         </div>
         <div className="input-container">
-          <p>
-            Tax ID:
-          </p>{" "}
+          <p>Tax ID:</p>{" "}
           <input
             onChange={(e) => {
               setUserAdd({ ...userAdd, taxId: e.target.value });
@@ -200,9 +207,7 @@ const Forms = (props) => {
           />
         </div>
         <div className="input-container">
-          <p>
-            Other:
-          </p>{" "}
+          <p>Other:</p>{" "}
           <input
             onChange={(e) => {
               setUserAdd({ ...userAdd, other: e.target.value });

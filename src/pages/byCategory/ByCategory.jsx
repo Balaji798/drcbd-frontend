@@ -79,7 +79,7 @@ const fiterData = [
         link: "/by-purpose/SKINCARE",
       },
       {
-        title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+        title: "NCD'S",
         link: "/by-purpose/NCD'S",
       },
       {
@@ -218,7 +218,8 @@ const ByCategory = () => {
                         }}
                       />
                     </div>
-                    {item.title}
+                    <p>{item.title}</p>
+                    
                   </Link>
                 </li>
               ))}
@@ -257,7 +258,7 @@ const ByCategory = () => {
           </div>
         </div>
         <div
-          className="center by-category-product"
+          className="by-category-product"
         >
           <h2
             style={{

@@ -65,9 +65,12 @@
     display: none;
   }
   .filter > ul > li > a{
-    
-    
+    max-width: 20rem;
+    width: 100%;
+  }
 
+  .filter > ul > li > a>p{
+    width: 100%;
   }
   .by-category-product {
     padding: 12rem 1rem 1rem;

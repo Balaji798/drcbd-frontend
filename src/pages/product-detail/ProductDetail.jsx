@@ -562,14 +562,12 @@ const ProductDetail = () => {
               </span>{" "}
               ฿{price}
             </h2>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <button style={{ width: 200, fontSize: 18 }} onClick={buy}>
+            <div style={{ display: "flex", justifyContent: "space-between" }} className="orderButton">
+              <button onClick={buy}>
                 BUY NOW
               </button>
               <button
                 style={{
-                  fontSize: 18,
-                  width: 200,
                   padding: "5px 0",
                   cursor: "pointer",
                 }}
