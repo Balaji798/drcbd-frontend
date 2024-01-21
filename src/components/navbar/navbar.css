@@ -10,7 +10,9 @@ nav {
   align-items: center;
   justify-content: center;
 }
-
+.sub-menu{
+  font-size: 14px !important;
+}
 .navContainer {
   width: 80%;
   display: flex;

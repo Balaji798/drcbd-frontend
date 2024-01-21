@@ -144,6 +144,7 @@ header {
   .sign-profile{
     justify-content: flex-end;
     width: 100%;
+    display: none;
   }
   .sig, .ord{
     display: none;

@@ -289,7 +289,7 @@ const SecondBanner = () => {
                 </div>
               ))}
             </div>
-            <div style={{ paddingTop: "15em" }} className="childe1">
+            <div className="childe1 childe2">
               {iconsData[1].map((item, index) => (
                 <div key={index}>
                   <img

@@ -166,7 +166,7 @@ article.nextSlide {
 
 video {
   min-width: 100%;
-  min-height: 80%;
+  min-height: 100%;
   width: auto;
   height: auto;
   z-index: -1;
@@ -260,10 +260,14 @@ video {
  
   .home-product-item>a{
     font-size: 10px;
-    width: 100%;
+    
     text-align: center;
   }
+  .home-video{
+    padding-top: 4rem;
+  }
   .video{
+    
     height: 17rem !important;
   }
   video{

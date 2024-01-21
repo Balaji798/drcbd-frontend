@@ -349,7 +349,8 @@ const Navbar = () => {
                         {sub.icon}
                         <Link
                           to={sub.link}
-                          style={{ cursor: "pointer", fontSize: 16 }}
+                          style={{ cursor: "pointer"}}
+                          className="sub-menu"
                         >
                           {sub.title}
                         </Link>
@@ -377,7 +378,8 @@ const Navbar = () => {
                         {sub.icon}
                         <Link
                           to={sub.link}
-                          style={{ cursor: "pointer", fontSize: 16 }}
+                          style={{ cursor: "pointer" }}
+                          className="sub-menu"
                         >
                           {sub.title}
                         </Link>

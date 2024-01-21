@@ -92,6 +92,7 @@ const Profile = () => {
                 fontSize: 16,
                 borderRadius: 10,
                 color: edit && "#000",
+                width:"45%"
               }}
               onChange={(e) => {
                 setUser({ ...userData, fullName: e.target.value });

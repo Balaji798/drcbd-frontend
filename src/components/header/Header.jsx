@@ -37,8 +37,7 @@ const Header = ({ openNav, setOpenNav }) => {
     } else {
       const res = await ApiService.getUser();
       console.log(res.data);
-      
-      res.data.user.emailVerified ? navigate(type) : setOpen(true);
+      res?.data?.user?.emailVerified ? navigate(type) : setOpen(true);
     }
   };
 

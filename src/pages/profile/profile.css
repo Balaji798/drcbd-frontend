@@ -42,10 +42,22 @@
   height: 30rem;
   margin: 2rem 0;
 }
-
+.user-det-form>div>div{
+  width: 45%;
+}
+.user-det-form>div>div>input{
+  width: 100%;
+ }
 @media screen and (max-width: 768px) {
+  .user-det-form>div{
+    padding: 0.5rem 0;
+  }
     .user-det-form{
         margin: 0 1rem 2rem;
         height: 100%;
+    }
+
+    .user-det-form>div>div,.user-det-form>div>div>input{
+     width: 100%;
     }
 }

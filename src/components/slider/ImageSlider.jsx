@@ -179,7 +179,7 @@ const ImageSlider = () => {
   return (
     <>
     <div
-        className="video"
+        className="video home-video"
       >
         <video autoPlay loop muted playsInline>
           <source
@@ -239,15 +239,16 @@ const ImageSlider = () => {
             <h1 style={{ textAlign: "center" }}>FIND YOUR CBD BY CATEGORY</h1>
             <div className="product-container-home">
               {product.map((item, index) => (
-                <div
+                <Link
+                to={`/by-category/${item.title.split(" ").join("-")}`}
                   className="home-product-item home-product-top"
                   style={{ backgroundImage: `url(${item.background})` }}
                   key={index}
                 >
-                  <Link to={`/by-category/${item.title.split(" ").join("-")}`}>
+                  <Link>
                     {item.title}
                   </Link>
-                </div>
+                </Link>
               ))}
             </div>
             <div
@@ -312,7 +313,8 @@ const ImageSlider = () => {
           </h1>
           <div className="product-container-home">
             {affiliates.map((item, index) => (
-              <div
+              <Link
+               to={`/by-category/${item.title.split(" ").join("-")}`}
                 className="home-product-item"
                 style={{
                   backgroundImage: `url(${item.background})`,
@@ -321,10 +323,10 @@ const ImageSlider = () => {
                   marginBottom: "0.3em",
                 }}
               >
-                <Link to={`/by-category/${item.title.split(" ").join("-")}`}>
+                <Link >
                   {item.title}
                 </Link>
-              </div>
+              </Link>
             ))}
           </div>
           <Link
