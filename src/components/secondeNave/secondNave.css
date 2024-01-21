@@ -15,7 +15,6 @@
     background-image: linear-gradient(to right,#f0f0f0,#f0f0f0);
     color:#000 !important;
     position: fixed;
-    
 }
 
 .nav-active{
@@ -30,6 +29,7 @@
     list-style: none;
     font-weight: bold;
     width: 100%;
+    overflow-y: scroll;
 }
 
 .second-nave>ul>li{
