@@ -12,7 +12,6 @@ import { HiBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
 
 const Header = ({ openNav, setOpenNav }) => {
-  const [openSearch,setOpenSearch]=useState(false)
   const { product } = useSelector((state) => state.product);
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -20,10 +19,11 @@ const Header = ({ openNav, setOpenNav }) => {
   const [isHovered, setIsHover] = useState(false);
   const [search, setSearch] = useState("");
   const { cart } = useSelector((state) => state.cart);
+  const user = useSelector((state)=>state.user)
 
   const navigate = useNavigate();
-  const user = localStorage.getItem("token");
-
+  //const user = localStorage.getItem("token");
+  console.log(user)
   if (open) {
     document.body.classList.add("active-modal");
   } else {
@@ -31,11 +31,14 @@ const Header = ({ openNav, setOpenNav }) => {
   }
 
   const handelNext = async (type) => {
+    console.log("hii");
     if (!user) {
       setOpen(true);
     } else {
       const res = await ApiService.getUser();
-      res.data.status ? navigate(type) : setOpen(true);
+      console.log(res.data);
+
+      res.data.emailVerified ? navigate(type) : setOpen(true);
     }
   };
 
@@ -132,7 +135,7 @@ const Header = ({ openNav, setOpenNav }) => {
             ) : (
               <></>
             )}
-           {/* <BsSearch size={25} 
+            {/* <BsSearch size={25} 
             onClick={()=>{setOpenSearch(!openSearch)}} className="search-icon"/>*/}
             <div
               style={{
@@ -147,15 +150,15 @@ const Header = ({ openNav, setOpenNav }) => {
                   {cart ? cart?.items?.length : "0"}
                 </p>
               </div>
-             </div>
-             <div
+            </div>
+            <div
               style={{
                 color: "#fff",
                 marginLeft: "1em",
                 cursor: "pointer",
               }}
               onClick={() => handelNext("/profile")}
-             >
+            >
               <FaUserCircle style={{ fontSize: "25px", alignSelf: "end" }} />
             </div>
             <a href="https://drcbdgroup.com/" className="old-web">
@@ -178,13 +181,16 @@ const Header = ({ openNav, setOpenNav }) => {
                 setOpenNav(!openNav);
               }}
             >
-            {openNav?<RxCross2 size={25}/>:<HiBars3 />}
+              {openNav ? <RxCross2 size={25} /> : <HiBars3 />}
             </div>
           </div>
         </div>
-        <Link to="/" onClick={() => {
-          setOpenNav(false);
-        }}>
+        <Link
+          to="/"
+          onClick={() => {
+            setOpenNav(false);
+          }}
+        >
           <img
             src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
             style={{

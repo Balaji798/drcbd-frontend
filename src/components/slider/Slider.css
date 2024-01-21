@@ -264,17 +264,17 @@ video {
     text-align: center;
   }
   .video{
-    height: 18rem !important;
+    height: 17rem !important;
   }
   video{
    height: 17rem;
    min-height: 17rem;
   }
   .section-center-home{
-    height: 18em;
+    height: 10.5em;
   }
   .section-center-home>button{
-    top:100px
+    top:55px
   }
   .cafe-container,
   .second-cafe-container {
@@ -334,5 +334,8 @@ video {
   .best-seller-container{
     flex-direction: column;
     justify-content: center;
+  }
+  .person-img{
+    object-fit: contain;
   }
 }

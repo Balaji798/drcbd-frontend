@@ -3,6 +3,7 @@ import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BiSolidBadgeCheck } from "react-icons/bi";
+import axios from "axios";
 
 const PayPal = () => {
   const [orderStatus, setOrderStatus] = useState(false);
@@ -80,8 +81,8 @@ const PayPal = () => {
             onApprove={async (data, actions) => {
               const order = await actions.order.capture();
               if (order.status === "COMPLETED") {
-                
-                setOrderStatus(true);
+               const res=  await axios.post('https://drcbd-backend.onrender.com/orders/place_order');
+               if(res.data.status) setOrderStatus(true);
               }
             }}
             onError={(err) => {

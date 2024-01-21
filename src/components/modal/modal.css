@@ -33,7 +33,7 @@
     padding: 14px 28px;
     border-radius: 3px;
     max-width: 600px;
-    min-width: 300px;
+    width: 100%;
     color:#fff;
     display: flex;
     flex-direction: column;
@@ -46,4 +46,13 @@
     top: 10px;
     right: 10px;
     padding: 5px 7px;
+  }
+
+  @media screen and (max-width: 768px){
+    .modal-content{
+      width: 14rem;
+    }
+    .modal-content>h2{
+      font-size: 14px;
+    }
   }

@@ -129,7 +129,7 @@ const ImageSlider = () => {
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694015186672.jpg",
       name: "CBD Collagen peptide",
-      link: "CBD COLLAGEN PETPITDE 50ML",
+      link: "CBD COLLAGEN PETPITDE",
     },
   ];
 
@@ -213,7 +213,6 @@ const ImageSlider = () => {
                   src={image}
                   alt="/"
                   className="person-img"
-                  style={{ width: "100%", objectFit: "cover", height: "100%" }}
                 />
               </article>
             );

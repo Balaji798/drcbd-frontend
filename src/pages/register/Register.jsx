@@ -26,7 +26,7 @@ const Register = () => {
         user
       );
       
-      localStorage.setItem("token", response.data);
+      
       setLogin(true);
     } catch (error) {
       console.log("Signup failed", error.message);
@@ -34,19 +34,15 @@ const Register = () => {
   };
 
   const verifyEmail = async () => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
-      },
-    };
+    console.log(otp)
+    
     const res = await axios.post(
       "https://drcbd-backend.onrender.com/user/email_verification",
       //https://drcbd-backend.onrender.com
-      { otp: otp },
-      config
+      { otp: otp }
     );
     if(!res.data.status){
+      localStorage.setItem("token", res.data.token);
       setToken(true)
     }
     if (res.data.status===true) setVerified(true);
@@ -119,6 +115,7 @@ const Register = () => {
                 borderRadius: 10,
                 border: "1px solid grey",
               }}
+              value={otp}
               onChange={(e)=>{setOtp(e.target.value)}}
             />
             {token&&<p style={{color:"red",paddingTop:10}}>Not a valid OTP</p>}

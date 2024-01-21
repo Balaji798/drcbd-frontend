@@ -13,7 +13,7 @@ import data from "../../data";
 import "./productDetail.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useParams,useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { productIcon } from "./product-icon";
@@ -29,13 +29,11 @@ const ProductDetail = () => {
   const { productName } = useParams();
   const navigate = useNavigate();
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
-  const {state} =useLocation()
-
-  console.log(state,"h123")
+  const { state } = useLocation();
   const scrollToTarget = () => {
     // Scroll to the target element
     if (targetRef.current) {
-      targetRef.current.scrollIntoView({ behavior: 'smooth' });
+      targetRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -160,13 +158,13 @@ const ProductDetail = () => {
       const categoryProduct = res.data.filter((item) => {
         if (
           item.categoryName.includes(
-            state.catName1?.split("-").join(" ").toLowerCase()
+            state?.catName1?.split("-").join(" ").toLowerCase()
           )
         ) {
           return item;
         } else if (
           item?.purposeName?.includes(
-            state.catName1?.split("-").join(" ").toLowerCase()
+            state?.catName1?.split("-").join(" ").toLowerCase()
           )
         ) {
           return item;
@@ -301,10 +299,16 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-     {!productByName[0]?.bannerImg ? (
-         <img
+        {!productByName[0]?.bannerImg ? (
+          <img
             src="../info-product-banner.jpg"
-            style={{ width: "100%", maxHeight: "25rem", objectFit: "cover" }}
+            className="banner-image"
+            alt="/"
+          />
+        ) : productByName[0]?.bannerImg.length < 2 ? (
+          <img
+            src={productByName[0]?.bannerImg[0]}
+            className="banner-image"
             alt="/"
           />
         ) : (
@@ -361,7 +365,7 @@ const ProductDetail = () => {
               </button>
             </div>
           </section>
-              )}
+        )}
         <div className="productDetail" ref={targetRef} id="targetElement">
           <div className="imageContainer">
             {productByName[0]?.images && (
@@ -442,6 +446,7 @@ const ProductDetail = () => {
                   marginRight: "5px",
                   fontSize: 18,
                 }}
+                onClick={()=>{setPrice(Number(productByName[0].price).toFixed(2));}}
               >
                 1 Piece
               </p>
@@ -452,6 +457,9 @@ const ProductDetail = () => {
                   borderRadius: "5px",
                   fontSize: 18,
                 }}
+                onClick={()=>{
+                  
+                  setPrice(Number(productByName[0].price * 10)?.toFixed(2))}}
               >
                 10 Pieces
               </p>
@@ -476,7 +484,7 @@ const ProductDetail = () => {
                   }}
                   onClick={() => {
                     setQty(qty + 1);
-                    setPrice(product.price * (qty + 1));
+                    setPrice((productByName[0].price * (qty + 1)).toFixed(2));
                   }}
                 >
                   +
@@ -502,7 +510,7 @@ const ProductDetail = () => {
                   onClick={() => {
                     if (qty > 1) {
                       setQty(qty - 1);
-                      setPrice(product.price * (qty - 1));
+                      setPrice((productByName[0].price * (qty - 1)).toFixed(2));
                     }
                   }}
                 >
@@ -562,10 +570,11 @@ const ProductDetail = () => {
               </span>{" "}
               ฿{price}
             </h2>
-            <div style={{ display: "flex", justifyContent: "space-between" }} className="orderButton">
-              <button onClick={buy}>
-                BUY NOW
-              </button>
+            <div
+              style={{ display: "flex", justifyContent: "space-between" }}
+              className="orderButton"
+            >
+              <button onClick={buy}>BUY NOW</button>
               <button
                 style={{
                   padding: "5px 0",
@@ -635,21 +644,27 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-        <div style={{display:"flex" ,justifyContent:"flex-end",padding:" 10px 1rem 10px 0"}}>
-        <button
+        <div
           style={{
-            fontSize: 18,
-            width: 200,
-            padding: "5px 0",
-            cursor: "pointer",
+            display: "flex",
+            justifyContent: "flex-end",
+            padding: " 10px 1rem 10px 0",
           }}
-          onClick={scrollToTarget}
         >
-          ADD TO CART{" "}
-          <MdOutlineAddShoppingCart
-            style={{ paddingLeft: 5, fontSize: "35px" }}
-          />{" "}
-        </button>{" "}
+          <button
+            style={{
+              fontSize: 18,
+              width: 200,
+              padding: "5px 0",
+              cursor: "pointer",
+            }}
+            onClick={scrollToTarget}
+          >
+            ADD TO CART{" "}
+            <MdOutlineAddShoppingCart
+              style={{ paddingLeft: 5, fontSize: "35px" }}
+            />{" "}
+          </button>{" "}
         </div>
         <div className="social-media-container">
           {concatData.map((item, index) => (
@@ -662,14 +677,42 @@ const ProductDetail = () => {
             </a>
           ))}
         </div>
-        <div
-          className="video"
-        >
+        <div className="video">
           <video autoPlay loop muted playsInline>
             <source src={productByName[0]?.videoLink} type="video/mp4" />
           </video>
         </div>
-        <div style={{display:"flex" ,justifyContent:"flex-end",padding:" 10px 1rem 10px 0"}}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            padding: " 10px 1rem 10px 0",
+          }}
+        >
+          <button
+            style={{
+              fontSize: 18,
+              width: 200,
+              padding: "5px 0",
+              cursor: "pointer",
+            }}
+            onClick={scrollToTarget}
+          >
+            ADD TO CART{" "}
+            <MdOutlineAddShoppingCart
+              style={{ paddingLeft: 5, fontSize: "35px" }}
+            />{" "}
+          </button>{" "}
+        </div>
+        <VerticalCarousel productId={productByName[0]?._id} />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          padding: " 10px 1rem 10px 0",
+        }}
+      >
         <button
           style={{
             fontSize: 18,
@@ -684,24 +727,6 @@ const ProductDetail = () => {
             style={{ paddingLeft: 5, fontSize: "35px" }}
           />{" "}
         </button>{" "}
-        </div>
-        <VerticalCarousel productId={productByName[0]?._id} />
-      </div>
-      <div style={{display:"flex" ,justifyContent:"flex-end",padding:" 10px 1rem 10px 0"}}>
-      <button
-        style={{
-          fontSize: 18,
-          width: 200,
-          padding: "5px 0",
-          cursor: "pointer",
-        }}
-        onClick={scrollToTarget}
-      >
-        ADD TO CART{" "}
-        <MdOutlineAddShoppingCart
-          style={{ paddingLeft: 5, fontSize: "35px" }}
-        />{" "}
-      </button>{" "}
       </div>
       <div
         style={{

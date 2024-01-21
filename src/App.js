@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/header/Header";
@@ -30,6 +30,15 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import CBDByCategory from "./pages/cbd-by-category/CBDByCategory";
 import SecondeNave from "./components/secondeNave/SecondeNave";
 
+const ScrollToTop = () => {
+  const {pathname}=useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 function App() {
   const [openNav,setOpenNav]= useState(false);
   console.log(openNav)
@@ -40,6 +49,9 @@ function App() {
     };
     getProducts();
   }, [dispatch]);
+
+
+
   return (
     <PayPalScriptProvider
       options={{
@@ -47,12 +59,14 @@ function App() {
         
       }}
     >
-      <Router>
+    <Router scrollRestoration="auto">
+   
       <div >
    
       <Header setOpenNav={setOpenNav} openNav={openNav}/>
       {window.innerWidth >= 798?<Navbar />:<SecondeNave setOpenNav={setOpenNav} openNav={openNav}/>}
       </div>
+      <ScrollToTop/>
         <div
           style={{
            

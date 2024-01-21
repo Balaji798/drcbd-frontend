@@ -73,6 +73,15 @@ const SecondeNave = ({ openNav, setOpenNav }) => {
           >
             Sign In
           </Link>
+          <Link
+          to="/register"
+          style={{ marginLeft: "2px" }}
+          onClick={() => {
+            setOpenNav(false);
+          }}
+        >
+          Sign UP
+        </Link>
           <p
             style={{ cursor: "pointer", marginLeft: "2px" }}
             onClick={() => {

@@ -69,6 +69,7 @@ const Forms = (props) => {
           config
         );
         const totalPrice = respo.data.totalPrice;
+        
         if (response.data.status)
           navigate("/order-summery/" + orderId, {
             state: { price: totalPrice },

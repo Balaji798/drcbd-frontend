@@ -1,5 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import ApiService from '../../api/ApiService';
+import ApiService from '../../services/ApiService';
 import axios from 'axios';
 
 export const getNumber = (dispatch, data) => dispatch({ type: 'LOGIN_REQUEST', user: data });
@@ -33,7 +32,7 @@ export const authFailed = () => {
 };
 
 export const logout = (dispatch) => {
-	AsyncStorage.clear();
+	localStorage.removeItem('token');
 	// setStore(dispatch, {});
 	// setFlyerStore(dispatch, {});
 	return dispatch({ type: 'LOGOUT' });
