@@ -19,10 +19,10 @@ const Header = ({ openNav, setOpenNav }) => {
   const [isHovered, setIsHover] = useState(false);
   const [search, setSearch] = useState("");
   const { cart } = useSelector((state) => state.cart);
-  const user = useSelector((state)=>state.user)
+  //const user = useSelector((state)=>state.user)
 
   const navigate = useNavigate();
-  //const user = localStorage.getItem("token");
+  const user = localStorage.getItem("token");
   console.log(user)
   if (open) {
     document.body.classList.add("active-modal");
@@ -37,8 +37,8 @@ const Header = ({ openNav, setOpenNav }) => {
     } else {
       const res = await ApiService.getUser();
       console.log(res.data);
-
-      res.data.emailVerified ? navigate(type) : setOpen(true);
+      
+      res.data.user.emailVerified ? navigate(type) : setOpen(true);
     }
   };
 

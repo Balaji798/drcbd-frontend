@@ -11,7 +11,7 @@ const PayPal = () => {
   const { state } = useLocation();
   const { price } = state;
   //const { orderId } = useParams();
-
+  console.log(price)
   return (
     <>
       {orderStatus && (

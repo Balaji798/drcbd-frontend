@@ -5,9 +5,11 @@ import ApiService from "../../services/ApiService";
 import Steps from "../../components/Steps";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Forms = (props) => {
   const navigate = useNavigate();
+  const {cart} = useSelector((state) => state.cart);
   const { orderId } = useParams();
   const [user, setUser] = useState([]);
   const [select, setSelect] = useState(0);
@@ -20,11 +22,10 @@ const Forms = (props) => {
     taxId: "",
     other: "",
   });
-
+  
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
-
       setUser(res.data.user.userAddress);
     };
     getUser();
@@ -47,34 +48,41 @@ const Forms = (props) => {
         userAdd,
         config
       );
-
-      if (res.data.status) {
-        const user = localStorage.getItem("token");
-        const config = {
-          headers: {
-            Authorization: `Bearer ${user}`,
-            "Content-Type": "application/json", // Set the content type to JSON
-          },
-        };
-        const response = await axios.post(
-          "https://drcbd-backend.onrender.com/orders/update_order/" + orderId,
-          //https://drcbd-backend.onrender.com
-          userAdd,
-          config
-        );
-        const respo = await axios.post(
-          "https://drcbd-backend.onrender.com/orders/place_order",
-          //https://drcbd-backend.onrender.com
-          { orderId },
-          config
-        );
-        const totalPrice = respo.data.totalPrice;
-        
-        if (response.data.status)
-          navigate("/order-summery/" + orderId, {
-            state: { price: totalPrice },
-          });
-      }
+     
+        if (res.data.status) {
+          const user = localStorage.getItem("token");
+          const config = {
+            headers: {
+              Authorization: `Bearer ${user}`,
+              "Content-Type": "application/json", // Set the content type to JSON
+            },
+          };
+          const response = await axios.post(
+            "https://drcbd-backend.onrender.com/orders/update_order/" + orderId,
+            //https://drcbd-backend.onrender.com
+            userAdd,
+            config
+          );
+          const respo = await axios.post(
+            "https://drcbd-backend.onrender.com/orders/place_order",
+            //https://drcbd-backend.onrender.com
+            { orderId },
+            config
+          );
+   
+          const totalPrice = respo.data.totalPrice;
+          if(cart.totalPrice>=1500){
+          if (response.data.status)
+            navigate("/order-summery/" + orderId, {
+              state: { price: totalPrice },
+            });
+          }else{
+            navigate("/order-summery/" + orderId, {
+              state: { price: Number(cart.totalPrice+50) },
+            });
+          }
+        }
+      
     } catch (err) {
       console.log(err.message);
     }

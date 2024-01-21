@@ -25,22 +25,21 @@ const SignIn = () => {
 
   // }]
   const verifyEmail = async () => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
-      },
-    };
     const res = await axios.post(
       "https://drcbd-backend.onrender.com/user/email_verification",
       //https://drcbd-backend.onrender.com
       { otp: otp },
-      config
     );
+    console.log(res.data)
     if(!res.data.status){
       setToken(true)
     }
-    if (res.data.status===true) setVerify(true);
+    if (res.data.status===true) {
+      localStorage.setItem("token", res.data.token);
+      await updateUser(dispatch)
+      console.log("Signup success", res.data);
+      navigate("/");
+    };
   };
   const sendOtp = async () => {
     try {
@@ -73,7 +72,7 @@ const SignIn = () => {
       setOpen(true);
     } else {
       localStorage.setItem("token", response.data.token);
-      //await updateUser(dispatch)
+      await updateUser(dispatch)
       console.log("Signup success", response.data);
       navigate("/");
     }
