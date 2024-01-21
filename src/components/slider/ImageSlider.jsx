@@ -134,7 +134,7 @@ const ImageSlider = () => {
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1701968935468.jpg",
       name: "Earth Lab CBD De' Leep Softgel",
-      link: "EARTH LAB CBD DE'LEEP (30 ML),(2 CAP)",
+      link: "EARTH LAB CBD DE'LEEP",
     },
     {
       url: "./earth.png",
