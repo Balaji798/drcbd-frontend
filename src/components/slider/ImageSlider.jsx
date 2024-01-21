@@ -334,7 +334,7 @@ const ImageSlider = () => {
           <div className="product-container-home">
             {affiliates.map((item, index) => (
               <Link
-               to={`/by-category/${item?.link}`}
+               to={`/by-purpose/${item?.link}`}
                 className="home-product-item"
                 style={{
                   backgroundImage: `url(${item.background})`,
