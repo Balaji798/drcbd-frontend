@@ -11,61 +11,73 @@ const ImageSlider = () => {
       title: "SKINCARE BEAUTY",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-01.jpg",
+        link:'#'
     },
     {
-      title: "SKINCARE IRRITATION",
+      title: "SKINCARE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-02.jpg",
+        link:'SKINCARE'
     },
     {
       title: "SLEEP DISORDER",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-03.jpg",
+        link:'SLEEP'
     },
     {
       title: "IMMUNE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-04.jpg",
+        link:'IMMUNE'
     },
     {
       title: "MUSCLE & JOINT",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-05.jpg",
+        link:'MUSCLES-&-JOINTS'
     },
     {
       title: "ENERGY",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-06.jpg",
+        link:'ENERGY'
     },
     {
       title: "NCD'S",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-07.jpg",
+        link:"NCD'S"
     },
     {
       title: "WEIGHT MANAGEMENT",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-08.jpg",
+        link:'WEIGHT-MANAGEMENT'
     },
     {
       title: "RELAXATION",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-09.jpg",
+        link:'RELAXATION'
     },
     {
       title: "CANCER",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-10.jpg",
+        link:'CANCER'
     },
     {
       title: "HORMONES",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-11.jpg",
+        link:'HORMONES'
     },
     {
       title: "OPIOID",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-12.jpg",
+        link:'#'
     },
   ];
   const product = [
@@ -73,40 +85,48 @@ const ImageSlider = () => {
       title: "CBD OIL",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2.jpg",
+        link:"CBD-OIL"
     },
     {
       title: "CBD SUPPLEMENTS",
       background: "./black.jpg",
+      link:"CBD-SUPPLEMENTS"
     },
 
     {
       title: "CBD SKIN & CARE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-04.jpg",
+        link:"CBD-FACE"
     },
     {
       title: "BEVERAGE",
       background: "./light-green.jpg",
+      link:"CBD-BEVERAGE"
     },
     {
       title: "CBD BODY CARE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-03.jpg",
+        link:"CBD-BODY"
     },
     {
       title: "CBD FOR PETS",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-05.jpg",
+        link:"CBD-FOR-PETS"
     },
     {
       title: "CBD FOR MUSCLE & JOINTS",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/1.jpg",
+        link:"#"
     },
     {
       title: "HOME USE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-01.jpg",
+        link:"#"
     },
   ];
 
@@ -240,7 +260,7 @@ const ImageSlider = () => {
             <div className="product-container-home">
               {product.map((item, index) => (
                 <Link
-                to={`/by-category/${item.title.split(" ").join("-")}`}
+                to={`/by-category/${item.link}`}
                   className="home-product-item home-product-top"
                   style={{ backgroundImage: `url(${item.background})` }}
                   key={index}
@@ -314,7 +334,7 @@ const ImageSlider = () => {
           <div className="product-container-home">
             {affiliates.map((item, index) => (
               <Link
-               to={`/by-category/${item.title.split(" ").join("-")}`}
+               to={`/by-category/${item?.link}`}
                 className="home-product-item"
                 style={{
                   backgroundImage: `url(${item.background})`,
@@ -322,6 +342,7 @@ const ImageSlider = () => {
                   backgroundRepeat: "no-repeat",
                   marginBottom: "0.3em",
                 }}
+                key={index}
               >
                 <Link >
                   {item.title}

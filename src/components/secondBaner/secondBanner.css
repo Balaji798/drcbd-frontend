@@ -219,7 +219,17 @@
   height: 80px;
 }
 .childe2{
-  padding-top: 15rem;
+  padding-top: 20rem;
+}
+.childe1{
+  padding-bottom: 2rem;
+}
+.childe1>div{
+  padding-left: 2rem;
+}
+.childe1 >div>p{
+  font-Size: 14px;
+  width: 60%;
 }
 @media screen and (max-width: 768px) {
   .pointer {
