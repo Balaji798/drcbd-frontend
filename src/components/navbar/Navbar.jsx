@@ -184,39 +184,39 @@ const naveData = [
   //     ],
   //   },
   // },
-  {
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home2.jpeg",
-    title: "OUR SERVICES",
-    subMenu1: {
-      title: "OUR SERVICES",
-      options: [
-        {
-          title: "EXTRACTION",
-          link: "",
-        },
-        {
-          title: "OEM/ODM",
-          link: "",
-        },
-        // {
-        //   title: "CLINIC FRANCHISE",
-        //   link: "",
-        // },
-        {
-          title: "VITAL MEDI CLINIC",
-          link: "",
-        },
-        {
-          title: "VITAL HEALTH CAFE",
-          link: "",
-        },
-        {
-          title: "DR.CBD CLINIC",
-          link: "",
-        },
-      ],
-    },
-  },
+  // {
+  //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home2.jpeg",
+  //   title: "OUR SERVICES",
+  //   subMenu1: {
+  //     title: "OUR SERVICES",
+  //     options: [
+  //       {
+  //         title: "EXTRACTION",
+  //         link: "",
+  //       },
+  //       {
+  //         title: "OEM/ODM",
+  //         link: "",
+  //       },
+  //       // {
+  //       //   title: "CLINIC FRANCHISE",
+  //       //   link: "",
+  //       // },
+  //       {
+  //         title: "VITAL MEDI CLINIC",
+  //         link: "",
+  //       },
+  //       {
+  //         title: "VITAL HEALTH CAFE",
+  //         link: "",
+  //       },
+  //       {
+  //         title: "DR.CBD CLINIC",
+  //         link: "",
+  //       },
+  //     ],
+  //   },
+  // },
   {
     image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home1.jpeg",
     title: "ABOUT",

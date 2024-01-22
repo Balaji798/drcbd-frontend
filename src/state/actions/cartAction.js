@@ -23,3 +23,7 @@ export const getCart = async (dispatch) => {
       dispatch({ type: "REMOVE_CART_ITEM_FAILURE", error: error.message });
     }
   };
+
+export const removeAllItem = async(dispatch,cartId) =>{
+  
+}

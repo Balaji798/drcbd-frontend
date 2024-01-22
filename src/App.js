@@ -29,6 +29,7 @@ import { getProduct } from "./state/actions/productAction";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import CBDByCategory from "./pages/cbd-by-category/CBDByCategory";
 import SecondeNave from "./components/secondeNave/SecondeNave";
+import { getCart } from "./state/actions/cartAction";
 
 const ScrollToTop = () => {
   const {pathname}=useLocation()
@@ -46,6 +47,7 @@ function App() {
   useEffect(() => {
     const getProducts = async () => {
       await getProduct(dispatch);
+      await getCart(dispatch)
     };
     getProducts();
   }, [dispatch]);

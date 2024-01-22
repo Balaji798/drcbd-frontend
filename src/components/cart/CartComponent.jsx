@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { getCart } from "../../state/actions/cartAction";
+import { getCart, removeItemFromCart } from "../../state/actions/cartAction";
 import './cart.css'
 
 const CartComponent = (props) => {
@@ -14,20 +14,20 @@ const CartComponent = (props) => {
   const removeFromCart = async (productId) => {
     try {
       const user = localStorage.getItem("token");
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user}`,
-          "Content-Type": "application/json", // Set the content type to JSON
-        },
-      };
-      await axios.post(
-        "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
-        //https://drcbd-backend.onrender.com
-        { productId },
-        config
-      );
-      return await getCart(dispatch);
+      await removeItemFromCart(dispatch,productId)
+      // const config = {
+      //   headers: {
+      //     Authorization: `Bearer ${user}`,
+      //     "Content-Type": "application/json", // Set the content type to JSON
+      //   },
+      // };
+      // await axios.post(
+      //   "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
+      //   //https://drcbd-backend.onrender.com
+      //   { productId },
+      //   config
+      // );
+      // return await getCart(dispatch);
     } catch (err) {
       console.log(err.message);
     }

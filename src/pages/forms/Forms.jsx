@@ -77,8 +77,13 @@ const Forms = (props) => {
               state: { price: totalPrice },
             });
           }else{
+            let itemTotalPrice = 0
+            cart.items.map(item=>{
+              itemTotalPrice += item.itemPrice+50  
+            })
+            console.log(itemTotalPrice)
             navigate("/order-summery/" + orderId, {
-              state: { price: Number(cart.totalPrice+50) },
+              state: { price: itemTotalPrice },
             });
           }
         }
@@ -235,20 +240,24 @@ const Forms = (props) => {
           }}
         >
           <Link
-            style={{
-              background: "#0c4641",
-              color: "#fff",
-              padding: "7px 25px",
-              fontweight: "bold",
-              fontSize: "2rem",
-              borderRadius: 5,
-              marginRight: "2rem",
-            }}
+          className="back-button"
+          style={{
+            width: "5em",
+            fontSize: "35px",
+            fontWeight: 600,
+            background: "#0c4641",
+            cursor: "pointer",
+            textAlign: 'center',
+            borderRadius: '5px',
+            marginRight: '1rem',
+            padding:"2px 0"
+          }}
             to="/cart"
           >
             {"< "}Back
           </Link>
           <button
+          className="back-button"
             style={{
               width: "5em",
               fontSize: "35px",

@@ -18,6 +18,7 @@ const Steps = (props) => {
               borderRadius: "50%",
               padding: "5px",
             }}
+            key={index}
           >
             <div
               className="steps"
