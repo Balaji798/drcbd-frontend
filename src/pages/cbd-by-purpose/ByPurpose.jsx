@@ -268,7 +268,7 @@ const PreviousBtn = (props) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "4rem 0px 2rem",
+        padding: "7rem 0px 2rem",
       }}
     >
       {product?.loading === 0 ? (

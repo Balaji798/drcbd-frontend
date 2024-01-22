@@ -279,9 +279,10 @@ const ByCategory = () => {
               alignItems: "center",
               flexWrap: "wrap",
             }}
+            
           >
             {data.length === 0 ? (
-              <h1>Products Not Available</h1>
+              <h1 >Products Not Available</h1>
             ) : (
               data.map((item, i) => (
                 <ProductSlider image={item} key={i} marginB="yes" categoryName={categoryName}/>
