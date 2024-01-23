@@ -5,11 +5,13 @@ import ApiService from "../../services/ApiService";
 import Steps from "../../components/Steps";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getCart } from "../../state/actions/cartAction";
 
 const Forms = (props) => {
   const navigate = useNavigate();
-  const {cart} = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.cart);
   const { orderId } = useParams();
   const [user, setUser] = useState([]);
   const [select, setSelect] = useState(0);
@@ -22,7 +24,7 @@ const Forms = (props) => {
     taxId: "",
     other: "",
   });
-  
+
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
@@ -48,46 +50,39 @@ const Forms = (props) => {
         userAdd,
         config
       );
-     
-        if (res.data.status) {
-          const user = localStorage.getItem("token");
-          const config = {
-            headers: {
-              Authorization: `Bearer ${user}`,
-              "Content-Type": "application/json", // Set the content type to JSON
-            },
-          };
-          const response = await axios.post(
-            "https://drcbd-backend.onrender.com/orders/update_order/" + orderId,
-            //https://drcbd-backend.onrender.com
-            userAdd,
-            config
-          );
-          const respo = await axios.post(
-            "https://drcbd-backend.onrender.com/orders/place_order",
-            //https://drcbd-backend.onrender.com
-            { orderId },
-            config
-          );
-   
-          const totalPrice = respo.data.totalPrice;
-          if(cart.totalPrice>=1500){
-          if (response.data.status)
-            navigate("/order-summery/" + orderId, {
-              state: { price: totalPrice },
-            });
-          }else{
-            let itemTotalPrice = 0
-            cart.items.map(item=>{
-              itemTotalPrice += item.itemPrice+50  
-            })
-            console.log(itemTotalPrice)
-            navigate("/order-summery/" + orderId, {
-              state: { price: itemTotalPrice },
-            });
-          }
-        }
-      
+
+      if (res.data.status) {
+        const user = localStorage.getItem("token");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${user}`,
+            "Content-Type": "application/json", // Set the content type to JSON
+          },
+        };
+        const respo = await axios.post(
+          "https://drcbd-backend.onrender.com/orders/place_order",
+          //https://drcbd-backend.onrender.com
+          { cartId: orderId },
+          config
+        );
+        console.log(respo.data);
+        const response = await axios.post(
+          "https://drcbd-backend.onrender.com/orders/update_order/" + respo.data.orderId._id,
+          //https://drcbd-backend.onrender.com
+          userAdd,
+          config
+        );
+        await getCart(dispatch);
+
+        const totalPrice =
+          respo.data.orderId.totalPrice + respo.data.orderId.totalDeliveryCharge;
+        console.log(totalPrice)
+        if (response.data.status)
+          navigate("/order-summery/" + respo.data.orderId._id, {
+            state: { price: totalPrice },
+          });
+        console.log("/");
+      }
     } catch (err) {
       console.log(err.message);
     }
@@ -240,24 +235,24 @@ const Forms = (props) => {
           }}
         >
           <Link
-          className="back-button"
-          style={{
-            width: "5em",
-            fontSize: "35px",
-            fontWeight: 600,
-            background: "#0c4641",
-            cursor: "pointer",
-            textAlign: 'center',
-            borderRadius: '5px',
-            marginRight: '1rem',
-            padding:"2px 0"
-          }}
+            className="back-button"
+            style={{
+              width: "5em",
+              fontSize: "35px",
+              fontWeight: 600,
+              background: "#0c4641",
+              cursor: "pointer",
+              textAlign: "center",
+              borderRadius: "5px",
+              marginRight: "1rem",
+              padding: "2px 0",
+            }}
             to="/cart"
           >
             {"< "}Back
           </Link>
           <button
-          className="back-button"
+            className="back-button"
             style={{
               width: "5em",
               fontSize: "35px",

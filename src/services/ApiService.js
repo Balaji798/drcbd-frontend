@@ -23,13 +23,13 @@ export default {
    return Api().get(`/orders/get_order_by_id/${orderId}`)
   },
   updateOrderStatus(orderId){
-    return Api().get(`/orders/update_order/${orderId}`)
+    return Api().post(`/orders/update_order/${orderId}`)
   },
   getUserOrder(){
     return Api().get('/orders/get_user_orders')
   },
   getOrder(orderId){
-    return Api().post(`/orders/get_user_order/${orderId}`)
+    return Api().get(`/orders/get_user_order/${orderId}`)
   },
   sendOrderMail(){
     return Api().get('/orders/confirm-payment')
