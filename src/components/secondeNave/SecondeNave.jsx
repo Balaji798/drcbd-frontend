@@ -18,7 +18,7 @@ const SecondeNave = ({ openNav, setOpenNav }) => {
         // style={{ transform: openNav ? "translateX(145%)" : "translateX(45%)" }}
       >
         {menusIndex > -1 && (
-          <div className="back-button" onClick={() => setMenusIndex(-1)}>
+          <div className="back-button" style={{background:"transparent"}} onClick={() => setMenusIndex(-1)}>
             {" "}
             {"<"}Back
           </div>
