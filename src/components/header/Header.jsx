@@ -23,7 +23,6 @@ const Header = ({ openNav, setOpenNav }) => {
 
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
-  console.log(user)
   if (open) {
     document.body.classList.add("active-modal");
   } else {

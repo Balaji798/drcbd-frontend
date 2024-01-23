@@ -8,8 +8,8 @@ const Orders = () => {
 
   useEffect(() => {
     const getOrders = async () => {
-      const res = await ApiService.getUserOrder();
-
+     const res = await ApiService.getUserOrder();
+     console.log(res.data)
       setOrderData(res.data);
     };
     getOrders();

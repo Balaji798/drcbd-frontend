@@ -18,7 +18,6 @@ const UserOrder = () => {
   useEffect(() => {
     const getOrder = async () => {
       const res = await ApiService.getOrder(orderId);
-     
       setOrderData(res.data);
     };
     getOrder();
@@ -157,10 +156,10 @@ const UserOrder = () => {
                 {
                   orderData?.orderTime
                     ?.split("-")
-                    .join("/")
-                    .split("T")
-                    .join(" ")
-                    .split(".")[0]
+                    ?.join("/")
+                    ?.split("T")
+                    ?.join(" ")
+                    ?.split(".")[0]
                 }
               </p>
               <p>Order {orderData.status}</p>
@@ -177,10 +176,10 @@ const UserOrder = () => {
                 {
                   orderData?.orderTime
                     ?.split("-")
-                    .join("/")
-                    .split("T")
-                    .join(" ")
-                    .split(".")[0]
+                    ?.join("/")
+                    ?.split("T")
+                    ?.join(" ")
+                    ?.split(".")[0]
                 }
               </p>
               <p>Order {orderData?.adminStatus}</p>
