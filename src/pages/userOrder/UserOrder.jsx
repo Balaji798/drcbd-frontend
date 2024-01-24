@@ -18,12 +18,13 @@ const UserOrder = () => {
   useEffect(() => {
     const getOrder = async () => {
       const res = await ApiService.getOrder(orderId);
+      console.log(res.data, "data");
       setOrderData(res.data);
     };
     getOrder();
   }, [orderId]);
   return (
-    <div style={{paddingTop:"4rem"}}>
+    <div style={{ paddingTop: "4rem" }}>
       <Steps stepsColor={[4]} />
       <div
         style={{
@@ -148,42 +149,34 @@ const UserOrder = () => {
             }}
           >
             <div className="stepStyle" />
-            <div className="stepStyle" style={{ marginTop: "2rem" }} />
+            <div className="stepStyle" style={{ marginTop: "4rem" }} />
+            <div className="stepStyle" style={{ marginTop: "4rem" }} />
+            <div className="stepStyle" style={{ marginTop: "4rem" }} />
           </div>
           <div>
-            <div style={{ display: "flex", fontWeight: "bold", fontSize: 20 }}>
-              <p style={{ paddingRight: 25 }}>
-                {
-                  orderData?.orderTime
-                    ?.split("-")
-                    ?.join("/")
-                    ?.split("T")
-                    ?.join(" ")
-                    ?.split(".")[0]
-                }
-              </p>
-              <p>Order {orderData.status}</p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontWeight: "bold",
-                fontSize: 20,
-                paddingTop: "2rem",
-              }}
-            >
-              <p style={{ paddingRight: 25 }}>
-                {
-                  orderData?.orderTime
-                    ?.split("-")
-                    ?.join("/")
-                    ?.split("T")
-                    ?.join(" ")
-                    ?.split(".")[0]
-                }
-              </p>
-              <p>Order {orderData?.adminStatus}</p>
-            </div>
+            {orderData?.status?.map((item, index) => (
+              <div
+                style={{
+                  display: "flex",
+                  fontWeight: "bold",
+                  fontSize: 20,
+                  marginBottom: "4rem",
+                }}
+                key={index}
+              >
+                <p style={{ paddingRight: 25 }}>
+                  {
+                    item?.statusTime
+                      ?.split("-")
+                      ?.join("/")
+                      ?.split("T")
+                      ?.join(" ")
+                      ?.split(".")[0]
+                  }
+                </p>
+                <p>Order {item.orderStatus}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

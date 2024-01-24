@@ -445,6 +445,7 @@ const ProductDetail = () => {
                   borderRadius: "5px",
                   marginRight: "5px",
                   fontSize: 18,
+                  cursor:"pointer"
                 }}
                 onClick={()=>{setPrice(Number(productByName[0].price).toFixed(2));}}
               >
@@ -456,6 +457,7 @@ const ProductDetail = () => {
                   padding: "5px 10px",
                   borderRadius: "5px",
                   fontSize: 18,
+                  cursor:"pointer"
                 }}
                 onClick={()=>{
                   

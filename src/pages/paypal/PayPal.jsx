@@ -88,7 +88,7 @@ const PayPal = () => {
           alignItems: "center",
           flexDirection: "column",
           paddingTop: "5rem",
-          maxHeight: "25rem",
+          maxHeight: "55rem",
           height: "100%",
         }}
       >
@@ -96,7 +96,7 @@ const PayPal = () => {
           Complete you order
         </h1>
         <div style={{ display: "flex", flexWrap: "wrap",maxWidth:"800px", width: "100%",alignItems:"center",justifyContent:"center" }}>
-          <div style={{ maxWidth: "500px", width: "100%",padding:"1rem" }} className="center">
+          <div style={{ maxWidth: "600px", width: "100%",padding:"1rem" }} className="center">
           <h3>Order Summery</h3>
             <div
               style={{
@@ -128,6 +128,7 @@ const PayPal = () => {
                     borderBottom:"1px solid",
                     padding:"5px",
                     fontWeight:"bold"
+                    ,height:"4rem"
                   }}
                   key={index}
                 >
@@ -187,6 +188,7 @@ const PayPal = () => {
                 console.log(err);
               }}
             />
+            <button onClick={handelOrder} style={{marginTop:"-4rem"}}>Save</button>
           </div>
         </div>
       </div>

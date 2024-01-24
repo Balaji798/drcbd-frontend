@@ -41,7 +41,8 @@ const Register = () => {
       //https://drcbd-backend.onrender.com
       { otp: otp }
     );
-    if(!res.data.status){
+    if(res.data.status){
+      console.log(res.data)
       localStorage.setItem("token", res.data.token);
       setToken(true)
     }
@@ -159,6 +160,7 @@ const Register = () => {
             Email Address
           </p>
           <input
+          type='email'
             onChange={(e) => {
               setUser({ ...user, email: e.target.value });
             }}
@@ -168,7 +170,7 @@ const Register = () => {
             Password
           </p>
           <input
-            
+          type='password'
             onChange={(e) => {
               setUser({ ...user, password: e.target.value });
             }}
@@ -178,7 +180,7 @@ const Register = () => {
             Confirm Password
           </p>
           <input
-            
+            type='password'
             onChange={(e) => {
               setUser({ ...user, confirmPassword: e.target.value });
             }}

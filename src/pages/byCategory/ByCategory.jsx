@@ -119,6 +119,7 @@ const ByCategory = () => {
     try {
       setCname(categoryName.split("-").join(" "));
       const res = await ApiService.getAllProduct();
+      console.log(res.data,'hhh')
       const categoryProduct = res.data.filter((item) => {
         if (
           item.categoryName.includes(

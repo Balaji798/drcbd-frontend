@@ -6,7 +6,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 const naveData = [
   {
     image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
-    title: "SHOP CBD",
+    title: "CBD BY CATEGORY",
     subMenu1: {
       title: "CBD BY CATEGORY",
       link: "/cbd-by-category",
@@ -55,72 +55,78 @@ const naveData = [
         },
       ],
     },
-    subMenu2: {
+    
+  },
+  {  
+    
+    title: "CBD BY PURPOSE",
+    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
+    subMenu1: {
       title: "CBD BY PURPOSE",
       link: "/cbd-by-purpose",
-      options: [
-        {
-          title: "SLEEP",
-          link: "/by-purpose/SLEEP",
-        },
-        {
-          title: "IMMUNE",
-          link: "/by-purpose/immunity",
-        },
-        {
-          title: "ENERGY",
-          link: "/by-purpose/ENERGY",
-        },
-        {
-          title: "ANXIETY",
-          link: "/by-purpose/ANXIETY",
-        },
-        {
-          title: "MUSCLES & JOINT",
-          link: "/by-purpose/MUSCLES-&-JOINTS",
-        },
-        {
-          title: "CANCER",
-          link: "/by-purpose/CANCER",
-        },
-        {
-          title: "PALLIATIVE CARE",
-          link: "/by-purpose/PALLIATIVE-CARE",
-        },
-        {
-          title: "SKINCARE",
-          link: "/by-purpose/SKINCARE",
-        },
-        {
-          title: "NCD'S(NON-COMMUNICABLE DISEASES)",
-          link: "/by-purpose/NCD'S",
-        },
-        {
-          title: "AROMATHERAPY",
-          link: "/by-purpose/AROMATHERAPY",
-        },
-        {
-          title: "HORMONES",
-          link: "/by-purpose/HORMONES",
-        },
-        {
-          title: "OPIOID",
-          link: "/by-purpose/OPIOID",
-        },
-        {
-          title: "WEIGHT MANAGEMENT",
-          link: "/by-purpose/WEIGHT-MANAGEMENT",
-        },
-        {
-          title: "GIFT SETS & PROMOTIONS",
-          link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
-        },
-        {
-          title: "CBD CONCENTRATION & EXTRACTS",
-          link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
-        },
-      ],
-    },
+    options: [
+      {
+        title: "SLEEP",
+        link: "/by-purpose/SLEEP",
+      },
+      {
+        title: "IMMUNE",
+        link: "/by-purpose/immunity",
+      },
+      {
+        title: "ENERGY",
+        link: "/by-purpose/ENERGY",
+      },
+      {
+        title: "ANXIETY",
+        link: "/by-purpose/ANXIETY",
+      },
+      {
+        title: "MUSCLES & JOINT",
+        link: "/by-purpose/MUSCLES-&-JOINTS",
+      },
+      {
+        title: "CANCER",
+        link: "/by-purpose/CANCER",
+      },
+      {
+        title: "PALLIATIVE CARE",
+        link: "/by-purpose/PALLIATIVE-CARE",
+      },
+      {
+        title: "SKINCARE",
+        link: "/by-purpose/SKINCARE",
+      },
+      {
+        title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+        link: "/by-purpose/NCD'S",
+      },
+      {
+        title: "AROMATHERAPY",
+        link: "/by-purpose/AROMATHERAPY",
+      },
+      {
+        title: "HORMONES",
+        link: "/by-purpose/HORMONES",
+      },
+      {
+        title: "OPIOID",
+        link: "/by-purpose/OPIOID",
+      },
+      {
+        title: "WEIGHT MANAGEMENT",
+        link: "/by-purpose/WEIGHT-MANAGEMENT",
+      },
+      {
+        title: "GIFT SETS & PROMOTIONS",
+        link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
+      },
+      {
+        title: "CBD CONCENTRATION & EXTRACTS",
+        link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
+      },
+    ],
+  }
   },
   // {
   //   title: "CBD BY PURPOSE",
@@ -238,36 +244,36 @@ const naveData = [
       ],
     },
   },
-  {
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home5.jpeg",
-    title: "DR.CBD UNIVERSITY",
-    subMenu1: {
-      title: "DR.CBD UNIVERSITY",
-      options: [
-        {
-          title: "HEALTH",
-          link: "/insights/health",
-        },
+  // {
+  //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home5.jpeg",
+  //   title: "DR.CBD UNIVERSITY",
+  //   subMenu1: {
+  //     title: "DR.CBD UNIVERSITY",
+  //     options: [
+  //       {
+  //         title: "HEALTH",
+  //         link: "/insights/health",
+  //       },
 
-        {
-          title: "MEDICAL",
-          link: "/insights/medical",
-        },
-        {
-          title: "RESEARCH",
-          link: "/insights/research",
-        },
-        {
-          title: "NEWS",
-          link: "/insights/news",
-        },
-        {
-          title: "PRESS RELEASE",
-          link: "/insights/press-release",
-        },
-      ],
-    },
-  },
+  //       {
+  //         title: "MEDICAL",
+  //         link: "/insights/medical",
+  //       },
+  //       {
+  //         title: "RESEARCH",
+  //         link: "/insights/research",
+  //       },
+  //       {
+  //         title: "NEWS",
+  //         link: "/insights/news",
+  //       },
+  //       {
+  //         title: "PRESS RELEASE",
+  //         link: "/insights/press-release",
+  //       },
+  //     ],
+  //   },
+  // },
   {
     image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home3.jpeg",
     title: "CONTACT",

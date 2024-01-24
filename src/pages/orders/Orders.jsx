@@ -4,17 +4,16 @@ import ApiService from "../../services/ApiService";
 
 const Orders = () => {
   const [orderData, setOrderData] = useState({});
-  
 
   useEffect(() => {
     const getOrders = async () => {
-     const res = await ApiService.getUserOrder();
-     console.log(res.data)
+      const res = await ApiService.getUserOrder();
+      console.log(res.data);
       setOrderData(res.data);
     };
     getOrders();
   }, []);
- 
+
   return (
     <div className="" style={{ padding: "2rem" }}>
       <h1
@@ -38,7 +37,7 @@ const Orders = () => {
                   width: "100%",
                   display: "flex",
                   justifyContent: "space-between",
-                  flexWrap:"wrap"
+                  flexWrap: "wrap",
                 }}
               >
                 <div style={{ display: "flex" }}>
@@ -71,7 +70,8 @@ const Orders = () => {
                 </div>
                 <div>
                   <h4 style={{ paddingBottom: 10 }}>
-                    Total Price:- ฿{product.productId?.price * product?.quantity}
+                    Total Price:- ฿
+                    {product.productId?.price * product?.quantity}
                   </h4>
                   <h5>Delivery Time:- 24/12/2023</h5>
                 </div>
@@ -80,7 +80,7 @@ const Orders = () => {
                     style={{ textTransform: "capitalize", paddingBottom: 20 }}
                   >
                     Order Status:-{" "}
-                    {item.adminStatus ? "Out For Delivery" :"Order"+item.status}
+                    {"Order " + item.status[item.status.length - 1].orderStatus}
                   </h4>
                   <Link
                     to={`/order-detail/${item._id}`}

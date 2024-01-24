@@ -3,7 +3,6 @@ nav {
   /* background-color: #005652; */
   background-image: linear-gradient(to right, #004d4a, #002b2a);
   width: 100%;
-  padding: 14px 0;
   position: fixed;
   z-index: 999;
   display: flex;
@@ -14,7 +13,7 @@ nav {
   font-size: 14px !important;
 }
 .navContainer {
-  width: 80%;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +95,7 @@ nav {
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
-  top: 54px;
+  top: 38px;
   font-size: 20px;
   display: flex;
   height: 22em;
