@@ -36,25 +36,26 @@
 
 @media screen and (max-width: 768px) {
   .filter {
+    max-width: 25rem;
     width: 100%;
-    position: absolute;
+    overflow-x: auto;
     left: 0;
     top:10%
   }
   .content-container{
     flex-wrap: wrap;
-    padding: 2rem;
+    padding: 2rem 1rem;
   }
   .filter > ul {
     width: 100%;
     flex-direction: row;
     overflow-x: scroll;
-    padding: 0.5rem 0
+    padding: 0.7rem 0
   }
 
   .filter>ul>li{
-    max-width: 50rem;
-    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
     border: 1px solid;
     padding: 0.5rem;
     margin-right: 1rem;
