@@ -214,8 +214,36 @@ const ProductDetail = () => {
       console.log(err.message);
     }
   };
-  const buy = () => {
-    navigate(`/cart/?productId=${product._id}`);
+  const buy = async() => {
+    try {
+      const requestBody = { qty, price, productId: productByName[0]?._id };
+      const user = localStorage.getItem("token");
+      if (user) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${user}`,
+            "Content-Type": "application/json", // Set the content type to JSON
+          },
+        };
+        const res = await axios.post(
+          "https://drcbd-backend.onrender.com/cart/add-to-card",
+          //https://drcbd-backend.onrender.com
+          requestBody,
+          config
+        );
+        if (res.data !== "Item Add Successfully") {
+          setOpen(true);
+        }
+        await getCart(dispatch);
+        navigate(`/cart/?productId=${product._id}`);
+        return;
+      } else {
+        alert("You are not login login first");
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+ 
 
     // if (user) setOpen(!open);
   };
@@ -447,7 +475,10 @@ const ProductDetail = () => {
                   fontSize: 18,
                   cursor:"pointer"
                 }}
-                onClick={()=>{setPrice(Number(productByName[0].price).toFixed(2));}}
+                onClick={()=>{
+                  setQty(1);
+                  setPrice(Number(productByName[0].price).toFixed(2));
+                }}
               >
                 1 Piece
               </p>
@@ -460,7 +491,7 @@ const ProductDetail = () => {
                   cursor:"pointer"
                 }}
                 onClick={()=>{
-                  
+                  setQty(10);
                   setPrice(Number(productByName[0].price * 10)?.toFixed(2))}}
               >
                 10 Pieces

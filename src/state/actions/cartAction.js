@@ -20,6 +20,7 @@ export const removeItemFromCart = async (dispatch, itemId) => {
         "Content-Type": "application/json", // Set the content type to JSON
       },
     };
+    console.log(itemId)
     await axios.post(
       "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
       //https://drcbd-backend.onrender.com

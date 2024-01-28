@@ -134,8 +134,8 @@ const PayPal = () => {
                 >
                   <p style={{ width: "55%" }}>{item.productId.name}</p>
                   <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid"  }}>{item.quantity}</p>
-                  <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid"  }}>{item.productId.price}</p>
-                  <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid" }}>{item.deliveryCharge}</p>
+                  <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid"  }}>฿ {item.productId.price}</p>
+                  <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid" }}>฿ {item.deliveryCharge}</p>
                 </div>
               ))}
               <div
@@ -151,7 +151,7 @@ const PayPal = () => {
                 <p style={{width:"10%",textAlign:"center",borderLeft:"1px solid",paddingLeft:"20px" }}>{orderData.totalItems}</p>
                 <p></p>
                 <p style={{width:"30%",textAlign:"center",borderLeft:"1px solid" }}>
-                  {orderData?.totalPrice}+{orderData?.totalDeliveryCharge}
+                ฿ {orderData?.totalPrice+orderData?.totalDeliveryCharge}
                 </p>
               </div>
             </div>

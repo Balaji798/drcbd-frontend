@@ -14,20 +14,21 @@ const CartComponent = (props) => {
   const removeFromCart = async (productId) => {
     try {
       const user = localStorage.getItem("token");
-      await removeItemFromCart(dispatch,productId)
-      // const config = {
-      //   headers: {
-      //     Authorization: `Bearer ${user}`,
-      //     "Content-Type": "application/json", // Set the content type to JSON
-      //   },
-      // };
-      // await axios.post(
-      //   "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
-      //   //https://drcbd-backend.onrender.com
-      //   { productId },
-      //   config
-      // );
-      // return await getCart(dispatch);
+      //await removeItemFromCart(dispatch,productId)
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user}`,
+          "Content-Type": "application/json", // Set the content type to JSON
+        },
+      };
+      await axios.post(
+        "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
+        //https://drcbd-backend.onrender.com
+        { productId },
+        config
+      );
+      await getCart(dispatch);
+      return 
     } catch (err) {
       console.log(err.message);
     }
@@ -56,9 +57,10 @@ const CartComponent = (props) => {
       console.log(err);
     }
   };
+  console.log(cart.cart.items.length)
   return (
     <>
-      {cart.cart.length === 0 ? (
+      {cart.cart.items.length === 0 ? (
         <h1 style={{ padding: "2rem 0", textAlign: "center" }}>
           Cart is empty
         </h1>
@@ -156,7 +158,7 @@ const CartComponent = (props) => {
                     </div>
                   </div>
                   <h2 style={{fontSize: "22px" }} className='text-end'>
-                    PRICE :- {item.productId?.price} ฿
+                    PRICE :- {item.itemPrice} ฿
                   </h2>
                 </div>
               </div>
@@ -165,7 +167,7 @@ const CartComponent = (props) => {
           <div>
             <div
               style={{
-                width: "16rem",
+                width: "18rem",
                 padding: "2em 0",
                 marginLeft: "7em",
                 display: "flex",

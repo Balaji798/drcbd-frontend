@@ -170,11 +170,11 @@ const VerticalSlider = ({ productId }) => {
                     }}
                   >
                     <BsPersonCircle color="#3cbb90" size={45} />
-                    <p>{item.userName}</p>
+                    <p>{item?.userName}</p>
                     <p style={{ fontSize: 11 }}>Verified</p>
                     <div style={{ color: "yellow", paddingBottom: 3 }}>
                       {Array.from(
-                        { length: item.rating },
+                        { length: item?.rating },
                         (_, index) => index + 1
                       ).map((ret, i) => {
                         return <ImStarFull key={i} />;
@@ -188,7 +188,7 @@ const VerticalSlider = ({ productId }) => {
                       wordWrap: "break-word",
                     }}
                   >
-                    {item.review}
+                    {item?.review}
                   </p>
                   <p style={{ fontSize: 10, alignSelf: "flex-end" }}>
                     Posted 7 month's ago
