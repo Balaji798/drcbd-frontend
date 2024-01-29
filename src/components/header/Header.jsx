@@ -146,7 +146,7 @@ const Header = ({ openNav, setOpenNav }) => {
             >
               <div className="cart-item">
                 <p style={{ marginLeft: "2.5px" }}>
-                  {cart ? cart?.items?.length : "0"}
+                  {cart && user ? cart?.items?.length : "0"}
                 </p>
               </div>
             </div>

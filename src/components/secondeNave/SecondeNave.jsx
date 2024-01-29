@@ -100,6 +100,7 @@ const SecondeNave = ({ openNav, setOpenNav }) => {
             style={{ cursor: "pointer", marginLeft: "2px" }}
             onClick={() => {
               localStorage.removeItem("token");
+              navigate('/')
               setOpenNav(false);
             }}
           >

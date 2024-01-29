@@ -13,6 +13,8 @@ const SignIn = () => {
   const [otp,setOtp]=useState('')
   const [token, setToken] = useState(false);
   const [verify, setVerify] = useState(false);
+  const [password,setPassword] = useState(false);
+  const [email,setEmail] = useState(false)
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -67,6 +69,13 @@ const SignIn = () => {
     const response = await axios.post("https://drcbd-backend.onrender.com/user/login", user);
     //https://drcbd-backend.onrender.com
     console.log(response.data);
+    if(response?.data?.email){
+      setEmail(true)
+      return 
+    }else if(response?.data?.password){
+      setPassword(true)
+      return 
+    }
     await authSuccessful(dispatch, response.data.user);
     if (!response.data.user.emailVerified) {
       setOpen(true);
@@ -150,19 +159,26 @@ const SignIn = () => {
               Register
             </Link>
           </h1>
-          <p>User Name & Email Address *</p>
+          <p> Email Address *</p>
           <input
             type="email"
             value={user.email}
             required
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            onChange={(e) => {
+              setEmail(false)
+              setUser({ ...user, email: e.target.value })
+            }}
           />
+          {email&&<p style={{color:"red"}}>Email is not valid</p>}
           <p>Password</p>
           <input
           type='password'
           required
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            onChange={(e) => {
+              setPassword(false)
+              setUser({ ...user, password: e.target.value })}}
           />
+          {password&&<p style={{color:"red"}}>Password is not valid</p>}
           <div
             style={{
               display: "flex",

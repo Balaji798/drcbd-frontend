@@ -4,6 +4,8 @@ import axios from "axios";
 export const getCart = async (dispatch) => {
   try {
     const res = await ApiService.getCart();
+    console.log(res)
+   
     dispatch({ type: "FETCH_CART_SUCCESS", cart: res.data });
   } catch (error) {
     dispatch({ type: "FETCH_CART_FAILURE", cart: error.message });
