@@ -188,7 +188,6 @@ const PayPal = () => {
                 console.log(err);
               }}
             />
-            <button onClick={handelOrder} style={{marginTop:"-4rem"}}>Save</button>
           </div>
         </div>
       </div>
