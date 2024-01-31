@@ -647,9 +647,9 @@ const ProductDetail = () => {
                   {item.title} {":"}
                 </p>
 
-                {Array.isArray(item.para) ? (
+                {Array.isArray(item.para) && item?.para?.length>0 ? (
                   <div className="description-container-title2">
-                    {item?.para?.map((des, i) => (
+                    { item?.para?.map((des, i) => (
                       <p
                         style={{
                           width: "100%",
