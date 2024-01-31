@@ -597,11 +597,16 @@ const ProductDetail = () => {
                   paddingLeft: 10,
                 }}
               >
-                {Number(productByName[0]?.actualPrice) > 0
-                  ? "฿" + Number(productByName[0]?.actualPrice).toFixed(2)
-                  : ""}
-              </span>{" "}
-              ฿{price}
+              {Number(productByName[0]?.actualPrice) > 0
+                ? "฿" + Number(productByName[0]?.actualPrice).toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })
+                : ""}
+            </span>{" "}
+            ฿{Number(price) >= 1000
+              ? Number(price).toLocaleString("en-US")
+              : price.toLocaleString("en-US")}
             </h2>
             <div
               style={{ display: "flex", justifyContent: "space-between" }}
