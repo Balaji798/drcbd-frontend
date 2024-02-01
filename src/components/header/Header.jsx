@@ -23,7 +23,6 @@ const Header = ({ openNav, setOpenNav }) => {
 
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
-  console.log(user)
   if (open) {
     document.body.classList.add("active-modal");
   } else {
@@ -31,7 +30,6 @@ const Header = ({ openNav, setOpenNav }) => {
   }
 
   const handelNext = async (type) => {
-    console.log("hii");
     if (!user) {
       setOpen(true);
     } else {
@@ -58,8 +56,15 @@ const Header = ({ openNav, setOpenNav }) => {
             </a>
             {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/thailand.png" style={{ width: "24px" }} alt="/" />*/}
             <Link to="/sign-in" style={{ marginLeft: "2px" }} className="sig">
-              Sign In |
+              Sign In /
             </Link>
+            <p style={{ marginLeft: "2px",cursor:'pointer' }} className="sig" onClick={() => {
+              localStorage.removeItem("token");
+              navigate('/')
+              setOpenNav(false);
+            }}>
+              Sign Out |
+            </p>
             <p
               style={{ cursor: "pointer", marginLeft: "2px" }}
               onClick={() => {

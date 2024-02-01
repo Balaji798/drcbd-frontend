@@ -164,9 +164,9 @@ const SecondBanner = () => {
             </div>
           </div>
           <div>
-          <h1 style={{ fontSize: "2.5rem", padding: "1rem 0" }}>
-          MODERN TRADE
-        </h1>
+            <h1 style={{ fontSize: "2.5rem", padding: "1rem 0" }}>
+              MODERN TRADE
+            </h1>
             <div
               style={{
                 display: "flex",
@@ -176,32 +176,32 @@ const SecondBanner = () => {
               }}
             >
               <div style={{ width: "49.2%" }}>
-              <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
-              style={{ objectFit: "cover", width: "100%", height: "15em" }}
-              alt="/"
-            />
-            <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
-            <p style={{ lineHeight: "1.8rem" }}>
-              {" "}
-              CBD products have gained popularity due to their potential
-              therapeutic benefits. While research is ongoing, CBD has shown
-              promise in
-            </p>
+                <img
+                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
+                  style={{ objectFit: "cover", width: "100%", height: "15em" }}
+                  alt="/"
+                />
+                <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
+                <p style={{ lineHeight: "1.8rem" }}>
+                  {" "}
+                  CBD products have gained popularity due to their potential
+                  therapeutic benefits. While research is ongoing, CBD has shown
+                  promise in
+                </p>
               </div>
               <div style={{ width: "49.2%" }}>
-              <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
-              style={{ objectFit: "cover", width: "100%", height: "15em" }}
-              alt="/"
-            />
-            <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
-            <p style={{ lineHeight: "1.8rem" }}>
-              {" "}
-              CBD products have gained popularity due to their potential
-              therapeutic benefits. While research is ongoing, CBD has shown
-              promise in
-            </p>
+                <img
+                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
+                  style={{ objectFit: "cover", width: "100%", height: "15em" }}
+                  alt="/"
+                />
+                <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
+                <p style={{ lineHeight: "1.8rem" }}>
+                  {" "}
+                  CBD products have gained popularity due to their potential
+                  therapeutic benefits. While research is ongoing, CBD has shown
+                  promise in
+                </p>
               </div>
             </div>
           </div>
@@ -283,20 +283,15 @@ const SecondBanner = () => {
               {iconsData[0].map((item, index) => (
                 <div>
                   <img src={item.icon} style={{}} alt="/" />
-                  <p>
-                    {item.title}
-                  </p>
+                  <p>{item.title}</p>
                 </div>
               ))}
             </div>
             <div className="childe1 childe2">
               {iconsData[1].map((item, index) => (
                 <div key={index}>
-                  <img
-                    src={item.icon}
-                    alt="/"
-                  />
-                  <p style={{ }}>{item.title}</p>
+                  <img src={item.icon} alt="/" />
+                  <p style={{}}>{item.title}</p>
                 </div>
               ))}
             </div>
@@ -376,10 +371,10 @@ const SecondBanner = () => {
                         height="100%"
                         id="gmap_canvas"
                         src="https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed"
-                        frameborder="0"
+                        frameBorder="0"
                         scrolling="Yes"
-                        marginheight="0"
-                        marginwidth="0"
+                        marginHeight="0"
+                        marginWidth="0"
                       />
                     </div>
                   </div>

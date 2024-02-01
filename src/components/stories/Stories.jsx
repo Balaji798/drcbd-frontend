@@ -229,7 +229,7 @@ const onButtonClick2 = () => {
             {followData.map((item, index) => (
               <div>
                 <div>
-                  <img src={item.image} style={{ width: "100%" }} />
+                  <img src={item.image} style={{ width: "100%" }} alt="/"/>
                 </div>
                 <p>
                   {item.name}
@@ -299,6 +299,7 @@ const onButtonClick2 = () => {
                       objectFit: "cover",
                       height: "10rem",
                     }}
+                    alt="/"
                   />
                   <p
                     style={{

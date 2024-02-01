@@ -84,6 +84,7 @@ const SignIn = () => {
       await updateUser(dispatch)
       console.log("Signup success", response.data);
       navigate("/");
+      window.location.reload()
     }
   };
 

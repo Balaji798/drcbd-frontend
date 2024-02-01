@@ -27,6 +27,7 @@ const CartComponent = (props) => {
         { productId },
         config
       );
+      
       await getCart(dispatch);
       return 
     } catch (err) {

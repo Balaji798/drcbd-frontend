@@ -146,14 +146,14 @@ const VerticalSlider = ({ productId }) => {
       >
         <div className="reviews">
           <div className="vertical-slider">
-            <SlArrowUp
+            {displayedReviews.length>2 && <SlArrowUp
               onClick={() => handleButtonClick("forward")}
               style={{
                 cursor: "pointer",
                 alignSelf: "center",
                 fontSize: "55px",
               }}
-            />
+            />}
             <div style={{ width: "100%" }}>
               {displayedReviews.map((item, index) => (
                 <div
@@ -197,14 +197,14 @@ const VerticalSlider = ({ productId }) => {
               ))}
             </div>
 
-            <SlArrowDown
+            {displayedReviews.length>2 &&<SlArrowDown
               onClick={() => handleButtonClick("backward")}
               style={{
                 cursor: "pointer",
                 alignSelf: "center",
                 fontSize: "55px",
               }}
-            />
+            />}
           </div>
           <div
             style={{
