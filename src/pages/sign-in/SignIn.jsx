@@ -192,7 +192,7 @@ const SignIn = () => {
               <input type="checkbox" style={{ height: 30, width: 30 }} />
               <p style={{ fontSize: 20, fontWeight: "bold" }}>Remember Me</p>
             </div>
-            <p style={{ fontSize: 20 }}>Forgot your password</p>
+            <Link to='/forgot-password' style={{ fontSize: 20 }}>Forgot your password</Link>
           </div>
           <button
             style={{

@@ -23,6 +23,7 @@ import Forms from "./pages/forms/Forms";
 import PayPal from "./pages/paypal/PayPal";
 import UserOrder from "./pages/userOrder/UserOrder";
 import CancelOrder from "./pages/cancelOrder/CancelOrder";
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getProduct } from "./state/actions/productAction";
@@ -42,7 +43,7 @@ const ScrollToTop = () => {
 
 function App() {
   const [openNav,setOpenNav]= useState(false);
-  console.log(openNav)
+  console.log(window.innerWidth)
   const dispatch = useDispatch();
   useEffect(() => {
     const getProducts = async () => {
@@ -102,6 +103,7 @@ function App() {
             <Route path="/my-orders" element={<Orders />} />
             <Route path="/order-detail/:orderId" element={<UserOrder />} />
             <Route path="/cancel_order" element={<CancelOrder />} />
+            <Route path='/forgot-password' element={<ForgotPassword/>}/>
           </Routes>
         </div>
         <Footer />

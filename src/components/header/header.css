@@ -137,6 +137,15 @@ header {
   display: none;
 }
 
+@media screen and (max-width: 1024px){
+  header{
+    padding: 10px 2rem;
+  }
+  .cart-profile{
+    width: 55%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .header-container{
     flex-direction: column;

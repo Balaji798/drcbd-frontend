@@ -4,6 +4,7 @@ import { ImStarFull, ImStarHalf } from "react-icons/im";
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 import "./verticalSlider.css";
 import axios from "axios";
+import Rating from "../Rating";
 
 const VerticalSlider = ({ productId }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,6 +40,13 @@ const VerticalSlider = ({ productId }) => {
           feed,
           config
         );
+        setFeed({
+          name: "",
+          email: "",
+          review: "",
+          rating: "",
+          productId: productId,
+        })
         getFeed()
       }
     } catch (err) {
@@ -123,16 +131,13 @@ const VerticalSlider = ({ productId }) => {
                   style={{
                     width: "90%",
                     color: "#fdba09",
-                    paddingBottom: 3,
+                    paddingTop: 3,
                     display: "flex",
                     justifyContent: "space-between",
+                    alignItems:"center"
                   }}
                 >
-                  <ImStarFull style={{ fontSize: 20 }} />
-                  <ImStarFull style={{ fontSize: 20 }} />
-                  <ImStarFull style={{ fontSize: 20 }} />
-                  <ImStarFull style={{ fontSize: 20 }} />
-                  <ImStarHalf style={{ fontSize: 20 }} />
+                  <Rating userReviews={userReviews}/>
                 </div>
               </div>
             </div>
