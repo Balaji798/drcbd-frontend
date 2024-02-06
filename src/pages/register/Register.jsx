@@ -5,6 +5,7 @@ import './register.css'
 
 const Register = () => {
   const [login, setLogin] = useState(false);
+  const [email,setEmail] = useState(false)
   const [verified, setVerified] = useState(false);
   const [otp, setOtp] = useState("");
   const [token, setToken] = useState(false);
@@ -17,6 +18,13 @@ const Register = () => {
 
   const handelSignUp = async () => {
     try {
+      if(!user?.email?.toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )){
+      setEmail(true)
+      return 
+    }
       if (user.password !== user.confirmPassword) {
         return alert("Password did not match");
       }
@@ -165,6 +173,7 @@ const Register = () => {
               setUser({ ...user, email: e.target.value });
             }}
           />
+          {email&&<p style={{color:"red"}}>Email is not valid</p>}
           <p
           >
             Password
