@@ -44,15 +44,15 @@ const naveData = [
           title: "CBD FOR PETS",
           link: "/by-category/CBD-FOR-PETS",
         },
-        {
-          title: "EXTRACTS & CONCENTRATES",
-          link: "/",
-          //by-category/SKINCARE
-        },
-        {
-          title: "GIFT SETS & PROMOTIONS",
-          link: "/",
-        },
+        // {
+        //   title: "EXTRACTS & CONCENTRATES",
+        //   link: "/",
+        //   //by-category/SKINCARE
+        // },
+        // {
+        //   title: "GIFT SETS & PROMOTIONS",
+        //   link: "/",
+        // },
       ],
     },
     
@@ -89,18 +89,18 @@ const naveData = [
         title: "CANCER",
         link: "/by-purpose/CANCER",
       },
-      {
-        title: "PALLIATIVE CARE",
-        link: "/by-purpose/PALLIATIVE-CARE",
-      },
+      // {
+      //   title: "PALLIATIVE CARE",
+      //   link: "/by-purpose/PALLIATIVE-CARE",
+      // },
       {
         title: "SKINCARE",
         link: "/by-purpose/SKINCARE",
       },
-      {
-        title: "NCD'S(NON-COMMUNICABLE DISEASES)",
-        link: "/by-purpose/NCD'S",
-      },
+      // {
+      //   title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+      //   link: "/by-purpose/NCD'S",
+      // },
       {
         title: "AROMATHERAPY",
         link: "/by-purpose/AROMATHERAPY",
@@ -109,22 +109,22 @@ const naveData = [
         title: "HORMONES",
         link: "/by-purpose/HORMONES",
       },
-      {
-        title: "OPIOID",
-        link: "/by-purpose/OPIOID",
-      },
+      // {
+      //   title: "OPIOID",
+      //   link: "/by-purpose/OPIOID",
+      // },
       {
         title: "WEIGHT MANAGEMENT",
         link: "/by-purpose/WEIGHT-MANAGEMENT",
       },
-      {
-        title: "GIFT SETS & PROMOTIONS",
-        link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
-      },
-      {
-        title: "CBD CONCENTRATION & EXTRACTS",
-        link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
-      },
+      // {
+      //   title: "GIFT SETS & PROMOTIONS",
+      //   link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
+      // },
+      // {
+      //   title: "CBD CONCENTRATION & EXTRACTS",
+      //   link: "/", //"/by-purpose/WEIGHT-MANAGEMENT",
+      // },
     ],
   }
   },

@@ -17,7 +17,7 @@
   height: 90%;
 }
 
-.imageContainer > div {
+.product-detail-image {
   width: 100%;
   z-index: 1;
   height: 500px;

@@ -197,10 +197,7 @@ const SignIn = () => {
               flexWrap: "wrap",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <input type="checkbox" style={{ height: 30, width: 30 }} />
-              <p style={{ fontSize: 20, fontWeight: "bold" }}>Remember Me</p>
-            </div>
+            
             <Link to='/forgot-password' style={{ fontSize: 20 }}>Forgot your password</Link>
           </div>
           <button

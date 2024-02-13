@@ -71,9 +71,6 @@ function App() {
       </div>
       <ScrollToTop/>
         <div
-          style={{
-           
-          }}
           className="route-container"
         >
           <Routes>

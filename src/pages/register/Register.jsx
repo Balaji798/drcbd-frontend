@@ -7,6 +7,7 @@ const Register = () => {
   const [login, setLogin] = useState(false);
   const [email,setEmail] = useState(false)
   const [verified, setVerified] = useState(false);
+  const [invalid,setInvalid] = useState(false)
   const [otp, setOtp] = useState("");
   const [token, setToken] = useState(false);
   const [user, setUser] = useState({
@@ -54,7 +55,10 @@ const Register = () => {
       localStorage.setItem("token", res.data.token);
       setToken(true)
     }
-    if (res.data.status===true) setVerified(true);
+    if(!res.data.status){
+      setInvalid(true)
+    }
+    if (res.data.status===true) setVerified(true) ;
   };
   return (
     <div
@@ -93,7 +97,7 @@ const Register = () => {
                   color: "#fff",
                   fontWeight: "bold",
                 }}
-                onClick={() => setLogin(true)}
+                onClick={() => window.location.reload()}
               >
                 Go Home
               </button>
@@ -127,7 +131,7 @@ const Register = () => {
               value={otp}
               onChange={(e)=>{setOtp(e.target.value)}}
             />
-            {token&&<p style={{color:"red",paddingTop:10}}>Not a valid OTP</p>}
+            {invalid&&<p style={{color:"red",paddingTop:10}}>Not a valid OTP</p>}
             <button
               style={{
                 marginTop: "1em",

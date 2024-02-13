@@ -70,18 +70,18 @@ const fiterData = [
         title: "CANCER",
         link: "/by-purpose/CANCER",
       },
-      {
-        title: "PALLIATIVE CARE",
-        link: "/by-purpose/PALLIATIVE-CARE",
-      },
+      // {
+      //   title: "PALLIATIVE CARE",
+      //   link: "/by-purpose/PALLIATIVE-CARE",
+      // },
       {
         title: "SKINCARE",
         link: "/by-purpose/SKINCARE",
       },
-      {
-        title: "NCD'S",
-        link: "/by-purpose/NCD'S",
-      },
+      // {
+      //   title: "NCD'S",
+      //   link: "/by-purpose/NCD'S",
+      // },
       {
         title: "AROMATHERAPY",
         link: "/by-purpose/AROMATHERAPY",
@@ -90,10 +90,10 @@ const fiterData = [
         title: "HORMONES",
         link: "/by-purpose/HORMONES",
       },
-      {
-        title: "OPIOID",
-        link: "/by-purpose/OPIOID",
-      },
+      // {
+      //   title: "OPIOID",
+      //   link: "/by-purpose/OPIOID",
+      // },
       {
         title: "WEIGHT MANAGEMENT",
         link: "/by-purpose/WEIGHT-MANAGEMENT",
@@ -226,7 +226,7 @@ const ByCategory = () => {
               ))}
             </ul>
           </div>
-          <div
+          {/*<div
             className="filter-meter"
           >
             <input
@@ -256,7 +256,7 @@ const ByCategory = () => {
             >
               Filter
             </button>
-          </div>
+            </div>*/}
         </div>
         <div
           className="by-category-product"

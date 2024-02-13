@@ -48,13 +48,13 @@ const Header = ({ openNav, setOpenNav }) => {
         <div className="header-container">
           <div className="sign-profile">
             {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/england.jpg" style={{ width: "30px" }} alt="/" />*/}
-            <a href="#" style={{ marginRight: "2px" }}>
+ {/*           <a href="#" style={{ marginRight: "2px" }}>
               EN
             </a>
             /
             <a href="#" style={{ marginLeft: "2px" }}>
               TH |{" "}
-            </a>
+  </a>*/}
             {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/thailand.png" style={{ width: "24px" }} alt="/" />*/}
             <Link to="/sign-in" style={{ marginLeft: "2px" }} className="sig">
               Sign In /

@@ -58,10 +58,9 @@ const CartComponent = (props) => {
       console.log(err);
     }
   };
-  console.log(cart.cart.items.length)
   return (
     <>
-      {cart.cart.items.length === 0 ? (
+      {cart?.cart?.items?.length === 0 || cart?.cart==='' ? (
         <h1 style={{ padding: "2rem 0", textAlign: "center" }}>
           Cart is empty
         </h1>

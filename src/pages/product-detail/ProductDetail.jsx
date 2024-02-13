@@ -298,7 +298,7 @@ const ProductDetail = () => {
       },
     ],
   };
-
+  console.log(productByName[0]?.price)
   return (
     <div ref={scrollContainerRef}>
       <div>
@@ -397,7 +397,7 @@ const ProductDetail = () => {
         <div className="productDetail" ref={targetRef} id="targetElement">
           <div className="imageContainer">
             {productByName[0]?.images && (
-              <div style={{}} className="center">
+              <div style={{}} className="center product-detail-image">
                 <img
                   src={productByName[0]?.images[position]}
                   style={{}}
@@ -411,6 +411,7 @@ const ProductDetail = () => {
                   width: "100%",
                   display: "flex",
                   justifyContent: "space-between",
+                  marginTop:"1rem"
                 }}
               >
                 {productByName[0]?.images.map((i, index) => (
@@ -551,7 +552,7 @@ const ProductDetail = () => {
                 </p>
               </div>
             </div>
-            <div
+            {/*<div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -581,7 +582,7 @@ const ProductDetail = () => {
               >
                 Apply
               </div>
-            </div>
+              </div>*/}
             <h2
               style={{
                 fontSize: "25px",
@@ -609,10 +610,10 @@ const ProductDetail = () => {
               : price.toLocaleString("en-US")}
             </h2>
             <div
-              style={{ display: "flex", justifyContent: "space-between" }}
+              style={{ display: "flex", justifyContent: "flex-end" }}
               className="orderButton"
             >
-              <button onClick={buy}>BUY NOW</button>
+              {/*<button onClick={buy}>BUY NOW</button>*/}
               <button
                 style={{
                   padding: "5px 0",
