@@ -322,7 +322,7 @@ const onButtonClick2 = () => {
             </div>
           </div>
         </div>
-        <div className="subscribe">
+{/*        <div className="subscribe">
           <h1>
             SIGN UP AND GET <br />
             20% DISCOUNT
@@ -332,7 +332,7 @@ const onButtonClick2 = () => {
             <input />
             <div className="subscribe-button">Subscribe</div>
           </div>
-        </div>
+                  </div>*/}
       </div>
     </>
   );

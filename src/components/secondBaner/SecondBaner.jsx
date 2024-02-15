@@ -318,7 +318,7 @@ const SecondBanner = () => {
           {data.map((item, index) => (
             <div
               style={{
-                width: "17.5em",
+                width: "18.5em",
                 background: "#fff",
                 // borderBottom:
                 //   index === 2 || index === 0 || index === 1 ? "1px solid #000" : 0,
@@ -338,22 +338,23 @@ const SecondBanner = () => {
               />
               <h2 style={{ padding: "5px 0" }}>{item.title}</h2>
               <p style={{ padding: "5px 0" }}>{item.para}</p>
-              <h3
+              <h5
                 style={{
                   padding: "5px 0",
                   fontFamily: "Avenir",
+                  width:"100%"
                 }}
               >
                 {item.email}
-              </h3>
-              <h3
+              </h5>
+              <h5
                 style={{
                   padding: "5px 0",
                   fontFamily: "Avenir",
                 }}
               >
                 {item.tel}
-              </h3>
+              </h5>
               <div>
                 <IoIosArrowDown
                   className={index === open ? "arrowDown" : "arrowUp"}
@@ -373,7 +374,7 @@ const SecondBanner = () => {
                         width="30%"
                         height="100%"
                         id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed"
+                        src={item.mapLink}
                         frameBorder="0"
                         scrolling="Yes"
                         marginHeight="0"
@@ -383,7 +384,6 @@ const SecondBanner = () => {
                   </div>
                 </div>
               </div>
-              {(index === 2 || index === 0 || index === 1) && (
                 <div
                   style={{
                     width: "95%",
@@ -391,7 +391,6 @@ const SecondBanner = () => {
                     background: "#000",
                   }}
                 />
-              )}
             </div>
           ))}
         </div>
