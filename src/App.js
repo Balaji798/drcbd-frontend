@@ -95,8 +95,8 @@ function App() {
             <Route path="/order-history" element={<Orders />} />
             <Route path="/insights/:type" element={<NHI />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/by-category/:categoryName" element={<ByCategory />} />
-            <Route path="/by-purpose/:categoryName" element={<ByCategory />} />
+            <Route path="/cbd-by-category/:categoryName" element={<ByCategory />} />
+            <Route path="/cbd-by-purpose/:categoryName" element={<ByCategory />} />
             <Route path="/my-orders" element={<Orders />} />
             <Route path="/order-detail/:orderId" element={<UserOrder />} />
             <Route path="/cancel_order" element={<CancelOrder />} />

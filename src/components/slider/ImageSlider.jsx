@@ -147,7 +147,7 @@ const ImageSlider = () => {
       link: "CBD I-MUN",
     },
     {
-      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694015186672.jpg",
+      url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/CBD_Collagen-WBG1.png",
       name: "CBD Collagen peptide",
       link: "CBD COLLAGEN PETPITDE",
     },

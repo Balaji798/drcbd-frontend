@@ -5,32 +5,32 @@ export const navData = [
       options: [
         {
           title: "CBD OIL",
-          link: "/by-category/CBD-OIL",
+          link: "/cbd-by-category/CBD-OIL",
         },
         {
           title: "CBD SUPPLEMENTS",
-          link: "/by-category/CBD-SUPPLEMENTS",
+          link: "/cbd-by-category/CBD-SUPPLEMENTS",
         },
         {
           title: "CBD FACE",
-          link: "/by-category/CBD-FACE",
+          link: "/cbd-by-category/CBD-FACE",
         },
         {
           title: "CBD BODY",
-          link: "/by-category/cbd-body",
+          link: "/cbd-by-category/cbd-body",
         },
 
         {
           title: "CBD BEVERAGE",
-          link: "/by-category/CBD-BEVERAGE",
+          link: "/cbd-by-category/CBD-BEVERAGE",
         },
         {
           title: "AROMATHERAPY",
-          link: "/by-category/AROMATHERAPY",
+          link: "/cbd-by-category/AROMATHERAPY",
         },
         {
           title: "CBD FOR PETS",
-          link: "/by-category/CBD-FOR-PETS",
+          link: "/cbd-by-category/CBD-FOR-PETS",
         },
         // {
         //   title: "EXTRACTS & CONCENTRATES",
@@ -48,55 +48,55 @@ export const navData = [
       options: [
         {
           title: "SLEEP",
-          link: "/by-purpose/SLEEP",
+          link: "/cbd-by-purpose/SLEEP",
         },
         {
           title: "IMMUNE",
-          link: "/by-purpose/immunity",
+          link: "/cbd-by-purpose/immunity",
         },
         {
           title: "ENERGY",
-          link: "/by-purpose/ENERGY",
+          link: "/cbd-by-purpose/ENERGY",
         },
         {
           title: "ANXIETY",
-          link: "/by-purpose/ANXIETY",
+          link: "/cbd-by-purpose/ANXIETY",
         },
         {
           title: "MUSCLES & JOINT",
-          link: "/by-purpose/MUSCLES-&-JOINTS",
+          link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
         },
         {
           title: "CANCER",
-          link: "/by-purpose/CANCER",
+          link: "/cbd-by-purpose/CANCER",
         },
         // {
         //   title: "PALLIATIVE CARE",
-        //   link: "/by-purpose/PALLIATIVE-CARE",
+        //   link: "/cbd-by-purpose/PALLIATIVE-CARE",
         // },
         {
           title: "SKINCARE",
-          link: "/by-purpose/SKINCARE",
+          link: "/cbd-by-purpose/SKINCARE",
         },
         // {
         //   title: "NCD'S(NON-COMMUNICABLE DISEASES)",
-        //   link: "/by-purpose/NCD'S",
+        //   link: "/cbd-by-purpose/NCD'S",
         // },
         {
           title: "AROMATHERAPY",
-          link: "/by-purpose/AROMATHERAPY",
+          link: "/cbd-by-purpose/AROMATHERAPY",
         },
         {
           title: "HORMONES",
-          link: "/by-purpose/HORMONES",
+          link: "/cbd-by-purpose/HORMONES",
         },
         // {
         //   title: "OPIOID",
-        //   link: "/by-purpose/OPIOID",
+        //   link: "/cbd-by-purpose/OPIOID",
         // },
         {
           title: "WEIGHT MANAGEMENT",
-          link: "/by-purpose/WEIGHT-MANAGEMENT",
+          link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
         },
         // {
         //   title: "GIFT SETS & PROMOTIONS",

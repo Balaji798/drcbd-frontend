@@ -12,7 +12,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 .footer-container>ul{
@@ -23,7 +23,7 @@ footer {
   font-size: 18px;
 }
 .subMenu {
-  height: 280px;
+  max-height: 480px;
 }
 .second-footer-container {
   width: 100%;
@@ -36,5 +36,7 @@ footer {
 @media screen and (max-width: 768px){
   .footer-container{
     padding: 20px 1rem 20px;
+    align-items: flex-start
   }
+
 }

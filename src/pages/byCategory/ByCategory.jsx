@@ -10,36 +10,36 @@ const fiterData = [
     options: [
       {
         title: "OIL",
-        link: "/by-category/CBD-OIL",
+        link: "/cbd-by-category/CBD-OIL",
       },
       {
         title: "SUPPLEMENTS",
-        link: "/by-category/CBD-SUPPLEMENTS",
+        link: "/cbd-by-category/CBD-SUPPLEMENTS",
       },
       {
         title: "FACE",
-        link: "/by-category/CBD-FACE",
+        link: "/cbd-by-category/CBD-FACE",
       },
       {
         title: "BODY",
-        link: "/by-category/cbd-body",
+        link: "/cbd-by-category/cbd-body",
       },
 
       {
         title: "BEVERAGE",
-        link: "/by-category/CBD-BEVERAGE",
+        link: "/cbd-by-category/CBD-BEVERAGE",
       },
       {
         title: "AROMATHERAPY",
-        link: "/by-category/AROMATHERAPY",
+        link: "/cbd-by-category/AROMATHERAPY",
       },
       // {
       //   title: "HOME USE",
-      //   link: "/by-category/home-use",
+      //   link: "/cbd-by-category/home-use",
       // },
       {
         title: "PETS",
-        link: "/by-category/CBD-FOR-PETS",
+        link: "/cbd-by-category/CBD-FOR-PETS",
       },
     ],
   },
@@ -48,55 +48,55 @@ const fiterData = [
     options: [
       {
         title: "SLEEP",
-        link: "/by-purpose/SLEEP-DISORDER",
+        link: "/cbd-by-purpose/SLEEP-DISORDER",
       },
       {
         title: "IMMUNE",
-        link: "/by-purpose/immunity",
+        link: "/cbd-by-purpose/immunity",
       },
       {
         title: "ENERGY",
-        link: "/by-purpose/ENERGY",
+        link: "/cbd-by-purpose/ENERGY",
       },
       {
         title: "ANXIETY",
-        link: "/by-purpose/ANXIETY",
+        link: "/cbd-by-purpose/ANXIETY",
       },
       {
         title: "MUSCLES & JOINTS",
-        link: "/by-purpose/MUSCLES-&-JOINTS",
+        link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
       },
       {
         title: "CANCER",
-        link: "/by-purpose/CANCER",
+        link: "/cbd-by-purpose/CANCER",
       },
       // {
       //   title: "PALLIATIVE CARE",
-      //   link: "/by-purpose/PALLIATIVE-CARE",
+      //   link: "/cbd-by-purpose/PALLIATIVE-CARE",
       // },
       {
         title: "SKINCARE",
-        link: "/by-purpose/SKINCARE",
+        link: "/cbd-by-purpose/SKINCARE",
       },
       // {
       //   title: "NCD'S",
-      //   link: "/by-purpose/NCD'S",
+      //   link: "/cbd-by-purpose/NCD'S",
       // },
       {
         title: "AROMATHERAPY",
-        link: "/by-purpose/AROMATHERAPY",
+        link: "/cbd-by-purpose/AROMATHERAPY",
       },
       {
         title: "HORMONES",
-        link: "/by-purpose/HORMONES",
+        link: "/cbd-by-purpose/HORMONES",
       },
       // {
       //   title: "OPIOID",
-      //   link: "/by-purpose/OPIOID",
+      //   link: "/cbd-by-purpose/OPIOID",
       // },
       {
         title: "WEIGHT MANAGEMENT",
-        link: "/by-purpose/WEIGHT-MANAGEMENT",
+        link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
       },
     ],
   },
@@ -108,6 +108,7 @@ const ByCategory = () => {
   const [data, setData] = useState([]);
   const [meanData, setMeanData] = useState([]);
   const { categoryName } = useParams();
+  console.log(categoryName)
   const [seekbarValue, setSeekbarValue] = useState(50);
 
   const [cName, setCname] = useState("");
@@ -125,14 +126,14 @@ const ByCategory = () => {
           item.categoryName.includes(
             categoryName.split("-").join(" ").toLowerCase()
           ) &&
-          "by-category" === pathname.split("/")[1]
+          "cbd-by-category" === pathname.split("/")[1]
         ) {
           return item;
         } else if (
           item?.purposeName?.includes(
             categoryName.split("-").join(" ").toLowerCase()
           ) &&
-          "by-purpose" === pathname.split("/")[1]
+          "cbd-by-purpose" === pathname.split("/")[1]
         ) {
           return item;
         }
