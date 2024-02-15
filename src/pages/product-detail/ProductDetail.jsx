@@ -412,7 +412,9 @@ const ProductDetail = () => {
                   display: "flex",
                   justifyContent: "space-between",
                   marginTop:"1rem"
+
                 }}
+                className="multiple-image"
               >
                 {productByName[0]?.images.map((i, index) => (
                   <div
