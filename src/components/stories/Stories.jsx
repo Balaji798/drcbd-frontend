@@ -238,7 +238,7 @@ const onButtonClick2 = () => {
             ))}
           </div>
         </div>
-        <div
+{ /*       <div
           style={{
             display: "flex",
             alignItems: "center",
@@ -321,7 +321,7 @@ const onButtonClick2 = () => {
               ))}
             </div>
           </div>
-        </div>
+                  </div>*/}
 {/*        <div className="subscribe">
           <h1>
             SIGN UP AND GET <br />
