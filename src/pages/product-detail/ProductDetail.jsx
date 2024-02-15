@@ -86,7 +86,7 @@ const ProductDetail = () => {
       para: productByName[0]?.fda,
     },
     {
-      title: "Dosage From",
+      title: "Dosage Form",
       para: productByName[0]?.dosage,
     },
     {
@@ -94,7 +94,7 @@ const ProductDetail = () => {
       para: productByName[0]?.ingredient,
     },
     {
-      title: "Product details",
+      title: "Product detail",
       para: productByName[0]?.productFor,
     },
     {
@@ -114,7 +114,7 @@ const ProductDetail = () => {
       para: productByName[0]?.contraindication,
     },
     {
-      title: "Warning and Precaution",
+      title: "Warning & Precaution",
       para: productByName[0]?.warningPrecaution,
     },
     // {
@@ -459,7 +459,7 @@ const ProductDetail = () => {
               {productByName[0]?.des}
             </p>
 
-            <p>Sizes</p>
+            {/*<p>Sizes</p>
             <div
               style={{
                 display: "flex",
@@ -497,7 +497,7 @@ const ProductDetail = () => {
               >
                 10 Pieces
               </p>
-            </div>
+                </div>*/}
             <div
               style={{
                 display: "flex",
@@ -591,7 +591,7 @@ const ProductDetail = () => {
               }}
             >
               Price :-
-              <span
+              {/*<span
                 style={{
                   color: "grey",
                   textDecoration: "line-through",
@@ -604,7 +604,7 @@ const ProductDetail = () => {
                     maximumFractionDigits: 2,
                   })
                 : ""}
-            </span>{" "}
+                </span>{" "}*/}
             ฿{Number(price) >= 1000
               ? Number(price).toLocaleString("en-US")
               : price.toLocaleString("en-US")}
@@ -645,7 +645,7 @@ const ProductDetail = () => {
                 className="description-container"
               >
                 <p className="description-container-title">
-                  {item.title} {":"}
+                  {item.title} {":"}-
                 </p>
 
                 {Array.isArray(item.para) && item?.para?.length>0 ? (
@@ -668,7 +668,7 @@ const ProductDetail = () => {
                 )}
               </div>
             ))}
-            <div
+            {/*<div
               style={{ display: "flex", flexWrap: "wrap", maxWidth: "700px" }}
             >
               {icons[0]?.icons?.map((item, index) => (
@@ -680,7 +680,7 @@ const ProductDetail = () => {
                   />
                 </div>
               ))}
-            </div>
+              </div>*/}
           </div>
         </div>
         <div

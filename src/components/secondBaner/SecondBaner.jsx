@@ -15,54 +15,50 @@ const SecondBanner = () => {
   // <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src= frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2yu.co">2yu</a><br><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}</style><a href="https://embedgooglemap.2yu.co/">html embed google map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div>
   const data = [
     {
-      title: "VITAL MEDI CLINIC",
-      para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
-      tel: "TEL: +66 9 9191 4926",
+      title: "Vital Medi Clinic",
+      para: "4th Floor, The Marche Thong Lo Road, Khlong Tan Nuea, Wattana, Bangkok 10110",
+      email:'Email:vitalmediclinic@drcbdgroup.com',
+      tel: "Phone: +66 9 4263 9964",
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "VITAL HEALTH CAFE",
-      para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
-      tel: "TEL: +66 9 9191 4926",
+      title: "Vital Health Cafe",
+      para: "1st Floor, The Marche Thong Lo Road, Khlong Tan Nuea, Wattana, Bangkok 10110",
+      email:'Email: info@drcbdgroup.com',
+      tel: "Phone: +66 8 4192 6362",
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "DR.KRATOM BIO",
-      para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
-      tel: "TEL: +66 9 9191 4926",
+      title: "Dr. Kratom Bio",
+      para: "255 Bangna Trat 3 (Soi Bua-Kued), Bangna-Nuea, Bangkok 10260 Thailand",
+      email:'Email: info@drcbdgroup.com',
+      tel: "Phone: +66 6 5141 6999",
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "DR.CBD CLINIC : NAVAVEJ",
-      para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
-      tel: "TEL: +66 9 9191 4926",
+      title: "Dr. CBD Clinic: Huahin",
+      para: "218/1-4 Hua Hin Subdistrict, Hua Hin District, Prachuap Khiri Khan Province 77110",
+      email:'Email: drcbdclinic_official@drcbdgroup.com',
+      tel: "Phone: +66 8 4191 4926",
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
     {
-      title: "DR.CBD CLINIC : HUAHIN",
-      para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
-      tel: "TEL: +66 9 9191 4926",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
-      mapLink:
-        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
-    },
-    {
-      title: "DR.PET",
-      para: "NAVEJ: Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230",
-      tel: "TEL: +66 9 9191 4926",
+      title: "Dr. PET CBD",
+      para: "255 Bangna Trat 3 (Soi Bua-Kued), Bangna-Nuea, Bangkok 10260 Thailand",
+      email:'Email: info@drcbdgroup.com',
+      tel: "Phone: +66 6 5141 6999",
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
       mapLink:
@@ -324,7 +320,6 @@ const SecondBanner = () => {
               style={{
                 width: "17.5em",
                 background: "#fff",
-                borderRight: index === 2 || index === 5 ? 0 : "2px solid #000",
                 // borderBottom:
                 //   index === 2 || index === 0 || index === 1 ? "1px solid #000" : 0,
                 padding: "1em",
@@ -343,6 +338,14 @@ const SecondBanner = () => {
               />
               <h2 style={{ padding: "5px 0" }}>{item.title}</h2>
               <p style={{ padding: "5px 0" }}>{item.para}</p>
+              <h3
+                style={{
+                  padding: "5px 0",
+                  fontFamily: "Avenir",
+                }}
+              >
+                {item.email}
+              </h3>
               <h3
                 style={{
                   padding: "5px 0",

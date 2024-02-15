@@ -9,84 +9,152 @@ export const footerData = [
     link: "",
     subMenu: [
       {
-        title: "Brand purpose",
+        title: "BRAND PURPOSE",
         link: "/brand-purpose",
       },
       {
-        title: "Our Companies",
-        link: "/our-companies",
-      },
-      {
-        title: "Our Team",
+        title: "OUR TEAM",
         link: "/our-leadership",
       },
       {
-        title: "Join Our Esteemed",
+        title: "JOIN US",
         link: "/our-esteemed",
       },
     ],
   },
   {
-    title: "CBD PRODUCTS",
-    link: "",
-    subMenu: [
-      {
-        title: "Cosmeceutical Products",
-        link: "/products/cosmeceutical-products",
-      },
-      {
-        title: "Herbal Tea",
-        link: "/products/herbal-tea",
-      },
-      {
-        title: "Dietary Supplement Products",
-        link: "/products/dietary-supplement-products",
-      },
-      {
-        title: "Cannabis Oil",
-        link: "/products/cannabis-oil",
-      },
-      {
-        title: "Thai Traditional Medicine",
-        link: "/products/thai-traditional-medicine",
-      },
-      {
-        title: "Pets Products",
-        link: "/products/pets-products",
-      },
-      {
-        title: "Kratom Supplement Products",
-        link: "/products/kratom-supplement-products",
-      },
-    ],
+    title: "CBD BY CATEGORY",
+      link: "/cbd-by-category",
+      subMenu: [
+        {
+          title: "CBD OIL",
+          link: "/by-category/CBD-OIL",
+        },
+        {
+          title: "CBD SUPPLEMENTS",
+          link: "/by-category/CBD-SUPPLEMENTS",
+        },
+        {
+          title: "CBD FACE",
+          link: "/by-category/CBD-FACE",
+        },
+        {
+          title: "CBD BODY",
+          link: "/by-category/cbd-body",
+        },
+
+        {
+          title: "CBD BEVERAGE",
+          link: "/by-category/CBD-BEVERAGE",
+        },
+        {
+          title: "AROMATHERAPY",
+          link: "/by-category/AROMATHERAPY",
+        },
+        // {
+        //   title: "HOME USE",
+        //   link: "/by-category/home-use",
+        // },
+        {
+          title: "CBD FOR PETS",
+          link: "/by-category/CBD-FOR-PETS",
+        },
+        // {
+        //   title: "EXTRACTS & CONCENTRATES",
+        //   link: "/",
+        //   //by-category/SKINCARE
+        // },
+        // {
+        //   title: "GIFT SETS & PROMOTIONS",
+        //   link: "/",
+        // },
+      ],
   },
   {
-    title: "DR.CBD UNIVERSITY",
-    link: "",
+    title: "CBD PRODUCTS",
+    link: "/cbd-by-purpose",
     subMenu: [
       {
-        title: "HEALTH",
-        link: "/insights/health",
-      },
-
-      {
-        title: "MEDICAL",
-        link: "/insights/medical",
+        title: "SLEEP",
+        link: "/by-purpose/SLEEP",
       },
       {
-        title: "RESEARCH",
-        link: "/insights/research",
+        title: "IMMUNE",
+        link: "/by-purpose/immunity",
       },
       {
-        title: "NEWS",
-        link: "/insights/news",
+        title: "ENERGY",
+        link: "/by-purpose/ENERGY",
       },
       {
-        title: "PRESS RELEASE",
-        link: "/insights/press-release",
+        title: "ANXIETY",
+        link: "/by-purpose/ANXIETY",
+      },
+      {
+        title: "MUSCLES & JOINT",
+        link: "/by-purpose/MUSCLES-&-JOINTS",
+      },
+      {
+        title: "CANCER",
+        link: "/by-purpose/CANCER",
+      },
+      // {
+      //   title: "PALLIATIVE CARE",
+      //   link: "/by-purpose/PALLIATIVE-CARE",
+      // },
+      {
+        title: "SKINCARE",
+        link: "/by-purpose/SKINCARE",
+      },
+      // {
+      //   title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+      //   link: "/by-purpose/NCD'S",
+      // },
+      {
+        title: "AROMATHERAPY",
+        link: "/by-purpose/AROMATHERAPY",
+      },
+      {
+        title: "HORMONES",
+        link: "/by-purpose/HORMONES",
+      },
+      // {
+      //   title: "OPIOID",
+      //   link: "/by-purpose/OPIOID",
+      // },
+      {
+        title: "WEIGHT MANAGEMENT",
+        link: "/by-purpose/WEIGHT-MANAGEMENT",
       },
     ],
   },
+  // {
+  //   title: "DR.CBD UNIVERSITY",
+  //   link: "",
+  //   subMenu: [
+  //     {
+  //       title: "HEALTH",
+  //       link: "/insights/health",
+  //     },
+
+  //     {
+  //       title: "MEDICAL",
+  //       link: "/insights/medical",
+  //     },
+  //     {
+  //       title: "RESEARCH",
+  //       link: "/insights/research",
+  //     },
+  //     {
+  //       title: "NEWS",
+  //       link: "/insights/news",
+  //     },
+  //     {
+  //       title: "PRESS RELEASE",
+  //       link: "/insights/press-release",
+  //     },
+  //   ],
+  // },
   {
     title: "CONTACT",
     link: "/contact",
