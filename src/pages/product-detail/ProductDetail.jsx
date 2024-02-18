@@ -196,8 +196,8 @@ const ProductDetail = () => {
           },
         };
         const res = await axios.post(
-          "https://drcbd-backend.onrender.com/cart/add-to-card",
-          //https://drcbd-backend.onrender.com
+          "http://52.77.244.89:8080/cart/add-to-card",
+          //http://52.77.244.89:8080
           requestBody,
           config
         );
@@ -226,8 +226,8 @@ const ProductDetail = () => {
           },
         };
         const res = await axios.post(
-          "https://drcbd-backend.onrender.com/cart/add-to-card",
-          //https://drcbd-backend.onrender.com
+          "http://52.77.244.89:8080/cart/add-to-card",
+          //http://52.77.244.89:8080
           requestBody,
           config
         );

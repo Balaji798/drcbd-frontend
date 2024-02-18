@@ -31,8 +31,8 @@ const Register = () => {
         return alert("Password did not match");
       }
       const response = await axios.post(
-        "https://drcbd-backend.onrender.com/user/signup",
-        //https://drcbd-backend.onrender.com
+        "http://52.77.244.89:8080/user/signup",
+        //http://52.77.244.89:8080
         user
       );
       
@@ -47,8 +47,8 @@ const Register = () => {
     console.log(otp)
     
     const res = await axios.post(
-      "https://drcbd-backend.onrender.com/user/email_verification",
-      //https://drcbd-backend.onrender.com
+      "http://52.77.244.89:8080/user/email_verification",
+      //http://52.77.244.89:8080
       { otp: otp }
     );
     if(res.data.status){

@@ -33,10 +33,10 @@ const VerticalSlider = ({ productId }) => {
             "Content-Type": "application/json", // Set the content type to JSON
           },
         };
-        //https://drcbd-backend.onrender.com
+        //http://52.77.244.89:8080
         const res = await axios.post(
-          "https://drcbd-backend.onrender.com/review/add-review",
-          //https://drcbd-backend.onrender.com
+          "http://52.77.244.89:8080/review/add-review",
+          //http://52.77.244.89:8080
           feed,
           config
         );
@@ -56,8 +56,8 @@ const VerticalSlider = ({ productId }) => {
  
   const getFeed = async () => {
     const productReviews = await axios.post(
-      "https://drcbd-backend.onrender.com/review/get-reviews-by-productId",
-      //https://drcbd-backend.onrender.com
+      "http://52.77.244.89:8080/review/get-reviews-by-productId",
+      //http://52.77.244.89:8080
       { productId: productId }
     );
     setUserReviews(productReviews.data)
