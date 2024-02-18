@@ -5,7 +5,7 @@
 
 .section-center-home {
   width: 100%;
-  height: 25em;
+  height: 40em;
   text-align: center;
   position: relative;
   display: flex;
@@ -267,8 +267,7 @@ video {
   .home-video{
     padding-top: 4rem;
   }
-  .video{
-    
+  .video{ 
     height: 17rem !important;
   }
   video{

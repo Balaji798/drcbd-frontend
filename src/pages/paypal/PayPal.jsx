@@ -88,7 +88,6 @@ const PayPal = () => {
           alignItems: "center",
           flexDirection: "column",
           paddingTop: "5rem",
-          maxHeight: "55rem",
           height: "100%",
         }}
       >

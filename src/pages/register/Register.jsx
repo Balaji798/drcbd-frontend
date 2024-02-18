@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import './register.css'
 
 const Register = () => {
+  const navigate=useNavigate()
   const [login, setLogin] = useState(false);
   const [email,setEmail] = useState(false)
   const [verified, setVerified] = useState(false);
@@ -84,7 +85,7 @@ const Register = () => {
               alt="/"
               style={{ width: "100%", objectFit: "contain", height: "20em" }}
             />
-            <Link to="/" style={{ color: "#99a79f", width: "35%" }}>
+            <div style={{ color: "#99a79f", width: "35%" }}>
               <button
                 style={{
                   marginTop: "1em",
@@ -97,11 +98,14 @@ const Register = () => {
                   color: "#fff",
                   fontWeight: "bold",
                 }}
-                onClick={() => window.location.reload()}
+                onClick={() => {
+                  window.location.reload();
+                  navigate('/')
+                }}
               >
                 Go Home
               </button>
-            </Link>
+            </div>
           </>
         ) : (
           <div>
