@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     if (user.newPassword !== user.confirmPassword) {
       alert("Password did not match");
     }
-    const res = await axios.post("http://52.77.244.89:8080/user/change_password", {
+    const res = await axios.post("https://52.77.244.89:8080/user/change_password", {
       email: user.email,
       password: user.newPassword,
     });

@@ -32,16 +32,16 @@ const PayPal = () => {
       },
     };
     const res = await await axios.post(
-      `http://52.77.244.89:8080/orders/update_order/${orderId}`,
-      //http://52.77.244.89:8080
+      `https://52.77.244.89:8080/orders/update_order/${orderId}`,
+      //https://52.77.244.89:8080
       { orderId, status: "placed" },
       config
     );
     console.log(res.data);
     if (res.data.status) {
       const response = await axios.post(
-        "http://52.77.244.89:8080/orders/confirm_payment",
-        //http://52.77.244.89:8080
+        "https://52.77.244.89:8080/orders/confirm_payment",
+        //https://52.77.244.89:8080
         { orderId },
         config
       );

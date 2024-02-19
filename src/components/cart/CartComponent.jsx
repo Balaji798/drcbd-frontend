@@ -22,7 +22,7 @@ const CartComponent = (props) => {
         },
       };
       await axios.post(
-        "http://52.77.244.89:8080/cart/remove_item_from_cart",
+        "https://52.77.244.89:8080/cart/remove_item_from_cart",
         //https://drcbd-backend.onrender.com
         { productId },
         config
@@ -46,8 +46,8 @@ const CartComponent = (props) => {
       // };
       // const cartId = cart.cart._id;
       // const res = await axios.post(
-      //   "http://52.77.244.89:8080/orders/place_order",
-      //   //http://52.77.244.89:8080
+      //   "https://52.77.244.89:8080/orders/place_order",
+      //   //https://52.77.244.89:8080
       //   { cartId },
       //   config
       // );

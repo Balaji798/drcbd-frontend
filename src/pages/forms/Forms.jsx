@@ -12,6 +12,7 @@ const Forms = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
+  const [error,setError] = useState(false)
   const { orderId } = useParams();
   const [user, setUser] = useState([]);
   const [select, setSelect] = useState(0);
@@ -36,6 +37,9 @@ const Forms = (props) => {
   //console.log(user);
   const handelNext = async () => {
     try {
+      if(userAdd.address===''&&userAdd.city===''&&userAdd.country&&userAdd.postalCode===''&&userAdd.contactNumber===''){
+        setError(true)
+      }
       const user = localStorage.getItem("token");
       const config = {
         headers: {
@@ -45,8 +49,8 @@ const Forms = (props) => {
       };
 
       const res = await axios.post(
-        "http://52.77.244.89:8080/user/edit-user",
-        //http://52.77.244.89:8080
+        "https://52.77.244.89:8080/user/edit-user",
+        //https://52.77.244.89:8080
         userAdd,
         config
       );
@@ -60,15 +64,15 @@ const Forms = (props) => {
           },
         };
         const respo = await axios.post(
-          "http://52.77.244.89:8080/orders/place_order",
-          //http://52.77.244.89:8080
+          "https://52.77.244.89:8080/orders/place_order",
+          //https://52.77.244.89:8080
           { cartId: orderId },
           config
         );
         console.log(respo.data);
         const response = await axios.post(
-          "http://52.77.244.89:8080/orders/update_order/" + respo.data.orderId._id,
-          //http://52.77.244.89:8080
+          "https://52.77.244.89:8080/orders/update_order/" + respo.data.orderId._id,
+          //https://52.77.244.89:8080
           userAdd,
           config
         );
@@ -81,7 +85,6 @@ const Forms = (props) => {
           navigate("/order-summery/" + respo.data.orderId._id, {
             state: { price: totalPrice },
           });
-        console.log("/");
       }
     } catch (err) {
       console.log(err.message);
@@ -182,6 +185,7 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, country: e.target.value });
             }}
           />
+          {error && <p style={{color:"red"}}>Country name required</p>}
         </div>
         <div className="input-container">
           <p>Address:</p>{" "}
@@ -190,6 +194,7 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, address: e.target.value });
             }}
           />
+          {error && <p style={{color:"red"}}>Full address required</p>}
         </div>
         <div className="input-container">
           <p>Postal Code:</p>{" "}
@@ -198,6 +203,7 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, postalCode: e.target.value });
             }}
           />
+          {error && <p style={{color:"red"}}>Postcode required</p>}
         </div>
         <div className="input-container">
           <p>Contact Number:</p>{" "}
@@ -206,6 +212,7 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, contactNumber: e.target.value });
             }}
           />
+          {error && <p style={{color:"red"}}>Contact number required</p>}
         </div>
         <div className="input-container">
           <p>Tax ID:</p>{" "}

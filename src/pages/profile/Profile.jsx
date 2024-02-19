@@ -33,8 +33,8 @@ const Profile = () => {
       };
       
       const res = await axios.put(
-        "http://52.77.244.89:8080/user/update_user",
-        //http://52.77.244.89:8080
+        "https://52.77.244.89:8080/user/update_user",
+        //https://52.77.244.89:8080
         userData,
         config
       );

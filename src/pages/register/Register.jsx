@@ -31,8 +31,8 @@ const Register = () => {
         return alert("Password did not match");
       }
       const response = await axios.post(
-        "http://52.77.244.89:8080/user/signup",
-        //http://52.77.244.89:8080
+        "https://52.77.244.89:8080/user/signup",
+        //https://52.77.244.89:8080
         user
       );
       
@@ -47,8 +47,8 @@ const Register = () => {
     console.log(otp)
     
     const res = await axios.post(
-      "http://52.77.244.89:8080/user/email_verification",
-      //http://52.77.244.89:8080
+      "https://52.77.244.89:8080/user/email_verification",
+      //https://52.77.244.89:8080
       { otp: otp }
     );
     if(res.data.status){

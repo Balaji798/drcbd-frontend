@@ -28,8 +28,8 @@ const SignIn = () => {
   // }]
   const verifyEmail = async () => {
     const res = await axios.post(
-      "http://52.77.244.89:8080/user/email_verification",
-      //http://52.77.244.89:8080
+      "https://52.77.244.89:8080/user/email_verification",
+      //https://52.77.244.89:8080
       { otp: otp },
     );
     console.log(res.data)
@@ -46,8 +46,8 @@ const SignIn = () => {
   const sendOtp = async () => {
     try {
      const {data} = await axios.post(
-        "http://52.77.244.89:8080/user/send_otp",
-        //http://52.77.244.89:8080
+        "https://52.77.244.89:8080/user/send_otp",
+        //https://52.77.244.89:8080
         user
       );
       if(data.status) 
@@ -66,8 +66,8 @@ const SignIn = () => {
       setEmail(true)
       return 
     }
-    const response = await axios.post("http://52.77.244.89:8080/user/login", user);
-    //http://52.77.244.89:8080
+    const response = await axios.post("https://52.77.244.89:8080/user/login", user);
+    //https://52.77.244.89:8080
     console.log(response.data);
     if(response?.data?.email){
       if(userToken){
