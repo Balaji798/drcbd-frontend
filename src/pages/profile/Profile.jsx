@@ -33,7 +33,7 @@ const Profile = () => {
       };
       
       const res = await axios.put(
-        "https://52.77.244.89:8080/user/update_user",
+        "https://drcbd-backend.onrender.com/user/update_user",
         //https://52.77.244.89:8080
         userData,
         config

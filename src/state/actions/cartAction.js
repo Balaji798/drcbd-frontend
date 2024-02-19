@@ -24,7 +24,7 @@ export const removeItemFromCart = async (dispatch, itemId) => {
     };
     console.log(itemId)
     await axios.post(
-      "https://52.77.244.89:8080/cart/remove_item_from_cart",
+      "https://drcbd-backend.onrender.com/cart/remove_item_from_cart",
       //https://52.77.244.89:8080
       { productId: itemId },
       config
