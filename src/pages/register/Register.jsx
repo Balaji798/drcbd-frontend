@@ -99,8 +99,8 @@ const Register = () => {
                   fontWeight: "bold",
                 }}
                 onClick={() => {
-                  window.location.reload();
                   navigate('/')
+                  window.location.reload();
                 }}
               >
                 Go Home
