@@ -118,7 +118,7 @@ const PayPal = () => {
               ))}
             </div>
             <div style={{ width: "100%",borderLeft:"1px solid",borderRight:"1px solid",borderBottom:"1px solid" }}>
-              {orderData?.items.length>0 && orderData?.items?.map((item, index) => (
+              {orderData?.items?.length>0 && orderData?.items?.map((item, index) => (
                 <div
                   style={{
                     display: "flex",
