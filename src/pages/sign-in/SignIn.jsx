@@ -92,8 +92,8 @@ const SignIn = () => {
       localStorage.setItem("token", response.data.token);
       await updateUser(dispatch)
       console.log("Signup success", response.data);
-      navigate("/");
-      window.location.reload()
+      // navigate("/");
+      // window.location.reload()
     }
   };
 
@@ -179,7 +179,7 @@ const SignIn = () => {
               setUser({ ...user, email: e.target.value })
             }}
           />
-          {email&&<p style={{color:"red"}}>Email is not valid</p>}
+          {email&&<p style={{color:"red"}}>Email is not valid or you are not Signup</p>}
           <p>Password</p>
           <input
           type='password'

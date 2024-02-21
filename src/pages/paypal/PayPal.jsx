@@ -108,7 +108,7 @@ const PayPal = () => {
                 color:"#fff"
               }}
             >
-              {summeryTitle.map((item) => (
+              {summeryTitle?.map((item) => (
                 <p
                   key={item}
                   style={{ width: item === "Product" ? "55%" : "15%",textAlign: item === "Product" ?"start":"center",borderLeft: item === "Product" ?"0":"1px solid",fontWeight:"bold" }}
@@ -160,23 +160,24 @@ const PayPal = () => {
               style={{ layout: "vertical" }}
               createOrder={async (data, actions) => {
                 try {
-                  const order = await actions.order.create({
+                  return await actions.order.create({
                     purchase_units: [
                       {
                         description: "abcd",
                         amount: {
-                          currency_code: "USD",
+                          currency_code: "THB",
                           value: `${price.toFixed(2)}`,
                         },
                       },
                     ],
                   });
-                  return order;
+                  
                 } catch (error) {
                   console.error("Error creating order:", error);
                   return null;
                 }
               }}
+              
               onApprove={async (data, actions) => {
                 const order = await actions.order.capture();
                 if (order.status === "COMPLETED") {

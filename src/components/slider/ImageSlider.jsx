@@ -260,7 +260,7 @@ const ImageSlider = () => {
             <div className="product-container-home">
               {product.map((item, index) => (
                 <Link
-                to={`/by-category/${item.link}`}
+                to={`/cbd-by-category/${item.link}`}
                   className="home-product-item home-product-top"
                   style={{ backgroundImage: `url(${item.background})` }}
                   key={index}
@@ -334,7 +334,7 @@ const ImageSlider = () => {
           <div className="product-container-home">
             {affiliates.map((item, index) => (
               <Link
-               to={`/by-purpose/${item?.link}`}
+               to={`/cbd-by-purpose/${item?.link}`}
                 className="home-product-item"
                 style={{
                   backgroundImage: `url(${item.background})`,
