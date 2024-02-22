@@ -32,7 +32,7 @@ const PayPal = () => {
       },
     };
     const res = await await axios.post(
-      `https://drcbd-backend.onrender.com/orders/update_order/${orderId}`,
+      `https://drcbd-backend-zgqu.onrender.com/orders/update_order/${orderId}`,
       //https://52.77.244.89:8080
       { orderId, status: "placed" },
       config
@@ -40,7 +40,7 @@ const PayPal = () => {
     console.log(res.data);
     if (res.data.status) {
       const response = await axios.post(
-        "https://drcbd-backend.onrender.com/orders/confirm_payment",
+        "https://drcbd-backend-zgqu.onrender.com/orders/confirm_payment",
         //https://52.77.244.89:8080
         { orderId },
         config

@@ -49,7 +49,7 @@ const Forms = (props) => {
       };
 
       const res = await axios.post(
-        "https://drcbd-backend.onrender.com/user/edit-user",
+        "https://drcbd-backend-zgqu.onrender.com/user/edit-user",
         //https://52.77.244.89:8080
         userAdd,
         config
@@ -64,14 +64,14 @@ const Forms = (props) => {
           },
         };
         const respo = await axios.post(
-          "https://drcbd-backend.onrender.com/orders/place_order",
+          "https://drcbd-backend-zgqu.onrender.com/orders/place_order",
           //https://52.77.244.89:8080
           { cartId: orderId },
           config
         );
         console.log(respo.data);
         const response = await axios.post(
-          "https://drcbd-backend.onrender.com/orders/update_order/" + respo.data.orderId._id,
+          "https://drcbd-backend-zgqu.onrender.com/orders/update_order/" + respo.data.orderId._id,
           //https://52.77.244.89:8080
           userAdd,
           config

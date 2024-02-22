@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     if (user.newPassword !== user.confirmPassword) {
       alert("Password did not match");
     }
-    const res = await axios.post("https://drcbd-backend.onrender.com/user/change_password", {
+    const res = await axios.post("https://drcbd-backend-zgqu.onrender.com/user/change_password", {
       email: user.email,
       password: user.newPassword,
     });

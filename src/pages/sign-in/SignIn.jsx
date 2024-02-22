@@ -28,7 +28,7 @@ const SignIn = () => {
   // }]
   const verifyEmail = async () => {
     const res = await axios.post(
-      "https://drcbd-backend.onrender.com/user/email_verification",
+      "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
       //https://52.77.244.89:8080
       { otp: otp },
     );
@@ -46,7 +46,7 @@ const SignIn = () => {
   const sendOtp = async () => {
     try {
      const {data} = await axios.post(
-        "https://drcbd-backend.onrender.com/user/send_otp",
+        "https://drcbd-backend-zgqu.onrender.com/user/send_otp",
         //https://52.77.244.89:8080
         user
       );
@@ -66,7 +66,7 @@ const SignIn = () => {
       setEmail(true)
       return 
     }
-    const response = await axios.post("https://drcbd-backend.onrender.com/user/login", user);
+    const response = await axios.post("https://drcbd-backend-zgqu.onrender.com/user/login", user);
     //https://52.77.244.89:8080
     console.log(response.data);
     if(response?.data?.email){
