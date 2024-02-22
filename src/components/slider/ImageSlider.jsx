@@ -203,7 +203,7 @@ const ImageSlider = () => {
       >
         <video autoPlay loop muted playsInline>
           <source
-            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/video.mp4"
+            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home-video.mp4"
             type="video/mp4"
           />
         </video>

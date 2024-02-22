@@ -92,8 +92,8 @@ const SignIn = () => {
       localStorage.setItem("token", response.data.token);
       await updateUser(dispatch)
       console.log("Signup success", response.data);
-      // navigate("/");
-      // window.location.reload()
+      navigate("/");
+      window.location.reload()
     }
   };
 
