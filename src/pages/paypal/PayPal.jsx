@@ -74,6 +74,7 @@ const PayPal = () => {
               onClick={() => {
                 setOrderStatus(false);
                 navigate("/order-history");
+                window.location.reload()
               }}
             >
               Track Order
