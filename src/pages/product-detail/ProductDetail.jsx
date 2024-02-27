@@ -12,8 +12,8 @@ import ProductSlider from "../../components/productSlider/ProductSlider";
 import data from "../../data";
 import "./productDetail.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useParams, useLocation } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { productIcon } from "./product-icon";
@@ -29,7 +29,6 @@ const ProductDetail = () => {
   const { productName,categoryName } = useParams();
   //const navigate = useNavigate();
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
-  const { state } = useLocation();
   const scrollToTarget = () => {
     // Scroll to the target element
     if (targetRef.current) {
