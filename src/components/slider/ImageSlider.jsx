@@ -205,7 +205,7 @@ const ImageSlider = () => {
     <div
         className="video home-video"
       >
-        <video autoPlay loop muted playsInline>
+        <video autoPlay loop muted playsInline style={{marginTop:"-5rem"}}>
           <source
             src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home-video.mp4"
             type="video/mp4"

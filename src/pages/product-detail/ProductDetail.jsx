@@ -16,7 +16,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { productIcon } from "./product-icon";
+// import { productIcon } from "./product-icon";
 import ApiService from "../../services/ApiService";
 import { useSelector } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
@@ -65,19 +65,19 @@ const ProductDetail = () => {
   const [price, setPrice] = useState("");
 
   useEffect(() => {
+    const getProductByName = async () => {
+      try {
+        setPrice(Number(productByName[0]?.price)?.toFixed(2));
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
     getProductByName();
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTo(0, 0);
     }
-  }, []);
+  }, [productByName]);
 
-  const getProductByName = async () => {
-    try {
-      setPrice(Number(productByName[0]?.price)?.toFixed(2));
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
 
   const about = [
     {
@@ -154,6 +154,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const getProduct = async () => {
       const res = await ApiService.getAllProduct();
+      // eslint-disable-next-line array-callback-return
       const categoryProduct = res.data.filter((item) => {
         if (
           item.categoryName.includes(
@@ -172,7 +173,7 @@ const ProductDetail = () => {
       setSmeCategoryProduct(categoryProduct);
     };
     getProduct();
-  }, []);
+  }, [categoryName]);
   useEffect(() => {
     const lastIndex = data.length - 1;
     if (activeIndex < 0) {
@@ -181,7 +182,7 @@ const ProductDetail = () => {
     if (activeIndex > lastIndex) {
       setActiveIndex(0);
     }
-  }, [activeIndex, data]);
+  }, [activeIndex]);
 
   const addToCart = async () => {
     try {
@@ -706,10 +707,33 @@ const ProductDetail = () => {
           </button>{" "}
         </div>
         <div className="video">
-        <video autoPlay loop muted playsInline>
+        <video autoPlay loop muted playsInline style={{marginTop:"-5rem"}}>
           <source src={productByName[0]?.videoLink} type="video/mp4" />
         </video>
+        </div>
+        <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          padding: " 10px 1rem 10px 0",
+        }}
+      >
+        <button
+          style={{
+            fontSize: 18,
+            width: 200,
+            padding: "5px 0",
+            cursor: "pointer",
+          }}
+          onClick={scrollToTarget}
+        >
+          ADD TO CART{" "}
+          <MdOutlineAddShoppingCart
+            style={{ paddingLeft: 5, fontSize: "35px" }}
+          />{" "}
+        </button>{" "}
       </div>
+        <VerticalCarousel productId={productByName[0]?._id} />
         <div className="social-media-container">
           {concatData.map((item, index) => (
             <a href={item.link} className="social-media">
@@ -743,29 +767,6 @@ const ProductDetail = () => {
             />{" "}
           </button>{" "}
         </div>
-        <VerticalCarousel productId={productByName[0]?._id} />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          padding: " 10px 1rem 10px 0",
-        }}
-      >
-        <button
-          style={{
-            fontSize: 18,
-            width: 200,
-            padding: "5px 0",
-            cursor: "pointer",
-          }}
-          onClick={scrollToTarget}
-        >
-          ADD TO CART{" "}
-          <MdOutlineAddShoppingCart
-            style={{ paddingLeft: 5, fontSize: "35px" }}
-          />{" "}
-        </button>{" "}
       </div>
       <div
         style={{
