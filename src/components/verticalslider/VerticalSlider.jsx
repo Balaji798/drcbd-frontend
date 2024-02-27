@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BsPersonCircle } from "react-icons/bs";
-import { ImStarFull, ImStarHalf } from "react-icons/im";
+import { ImStarFull } from "react-icons/im";
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 import "./verticalSlider.css";
 import axios from "axios";
 import Rating from "../Rating";
+import { TbStar } from "react-icons/tb";
 
 const VerticalSlider = ({ productId }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,9 +22,14 @@ const VerticalSlider = ({ productId }) => {
   });
   useEffect(() => {
     getFeed();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handelSubmit = async () => {
     try {
+      if(feed.rating === '' && feed.review === ''){
+        alert('Review and rating required ')
+        return
+      }
       const user = localStorage.getItem("token");
       if (user) {
         const config = {
@@ -32,16 +38,13 @@ const VerticalSlider = ({ productId }) => {
             "Content-Type": "application/json", // Set the content type to JSON
           },
         };
-        //https://52.77.244.89:8080
-        const res = await axios.post(
+         await axios.post(
           "https://drcbd-backend-zgqu.onrender.com/review/add-review",
           //https://52.77.244.89:8080
           feed,
           config
         );
         setFeed({
-          name: "",
-          email: "",
           review: "",
           rating: "",
           productId: productId,
@@ -117,7 +120,9 @@ const VerticalSlider = ({ productId }) => {
       totalRating += review.rating;
       totalReviews++;
     }
-    return Math.round((totalRating / totalReviews) * 10) / 10;;
+    return totalRating / totalReviews > 0
+      ? Math.round((totalRating / totalReviews) * 10) / 10
+      : 0;
   };
   return (
     <div className="review-container center" style={{ background: "#ededed" }}>
@@ -173,7 +178,13 @@ const VerticalSlider = ({ productId }) => {
                     alignItems: "center",
                   }}
                 >
-                  <Rating userReviews={userReviews} />
+                  {userReviews.length > 0 ? (
+                    <Rating userReviews={userReviews} />
+                  ) : (
+                    [1, 2, 3, 4, 5].map((_, index) => (
+                      <TbStar key={index} size={25} />
+                    ))
+                  )}
                 </div>
               </div>
             </div>
@@ -305,26 +316,7 @@ const VerticalSlider = ({ productId }) => {
             }}
             onChange={(e) => setFeed({ ...feed, review: e.target.value })}
           />
-          <div className="user-review">
-            <p style={{ paddingRight: "5px" }}>Name</p>
-            <input
-              style={{
-                fontSize: 20,
-                margin: "0.5rem 0",
-                padding: "0.2rem 0.5rem",
-              }}
-              onChange={(e) => setFeed({ ...feed, name: e.target.value })}
-            />
-            <p style={{ padding: "0 5px" }}>Email</p>
-            <input
-              style={{
-                fontSize: 20,
-                margin: "0.5rem 0",
-                padding: "0.2rem 0.5rem",
-              }}
-              onChange={(e) => setFeed({ ...feed, email: e.target.value })}
-            />
-          </div>
+
           <div
             style={{
               display: "flex",

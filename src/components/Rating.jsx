@@ -9,7 +9,6 @@ const Rating = ({ userReviews }) => {
 
   const totalRating = userReviews.reduce((sum, item) => sum + item.rating, 0);
   const averageRating = totalRating / userReviews.length;
-
   // Check if averageRating is a valid number
   if (isNaN(averageRating) || !isFinite(averageRating)) {
     return null; // or return a default state/message
