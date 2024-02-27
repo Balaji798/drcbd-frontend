@@ -4,7 +4,6 @@ import axios from "axios";
 export const getCart = async (dispatch) => {
   try {
     const res = await ApiService.getCart();
-    console.log(res)
    
     dispatch({ type: "FETCH_CART_SUCCESS", cart: res.data });
   } catch (error) {
@@ -22,7 +21,6 @@ export const removeItemFromCart = async (dispatch, itemId) => {
         "Content-Type": "application/json", // Set the content type to JSON
       },
     };
-    console.log(itemId)
     await axios.post(
       "https://drcbd-backend-zgqu.onrender.com/cart/remove_item_from_cart",
       //https://52.77.244.89:8080

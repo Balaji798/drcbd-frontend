@@ -69,7 +69,6 @@ const Forms = (props) => {
           { cartId: orderId },
           config
         );
-        console.log(respo.data);
         const response = await axios.post(
           "https://drcbd-backend-zgqu.onrender.com/orders/update_order/" + respo.data.orderId._id,
           //https://52.77.244.89:8080
@@ -80,7 +79,6 @@ const Forms = (props) => {
 
         const totalPrice =
           respo.data.orderId.totalPrice + respo.data.orderId.totalDeliveryCharge;
-        console.log(totalPrice)
         if (response.data.status)
           navigate("/order-summery/" + respo.data.orderId._id, {
             state: { price: totalPrice },

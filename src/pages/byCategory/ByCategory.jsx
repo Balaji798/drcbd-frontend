@@ -6,7 +6,7 @@ import "./byCategory.css"
 
 const fiterData = [
   {
-    title: "CBD CATEGORY",
+    title: "CBD BY CATEGORY",
     options: [
       {
         title: "OIL",
@@ -104,7 +104,6 @@ const fiterData = [
 
 const ByCategory = () => {
   const { pathname } = useLocation();
-  //console.log(pathname.split("/")[1]);
   const [data, setData] = useState([]);
   const [meanData, setMeanData] = useState([]);
   const { categoryName } = useParams();
@@ -120,7 +119,6 @@ const ByCategory = () => {
     try {
       setCname(categoryName.split("-").join(" "));
       const res = await ApiService.getAllProduct();
-      console.log(res.data,'hhh')
       const categoryProduct = res.data.filter((item) => {
         if (
           item.categoryName.includes(
@@ -182,7 +180,7 @@ const ByCategory = () => {
             </h3>
             <ul style={{ listStyle: "none"}}>
               {fiterData[
-                "by-category" === pathname.split("/")[1] ? 0 : 1
+                "cbd-by-category" === pathname.split("/")[1] ? 0 : 1
               ]?.options.map((item, index) => (
                 <li
                   key={index}

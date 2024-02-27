@@ -32,14 +32,12 @@ const SignIn = () => {
       //https://52.77.244.89:8080
       { otp: otp },
     );
-    console.log(res.data)
     if(!res.data.status){
       setToken(true)
     }
     if (res.data.status===true) {
       localStorage.setItem("token", res.data.token);
       await updateUser(dispatch)
-      console.log("Signup success", res.data);
       navigate("/");
     };
   };
@@ -68,7 +66,6 @@ const SignIn = () => {
     }
     const response = await axios.post("https://drcbd-backend-zgqu.onrender.com/user/login", user);
     //https://52.77.244.89:8080
-    console.log(response.data);
     if(response?.data?.email){
       if(userToken){
         localStorage.removeItem('token')
@@ -91,7 +88,6 @@ const SignIn = () => {
       }
       localStorage.setItem("token", response.data.token);
       await updateUser(dispatch)
-      console.log("Signup success", response.data);
       navigate("/");
       window.location.reload()
     }

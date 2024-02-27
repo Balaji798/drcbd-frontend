@@ -43,7 +43,6 @@ const ScrollToTop = () => {
 
 function App() {
   const [openNav,setOpenNav]= useState(false);
-  console.log(window.innerWidth)
   const dispatch = useDispatch();
   useEffect(() => {
     const getProducts = async () => {
@@ -77,7 +76,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/cbd-by-purpose" element={<ByPurpose />} />
             <Route
-              path="/product-detail/:productName"
+              path="/product-detail/:categoryName/:productName"
               element={<ProductDetail />}
             />
             <Route path="/cart" element={<Cart />} />

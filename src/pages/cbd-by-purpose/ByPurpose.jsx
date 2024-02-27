@@ -309,7 +309,7 @@ const PreviousBtn = (props) => {
                   textDecoration: "none",
                   fontSize: "20px",
                 }}
-                to={`/by-purpose/${item[0]}`}
+                to={`/cbd-by-purpose/${item[0]}`}
               >
                 See All
               </Link>

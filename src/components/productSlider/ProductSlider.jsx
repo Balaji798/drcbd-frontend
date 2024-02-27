@@ -10,7 +10,7 @@ const ProductSlider = ({ image, i, marginB,categoryName }) => {
       className="slider-item"
       key={i}
       style={{ marginBottom: "1rem", zIndex: 0 }}
-      onClick={()=>{navigate(`/product-detail/` + image.name, {
+      onClick={()=>{navigate(`/product-detail/${categoryName}/` + image.name, {
         state: { catName1: categoryName},
       });}}
     >

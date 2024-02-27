@@ -8,7 +8,6 @@ const Orders = () => {
   useEffect(() => {
     const getOrders = async () => {
       const res = await ApiService.getUserOrder();
-      console.log(res.data);
       const data = res.data.filter(item=> {return item.status[item.status.length-1].orderStatus!=='pending'})
       setOrderData(data);
     };

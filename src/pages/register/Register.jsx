@@ -44,7 +44,6 @@ const Register = () => {
   };
 
   const verifyEmail = async () => {
-    console.log(otp)
     
     const res = await axios.post(
       "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
@@ -52,7 +51,6 @@ const Register = () => {
       { otp: otp }
     );
     if(res.data.status){
-      console.log(res.data)
       localStorage.setItem("token", res.data.token);
       setToken(true)
     }

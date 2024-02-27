@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./modal.css"
 
 const Modal = ({ setOpen,user }) => {
-  console.log(!user)
   const navigate = useNavigate();
   const handelNext = ()=>{
     !user?navigate('/sign-in'):navigate("/register");

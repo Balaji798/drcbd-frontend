@@ -20,7 +20,6 @@ const VerticalSlider = ({ productId }) => {
     productId: productId,
   });
   useEffect(() => {
-   
     getFeed();
   }, []);
   const handelSubmit = async () => {
@@ -46,22 +45,22 @@ const VerticalSlider = ({ productId }) => {
           review: "",
           rating: "",
           productId: productId,
-        })
-        getFeed()
+        });
+        getFeed();
       }
     } catch (err) {
       console.log(err);
     }
   };
- 
+
   const getFeed = async () => {
     const productReviews = await axios.post(
       "https://drcbd-backend-zgqu.onrender.com/review/get-reviews-by-productId",
       //https://52.77.244.89:8080
       { productId: productId }
     );
-    setUserReviews(productReviews.data)
-    setDisplayedReviews(productReviews.data.slice(0, 3))
+    setUserReviews(productReviews.data);
+    setDisplayedReviews(productReviews.data.slice(0, 3));
   };
   const shiftAmount = 1; // Shift one step at a time
   const handleButtonClick = (direction) => {
@@ -73,7 +72,8 @@ const VerticalSlider = ({ productId }) => {
     // );
     // setDisplayedReviews(shiftedReviews.slice(0, 3));
     const shift = direction === "forward" ? shiftAmount : -shiftAmount;
-    const nextIndex = (currentIndex + shift + userReviews.length) % userReviews.length;
+    const nextIndex =
+      (currentIndex + shift + userReviews.length) % userReviews.length;
 
     // Ensure nextIndex is within the bounds of the userReviews array
     if (nextIndex >= 0 && nextIndex < userReviews.length) {
@@ -84,12 +84,46 @@ const VerticalSlider = ({ productId }) => {
       setDisplayedReviews(shiftedReviews.slice(0, 3));
     }
   };
+  const calculateAgeDescription = (givenDate) => {
+    const date = new Date(givenDate);
+    const currentDate = new Date();
+    const difference = currentDate - date;
+    const daysDifference = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const weeksDifference = Math.floor(daysDifference / 7);
+    const monthsDifference = Math.floor(daysDifference / 30);
+
+    if (daysDifference === 0) {
+      return "Today";
+    } else if (daysDifference === 1) {
+      return "Yesterday";
+    } else if (weeksDifference === 1) {
+      return "1 week ago";
+    } else if (weeksDifference > 1 && weeksDifference < 4) {
+      return `${weeksDifference} weeks ago`;
+    } else if (monthsDifference === 1) {
+      return "1 month ago";
+    } else if (monthsDifference > 1) {
+      return `${monthsDifference} months ago`;
+    } else {
+      return "More than a month ago";
+    }
+  };
+
+  const calculateAverageRating = (reviews) => {
+    let totalRating = 0;
+    let totalReviews = 0;
+
+    for (const review of reviews) {
+      totalRating += review.rating;
+      totalReviews++;
+    }
+    return Math.round((totalRating / totalReviews) * 10) / 10;;
+  };
   return (
-    <div
-      className="review-container center"
-      style={{ background: "#ededed" }}
-    >
-      <div style={{ maxWidth: "1200px", width: "100%", padding: "2rem 1rem 0" }}>
+    <div className="review-container center" style={{ background: "#ededed" }}>
+      <div
+        style={{ maxWidth: "1200px", width: "100%", padding: "2rem 1rem 0" }}
+      >
         <h1 style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
           Reviews
         </h1>
@@ -110,7 +144,9 @@ const VerticalSlider = ({ productId }) => {
                 color: "#fff",
               }}
             >
-              <h1 style={{ fontSize: "30px" }}>4.5</h1>
+              <h1 style={{ fontSize: "30px" }}>
+                {calculateAverageRating(userReviews)}
+              </h1>
             </div>
             <div
               style={{
@@ -134,10 +170,10 @@ const VerticalSlider = ({ productId }) => {
                     paddingTop: 3,
                     display: "flex",
                     justifyContent: "space-between",
-                    alignItems:"center"
+                    alignItems: "center",
                   }}
                 >
-                  <Rating userReviews={userReviews}/>
+                  <Rating userReviews={userReviews} />
                 </div>
               </div>
             </div>
@@ -147,24 +183,31 @@ const VerticalSlider = ({ productId }) => {
       </div>
       <div
         className="review-container"
-        style={{ maxWidth: "1200px", width: "100%", paddingBottom: "2rem",display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center" }}
+        style={{
+          maxWidth: "1200px",
+          width: "100%",
+          paddingBottom: "2rem",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <div className="reviews">
           <div className="vertical-slider">
-            {displayedReviews.length>2 && <SlArrowUp
-              onClick={() => handleButtonClick("forward")}
-              style={{
-                cursor: "pointer",
-                alignSelf: "center",
-                fontSize: "55px",
-              }}
-            />}
+            {displayedReviews.length > 2 && (
+              <SlArrowUp
+                onClick={() => handleButtonClick("forward")}
+                style={{
+                  cursor: "pointer",
+                  alignSelf: "center",
+                  fontSize: "55px",
+                }}
+              />
+            )}
             <div style={{ width: "100%" }}>
               {displayedReviews.map((item, index) => (
-                <div
-                  className="review"
-                  key={index}
-                >
+                <div className="review" key={index}>
                   <div
                     style={{
                       display: "flex",
@@ -196,20 +239,22 @@ const VerticalSlider = ({ productId }) => {
                     {item?.review}
                   </p>
                   <p style={{ fontSize: 10, alignSelf: "flex-end" }}>
-                    Posted 7 month's ago
+                    {calculateAgeDescription(item?.createdAt)}
                   </p>
                 </div>
               ))}
             </div>
 
-            {displayedReviews.length>2 &&<SlArrowDown
-              onClick={() => handleButtonClick("backward")}
-              style={{
-                cursor: "pointer",
-                alignSelf: "center",
-                fontSize: "55px",
-              }}
-            />}
+            {displayedReviews.length > 2 && (
+              <SlArrowDown
+                onClick={() => handleButtonClick("backward")}
+                style={{
+                  cursor: "pointer",
+                  alignSelf: "center",
+                  fontSize: "55px",
+                }}
+              />
+            )}
           </div>
           <div
             style={{
@@ -218,12 +263,13 @@ const VerticalSlider = ({ productId }) => {
               width: "90%",
             }}
           >
-            <a style={{ textAlign: "end" }} href="#"> See More {">>"}</a>
+            <a style={{ textAlign: "end" }} href="#">
+              {" "}
+              See More {">>"}
+            </a>
           </div>
         </div>
-        <div
-          className="add-review"
-        >
+        <div className="add-review">
           <h2>Add Review</h2>
           <p style={{ padding: "0.5rem 0" }}>Your Rating</p>
           <div
@@ -260,24 +306,24 @@ const VerticalSlider = ({ productId }) => {
             onChange={(e) => setFeed({ ...feed, review: e.target.value })}
           />
           <div className="user-review">
-          <p style={{ paddingRight: "5px" }}>Name</p>
-          <input
-            style={{
-              fontSize: 20,
-              margin: "0.5rem 0",
-              padding: "0.2rem 0.5rem",
-            }}
-            onChange={(e) => setFeed({ ...feed, name: e.target.value })}
-          />
-          <p style={{ padding: "0 5px" }}>Email</p>
-          <input
-            style={{
-              fontSize: 20,
-              margin: "0.5rem 0",
-              padding: "0.2rem 0.5rem",
-            }}
-            onChange={(e) => setFeed({ ...feed, email: e.target.value })}
-          />
+            <p style={{ paddingRight: "5px" }}>Name</p>
+            <input
+              style={{
+                fontSize: 20,
+                margin: "0.5rem 0",
+                padding: "0.2rem 0.5rem",
+              }}
+              onChange={(e) => setFeed({ ...feed, name: e.target.value })}
+            />
+            <p style={{ padding: "0 5px" }}>Email</p>
+            <input
+              style={{
+                fontSize: 20,
+                margin: "0.5rem 0",
+                padding: "0.2rem 0.5rem",
+              }}
+              onChange={(e) => setFeed({ ...feed, email: e.target.value })}
+            />
           </div>
           <div
             style={{

@@ -7,12 +7,12 @@ import "./Slider.css";
 
 const ImageSlider = () => {
   const affiliates = [
-    {
-      title: "SKINCARE BEAUTY",
-      background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-01.jpg",
-        link:'#'
-    },
+    // {
+    //   title: "SKINCARE BEAUTY",
+    //   background:
+    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-01.jpg",
+    //     link:'#'
+    // },
     {
       title: "SKINCARE",
       background:
@@ -73,12 +73,12 @@ const ImageSlider = () => {
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-11.jpg",
         link:'HORMONES'
     },
-    {
-      title: "OPIOID",
-      background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-12.jpg",
-        link:'#'
-    },
+    // {
+    //   title: "OPIOID",
+    //   background:
+    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-12.jpg",
+    //     link:'#'
+    // },
   ];
   const product = [
     {
@@ -116,12 +116,12 @@ const ImageSlider = () => {
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-05.jpg",
         link:"CBD-FOR-PETS"
     },
-    {
-      title: "CBD FOR MUSCLE & JOINTS",
-      background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/1.jpg",
-        link:"#"
-    },
+    // {
+    //   title: "CBD FOR MUSCLE & JOINTS",
+    //   background:
+    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/1.jpg",
+    //     link:"#"
+    // },
     {
       title: "HOME USE",
       background:
@@ -134,22 +134,26 @@ const ImageSlider = () => {
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1701968935468.jpg",
       name: "Earth Lab CBD De' Leep Softgel",
+      cat: 'CBD-SUPPLEMENTS',
       link: "EARTH LAB CBD DE'LEEP",
     },
     {
       url: "./earth.png",
       name: "Earth Lab CBD Whitening Mask",
+      cat: 'CBD-FACE',
       link: "CBD WHITENING MASK SHEET",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694014891114.jpg",
       name: "CBD I-MUN",
+      cat: 'CBD-SUPPLEMENTS',
       link: "CBD I-MUN",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/CBD_Collagen-WBG1.png",
       name: "CBD Collagen peptide",
-      link: "CBD COLLAGEN PETPITDE",
+      cat:'CBD-BEVERAGE',
+      link: "EARTHLAB CBD COLLAGEN PEPTIDE",
     },
   ];
 
@@ -411,7 +415,7 @@ const ImageSlider = () => {
           style={{ paddingTop: "2rem", maxWidth: "1270px", width: "100%" }}
         >
           {products.map((item, index) => (
-            <Link to={`/product-detail/` + item.link} key={index}>
+            <Link to={`/product-detail/${item?.cat}/` + item.link} key={index}>
               <img
                 src={item.url}
                 style={{ width: "18rem", height: "18em", objectFit: "contain" }}

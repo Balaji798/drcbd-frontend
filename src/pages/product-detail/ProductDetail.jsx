@@ -26,8 +26,8 @@ const ProductDetail = () => {
   const targetRef = useRef(null);
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
-  const { productName } = useParams();
-  const navigate = useNavigate();
+  const { productName,categoryName } = useParams();
+  //const navigate = useNavigate();
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
   const { state } = useLocation();
   const scrollToTarget = () => {
@@ -42,16 +42,16 @@ const ProductDetail = () => {
       item.name?.toLowerCase().trim() === productName?.toLowerCase().trim()
     );
   });
-  const [icons, setIcons] = useState(
-    productIcon.filter((item) => {
-      if (
-        productName?.toLowerCase()?.split("-").join(" ") ===
-        item.title.toLowerCase()
-      ) {
-        return item;
-      }
-    })
-  );
+  // const [icons, setIcons] = useState(
+  //   productIcon.filter((item) => {
+  //     if (
+  //       productName?.toLowerCase()?.split("-").join(" ") ===
+  //       item.title.toLowerCase()
+  //     ) {
+  //       return item;
+  //     }
+  //   })
+  // );
 
   const [open, setOpen] = useState(false);
 
@@ -158,13 +158,13 @@ const ProductDetail = () => {
       const categoryProduct = res.data.filter((item) => {
         if (
           item.categoryName.includes(
-            state?.catName1?.split("-").join(" ").toLowerCase()
+            categoryName.split("-").join(" ").toLowerCase()
           )
         ) {
           return item;
         } else if (
           item?.purposeName?.includes(
-            state?.catName1?.split("-").join(" ").toLowerCase()
+            categoryName.split("-").join(" ").toLowerCase()
           )
         ) {
           return item;
@@ -214,39 +214,39 @@ const ProductDetail = () => {
       console.log(err.message);
     }
   };
-  const buy = async() => {
-    try {
-      const requestBody = { qty, price, productId: productByName[0]?._id };
-      const user = localStorage.getItem("token");
-      if (user) {
-        const config = {
-          headers: {
-            Authorization: `Bearer ${user}`,
-            "Content-Type": "application/json", // Set the content type to JSON
-          },
-        };
-        const res = await axios.post(
-          "https://drcbd-backend-zgqu.onrender.com/cart/add-to-card",
-          //https://52.77.244.89:8080
-          requestBody,
-          config
-        );
-        if (res.data !== "Item Add Successfully") {
-          setOpen(true);
-        }
-        await getCart(dispatch);
-        navigate(`/cart/?productId=${product._id}`);
-        return;
-      } else {
-        alert("You are not login login first");
-      }
-    } catch (err) {
-      console.log(err.message);
-    }
+  // const buy = async() => {
+  //   try {
+  //     const requestBody = { qty, price, productId: productByName[0]?._id };
+  //     const user = localStorage.getItem("token");
+  //     if (user) {
+  //       const config = {
+  //         headers: {
+  //           Authorization: `Bearer ${user}`,
+  //           "Content-Type": "application/json", // Set the content type to JSON
+  //         },
+  //       };
+  //       const res = await axios.post(
+  //         "https://drcbd-backend-zgqu.onrender.com/cart/add-to-card",
+  //         //https://52.77.244.89:8080
+  //         requestBody,
+  //         config
+  //       );
+  //       if (res.data !== "Item Add Successfully") {
+  //         setOpen(true);
+  //       }
+  //       await getCart(dispatch);
+  //       navigate(`/cart/?productId=${product._id}`);
+  //       return;
+  //     } else {
+  //       alert("You are not login login first");
+  //     }
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
  
 
-    // if (user) setOpen(!open);
-  };
+  //   // if (user) setOpen(!open);
+  // };
 
   const PreviousBtn = (props) => {
     const { onClick } = props;
@@ -298,7 +298,6 @@ const ProductDetail = () => {
       },
     ],
   };
-  console.log(productByName[0]?.price)
   return (
     <div ref={scrollContainerRef}>
       <div>
@@ -707,21 +706,21 @@ const ProductDetail = () => {
             />{" "}
           </button>{" "}
         </div>
+        <div className="video">
+        <video autoPlay loop muted playsInline>
+          <source src={productByName[0]?.videoLink} type="video/mp4" />
+        </video>
+      </div>
         <div className="social-media-container">
           {concatData.map((item, index) => (
             <a href={item.link} className="social-media">
               <div className="social-icon">{item.icon}</div>
               <p style={{ color: "#0b4640", paddingLeft: "0.5rem" }}>
-                Share On
+                Share On {" "}
                 {item.title}
               </p>
             </a>
           ))}
-        </div>
-        <div className="video">
-          <video autoPlay loop muted playsInline>
-            <source src={productByName[0]?.videoLink} type="video/mp4" />
-          </video>
         </div>
         <div
           style={{

@@ -19,7 +19,6 @@ const CBDByCategory = () => {
       const uniquePurposes = Array.from(
         new Set(product.flatMap((item) => item.categoryName))
       );
-      console.log(uniquePurposes)
       uniquePurposes.forEach((purpose) => {
         groupedData[purpose] = product.filter((item) =>
           item.categoryName.includes(purpose)
@@ -132,7 +131,7 @@ const CBDByCategory = () => {
                   textDecoration: "none",
                   fontSize: "20px",
                 }}
-                to={`/by-category/${item[0]}`}
+                to={`/cbd-by-category/${item[0]}`}
               >
                 See All
               </Link>

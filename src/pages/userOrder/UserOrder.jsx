@@ -18,7 +18,6 @@ const UserOrder = () => {
   useEffect(() => {
     const getOrder = async () => {
       const res = await ApiService.getOrder(orderId);
-      console.log(res.data, "data");
       setOrderData(res.data);
     };
     getOrder();
