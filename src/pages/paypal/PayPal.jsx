@@ -14,7 +14,7 @@ const PayPal = () => {
   const { state } = useLocation();
   const { price } = state;
   const { orderId } = useParams();
-  const OmiseCard = window.OmiseCard
+  // const OmiseCard = window.OmiseCard
   const user = localStorage.getItem("token");
   const config = {
     headers: {
