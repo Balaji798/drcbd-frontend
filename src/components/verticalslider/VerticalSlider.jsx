@@ -49,6 +49,7 @@ const VerticalSlider = ({ productId }) => {
           rating: "",
           productId: productId,
         });
+        
         getFeed();
       }
     } catch (err) {

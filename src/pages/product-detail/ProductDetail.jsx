@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import { FaInstagram, FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaTiktok, FaTwitter,FaLine } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VerticalCarousel from "../../components/verticalslider/VerticalSlider";
@@ -134,7 +134,7 @@ const ProductDetail = () => {
     },
     {
       title: "Line",
-      icon: <img src="../line-logo.png" alt="/" style={{}} />,
+      icon: <FaLine color="#fff"/>,
       link: "https://lin.ee/KhI4rwQ",
     },
     {
@@ -706,11 +706,7 @@ const ProductDetail = () => {
             />{" "}
           </button>{" "}
         </div>
-        <div className="video">
-        <video autoPlay loop muted playsInline style={{marginTop:"-5rem"}}>
-          <source src={productByName[0]?.videoLink} type="video/mp4" />
-        </video>
-        </div>
+        <VerticalCarousel productId={productByName[0]?._id} />
         <div
         style={{
           display: "flex",
@@ -733,7 +729,11 @@ const ProductDetail = () => {
           />{" "}
         </button>{" "}
       </div>
-        <VerticalCarousel productId={productByName[0]?._id} />
+        <div className="video">
+        <video autoPlay loop muted playsInline style={{marginTop:"-5rem"}}>
+          <source src={productByName[0]?.videoLink} type="video/mp4" />
+        </video>
+        </div>
         <div className="social-media-container">
           {concatData.map((item, index) => (
             <a href={item.link} className="social-media">
