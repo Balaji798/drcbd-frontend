@@ -42,7 +42,7 @@ export const fiterData = [
       options: [
         {
           title: "SLEEP",
-          link: "/cbd-by-purpose/SLEEP-DISORDER",
+          link: "/cbd-by-purpose/SLEEP",
         },
         {
           title: "IMMUNE",

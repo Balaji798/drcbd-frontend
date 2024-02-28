@@ -141,7 +141,7 @@ const ImageSlider = () => {
       url: "./earth.png",
       name: "Earth Lab CBD Whitening Mask",
       cat: 'CBD-FACE',
-      link: "CBD WHITENING MASK SHEET",
+      link: "EARTHLAB CBD WHITENING MASK",
     },
     {
       url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694014891114.jpg",
