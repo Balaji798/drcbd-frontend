@@ -58,7 +58,8 @@ function App() {
     <PayPalScriptProvider
       options={{
         "client-id": process.env.REACT_APP_CLIENT_ID,
-        currency: "THB"
+        currency: "THB",
+        intent: "capture"
       }}
     >
     <Router scrollRestoration="auto">
