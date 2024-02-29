@@ -328,7 +328,7 @@ const ProductDetail = () => {
       <div>
         {!productByName[0]?.bannerImg ? (
           <img
-            src="../info-product-banner.jpg"
+            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/info-product-banner.jpg"
             className="banner-image"
             alt="/"
           />
