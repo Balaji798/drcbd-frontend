@@ -17,8 +17,9 @@ const Footer = () => {
         }}
       >
         <img
-          src="../logo2-01.png"
+          src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/logo2-01.png"
           style={{ objectFit: "contain", height: "100%", width: "300px" }}
+          alt="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/logo2-01.png"
         />
         <div className="footer-container">
           {footerData.map((item, index) => (
