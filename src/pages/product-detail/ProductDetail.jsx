@@ -409,7 +409,7 @@ const ProductDetail = () => {
                 style={{
                   width: "100%",
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   marginTop:"1rem"
 
                 }}
@@ -421,6 +421,7 @@ const ProductDetail = () => {
                       width: "150px",
                       height: "150px",
                       background: "#f3f3f3",
+                      marginRight:"0.5rem"
                     }}
                     key={index}
                     onClick={() => setPosition(index)}
