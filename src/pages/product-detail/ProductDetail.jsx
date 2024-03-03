@@ -76,7 +76,7 @@ const ProductDetail = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTo(0, 0);
     }
-  }, [productByName]);
+  }, []);
 
 
   const about = [
@@ -298,6 +298,7 @@ const ProductDetail = () => {
       },
     ],
   };
+  console.log(price)
   return (
     <div ref={scrollContainerRef}>
       <div>

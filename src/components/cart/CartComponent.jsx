@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { getCart, removeItemFromCart } from "../../state/actions/cartAction";
+import { getCart } from "../../state/actions/cartAction";
 import './cart.css'
 
 const CartComponent = (props) => {
