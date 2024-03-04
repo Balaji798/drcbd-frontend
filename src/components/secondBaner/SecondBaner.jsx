@@ -402,8 +402,8 @@ const SecondBanner = () => {
             height: "39.5em",
             position: "absolute",
             zIndex: 0,
-            right: "11.3rem",
-            marginBottom: "-8em",
+            right: "15.3rem",
+            marginBottom: "-14em",
           }}
         />
       </div>

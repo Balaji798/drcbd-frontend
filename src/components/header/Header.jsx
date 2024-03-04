@@ -34,6 +34,7 @@ const Header = ({ openNav, setOpenNav }) => {
       setOpen(true);
     } else {
       const res = await ApiService.getUser();
+      console.log(res.data);
       res?.data?.user?.emailVerified ? navigate(type) : setOpen(true);
     }
   };
@@ -46,7 +47,7 @@ const Header = ({ openNav, setOpenNav }) => {
         <div className="header-container">
           <div className="sign-profile">
             {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/england.jpg" style={{ width: "30px" }} alt="/" />*/}
- {/*           <a href="#" style={{ marginRight: "2px" }}>
+            {/*           <a href="#" style={{ marginRight: "2px" }}>
               EN
             </a>
             /
@@ -57,11 +58,15 @@ const Header = ({ openNav, setOpenNav }) => {
             <Link to="/sign-in" style={{ marginLeft: "2px" }} className="sig">
               Sign In /
             </Link>
-            <p style={{ marginLeft: "2px",cursor:'pointer' }} className="sig" onClick={() => {
-              localStorage.removeItem("token");
-              navigate('/')
-              setOpenNav(false);
-            }}>
+            <p
+              style={{ marginLeft: "2px", cursor: "pointer" }}
+              className="sig"
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/");
+                setOpenNav(false);
+              }}
+            >
               Sign Out |
             </p>
             <p
@@ -101,7 +106,7 @@ const Header = ({ openNav, setOpenNav }) => {
                 style={{
                   outline: "none",
                   width: "100%",
-                  fontSize: 16,
+                  fontSize: 18,
                   border: "none",
                   background: "#fff",
                 }}
@@ -126,7 +131,15 @@ const Header = ({ openNav, setOpenNav }) => {
                           key={index}
                           onClick={() => setSearch("")}
                         >
-                          <Link to={`/product-detail/` + item.name}>
+                          <Link
+                            to={
+                              `/product-detail/${
+                                item.categoryName.length > 0
+                                  ? item.categoryName[0]
+                                  : item.purposeName[0]
+                              }/` + item.name
+                            }
+                          >
                             {item.name}
                           </Link>
                         </li>

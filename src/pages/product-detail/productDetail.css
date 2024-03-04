@@ -227,7 +227,9 @@ article.nextSlide {
   justify-content: center;
   align-items: center;
 }
-
+.toast {
+  width: '100%'
+}
 .close-modal {
   position: absolute;
   top: 10px;

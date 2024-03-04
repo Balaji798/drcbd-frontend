@@ -29,7 +29,7 @@ const ImageSlider = () => {
       title: "IMMUNE",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-04.jpg",
-        link:'IMMUNE'
+        link:'immunity'
     },
     {
       title: "MUSCLE & JOINT",
@@ -44,10 +44,10 @@ const ImageSlider = () => {
         link:'ENERGY'
     },
     {
-      title: "NCD'S",
+      title: "ANXIETY",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-07.jpg",
-        link:"NCD'S"
+        link:"ANXIETY"
     },
     {
       title: "WEIGHT MANAGEMENT",
@@ -56,10 +56,10 @@ const ImageSlider = () => {
         link:'WEIGHT-MANAGEMENT'
     },
     {
-      title: "RELAXATION",
+      title: "AROMATHERAPY",
       background:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-09.jpg",
-        link:'RELAXATION'
+        link:'AROMATHERAPY'
     },
     {
       title: "CANCER",
@@ -122,11 +122,17 @@ const ImageSlider = () => {
     //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/1.jpg",
     //     link:"#"
     // },
+    // {
+    //   title: "HOME USE",
+    //   background:
+    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-01.jpg",
+    //     link:"#"
+    // },
     {
-      title: "HOME USE",
+      title: "AROMATHERAPY",
       background:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-01.jpg",
-        link:"#"
+        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-09.jpg",
+        link:'AROMATHERAPY'
     },
   ];
 

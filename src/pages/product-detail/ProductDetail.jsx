@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { FaInstagram, FaFacebookF, FaTiktok, FaTwitter,FaLine } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VerticalCarousel from "../../components/verticalslider/VerticalSlider";
 import "slick-carousel/slick/slick.css";
@@ -205,7 +205,17 @@ const ProductDetail = () => {
           setOpen(true);
         }
         await getCart(dispatch);
-        toast("Item Added To Cart");
+        toast.success('Item added to cart', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
         return;
       } else {
         alert("You are not login login first");
@@ -302,7 +312,17 @@ const ProductDetail = () => {
   return (
     <div ref={scrollContainerRef}>
       <div>
-        <ToastContainer />
+      <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      theme="light"
+      />
       </div>
       {open && (
         <div className="modal">

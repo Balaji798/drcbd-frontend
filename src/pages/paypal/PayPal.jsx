@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { BiSolidBadgeCheck } from "react-icons/bi";
 import axios from "axios";
 import ApiService from "../../services/ApiService";
+import OmisePayment from "../../components/OmisePayment";
 
 const PayPal = () => {
   const [orderStatus, setOrderStatus] = useState(false);
@@ -14,7 +15,6 @@ const PayPal = () => {
   const { state } = useLocation();
   const { price } = state;
   const { orderId } = useParams();
-  // const OmiseCard = window.OmiseCard
   const user = localStorage.getItem("token");
   const config = {
     headers: {
@@ -22,7 +22,6 @@ const PayPal = () => {
       "Content-Type": "application/json", // Set the content type to JSON
     },
   };
-
 
   useEffect(() => {
     const getOrderData = async () => {
@@ -36,14 +35,13 @@ const PayPal = () => {
 
     const res = await await axios.post(
       `https://drcbd-backend-zgqu.onrender.com/orders/update_order/${orderId}`,
-      //https://52.77.244.89:8080
       { orderId, status: "placed" },
       config
     );
     if (res.data.status) {
       const response = await axios.post(
         "https://drcbd-backend-zgqu.onrender.com/orders/confirm_payment",
-        //https://52.77.244.89:8080
+
         { orderId },
         config
       );
@@ -51,48 +49,6 @@ const PayPal = () => {
     }
   };
 
-  // const handelLoad = () => {
-  //   OmiseCard.configureButton('#checkout-button', {
-  //     publicKey: 'pkey_test_5yw28etp8g1onubhhzy',
-  //     currency: 'thb',
-  //     frameLabel: 'Sabai Shop',
-  //     submitLabel: 'PAY NOW',
-  //     buttonLabel: 'Pay with Omise'
-  //   })
-  // }
-
-  // const CreditCardConfigure = () =>{
-  //   OmiseCard.configure({
-  //     defaultPaymentMethod: 'credit_card',
-  //     otherPaymentMethod: []
-  //   })
-  //   OmiseCard.configureButton('#credit-card')
-  //   OmiseCard.attach()
-  // }
-
-  // const omiseHandler = async() => {
-  //   OmiseCard.open({
-  //     frameLabel:'Esimo',
-  //     frameDescription: 'Invoice #3847',
-  //     amount: 1000,
-  //     onCreateTokenSuccess: async(token) => {
-  //       console.log(token)
-  //       // await axios.post('http://localhost:8080/orders/omise_payment',
-  //       // //https://52.77.244.89:8080
-  //       // { token },
-  //       // config)
-  //     },
-  //     onFormClosed: () => {
-
-  //     },
-  //   })
-  // }
-
-  // const handelClick = (e) => {
-  //  e.preventDefault()
-  //  CreditCardConfigure()
-  //  omiseHandler()
-  // }
   return (
     <>
       {orderStatus && (
@@ -235,10 +191,7 @@ const PayPal = () => {
             />
           </div>
           </div>
-{       /*   <script url='https://cdn.omise.co/omise.js' onLoad={handelLoad}/>
-          <form>
-          <button onClick={(e)=>handelClick(e)} id='credit-card'>Pay Now</button>
-            </form> */}
+          {/*  <OmisePayment/> */}
       </div>
     </>
   );
