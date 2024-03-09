@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import { FaInstagram, FaFacebookF, FaTiktok, FaTwitter,FaLine } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaTiktok,
+  FaTwitter,
+  FaLine,
+} from "react-icons/fa";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VerticalCarousel from "../../components/verticalslider/VerticalSlider";
@@ -16,18 +22,21 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-// import { productIcon } from "./product-icon";
 import ApiService from "../../services/ApiService";
 import { useSelector } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
 
 const ProductDetail = () => {
   const scrollContainerRef = useRef();
+  const videoRef = useRef();
   const targetRef = useRef(null);
+  const [position, setPosition] = useState(0);
+  const [qty, setQty] = useState(1);
+  const [price, setPrice] = useState("");
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
-  const { productName,categoryName } = useParams();
-  //const navigate = useNavigate();
+  const { productName, categoryName } = useParams();
+
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
   const scrollToTarget = () => {
     // Scroll to the target element
@@ -35,22 +44,11 @@ const ProductDetail = () => {
       targetRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
   const productByName = product.filter((item) => {
     return (
       item.name?.toLowerCase().trim() === productName?.toLowerCase().trim()
     );
   });
-  // const [icons, setIcons] = useState(
-  //   productIcon.filter((item) => {
-  //     if (
-  //       productName?.toLowerCase()?.split("-").join(" ") ===
-  //       item.title.toLowerCase()
-  //     ) {
-  //       return item;
-  //     }
-  //   })
-  // );
 
   const [open, setOpen] = useState(false);
 
@@ -60,9 +58,6 @@ const ProductDetail = () => {
     document.body.classList.remove("active-modal");
   }
   //const [product, setProduct] = useState([]);
-  const [position, setPosition] = useState(0);
-  const [qty, setQty] = useState(1);
-  const [price, setPrice] = useState("");
 
   useEffect(() => {
     const getProductByName = async () => {
@@ -77,7 +72,6 @@ const ProductDetail = () => {
       scrollContainerRef.current.scrollTo(0, 0);
     }
   }, []);
-
 
   const about = [
     {
@@ -134,7 +128,7 @@ const ProductDetail = () => {
     },
     {
       title: "Line",
-      icon: <FaLine color="#fff"/>,
+      icon: <FaLine color="#fff" />,
       link: "https://lin.ee/KhI4rwQ",
     },
     {
@@ -205,7 +199,7 @@ const ProductDetail = () => {
           setOpen(true);
         }
         await getCart(dispatch);
-        toast.success('Item added to cart', {
+        toast.success("Item added to cart", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: true,
@@ -215,7 +209,7 @@ const ProductDetail = () => {
           progress: undefined,
           theme: "light",
           transition: Bounce,
-          });
+        });
         return;
       } else {
         alert("You are not login login first");
@@ -253,7 +247,6 @@ const ProductDetail = () => {
   //   } catch (err) {
   //     console.log(err.message);
   //   }
- 
 
   //   // if (user) setOpen(!open);
   // };
@@ -308,21 +301,21 @@ const ProductDetail = () => {
       },
     ],
   };
-  console.log(price)
+  console.log(videoRef);
   return (
     <div ref={scrollContainerRef}>
       <div>
-      <ToastContainer
-      position="top-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      theme="light"
-      />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          theme="light"
+        />
       </div>
       {open && (
         <div className="modal">
@@ -431,8 +424,7 @@ const ProductDetail = () => {
                   width: "100%",
                   display: "flex",
                   justifyContent: "center",
-                  marginTop:"1rem"
-
+                  marginTop: "1rem",
                 }}
                 className="multiple-image"
               >
@@ -442,7 +434,7 @@ const ProductDetail = () => {
                       width: "150px",
                       height: "150px",
                       background: "#f3f3f3",
-                      marginRight:"0.5rem"
+                      marginRight: "0.5rem",
                     }}
                     key={index}
                     onClick={() => setPosition(index)}
@@ -628,9 +620,10 @@ const ProductDetail = () => {
                   })
                 : ""}
                 </span>{" "}*/}
-            ฿{Number(price) >= 1000
-              ? Number(price).toLocaleString("en-US")
-              : price.toLocaleString("en-US")}
+              ฿
+              {Number(price) >= 1000
+                ? Number(price).toLocaleString("en-US")
+                : price.toLocaleString("en-US")}
             </h2>
             <div
               style={{ display: "flex", justifyContent: "flex-end" }}
@@ -671,9 +664,9 @@ const ProductDetail = () => {
                   {item.title} {":"}-
                 </p>
 
-                {Array.isArray(item.para) && item?.para?.length>0 ? (
+                {Array.isArray(item.para) && item?.para?.length > 0 ? (
                   <div className="description-container-title2">
-                    { item?.para?.map((des, i) => (
+                    {item?.para?.map((des, i) => (
                       <p
                         style={{
                           width: "100%",
@@ -730,39 +723,27 @@ const ProductDetail = () => {
         </div>
         <VerticalCarousel productId={productByName[0]?._id} />
         <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          padding: " 10px 1rem 10px 0",
-        }}
-      >
-        <button
-          style={{
-            fontSize: 18,
-            width: 200,
-            padding: "5px 0",
-            cursor: "pointer",
+          className="video"
+          style={{ overflow: "hidden", maxHeight: "40rem", width: "100%" }}
+          onClick={() => {
+            const video = videoRef.current;
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
           }}
-          onClick={scrollToTarget}
         >
-          ADD TO CART{" "}
-          <MdOutlineAddShoppingCart
-            style={{ paddingLeft: 5, fontSize: "35px" }}
-          />{" "}
-        </button>{" "}
-      </div>
-        <div className="video">
-        <video autoPlay loop muted playsInline style={{marginTop:"-5rem"}}>
-          <source src={productByName[0]?.videoLink} type="video/mp4" />
-        </video>
+          <video width="100%" height="600" ref={videoRef} controls>
+            <source src={productByName[0]?.videoLink} type="video/mp4" />
+          </video>
         </div>
         <div className="social-media-container">
           {concatData.map((item, index) => (
             <a href={item.link} className="social-media">
               <div className="social-icon">{item.icon}</div>
               <p style={{ color: "#0b4640", paddingLeft: "0.5rem" }}>
-                Share On {" "}
-                {item.title}
+                Share On {item.title}
               </p>
             </a>
           ))}

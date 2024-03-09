@@ -9,7 +9,6 @@ import { store, persistor } from "./state/store";
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    {/*this code is add after interview */}
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App />

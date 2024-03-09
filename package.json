@@ -26,6 +26,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
+    "terser-webpack-plugin": "^5.3.10",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
