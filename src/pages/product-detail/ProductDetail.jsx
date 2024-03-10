@@ -734,7 +734,7 @@ const ProductDetail = () => {
             }
           }}
         >
-          <video width="100%" height="600" ref={videoRef} controls>
+          <video className='productVideo' ref={videoRef} controls>
             <source src={productByName[0]?.videoLink} type="video/mp4" />
           </video>
         </div>
