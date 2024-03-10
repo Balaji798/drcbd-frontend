@@ -700,27 +700,23 @@ const ProductDetail = () => {
           </div>
         </div>
         <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            padding: " 10px 1rem 10px 0",
-          }}
-        >
-          <button
-            style={{
-              fontSize: 18,
-              width: 200,
-              padding: "5px 0",
-              cursor: "pointer",
-            }}
-            onClick={scrollToTarget}
-          >
-            ADD TO CART{" "}
-            <MdOutlineAddShoppingCart
-              style={{ paddingLeft: 5, fontSize: "35px" }}
-            />{" "}
-          </button>{" "}
-        </div>
+              style={{ display: "flex", justifyContent: "flex-end",padding:'10px' }}
+              className="orderButton"
+            >
+              {/*<button onClick={buy}>BUY NOW</button>*/}
+              <button
+                style={{
+                  padding: "5px 0",
+                  cursor: "pointer",
+                }}
+                onClick={scrollToTarget}
+              >
+                ADD TO CART{" "}
+                <MdOutlineAddShoppingCart
+                  style={{ paddingLeft: 5, fontSize: "35px" }}
+                />{" "}
+              </button>{" "}
+            </div>
         <VerticalCarousel productId={productByName[0]?._id} />
         <div
           className="video"
@@ -749,27 +745,23 @@ const ProductDetail = () => {
           ))}
         </div>
         <div
+        style={{ display: "flex", justifyContent: "flex-end",padding:'10px' }}
+        className="orderButton"
+      >
+        {/*<button onClick={buy}>BUY NOW</button>*/}
+        <button
           style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            padding: " 10px 1rem 10px 0",
+            padding: "5px 0",
+            cursor: "pointer",
           }}
+          onClick={scrollToTarget}
         >
-          <button
-            style={{
-              fontSize: 18,
-              width: 200,
-              padding: "5px 0",
-              cursor: "pointer",
-            }}
-            onClick={scrollToTarget}
-          >
-            ADD TO CART{" "}
-            <MdOutlineAddShoppingCart
-              style={{ paddingLeft: 5, fontSize: "35px" }}
-            />{" "}
-          </button>{" "}
-        </div>
+          ADD TO CART{" "}
+          <MdOutlineAddShoppingCart
+            style={{ paddingLeft: 5, fontSize: "35px" }}
+          />{" "}
+        </button>{" "}
+      </div>
       </div>
       <div
         style={{
