@@ -120,12 +120,12 @@ const CartComponent = (props) => {
                       <h2 style={{ fontSize: "1em", fontWeight: "bold" }}>
                         {item?.productId?.category}
                       </h2>
-                      <button
-                        style={{ maxWidth: 100, fontSize: 16 }}
+                      <div
+                        style={{ maxWidth: 100, fontSize: 16 ,borderRadius: '5px', backgroundColor:"#005652",color:'white', padding: '2.5px 5px' }}
                         onClick={() => removeFromCart(item?.productId?._id)}
                       >
                         Remove
-                      </button>
+                      </div>
                     </div>
                     <div
                       style={{

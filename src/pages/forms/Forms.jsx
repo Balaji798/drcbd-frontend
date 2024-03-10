@@ -4,14 +4,13 @@ import axios from "axios";
 import ApiService from "../../services/ApiService";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
 const Steps =lazy(async () => await import("../../components/Steps"));
 
 const Forms = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.cart);
   const [error,setError] = useState(false)
   const { orderId } = useParams();
   const [user, setUser] = useState([]);
@@ -233,7 +232,7 @@ const Forms = (props) => {
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
-            maxWidth: "800px",
+            maxWidth: "600px",
             width: "100%",
             padding: "3em 0",
             color: "#fff",
@@ -243,7 +242,7 @@ const Forms = (props) => {
             className="back-button"
             style={{
               width: "5em",
-              fontSize: "35px",
+              fontSize: "25px",
               fontWeight: 600,
               background: "#0c4641",
               cursor: "pointer",
@@ -256,14 +255,18 @@ const Forms = (props) => {
           >
             {"< "}Back
           </Link>
-          <button
+          <div
             className="back-button"
             style={{
               width: "5em",
-              fontSize: "35px",
-              fontWeight: 100,
+              fontSize: "25px",
+              fontWeight: 600,
               background: "#0c4641",
               cursor: "pointer",
+              textAlign: "center",
+              borderRadius: "5px",
+              marginRight: "1rem",
+              padding: "2px 0",
             }}
             onClick={
               handelNext
@@ -271,7 +274,7 @@ const Forms = (props) => {
             }
           >
             Next{"  >"}
-          </button>
+          </div>
         </div>
       </div>
     </div>
