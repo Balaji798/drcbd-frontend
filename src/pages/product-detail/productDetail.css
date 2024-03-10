@@ -294,6 +294,7 @@ article.nextSlide {
 .orderButton > button {
   width: 200px;
   font-size: 18;
+  background-color: #005652;
 }
 @media screen and (max-width: 768px) {
   .product-detail-container {
