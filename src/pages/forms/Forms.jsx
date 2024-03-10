@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import "./forms.css";
 import axios from "axios";
 import ApiService from "../../services/ApiService";
-import Steps from "../../components/Steps";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
+const Steps =lazy(async () => await import("../../components/Steps"));
 
 const Forms = (props) => {
   const navigate = useNavigate();

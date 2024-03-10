@@ -176,15 +176,15 @@
 
 // export default ByPurpose;
 
-import React, { useEffect, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import ProductSlider from "../../components/productSlider/ProductSlider";
 import { useSelector } from "react-redux";
 import Card from "../../components/card/Card";
+const ProductSlider =lazy(async () => await import("../../components/productSlider/ProductSlider"));
 
 const ByPurpose = () => {
   const { product } = useSelector((state) => state.product);

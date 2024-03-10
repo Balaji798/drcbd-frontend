@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, lazy } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import {
@@ -10,11 +10,9 @@ import {
 } from "react-icons/fa";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import VerticalCarousel from "../../components/verticalslider/VerticalSlider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import ProductSlider from "../../components/productSlider/ProductSlider";
 import data from "../../data";
 import "./productDetail.css";
 import axios from "axios";
@@ -25,6 +23,8 @@ import { Link } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import { useSelector } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
+const VerticalCarousel = lazy(async () => await import("../../components/verticalslider/VerticalSlider")) ;
+const ProductSlider = lazy(async () => await import("../../components/productSlider/ProductSlider"));
 
 const ProductDetail = () => {
   const scrollContainerRef = useRef();

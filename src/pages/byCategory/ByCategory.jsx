@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
-import ProductSlider from "../../components/productSlider/ProductSlider";
 import ApiService from "../../services/ApiService";
 import "./byCategory.css"
 import Card from "../../components/card/Card";
 import {fiterData} from "./categoryNameData.js"
+const ProductSlider =lazy(async () => await import("../../components/productSlider/ProductSlider"));
 
 
 const ByCategory = () => {
