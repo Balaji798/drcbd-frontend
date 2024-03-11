@@ -340,73 +340,75 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-        {!productByName[0]?.bannerImg ? (
-          <img
-            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/info-product-banner.jpg"
-            className="banner-image"
-            alt="/"
-          />
-        ) : productByName[0]?.bannerImg.length < 2 ? (
-          <img
-            src={productByName[0]?.bannerImg[0]}
-            className="banner-image"
-            alt="/"
-          />
-        ) : (
-          <section className="section" style={{ maxHeight: "25rem" }}>
-            <div className="section-center">
-              {productByName[0]?.bannerImg?.map((item, indexPeople) => {
-                let position = "nextSlide";
-                if (indexPeople === activeIndex) {
-                  position = "activeSlide";
-                }
-                if (
-                  indexPeople === activeIndex - 1 ||
-                  (activeIndex === 0 && indexPeople === data.length - 1)
-                ) {
-                  position = "lastSlide";
-                }
-                return (
-                  <article
-                    className={position}
-                    key={indexPeople}
+      <div style={{width:'100%', maxHeight:'30rem', height:'100%'}}>
+      {!productByName[0]?.bannerImg ? (
+        <img
+          src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/info-product-banner.jpg"
+          className="banner-image"
+          alt="/"
+        />
+      ) : productByName[0]?.bannerImg.length < 2 ? (
+        <img
+          src={productByName[0]?.bannerImg[0]}
+          className="banner-image"
+          alt="/"
+        />
+      ) : (
+        <section className="section" style={{ maxHeight: "25rem" }}>
+          <div className="section-center">
+            {productByName[0]?.bannerImg?.map((item, indexPeople) => {
+              let position = "nextSlide";
+              if (indexPeople === activeIndex) {
+                position = "activeSlide";
+              }
+              if (
+                indexPeople === activeIndex - 1 ||
+                (activeIndex === 0 && indexPeople === data.length - 1)
+              ) {
+                position = "lastSlide";
+              }
+              return (
+                <article
+                  className={position}
+                  key={indexPeople}
+                  style={{ maxHeight: "25rem" }}
+                >
+                  <img
+                    src={item}
+                    alt={item}
                     style={{ maxHeight: "25rem" }}
-                  >
-                    <img
-                      src={item}
-                      alt={item}
-                      style={{ maxHeight: "25rem" }}
-                      className="person-img"
-                    />
-                  </article>
-                );
-              })}
-              <button
-                className="prev"
-                onClick={() => {
-                  if (productByName[0]?.bannerImg?.length > 1) {
-                    setActiveIndex(activeIndex - 1);
-                  }
-                }}
-              >
-                <MdArrowBackIosNew
-                  style={{ fontSize: "50px", color: "#fff" }}
-                />
-              </button>
-              <button
-                className="next"
-                onClick={() => {
-                  if (productByName[0]?.bannerImg?.length > 1)
-                    setActiveIndex(activeIndex + 1);
-                }}
-              >
-                <MdArrowForwardIos
-                  style={{ fontSize: "50px", color: "#fff" }}
-                />
-              </button>
-            </div>
-          </section>
-        )}
+                    className="person-img"
+                  />
+                </article>
+              );
+            })}
+            <button
+              className="prev"
+              onClick={() => {
+                if (productByName[0]?.bannerImg?.length > 1) {
+                  setActiveIndex(activeIndex - 1);
+                }
+              }}
+            >
+              <MdArrowBackIosNew
+                style={{ fontSize: "50px", color: "#fff" }}
+              />
+            </button>
+            <button
+              className="next"
+              onClick={() => {
+                if (productByName[0]?.bannerImg?.length > 1)
+                  setActiveIndex(activeIndex + 1);
+              }}
+            >
+              <MdArrowForwardIos
+                style={{ fontSize: "50px", color: "#fff" }}
+              />
+            </button>
+          </div>
+        </section>
+      )}
+      </div>
         <div className="productDetail" ref={targetRef} id="targetElement">
           <div className="imageContainer">
             {productByName[0]?.images && (
