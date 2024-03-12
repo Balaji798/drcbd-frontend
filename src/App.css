@@ -188,7 +188,7 @@ input[type="range"] {
   border-radius: 9999px; /* Equivalent to rounded-full */
   border-width: 0.5rem; /* Equivalent to border-4 */
   border-style: solid; /* Equivalent to border-solid */
-  border-color: #3490dc; /* Equivalent to border-primary */
+  border-color: #004d4a; /* Equivalent to border-primary */
   border-top-color: transparent; /* Equivalent to border-t-transparent */
 }
 
