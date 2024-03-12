@@ -166,7 +166,7 @@ const PayPal = () => {
                       {
                         description: "abcd",
                         amount: {
-                          currency_code: "THB",
+                          currency_code: "USD",
                           value: `${price.toFixed(2)}`,
                         },
                       },
