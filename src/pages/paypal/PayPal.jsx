@@ -49,6 +49,32 @@ const PayPal = () => {
     }
   };
 
+  const getDescriptionForPayPal = (orderData, summeryTitle) => {
+    // Initialize an empty description string
+    let description = "";
+  
+    // Iterate over each item in the summary title array
+  
+    // Iterate over each item in the order data
+    orderData.items.forEach((item, index) => {
+      // Append the product name to the description
+      description += `Product name: ${item.productId.name}, Qty: ${item.quantity}, Price: ฿${item.productId.price}, Delivery Charge: ฿${item.deliveryCharge}\n`;
+      
+      // If it's not the last item, add separators and details
+      if (index < orderData.items.length - 1) {
+        description += `, Qty: ${item.quantity}, Price: ฿${item.productId.price}, Delivery Charge: ฿${item.deliveryCharge}\n`;
+      }
+    });
+    console.log(description)
+    // Add the total items and total price to the description
+    description += `Total Items: ${orderData.totalItems}, Total Price: ฿${orderData.totalPrice + orderData.totalDeliveryCharge}`;
+  
+    return description;
+  };
+  
+  // Usage example:
+  const descriptionForPayPal = getDescriptionForPayPal(orderData, summeryTitle);
+  
   return (
     <>
       {orderStatus && (
@@ -164,9 +190,9 @@ const PayPal = () => {
                   return await actions.order.create({
                     purchase_units: [
                       {
-                        description: "abcd",
+                        description: descriptionForPayPal,
                         amount: {
-                          currency_code: "USD",
+                          currency_code: "THB",
                           value: `${price.toFixed(2)}`,
                         },
                       },
