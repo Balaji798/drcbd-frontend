@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 const OmisePayment = () => {
     const OmiseCard = window.OmiseCard
+    
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://cdn.omise.co/omise.js";
