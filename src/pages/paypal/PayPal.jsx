@@ -158,40 +158,40 @@ export default PayPal;
 //     "Content-Type": "application/json", // Set the content type to JSON
 //   },
 // };
-          {/* <div style={{ maxWidth: 300, width: "100%", padding: "0 2rem" }}>
-            <PayPalButtons
-              style={{ layout: "vertical" }}
-              createOrder={async (data, actions) => {
-                try {
-                  return await actions.order.create({
-                    purchase_units: [
-                      {
-                        description: descriptionForPayPal,
-                        amount: {
-                          currency_code: "THB",
-                          value: `${price.toFixed(2)}`,
-                        },
-                      },
-                    ],
-                  });
+// <div style={{ maxWidth: 300, width: "100%", padding: "0 2rem" }}>
+//             <PayPalButtons
+//               style={{ layout: "vertical" }}
+//               createOrder={async (data, actions) => {
+//                 try {
+//                   return await actions.order.create({
+//                     purchase_units: [
+//                       {
+//                         description: descriptionForPayPal,
+//                         amount: {
+//                           currency_code: "THB",
+//                           value: `${price.toFixed(2)}`,
+//                         },
+//                       },
+//                     ],
+//                   });
                   
-                } catch (error) {
-                  console.error("Error creating order:", error);
-                  return null;
-                }
-              }}
+//                 } catch (error) {
+//                   console.error("Error creating order:", error);
+//                   return null;
+//                 }
+//               }}
               
-              onApprove={async (data, actions) => {
-                const order = await actions.order.capture();
-                if (order.status === "COMPLETED") {
-                  handelOrder();
-                }
-              }}
-              onError={(err) => {
-                console.log(err);
-              }}
-            />
-            </div> */}
+//               onApprove={async (data, actions) => {
+//                 const order = await actions.order.capture();
+//                 if (order.status === "COMPLETED") {
+//                   handelOrder();
+//                 }
+//               }}
+//               onError={(err) => {
+//                 console.log(err);
+//               }}
+//             />
+//             </div> 
 // useEffect(() => {
 //   const getOrderData = async () => {
 //     const data = await ApiService.getOrder(orderId);

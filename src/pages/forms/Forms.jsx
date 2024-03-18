@@ -54,32 +54,6 @@ const Forms = (props) => {
         userAdd,
         config
       );
-
-      // if (res.data.status) {
-      //   const user = localStorage.getItem("token");
-      //   const config = {
-      //     headers: {
-      //       Authorization: `Bearer ${user}`,
-      //       "Content-Type": "application/json", // Set the content type to JSON
-      //     },
-      //   };
-      //   const respo = await axios.post(
-      //     "https://drcbd-backend-zgqu.onrender.com/orders/place_order",
-      //     //https://52.77.244.89:8080
-      //     { cartId: orderId },
-      //     config
-      //   );
-      //   const response = await axios.post(
-      //     "https://drcbd-backend-zgqu.onrender.com/orders/update_order/" + respo.data.orderId._id,
-      //     //https://52.77.244.89:8080
-      //     userAdd,
-      //     config
-      //   );
-      //   await getCart(dispatch);
-
-      //   const totalPrice =
-      //     respo.data.orderId.totalPrice + respo.data.orderId.totalDeliveryCharge;
-      //   if (response.data.status)
       if (res.data.status){
         await getCart(dispatch)
         console.log(userAdd)

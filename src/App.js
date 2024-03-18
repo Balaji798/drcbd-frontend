@@ -8,7 +8,7 @@ import { useState, lazy, Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getProduct } from "./state/actions/productAction";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+// import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { getCart } from "./state/actions/cartAction";
 import "./App.css";
 import Header from "./components/header/Header";
@@ -74,13 +74,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <PayPalScriptProvider
-      options={{
-        "client-id": process.env.REACT_APP_CLIENT_ID,
-        currency: "THB",
-        intent: "capture",
-      }}
-    >
+
       <Suspense
         fallback={
           <div
@@ -147,8 +141,17 @@ function App() {
           <Footer />
         </Router>
       </Suspense>
-    </PayPalScriptProvider>
   );
 }
 
 export default App;
+
+
+// <PayPalScriptProvider
+// options={{
+//   "client-id": process.env.REACT_APP_CLIENT_ID,
+//   currency: "THB",
+//   intent: "capture",
+// }}
+// >
+// </PayPalScriptProvider>
