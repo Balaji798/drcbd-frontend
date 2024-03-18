@@ -1,81 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { PayPalButtons } from "@paypal/react-paypal-js";
-import { useLocation, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BiSolidBadgeCheck } from "react-icons/bi";
-import axios from "axios";
-import ApiService from "../../services/ApiService";
 import OmisePayment from "../../components/OmisePayment";
+import BankTransfer from "../../components/BankTransfer";
+import { useSelector } from "react-redux";
 
 const PayPal = () => {
   const [orderStatus, setOrderStatus] = useState(false);
   const [orderData, setOrderData] = useState({});
   const summeryTitle = ["Product", "Quantity", "Price", "Delivery Charge"];
+  const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0)
+  const cart = useSelector((state) => state.cart)
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const { price } = state;
-  const { orderId } = useParams();
-  const user = localStorage.getItem("token");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${user}`,
-      "Content-Type": "application/json", // Set the content type to JSON
-    },
+
+ useEffect(() => {
+  const getOrderData = async () => {
+    const items = [];
+    let totalCharge = 0
+    cart?.cart?.items.forEach((item) => {
+        items.push({
+          deliveryCharge:cart?.cart?.totalPrice < 1500 ? 50 : 0,
+          quantity: item.quantity,
+          productId: item.productId,
+        })
+        totalCharge = cart?.cart?.totalPrice < 1500 ? 50 : 0
+    });
+    setOrderData(items)
+    setTotalDeliveryCharge(totalCharge)
   };
-
-  useEffect(() => {
-    const getOrderData = async () => {
-      const data = await ApiService.getOrder(orderId);
-      setOrderData(data.data);
-    };
-    getOrderData();
-  }, [orderId]);
-
-  const handelOrder = async () => {
-
-    const res = await await axios.post(
-      `https://drcbd-backend-zgqu.onrender.com/orders/update_order/${orderId}`,
-      { orderId, status: "placed" },
-      config
-    );
-    if (res.data.status) {
-      const response = await axios.post(
-        "https://drcbd-backend-zgqu.onrender.com/orders/confirm_payment",
-
-        { orderId },
-        config
-      );
-      if (response.data.status) setOrderStatus(true);
-    }
-  };
-
-  const getDescriptionForPayPal = (orderData) => {
-    // Initialize an empty description string
-    let description = "";
-  
-    // Iterate over each item in the summary title array
-  
-    // Iterate over each item in the order data
-    if(orderData && orderData?.items){
-      orderData?.items?.forEach((item, index) => {
-        // Append the product name to the description
-        description += `Product name: ${item.productId.name}, Qty: ${item.quantity}, Price: ฿${item.productId.price}, Delivery Charge: ฿${item.deliveryCharge}\n`;
-        
-        // If it's not the last item, add separators and details
-        if (index < orderData.items.length - 1) {
-          description += `, Qty: ${item.quantity}, Price: ฿${item.productId.price}, Delivery Charge: ฿${item.deliveryCharge}\n`;
-        }
-      });
-      // Add the total items and total price to the description
-      description += `Total Items: ${orderData.totalItems}, Total Price: ฿${orderData.totalPrice + orderData.totalDeliveryCharge}`;
-    }
-  
-    return description;
-  };
-  
-  // Usage example:
-  const descriptionForPayPal = getDescriptionForPayPal(orderData, summeryTitle);
-  
+  getOrderData();
+}, [cart?.cart?.items, cart?.cart?.totalPrice]);
+console.log(orderData)
   return (
     <>
       {orderStatus && (
@@ -117,6 +72,7 @@ const PayPal = () => {
           flexDirection: "column",
           paddingTop: "5rem",
           height: "100%",
+          paddingBottom:'2rem'
         }}
       >
         <h1 className="title-text" style={{ paddingBottom: "1rem" }}>
@@ -146,7 +102,7 @@ const PayPal = () => {
               ))}
             </div>
             <div style={{ width: "100%",borderLeft:"1px solid",borderRight:"1px solid",borderBottom:"1px solid" }}>
-              {orderData?.items?.length>0 && orderData?.items?.map((item, index) => (
+              {orderData?.length>0 && orderData?.map((item, index) => (
                 <div
                   style={{
                     display: "flex",
@@ -175,15 +131,34 @@ const PayPal = () => {
                 }}
               >
                 <p style={{ width: "52.5%" }}>Total</p>
-                <p style={{width:"10%",textAlign:"center",borderLeft:"1px solid",paddingLeft:"20px" }}>{orderData?.totalItems}</p>
+                <p style={{width:"10%",textAlign:"center",borderLeft:"1px solid",paddingLeft:"20px" }}>{cart?.cart?.totalItems}</p>
                 <p></p>
                 <p style={{width:"30%",textAlign:"center",borderLeft:"1px solid" }}>
-                ฿ {orderData?.totalPrice+orderData?.totalDeliveryCharge}
+                ฿ {cart?.cart?.totalPrice + totalDeliveryCharge}
                 </p>
               </div>
             </div>
           </div>
-          <div style={{ maxWidth: 300, width: "100%", padding: "0 2rem" }}>
+          </div>
+          <OmisePayment totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} setOrderStatus={setOrderStatus} cartId= {cart?.cart?._id}/>
+          <div style={{height:"20px"}}/>
+          <BankTransfer totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} setOrderStatus={setOrderStatus} cartId= {cart?.cart?._id}/>
+      </div>
+    </>
+  );
+};
+
+export default PayPal;
+
+
+// const user = localStorage.getItem("token");
+// const config = {
+//   headers: {
+//     Authorization: `Bearer ${user}`,
+//     "Content-Type": "application/json", // Set the content type to JSON
+//   },
+// };
+          {/* <div style={{ maxWidth: 300, width: "100%", padding: "0 2rem" }}>
             <PayPalButtons
               style={{ layout: "vertical" }}
               createOrder={async (data, actions) => {
@@ -216,12 +191,56 @@ const PayPal = () => {
                 console.log(err);
               }}
             />
-          </div>
-          </div>
-          <OmisePayment/>
-      </div>
-    </>
-  );
-};
+            </div> */}
+// useEffect(() => {
+//   const getOrderData = async () => {
+//     const data = await ApiService.getOrder(orderId);
+//     setOrderData(data.data);
+//   };
+//   getOrderData();
+// }, [orderId]);
 
-export default PayPal;
+// const handelOrder = async () => {
+
+//   const res = await await axios.post(
+//     `https://drcbd-backend-zgqu.onrender.com/orders/update_order/${orderId}`,
+//     { orderId, status: "placed" },
+//     config
+//   );
+//   if (res.data.status) {
+//     const response = await axios.post(
+//       "https://drcbd-backend-zgqu.onrender.com/orders/confirm_payment",
+
+//       { orderId },
+//       config
+//     );
+//     if (response.data.status) setOrderStatus(true);
+//   }
+// };
+
+// const getDescriptionForPayPal = (orderData) => {
+//   // Initialize an empty description string
+//   let description = "";
+
+//   // Iterate over each item in the summary title array
+
+//   // Iterate over each item in the order data
+//   if(orderData && orderData?.items){
+//     orderData?.items?.forEach((item, index) => {
+//       // Append the product name to the description
+//       description += `Product name: ${item.productId.name}, Qty: ${item.quantity}, Price: ฿${item.productId.price}, Delivery Charge: ฿${item.deliveryCharge}\n`;
+      
+//       // If it's not the last item, add separators and details
+//       if (index < orderData.items.length - 1) {
+//         description += `, Qty: ${item.quantity}, Price: ฿${item.productId.price}, Delivery Charge: ฿${item.deliveryCharge}\n`;
+//       }
+//     });
+//     // Add the total items and total price to the description
+//     description += `Total Items: ${orderData.totalItems}, Total Price: ฿${orderData.totalPrice + orderData.totalDeliveryCharge}`;
+//   }
+
+//   return description;
+// };
+
+// Usage example:
+//const descriptionForPayPal = getDescriptionForPayPal(orderData, summeryTitle);

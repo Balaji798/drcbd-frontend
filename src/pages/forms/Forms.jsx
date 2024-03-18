@@ -38,6 +38,7 @@ const Forms = (props) => {
     try {
       if(userAdd.address===''&&userAdd.city===''&&userAdd.country&&userAdd.postalCode===''&&userAdd.contactNumber===''){
         setError(true)
+        return
       }
       const user = localStorage.getItem("token");
       const config = {
@@ -54,35 +55,38 @@ const Forms = (props) => {
         config
       );
 
-      if (res.data.status) {
-        const user = localStorage.getItem("token");
-        const config = {
-          headers: {
-            Authorization: `Bearer ${user}`,
-            "Content-Type": "application/json", // Set the content type to JSON
-          },
-        };
-        const respo = await axios.post(
-          "https://drcbd-backend-zgqu.onrender.com/orders/place_order",
-          //https://52.77.244.89:8080
-          { cartId: orderId },
-          config
-        );
-        const response = await axios.post(
-          "https://drcbd-backend-zgqu.onrender.com/orders/update_order/" + respo.data.orderId._id,
-          //https://52.77.244.89:8080
-          userAdd,
-          config
-        );
-        await getCart(dispatch);
+      // if (res.data.status) {
+      //   const user = localStorage.getItem("token");
+      //   const config = {
+      //     headers: {
+      //       Authorization: `Bearer ${user}`,
+      //       "Content-Type": "application/json", // Set the content type to JSON
+      //     },
+      //   };
+      //   const respo = await axios.post(
+      //     "https://drcbd-backend-zgqu.onrender.com/orders/place_order",
+      //     //https://52.77.244.89:8080
+      //     { cartId: orderId },
+      //     config
+      //   );
+      //   const response = await axios.post(
+      //     "https://drcbd-backend-zgqu.onrender.com/orders/update_order/" + respo.data.orderId._id,
+      //     //https://52.77.244.89:8080
+      //     userAdd,
+      //     config
+      //   );
+      //   await getCart(dispatch);
 
-        const totalPrice =
-          respo.data.orderId.totalPrice + respo.data.orderId.totalDeliveryCharge;
-        if (response.data.status)
-          navigate("/order-summery/" + respo.data.orderId._id, {
-            state: { price: totalPrice },
-          });
+      //   const totalPrice =
+      //     respo.data.orderId.totalPrice + respo.data.orderId.totalDeliveryCharge;
+      //   if (response.data.status)
+      if (res.data.status){
+        await getCart(dispatch)
+        console.log(userAdd)
+        localStorage.setItem('delver_address',JSON.stringify(userAdd))
+        navigate("/order-summery/" + orderId);
       }
+      //}
     } catch (err) {
       console.log(err.message);
     }
