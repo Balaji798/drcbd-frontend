@@ -37,20 +37,7 @@ const CartComponent = (props) => {
 
   const handelNext = async () => {
     try {
-      // const user = localStorage.getItem("token");
-      // const config = {
-      //   headers: {
-      //     Authorization: `Bearer ${user}`,
-      //     "Content-Type": "application/json", // Set the content type to JSON
-      //   },
-      // };
-      // const cartId = cart.cart._id;
-      // const res = await axios.post(
-      //   "https://drcbd-backend-zgqu.onrender.com/orders/place_order",
-      //   //https://52.77.244.89:8080
-      //   { cartId },
-      //   config
-      // );
+
       //if (res.data.status) {
         navigate("/order-address/" + cart.cart._id);
       //}

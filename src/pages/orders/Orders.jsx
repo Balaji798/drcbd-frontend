@@ -9,7 +9,7 @@ const Orders = () => {
     const getOrders = async () => {
       const res = await ApiService.getUserOrder();
       const data = res.data.filter(item=> {return item.status[item.status.length-1].orderStatus!=='pending'})
-      setOrderData(data);
+      setOrderData(data.reverse());
     };
     getOrders();
   }, []);

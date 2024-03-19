@@ -21,6 +21,7 @@ import OurEsteemed from "./pages/our-esteemed/OurEsteemed";
 const Register = lazy(async () => await import("./pages/register/Register"));
 const Profile = lazy(async () => await import("./pages/profile/Profile"));
 const SignIn = lazy(async () => await import("./pages/sign-in/SignIn"));
+const PaymentSuccess = lazy(async () => import("./pages/PaymentSuccess"))
 const OurCompanies = lazy(
   async () => await import("./pages/our-companies/OurCompanies")
 );
@@ -136,6 +137,7 @@ function App() {
               <Route path="/order-detail/:orderId" element={<UserOrder />} />
               <Route path="/cancel_order" element={<CancelOrder />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/payment_success/:orderId" element={<PaymentSuccess/>}/>
             </Routes>
           </div>
           <Footer />

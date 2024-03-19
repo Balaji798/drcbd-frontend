@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
   const dispatch = useDispatch();
   const delver_address = localStorage.getItem("delver_address")
-  console.log(delver_address)
   const OmiseCard = window.OmiseCard;
 
   useEffect(() => {

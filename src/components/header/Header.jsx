@@ -30,12 +30,18 @@ const Header = ({ openNav, setOpenNav }) => {
   }
 
   const handelNext = async (type) => {
-    if (!user) {
-      setOpen(true);
-    } else {
-      const res = await ApiService.getUser();
-      console.log(res.data);
-      res?.data?.user?.emailVerified ? navigate(type) : setOpen(true);
+    try{
+      if (!user) {
+        setOpen(true);
+      } else {
+        console.log(user)
+        const res = await ApiService.getUser();
+        console.log(res);
+        res?.data?.user?.emailVerified ? navigate(type) : setOpen(true);
+      }
+    }catch(err){
+      console.log(err.response)
+      alert(err)
     }
   };
 

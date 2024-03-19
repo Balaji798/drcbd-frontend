@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
 
-const BankTransfer = ({ totalPrice }) => {
+const BankTransfer = ({ totalPrice, cartId }) => {
   const OmiseCard = window.OmiseCard;
+
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -54,9 +55,8 @@ const BankTransfer = ({ totalPrice }) => {
         const omiseToekn = token;
         console.log(omiseToekn);
          const res = await axios.post(
-           "http://localhost:8080/orders/pay_withe_omise_bank",
-        //   //https://52.77.244.89:8080
-          { token: omiseToekn, amount:Number(totalPrice)*100 },
+           "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise_bank",
+          { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId },
           {
             headers: {
               Authorization: `Bearer ${user}`,

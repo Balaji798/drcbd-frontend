@@ -142,7 +142,7 @@ console.log(orderData)
           </div>
           <OmisePayment totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} setOrderStatus={setOrderStatus} cartId= {cart?.cart?._id}/>
           <div style={{height:"20px"}}/>
-          <BankTransfer totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} setOrderStatus={setOrderStatus} cartId= {cart?.cart?._id}/>
+          <BankTransfer totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} cartId= {cart?.cart?._id}/>
       </div>
     </>
   );

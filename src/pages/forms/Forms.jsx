@@ -53,7 +53,7 @@ const Forms = (props) => {
         //https://52.77.244.89:8080
         userAdd,
         config
-      );
+      ); 
       if (res.data.status){
         await getCart(dispatch)
         console.log(userAdd)
