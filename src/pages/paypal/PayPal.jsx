@@ -30,7 +30,6 @@ const PayPal = () => {
   };
   getOrderData();
 }, [cart?.cart?.items, cart?.cart?.totalPrice]);
-console.log(orderData)
   return (
     <>
       {orderStatus && (

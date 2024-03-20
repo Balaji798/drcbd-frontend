@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getCart } from "../state/actions/cartAction";
 
 const PaymentSuccess = () => {
-  const deliveryAddress = localStorage.getItem("delivery_address"); // Corrected variable name
+  const delver_address = localStorage.getItem("delver_address");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { orderId } = useParams();
@@ -17,6 +17,7 @@ const PaymentSuccess = () => {
       isMounted.current = true;
       return;
     }
+
     const placeOrder = async () => {
       try {
         const user = localStorage.getItem("token");
@@ -26,10 +27,10 @@ const PaymentSuccess = () => {
             "Content-Type": "application/json",
           },
         };
-        
+
         const res = await axios.post(
           "https://drcbd-backend-zgqu.onrender.com/orders/place_order",
-          { cartId: orderId, userAdd: JSON.parse(deliveryAddress) }, // Corrected variable name
+          { cartId: orderId, userAdd: JSON.parse(delver_address) },
           config
         );
         if (res.data.status) {
@@ -39,8 +40,9 @@ const PaymentSuccess = () => {
         alert(err);
       }
     };
+
     placeOrder();
-  }, [dispatch, deliveryAddress, orderId]); // Added dependencies
+  }, [dispatch, delver_address, orderId]);
 
   return (
     <div
