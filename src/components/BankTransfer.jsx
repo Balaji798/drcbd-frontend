@@ -55,7 +55,7 @@ const BankTransfer = ({ totalPrice, cartId }) => {
         const omiseToekn = token;
         console.log(omiseToekn);
          const res = await axios.post(
-           "http://localhost:8080/orders/pay_withe_omise_bank",
+           "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise_bank",
           { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId },
           {
             headers: {
