@@ -73,7 +73,8 @@ const Orders = () => {
                     Total Price:- ฿
                     {product.productId?.price * product?.quantity}
                   </h4>
-                  <h5>Delivery Time:- 24/12/2023</h5>
+                  <h5>Order Date:- {}</h5>
+                  <h5>Estimated delver time is 6 to 7 business week day</h5>
                 </div>
                 <div>
                   <h4
