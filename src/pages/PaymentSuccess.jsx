@@ -13,12 +13,14 @@ const PaymentSuccess = () => {
   const isMounted = useRef(false);
 
   useEffect(() => {
+    console.log('ji')
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    console.log('kk')
     const placeOrder = async () => {
       try {
-        if (!isMounted.current) {
-          isMounted.current = true;
-          return;
-        }
         const user = localStorage.getItem("token");
         const config = {
           headers: {
