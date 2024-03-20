@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { BiSolidBadgeCheck } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -10,15 +10,8 @@ const PaymentSuccess = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { orderId } = useParams();
-  const isMounted = useRef(false);
 
   useEffect(() => {
-    console.log('ji')
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-    console.log('kk')
     const placeOrder = async () => {
       try {
         const user = localStorage.getItem("token");
@@ -36,6 +29,7 @@ const PaymentSuccess = () => {
         );
         if (res.data.status) {
           await getCart(dispatch);
+          navigate("/order-history")
         }
       } catch (err) {
         alert(err);
@@ -43,7 +37,7 @@ const PaymentSuccess = () => {
     };
 
     placeOrder();
-  }, [dispatch, delver_address, orderId]);
+  }, []);
 
   return (
     <div
