@@ -34,7 +34,7 @@ body {
 .container{
   max-width: 1200px;
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 }
 
 .container >h4,.container >h5,.container >h3,.container >p,.container >ul>li {
