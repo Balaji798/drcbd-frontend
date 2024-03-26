@@ -43,7 +43,12 @@ const Footer = () => {
       </div>
       <div className="second-footer-container">
         <p>DISCLAIMER</p>
-        <p>Copyright 2024 - Dr. CBD innovation Center | Made with Love & Care</p>
+        <p>Copyright 2024 - Dr. CBD innovation Center | Made with Love & Care </p>
+        <div Style="display:flex; align-items:center">
+         <Link to="/privacy-policy">Privacy & Policy</Link>
+         <p> / </p>
+         <Link to="/terms-condition">Terms & condition</Link>
+        </div>
       </div>
     </footer>
   );

@@ -31,7 +31,15 @@ body {
   align-items: center;
   justify-content: center;
 }
+.container{
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem 0;
+}
 
+.container >h4,.container >h5,.container >h3,.container >p,.container >ul>li {
+  padding: 10px 0;
+}
 .space {
   display: flex;
   flex-direction: column;

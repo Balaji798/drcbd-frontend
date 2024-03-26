@@ -31,6 +31,9 @@ footer {
   padding: 10px 0;
   background-image: linear-gradient(to right, #000, #005652);
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px){

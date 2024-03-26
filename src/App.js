@@ -18,6 +18,8 @@ import Cart from "./pages/cart/Cart";
 import Footer from "./components/footer/Footer";
 import BrandPurpose from "./pages/brand-purpose/BrandPurpose";
 import OurEsteemed from "./pages/our-esteemed/OurEsteemed";
+import Polices from "./pages/Polices";
+import Terms from "./pages/Terms";
 const Register = lazy(async () => await import("./pages/register/Register"));
 const Profile = lazy(async () => await import("./pages/profile/Profile"));
 const SignIn = lazy(async () => await import("./pages/sign-in/SignIn"));
@@ -138,6 +140,8 @@ function App() {
               <Route path="/cancel_order" element={<CancelOrder />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/payment_success/:orderId" element={<PaymentSuccess/>}/>
+              <Route path='/privacy-policy' element={<Polices/>}/>
+              <Route path="/terms-condition" element={<Terms/>}/>
             </Routes>
           </div>
           <Footer />
