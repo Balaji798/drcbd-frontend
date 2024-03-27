@@ -108,7 +108,7 @@ const CartComponent = (props) => {
                         {item?.productId?.category}
                       </h2>
                       <div
-                        style={{ maxWidth: 100, fontSize: 16 ,borderRadius: '5px', backgroundColor:"#005652",color:'white', padding: '2.5px 5px' }}
+                        style={{ maxWidth: 100, fontSize: 16 ,borderRadius: '5px', backgroundColor:"#005652",color:'white', padding: '2.5px 5px',cursor:'pointer' }}
                         onClick={() => removeFromCart(item?.productId?._id)}
                       >
                         Remove

@@ -59,6 +59,7 @@ const Forms = (props) => {
         console.log(userAdd)
         localStorage.setItem('delver_address',JSON.stringify(userAdd))
         navigate("/order-summery/" + orderId);
+        window.location.reload();
       }
       //}
     } catch (err) {

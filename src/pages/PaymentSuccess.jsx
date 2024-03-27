@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BiSolidBadgeCheck } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,33 +11,7 @@ const PaymentSuccess = () => {
   const navigate = useNavigate();
   const { orderId } = useParams();
 
-  // useEffect(() => {
-  //     const placeOrder = async () => {
-  //       try {
-  //         const user = localStorage.getItem("token");
-  //         const config = {
-  //           headers: {
-  //             Authorization: `Bearer ${user}`,
-  //             "Content-Type": "application/json",
-  //           },
-  //         };
-  //         const res = await axios.post(
-  //           "https://drcbd-backend-zgqu.onrender.com/orders/place_order",
-  //           { cartId: orderId, userAdd: JSON.parse(delver_address) },
-  //           config
-  //         );
-  //         if (res.data.status) {
-  //           await getCart(dispatch);
-  //           navigate("/order-history");
-  //         }
-  //       } catch (err) {
-  //         alert(err);
-  //       }
-  //     };
-
-  //     placeOrder();
-  // }, []);
-
+  
   return (
     <div
       style={{
