@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import "./header.css";
@@ -7,20 +7,24 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import Modal from "../modal/Modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HiBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
+import { logout } from "../../state/actions/authAction";
 
 const Header = ({ openNav, setOpenNav }) => {
   const { product } = useSelector((state) => state.product);
+  const { store, auth } = useSelector((state) => state);
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const inputRef = useRef();
   const [isHovered, setIsHover] = useState(false);
+  const [isUserLogIn, setUserLogIn] = useState(false);
   const [search, setSearch] = useState("");
   const { cart } = useSelector((state) => state.cart);
   //const user = useSelector((state)=>state.user)
-
+  console.log(auth);
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
   if (open) {
@@ -28,20 +32,35 @@ const Header = ({ openNav, setOpenNav }) => {
   } else {
     document.body.classList.remove("active-modal");
   }
-
+  useEffect(() => {
+    const gatUserRes = async () => {
+      try {
+        const res = await ApiService.getUser();
+        console.log(res);
+      } catch (err) {
+        console.log(err.response);
+        console.log(err.response.status);
+        setUserLogIn(true);
+      }
+    };
+    gatUserRes();
+  }, []);
   const handelNext = async (type) => {
-    try{
+    try {
+      if (isUserLogIn) {
+        setOpen(true);
+      }
       if (!user) {
         setOpen(true);
       } else {
-        console.log(user)
+        console.log(user);
         const res = await ApiService.getUser();
         console.log(res);
         res?.data?.user?.emailVerified ? navigate(type) : setOpen(true);
       }
-    }catch(err){
-      console.log(err.response)
-      alert(err)
+    } catch (err) {
+      console.log(err.response.status);
+      alert(err);
     }
   };
 
@@ -67,8 +86,9 @@ const Header = ({ openNav, setOpenNav }) => {
             <p
               style={{ marginLeft: "2px", cursor: "pointer" }}
               className="sig"
-              onClick={() => {
+              onClick={async () => {
                 localStorage.removeItem("token");
+                await logout(dispatch);
                 navigate("/");
                 setOpenNav(false);
               }}
@@ -169,7 +189,7 @@ const Header = ({ openNav, setOpenNav }) => {
             >
               <div className="cart-item">
                 <p style={{ marginLeft: "2.5px" }}>
-                  {cart && user ? cart?.items?.length : "0"}
+                  {cart && auth.loggedIn && !isUserLogIn ? cart?.items?.length : "0"}
                 </p>
               </div>
             </div>

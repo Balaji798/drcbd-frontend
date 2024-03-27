@@ -301,7 +301,6 @@ const ProductDetail = () => {
       },
     ],
   };
-  console.log(videoRef);
   return (
     <div ref={scrollContainerRef}>
       <div>
@@ -788,7 +787,7 @@ const ProductDetail = () => {
           {sameCategoryProduct?.length > 3 ? (
             <Slider {...settings}>
               {sameCategoryProduct?.map((image, i) => (
-                <ProductSlider image={image} i={i} />
+                <ProductSlider image={image} i={i} categoryName={categoryName}/>
               ))}
             </Slider>
           ) : (
@@ -801,7 +800,7 @@ const ProductDetail = () => {
               }}
             >
               {sameCategoryProduct?.map((image, i) => (
-                <ProductSlider image={image} i={i} />
+                <ProductSlider image={image} i={i} categoryName={categoryName}/>
               ))}
             </div>
           )}

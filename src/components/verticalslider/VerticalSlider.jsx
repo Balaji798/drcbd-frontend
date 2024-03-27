@@ -6,13 +6,16 @@ import "./verticalSlider.css";
 import axios from "axios";
 import Rating from "../Rating";
 import { TbStar } from "react-icons/tb";
+import Modal from "../modal/Modal";
 
 const VerticalSlider = ({ productId }) => {
+  const [open, setOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviews, setReviews] = useState([]);
   const [displayedReviews, setDisplayedReviews] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
   const reviewStar = [1, 2, 3, 4, 5];
+  const user = localStorage.getItem("token");
   const [feed, setFeed] = useState({
     name: "",
     email: "",
@@ -30,7 +33,8 @@ const VerticalSlider = ({ productId }) => {
         alert('Review and rating required ')
         return
       }
-      const user = localStorage.getItem("token");
+
+      console.log(user)
       if (user) {
         const config = {
           headers: {
@@ -51,8 +55,11 @@ const VerticalSlider = ({ productId }) => {
         });
         
         getFeed();
+      }else {
+        setOpen(true)
       }
     } catch (err) {
+      setOpen(true)
       console.log(err);
     }
   };
@@ -126,6 +133,8 @@ const VerticalSlider = ({ productId }) => {
       : 0;
   };
   return (
+    <>
+    {open && <Modal setOpen={setOpen} user={user} />}
     <div className="review-container center" style={{ background: "#ededed" }}>
       <div
         style={{ maxWidth: "1200px", width: "100%", padding: "2rem 1rem 0" }}
@@ -346,6 +355,7 @@ const VerticalSlider = ({ productId }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

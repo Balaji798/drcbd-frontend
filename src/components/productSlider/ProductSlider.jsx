@@ -3,16 +3,19 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const ProductSlider = ({ image, i, marginB,categoryName }) => {
+const ProductSlider = ({ image, i, marginB, categoryName }) => {
   const navigate = useNavigate();
   return (
     <div
       className="slider-item"
       key={i}
       style={{ marginBottom: "1rem", zIndex: 0 }}
-      onClick={()=>{navigate(`/product-detail/${categoryName}/` + image.name, {
-        state: { catName1: categoryName},
-      });}}
+      onClick={() => {
+        navigate(`/product-detail/${categoryName}/` + image.name, {
+          state: { catName1: categoryName },
+        });
+        window.location.reload();
+      }}
     >
       {image.images && <img src={image.images[0]} alt="/" />}
       <div
@@ -30,9 +33,7 @@ const ProductSlider = ({ image, i, marginB,categoryName }) => {
         >
           {image.productFor[0]}
         </p>*/}
-        <h3 style={{color:"#000"}} >
-          {image.name.toString()}
-        </h3>
+        <h3 style={{ color: "#000" }}>{image.name.toString()}</h3>
       </div>
 
       {/* <Link to="/product-detail">View Product</Link> */}

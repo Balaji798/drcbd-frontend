@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
   const dispatch = useDispatch();
-  const delver_address = localStorage.getItem("delver_address")
+  const delver_address = localStorage.getItem("delver_address");
   const OmiseCard = window.OmiseCard;
 
   useEffect(() => {
@@ -21,12 +21,16 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
 
   const handelLoad = () => {
     if (window.OmiseCard) {
-      OmiseCard.configureButton("#checkout-button", {
-        currency: "thb",
-        frameLabel: "Sabai Shop",
-        submitLabel: "PAY NOW",
-        buttonLabel: "Pay with Omise",
-      });
+      // This ensures that the element with ID "checkout-button" exists before configuring it.
+      const checkoutButton = document.getElementById("checkout-button");
+      if (checkoutButton) {
+        OmiseCard.configureButton("#checkout-button", {
+          currency: "thb",
+          frameLabel: "Sabai Shop",
+          submitLabel: "PAY NOW",
+          buttonLabel: "Pay with Omise",
+        });
+      }
     }
   };
 
@@ -48,13 +52,12 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
         amount: Number(totalPrice) * 100,
         publicKey: "pkey_test_5yyqilk4aaws7x9ldno",
         onCreateTokenSuccess: async (token) => {
-          const omiseToekn = token;
-          console.log(omiseToekn);
+          const omiseToken = token;
+          console.log(omiseToken);
           const res = await axios.post(
             "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise",
-            //https://52.77.244.89:8080
             {
-              token: omiseToekn,
+              token: omiseToken,
               amount: Number(totalPrice) * 100,
               cartId,
               userAdd: JSON.parse(delver_address),
@@ -62,7 +65,7 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
             {
               headers: {
                 Authorization: `Bearer ${user}`,
-                "Content-Type": "application/json", // Set the content type to JSON
+                "Content-Type": "application/json",
               },
             }
           );
@@ -85,13 +88,13 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
 
   return (
     <div>
-      {" "}
-      <script url="https://cdn.omise.co/omise.js" onLoad={handelLoad} />
+      {/* Ensure that the element with ID "checkout-button" exists */}
+      <button id="checkout-button" style={{ display: "none" }}></button>
       <form>
         <button onClick={(e) => handelClick(e)} id="credit-card">
-          Pay Withe Credit/Debit Card
+          Pay With Credit/Debit Card
         </button>
-      </form>{" "}
+      </form>
     </div>
   );
 };
