@@ -31,7 +31,7 @@ const CartComponent = (props) => {
       await getCart(dispatch);
       return 
     } catch (err) {
-      console.log(err.message);
+      alert(err.message)
     }
   };
 
@@ -42,7 +42,7 @@ const CartComponent = (props) => {
         navigate("/order-address/" + cart.cart._id);
       //}
     } catch (err) {
-      console.log(err);
+      alert(err.message)
     }
   };
   return (

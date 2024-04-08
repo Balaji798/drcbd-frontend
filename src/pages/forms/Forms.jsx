@@ -33,7 +33,6 @@ const Forms = (props) => {
     getUser();
   }, []);
 
-  //console.log(user);
   const handelNext = async () => {
     try {
       if(userAdd.address===''&&userAdd.city===''&&userAdd.country&&userAdd.postalCode===''&&userAdd.contactNumber===''){
@@ -50,23 +49,19 @@ const Forms = (props) => {
 
       const res = await axios.post(
         "https://drcbd-backend-zgqu.onrender.com/user/edit-user",
-        //https://52.77.244.89:8080
         userAdd,
         config
       ); 
       if (res.data.status){
         await getCart(dispatch)
-        console.log(userAdd)
         localStorage.setItem('delver_address',JSON.stringify(userAdd))
         navigate("/order-summery/" + orderId);
         window.location.reload();
       }
-      //}
     } catch (err) {
-      console.log(err.message);
+      alert(err.message);
     }
   };
-  // props.setPosition(3);
 
   return (
     <div style={{ paddingTop: "4rem" }}>

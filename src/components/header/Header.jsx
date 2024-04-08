@@ -23,8 +23,6 @@ const Header = ({ openNav, setOpenNav }) => {
   const [isUserLogIn, setUserLogIn] = useState(false);
   const [search, setSearch] = useState("");
   const { cart } = useSelector((state) => state.cart);
-  //const user = useSelector((state)=>state.user)
-  console.log(auth);
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
   if (open) {
@@ -36,10 +34,8 @@ const Header = ({ openNav, setOpenNav }) => {
     const gatUserRes = async () => {
       try {
         const res = await ApiService.getUser();
-        console.log(res);
       } catch (err) {
-        console.log(err.response);
-        console.log(err.response.status);
+        alert(err.response);
         setUserLogIn(true);
       }
     };
@@ -53,13 +49,10 @@ const Header = ({ openNav, setOpenNav }) => {
       if (!user) {
         setOpen(true);
       } else {
-        console.log(user);
         const res = await ApiService.getUser();
-        console.log(res);
         res?.data?.user?.emailVerified ? navigate(type) : setOpen(true);
       }
     } catch (err) {
-      console.log(err.response.status);
       alert(err);
     }
   };

@@ -24,14 +24,12 @@ const ByCategory = () => {
         });
         setData(categoryProduct);
       } catch (err) {
-        console.log(err.message);
+        alert(err.message);
       }
     };
     getAllProduct();
   }, [categoryName, pathname]);
 
-  
-console.log(fiterData[0]?.options[0]?.link.split('/')[2])
   return (
     <div className="filter-container center">
       <div className="content-container">

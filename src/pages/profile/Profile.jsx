@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { FaUserCircle } from "react-icons/fa";
-// import { CiLogout } from "react-icons/ci";
-// import { FiShoppingBag } from "react-icons/fi";
-// import { MdOutlineShoppingBag } from "react-icons/md";
-//import { BiEditAlt } from "react-icons/bi";
 import ApiService from "../../services/ApiService";
 import { Link } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
 import "./profile.css";
 import axios from "axios";
 
 const Profile = () => {
   const [userData, setUser] = useState({});
+  const [userAddress, setUserAddress] = useState({});
   const [edit, setEdit] = useState(false);
+  const [editAddress, setEditAddress] = useState(false);
 
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
-      
-      setUser({...res.data.user,dateOfBarth:res.data.user?.dateOfBarth?.split("T")[0]});
+      console.log(res.data.user)
+      setUserAddress(res.data.user?.userAddresses);
+      setUser({
+        ...res.data.user,
+        dateOfBarth: res.data.user?.dateOfBarth?.split("T")[0],
+      });
     };
     getUser();
   }, []);
-
   const handelUserUpdate = async () => {
     const user = localStorage.getItem("token");
     if (user) {
@@ -31,321 +32,319 @@ const Profile = () => {
           "Content-Type": "application/json",
         },
       };
-      
+
       const res = await axios.put(
         "https://drcbd-backend-zgqu.onrender.com/user/update_user",
         //https://52.77.244.89:8080
-        userData,
+        { userData, userAddress },
         config
       );
 
       setUser(res.data);
-      setEdit(false)
+      setEdit(false);
     }
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        background: "#07575b",
-        color: "#fff",
-        justifyContent: "center",
-        alignItems: "center",
-        flexWrap:"wrap",
-        padding:"6rem 0"
-      }}
-    >
-      {/* div
-        className="user-profile-container"
-      >
-        <FaUserCircle style={{ color: "grey", fontSize: "15rem" }} />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            border: "3px solid",
-            borderRadius: "25px",
-            width: "3rem",
-            height: "3rem",
-            position: "absolute",
-            marginBottom: "-11rem",
-            marginLeft: "7rem",
-            background: "#fff",
-          }}
-        >
-          <h1>+</h1>
-        </div>
-        </div> */}
-      <div className="user-det-form">
-        <h1 style={{ color: "#003b45" }}>User Profile</h1>
-        <div style={{ width: "100%" }}>
-          <div>
-            <p>Name</p>
-            <input
-              value={userData?.fullName}
-              readOnly={!edit}
-              style={{
-                background: edit && "#fff",
-                padding: "5px",
-                fontSize: 16,
-                borderRadius: 10,
-                color: edit && "#000",
-      
-              }}
-              onChange={(e) => {
-                setUser({ ...userData, fullName: e.target.value });
-              }}
-            />
-          </div>
-          {/* // <div>
-          //   <p>Last Name</p>
-          //   <input
-          //     value={userData?.fullName?.split(" ")[1]}
-          //     readOnly={!edit}
-          //     style={{
-          //       background: edit && "#fff",
-          //       padding: "5px",
-          //       fontSize: 16,
-          //       borderRadius: 10,
-          //       color: edit && "#000",
-          //     }}
-          //     onChange={(e) => {
-          //       setUser({ ...user, fullName: e.target.value });
-          //     }}
-          //   />
-            // </div>*/}
-          <div>
-            <p>Email</p>
-            <input
-              value={userData?.email}
-              readOnly={!edit}
-              style={{
-                background: edit && "#fff",
-                padding: "5px",
-                fontSize: 16,
-                borderRadius: 10,
-                color: edit && "#000",
-              }}
-              onChange={(e) => {
-                setUser({ ...userData, email: e.target.value });
-              }}
-            />
-          </div>
-        </div>
-        <div style={{ width: "100%" }}>
-          <div style={{ width: "100%" }}>
-            <p>Address</p>
-            <input
-              value={userData?.userAddresses}
-              readOnly={!edit}
-              style={{
-                background: edit && "#fff",
-                padding: "5px",
-                fontSize: 16,
-                borderRadius: 10,
-                color: edit && "#000",
-                width: "100%",
-              }}
-              onChange={(e) => {
-                setUser({ ...userData, userAddresses: e.target.value });
-              }}
-            />
-          </div>
-        </div>
-        <div>
-          <div>
-            <p>Phone</p>
-            <input
-              value={userData?.phone}
-              readOnly={!edit}
-              style={{
-                background: edit && "#fff",
-                padding: "5px",
-                fontSize: 16,
-                borderRadius: 10,
-                color: edit && "#000",
-              }}
-              onChange={(e) => {
-                setUser({ ...userData, phone: e.target.value });
-              }}
-            />
-          </div>
-          <div>
-            <p>Gender</p>
-            <input
-              value={userData?.gander}
-              readOnly={!edit}
-              style={{
-                background: edit && "#fff",
-                padding: "5px",
-                fontSize: 16,
-                borderRadius: 10,
-                color: edit && "#000",
-              }}
-              onChange={(e) => {
-                setUser({ ...userData, gander: e.target.value });
-              }}
-            />
-          </div>
-        </div>
-        <div>
-          <div>
-            <p>Birthday</p>
-            <input
-              value={userData?.dateOfBarth}
-              readOnly={!edit}
-              type="Date"
-              style={{
-                background: edit && "#fff",
-                padding: "5px",
-                fontSize: 16,
-                borderRadius: 10,
-                color: edit && "#000",
-              }}
-              onChange={(e) => {
-                
-                setUser({ ...userData, dateOfBarth: e.target.value });
-              }}
-            />
-          </div>
-          <div>
+    <>
+      {editAddress && (
+        <div className="modal">
+          <div className="overlay"></div>
+          <div
+            className="modal-content"
+            style={{
+              background: "#fff",
+              color: "#005652",
+              width: "100%",
+              alignItems: "flex-start",
+            }}
+          >
             <div
               style={{
+                width: "100%",
                 display: "flex",
-                paddingBottom: "0.5rem",
                 justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              <button
-                className="edit-button"
-                style={{ width: "50%",borderRight:"2px solid #fff",borderTopRightRadius:0,borderBottomRightRadius:0 }}
-                onClick={() => setEdit(!edit)}
+              <h2 style={{ padding: "5px 0" }}>Your Order Address List</h2>
+              <div
+                onClick={() => setEditAddress(false)}
+                style={{ cursor: "pointer" }}
               >
-                EDIT
-              </button>
-              <button
-                className="edit-button"
-                style={{ width: "50%",borderTopLeftRadius:0,borderBottomLeftRadius:0 }}
-                onClick={handelUserUpdate}
-              >
-                SAVE
-              </button>
+                <RxCross2 />
+              </div>
             </div>
-            <Link to="/my-orders" className="history-button">
-              ORDER HISTORY
-            </Link>
+            {userData?.userAddress?.map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  border: "1px solid",
+                  width: "100%",
+                  padding: "5px",
+                  marginBottom: "0.5rem",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  setUserAddress(item);
+                  setEditAddress(false);
+                }}
+              >
+                <p style={{ width: "100%" }}>
+                  <span style={{ fontWeight: "bold" }}>Address:-</span>
+                  {item?.address}
+                </p>
+                <p style={{ width: "100%" }}>
+                  <span style={{ fontWeight: "bold" }}>City:-</span>
+                  {item?.city}
+                </p>
+                <p style={{ width: "100%" }}>
+                  <span style={{ fontWeight: "bold" }}>Country:-</span>
+                  {item?.country}
+                </p>
+                <p style={{ width: "100%" }}>
+                  <span style={{ fontWeight: "bold" }}>Postcode:-</span>
+                  {item?.postalCode}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      {/* <div
-        style={{
-          border: "2px solid silver",
-          borderRadius: "5px",
-          padding: "20px",
-          width: "20%",
-          marginRight: "20px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "30px",
-          }}
-        >
-          <FaUserCircle style={{ color: "#004d4a", fontSize: "50px" }} />
-          <div style={{ width: "70%" }}>
-            <p>Hello</p>
-            <h2>{user?.fullName}</h2>
-          </div>
-        </div>
-        {profileMenu.map((item, index) => (
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              alignItems: "center",
-              margin: "20px 0",
-              color: "#004d4a",
-              borderTop: "2px solid silver",
-              paddingTop: 20,
-            }}
-            key={index}
-          >
-            {item.icon}
-            <h2>{item.title}</h2>
-          </div>
-        ))}
-      </div>
+      )}
       <div
         style={{
-          width: "60%",
-          border: "2px solid silver",
-          padding: "20px",
+          display: "flex",
+          background: "#07575b",
+          color: "#fff",
+          justifyContent: "center",
           alignItems: "center",
+          flexWrap: "wrap",
+          padding: "6rem 0",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <div style={{ width: "45%" }}>
-            <h2 style={{ fontWeight: 300 }}>Full Name</h2>
-            <div
-              style={{
-                border: "1px solid silver",
-                display: "flex",
-                padding: "5px",
-                width: "100%",
-              }}
-            >
+        <div className="user-det-form">
+          <h1 style={{ color: "#003b45" }}>User Profile</h1>
+          <div style={{ width: "100%" }}>
+            <div>
+              <p>Name</p>
               <input
-                value={user?.fullName}
+                value={userData?.fullName}
+                readOnly={!edit}
                 style={{
-                  padding: "",
-                  fontSize: "20px",
-                  outline: "none",
-                  border: "none",
-                  width: "90%",
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userData, fullName: e.target.value });
                 }}
               />
-              <BiEditAlt style={{ fontSize: "20px", color: "#004d4a" }} />
+            </div>
+            <div>
+              <p>Email</p>
+              <input
+                value={userData?.email}
+                readOnly={!edit}
+                style={{
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userData, email: e.target.value });
+                }}
+              />
             </div>
           </div>
 
-          <div style={{ width: "45%" }}>
-            <h2 style={{ fontWeight: 300 }}>Email</h2>
-            <div
-              style={{
-                border: "1px solid silver",
-                display: "flex",
-                padding: "5px",
-                width: "100%",
-              }}
-            >
+          <div style={{ width: "100%" }}>
+            <div style={{ width: "100%" }}>
+              <p>Address</p>
               <input
-                value={user?.email}
+                value={userAddress?.address}
+                readOnly={!edit}
                 style={{
-                  padding: "",
-                  fontSize: "20px",
-                  outline: "none",
-                  border: "none",
-                  width: "90%",
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                  width: "100%",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userAddress, address: e.target.value });
                 }}
               />
-              <BiEditAlt style={{ fontSize: "20px", color: "#004d4a" }} />
+            </div>
+          </div>
+          <div style={{ width: "100%" }}>
+            <div>
+              <p>City</p>
+              <input
+                value={userAddress?.city}
+                readOnly={!edit}
+                style={{
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userData, fullName: e.target.value });
+                }}
+              />
+            </div>
+            <div>
+              <p>Country</p>
+              <input
+                value={userAddress?.country}
+                readOnly={!edit}
+                style={{
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userData, email: e.target.value });
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <div>
+              <p>Postcode</p>
+              <input
+                value={userAddress?.postalCode}
+                readOnly={!edit}
+                style={{
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                  width: "100%",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userAddress, postalCode: e.target.value });
+                }}
+              />
+            </div>
+            {edit && (
+              <button
+                className="edit-button"
+                style={{
+                  padding: "10px 5px",
+                  height: "40px",
+                  fontSize: "14px",
+                }}
+                onClick={() => setEditAddress(true)}
+              >
+                Chose From List
+              </button>
+            )}
+          </div>
+          <div>
+            <div>
+              <p>Phone</p>
+              <input
+                value={userData?.phone}
+                readOnly={!edit}
+                style={{
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userData, phone: e.target.value });
+                }}
+              />
+            </div>
+            <div>
+              <p>Gender</p>
+              <input
+                value={userData?.gander}
+                readOnly={!edit}
+                style={{
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userData, gander: e.target.value });
+                }}
+              />
+            </div>
+          </div>
+          <div>
+            <div>
+              <p>Birthday</p>
+              <input
+                value={userData?.dateOfBarth}
+                readOnly={!edit}
+                type="Date"
+                style={{
+                  background: edit && "#fff",
+                  padding: "5px",
+                  fontSize: 16,
+                  borderRadius: 10,
+                  color: edit && "#000",
+                }}
+                onChange={(e) => {
+                  setUser({ ...userData, dateOfBarth: e.target.value });
+                }}
+              />
+            </div>
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  paddingBottom: "0.5rem",
+                  justifyContent: "space-between",
+                }}
+              >
+                <button
+                  className="edit-button"
+                  style={{
+                    width: "50%",
+                    borderRight: "2px solid #fff",
+                    borderTopRightRadius: 0,
+                    borderBottomRightRadius: 0,
+                  }}
+                  onClick={() => setEdit(!edit)}
+                >
+                  EDIT
+                </button>
+                <button
+                  className="edit-button"
+                  style={{
+                    width: "50%",
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  }}
+                  onClick={handelUserUpdate}
+                >
+                  SAVE
+                </button>
+              </div>
+              <Link to="/my-orders" className="history-button">
+                ORDER HISTORY
+              </Link>
             </div>
           </div>
         </div>
-      </div> */}
-    </div>
+      </div>
+    </>
   );
 };
 

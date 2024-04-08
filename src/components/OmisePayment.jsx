@@ -53,7 +53,6 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
         publicKey: "pkey_test_5yyqilk4aaws7x9ldno",
         onCreateTokenSuccess: async (token) => {
           const omiseToken = token;
-          console.log(omiseToken);
           const res = await axios.post(
             "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise",
             {
@@ -69,7 +68,6 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
               },
             }
           );
-          console.log(res.data.orderId);
           if (res.data.status) {
             await getCart(dispatch);
             setOrderStatus(true);

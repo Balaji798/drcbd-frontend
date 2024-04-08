@@ -10,11 +10,11 @@ const SignIn = () => {
   //const {data:session} = useSession();
   const dispatch = useDispatch();
   const [open, setOpen] = useState();
-  const [otp,setOtp]=useState('')
+  const [otp, setOtp] = useState("");
   const [token, setToken] = useState(false);
   const [verify, setVerify] = useState(false);
-  const [password,setPassword] = useState(false);
-  const [email,setEmail] = useState(false)
+  const [password, setPassword] = useState(false);
+  const [email, setEmail] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -30,66 +30,70 @@ const SignIn = () => {
     const res = await axios.post(
       "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
       //https://52.77.244.89:8080
-      { otp: otp },
+      { otp: otp }
     );
-    if(!res.data.status){
-      setToken(true)
+    if (!res.data.status) {
+      setToken(true);
     }
-    if (res.data.status===true) {
+    if (res.data.status === true) {
       localStorage.setItem("token", res.data.token);
-      await updateUser(dispatch)
+      await updateUser(dispatch);
       navigate("/");
-    };
+    }
   };
   const sendOtp = async () => {
     try {
-     const {data} = await axios.post(
+      const { data } = await axios.post(
         "https://drcbd-backend-zgqu.onrender.com/user/send_otp",
-        //https://52.77.244.89:8080
         user
       );
-      if(data.status) 
-      setVerify(true);
+      if (data.status) setVerify(true);
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   };
 
   const handelLogin = async () => {
     const userToken = localStorage.getItem("token");
-    if(!user?.email?.toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )){
-      setEmail(true)
-      return 
+    if (
+      !user?.email
+        ?.toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
+    ) {
+      setEmail(true);
+      return;
     }
-    const response = await axios.post("https://drcbd-backend-zgqu.onrender.com/user/login", user);
+    const response = await axios.post(
+      "https://drcbd-backend-zgqu.onrender.com/user/login",
+      user
+    );
     //https://52.77.244.89:8080
-    if(response?.data?.email){
-      if(userToken){
-        localStorage.removeItem('token')
+    if (response?.data?.email) {
+      if (userToken) {
+        localStorage.removeItem("token");
       }
-      setEmail(true)
-      return 
-    }else if(response?.data?.password){
-      if(userToken){
-        localStorage.removeItem('token')
+      setEmail(true);
+      return;
+    } else if (response?.data?.password) {
+      if (userToken) {
+        localStorage.removeItem("token");
       }
-      setPassword(true)
-      return 
+      setPassword(true);
+      return;
     }
     await authSuccessful(dispatch, response.data.user);
     if (!response?.data?.user?.emailVerified) {
       setOpen(true);
-    } else { 
-      if(user){
-        localStorage.removeItem('token')
+    } else {
+      if (user) {
+        localStorage.removeItem("token");
       }
       localStorage.setItem("token", response.data.token);
-      await updateUser(dispatch)
+      await updateUser(dispatch);
       navigate("/");
-      window.location.reload()
+      window.location.reload();
     }
   };
 
@@ -114,7 +118,7 @@ const SignIn = () => {
             </h3>
             <p
               style={{
-                textAlign:"center",
+                textAlign: "center",
                 fontSize: "16px",
                 padding: "0.7em 0",
                 fontWeight: "bold",
@@ -138,7 +142,7 @@ const SignIn = () => {
               <p style={{ color: "red", paddingTop: 10 }}>Not a valid OTP</p>
             )}
             <button
-              style={{marginTop:"1rem",maxWidth:200}}
+              style={{ marginTop: "1rem", maxWidth: 200 }}
               onClick={verifyEmail}
             >
               Verify Email
@@ -147,14 +151,7 @@ const SignIn = () => {
         ) : (
           <div className="register-container">
             <p>Your email is not verified please Verify your email first</p>
-            <button
-              onClick={
-                sendOtp
-                
-              }
-            >
-              Verify
-            </button>
+            <button onClick={sendOtp}>Verify</button>
           </div>
         )
       ) : (
@@ -171,20 +168,25 @@ const SignIn = () => {
             value={user.email}
             required
             onChange={(e) => {
-              setEmail(false)
-              setUser({ ...user, email: e.target.value })
+              setEmail(false);
+              setUser({ ...user, email: e.target.value });
             }}
           />
-          {email&&<p style={{color:"red"}}>Email is not valid or you are not Signup</p>}
+          {email && (
+            <p style={{ color: "red" }}>
+              Email is not valid or you are not Signup
+            </p>
+          )}
           <p>Password</p>
           <input
-          type='password'
-          required
+            type="password"
+            required
             onChange={(e) => {
-              setPassword(false)
-              setUser({ ...user, password: e.target.value })}}
+              setPassword(false);
+              setUser({ ...user, password: e.target.value });
+            }}
           />
-          {password&&<p style={{color:"red"}}>Password is not valid</p>}
+          {password && <p style={{ color: "red" }}>Password is not valid</p>}
           <div
             style={{
               display: "flex",
@@ -193,8 +195,9 @@ const SignIn = () => {
               flexWrap: "wrap",
             }}
           >
-            
-            <Link to='/forgot-password' style={{ fontSize: 20 }}>Forgot your password</Link>
+            <Link to="/forgot-password" style={{ fontSize: 20 }}>
+              Forgot your password
+            </Link>
           </div>
           <button
             style={{
@@ -207,7 +210,7 @@ const SignIn = () => {
               background: "#0b4640",
               color: "#fff",
               fontWeight: "bold",
-              cursor:'pointer'
+              cursor: "pointer",
             }}
             onClick={handelLogin}
           >

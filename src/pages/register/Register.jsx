@@ -39,7 +39,7 @@ const Register = () => {
       
       setLogin(true);
     } catch (error) {
-      console.log("Signup failed", error.message);
+      alert("Signup failed", error.message);
     }
   };
 

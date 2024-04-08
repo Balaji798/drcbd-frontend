@@ -64,7 +64,7 @@ const ProductDetail = () => {
       try {
         setPrice(Number(productByName[0]?.price)?.toFixed(2));
       } catch (err) {
-        console.log(err.message);
+        alert(err.message);
       }
     };
     getProductByName();
@@ -215,41 +215,9 @@ const ProductDetail = () => {
         alert("You are not login login first");
       }
     } catch (err) {
-      console.log(err.message);
+      alert(err.message);
     }
   };
-  // const buy = async() => {
-  //   try {
-  //     const requestBody = { qty, price, productId: productByName[0]?._id };
-  //     const user = localStorage.getItem("token");
-  //     if (user) {
-  //       const config = {
-  //         headers: {
-  //           Authorization: `Bearer ${user}`,
-  //           "Content-Type": "application/json", // Set the content type to JSON
-  //         },
-  //       };
-  //       const res = await axios.post(
-  //         "https://drcbd-backend-zgqu.onrender.com/cart/add-to-card",
-  //         //https://52.77.244.89:8080
-  //         requestBody,
-  //         config
-  //       );
-  //       if (res.data !== "Item Add Successfully") {
-  //         setOpen(true);
-  //       }
-  //       await getCart(dispatch);
-  //       navigate(`/cart/?productId=${product._id}`);
-  //       return;
-  //     } else {
-  //       alert("You are not login login first");
-  //     }
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-
-  //   // if (user) setOpen(!open);
-  // };
 
   const PreviousBtn = (props) => {
     const { onClick } = props;

@@ -33,8 +33,6 @@ const VerticalSlider = ({ productId }) => {
         alert('Review and rating required ')
         return
       }
-
-      console.log(user)
       if (user) {
         const config = {
           headers: {
@@ -60,7 +58,7 @@ const VerticalSlider = ({ productId }) => {
       }
     } catch (err) {
       setOpen(true)
-      console.log(err);
+      alert(err);
     }
   };
 

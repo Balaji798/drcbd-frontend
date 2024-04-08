@@ -42,10 +42,6 @@ const NHI = () => {
 
   const currentItems = arr.slice(startIndex, endIndex);
 
-  // const handleClick = (pageNumber) => {
-  //   console.log("hi");
-  //   setCurrentPage(pageNumber);
-  // };
 
   return (
     <div>

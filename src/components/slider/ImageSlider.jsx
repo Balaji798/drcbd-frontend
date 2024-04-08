@@ -67,7 +67,6 @@ const ImageSlider = () => {
         <div className="section-center-home">
           {slider.map((item, indexPeople) => {
             const { id, image } = item;
-            // console.log(image);
             let position = "nextSlide";
             if (indexPeople === secondIndex) {
               position = "activeSlide";

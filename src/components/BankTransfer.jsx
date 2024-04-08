@@ -53,7 +53,6 @@ const BankTransfer = ({ totalPrice, cartId }) => {
       publicKey: "pkey_test_5yyqilk4aaws7x9ldno",
       onCreateTokenSuccess: async (token) => {
         const omiseToekn = token;
-        console.log(omiseToekn);
          const res = await axios.post(
            "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise_bank",
           { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId },
@@ -64,7 +63,6 @@ const BankTransfer = ({ totalPrice, cartId }) => {
             },
           }
         );
-        console.log(res.data);
         if(res.data.authorizeUri){
           window.location.href = res.data.authorizeUri
         }
