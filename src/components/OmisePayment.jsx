@@ -50,7 +50,7 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
         frameLabel: "DRCBD Store",
         frameDescription: "Invoice #3847",
         amount: Number(totalPrice) * 100,
-        publicKey: "pkey_test_5yyqilk4aaws7x9ldno",
+        publicKey: process.env.REACT_APP_OMISE_PUBLICK_KEY,
         onCreateTokenSuccess: async (token) => {
           const omiseToken = token;
           const res = await axios.post(

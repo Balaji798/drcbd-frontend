@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 
 const BankTransfer = ({ totalPrice, cartId }) => {
   const OmiseCard = window.OmiseCard;
-
+  const delver_address = localStorage.getItem("delver_address");
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -48,14 +48,15 @@ const BankTransfer = ({ totalPrice, cartId }) => {
      if (user) {
     OmiseCard.open({
       frameLabel: "DRCBD Store",
-      frameDescription: "Invoice #3847",
+      frameDescription: "Invoice ",
       amount: Number(totalPrice) * 100,
-      publicKey: "pkey_test_5yyqilk4aaws7x9ldno",
+      publicKey: process.env.REACT_APP_OMISE_PUBLICK_KEY,
       onCreateTokenSuccess: async (token) => {
         const omiseToekn = token;
+        console.log(omiseToekn)
          const res = await axios.post(
            "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise_bank",
-          { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId },
+          { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId, userAdd: JSON.parse(delver_address) },
           {
             headers: {
               Authorization: `Bearer ${user}`,
@@ -67,7 +68,9 @@ const BankTransfer = ({ totalPrice, cartId }) => {
           window.location.href = res.data.authorizeUri
         }
       },
-      onFormClosed: () => {},
+      onFormClosed: () => {
+        console.log("close")
+      },
     });
     }
   };
