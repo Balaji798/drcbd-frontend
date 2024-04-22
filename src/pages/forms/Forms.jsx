@@ -35,10 +35,10 @@ const Forms = (props) => {
   const handelNext = async () => {
     try {
       if (
-        userAdd.address === "" ||
-        userAdd.city === "" ||
-        userAdd.country ||
-        userAdd.postalCode === "" ||
+        userAdd.address === "" &&
+        userAdd.city === "" &&
+        userAdd.country === ""&&
+        userAdd.postalCode === "" &&
         userAdd.contactNumber === ""
       ) {
         alert("Delivery address required")
