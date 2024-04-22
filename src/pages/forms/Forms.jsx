@@ -6,12 +6,11 @@ import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
-const Steps =lazy(async () => await import("../../components/Steps"));
+const Steps = lazy(async () => await import("../../components/Steps"));
 
 const Forms = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [error,setError] = useState(false)
   const { orderId } = useParams();
   const [user, setUser] = useState([]);
   const [select, setSelect] = useState(0);
@@ -32,12 +31,18 @@ const Forms = (props) => {
     };
     getUser();
   }, []);
-
+  console.log(userAdd)
   const handelNext = async () => {
     try {
-      if(userAdd.address===''&&userAdd.city===''&&userAdd.country&&userAdd.postalCode===''&&userAdd.contactNumber===''){
-        setError(true)
-        return
+      if (
+        userAdd.address === "" ||
+        userAdd.city === "" ||
+        userAdd.country ||
+        userAdd.postalCode === "" ||
+        userAdd.contactNumber === ""
+      ) {
+        alert("Delivery address required")
+        return;
       }
       const user = localStorage.getItem("token");
       const config = {
@@ -51,10 +56,10 @@ const Forms = (props) => {
         "https://drcbd-backend-zgqu.onrender.com/user/edit-user",
         userAdd,
         config
-      ); 
-      if (res.data.status){
-        await getCart(dispatch)
-        localStorage.setItem('delver_address',JSON.stringify(userAdd))
+      );
+      if (res.data.status) {
+        await getCart(dispatch);
+        localStorage.setItem("delver_address", JSON.stringify(userAdd));
         navigate("/order-summery/" + orderId);
         window.location.reload();
       }
@@ -156,7 +161,6 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, country: e.target.value });
             }}
           />
-          {error && <p style={{color:"red"}}>Country name required</p>}
         </div>
         <div className="input-container">
           <p>Address:</p>{" "}
@@ -165,7 +169,6 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, address: e.target.value });
             }}
           />
-          {error && <p style={{color:"red"}}>Full address required</p>}
         </div>
         <div className="input-container">
           <p>Postal Code:</p>{" "}
@@ -174,7 +177,6 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, postalCode: e.target.value });
             }}
           />
-          {error && <p style={{color:"red"}}>Postcode required</p>}
         </div>
         <div className="input-container">
           <p>Contact Number:</p>{" "}
@@ -183,7 +185,6 @@ const Forms = (props) => {
               setUserAdd({ ...userAdd, contactNumber: e.target.value });
             }}
           />
-          {error && <p style={{color:"red"}}>Contact number required</p>}
         </div>
         <div className="input-container">
           <p>Tax ID:</p>{" "}

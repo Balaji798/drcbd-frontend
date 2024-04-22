@@ -45,10 +45,11 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
 
   const omiseHandler = async () => {
     const user = localStorage.getItem("token");
+    const orderData = await axios.get("https://drcbd-backend-zgqu.onrender.com/orders/total_orders")
     if (user) {
       OmiseCard.open({
         frameLabel: "DRCBD Store",
-        frameDescription: "Invoice #3847",
+        frameDescription: `Invoice #${String(orderData.data.totalOrder+1).padStart(5, '0')}`,
         amount: Number(totalPrice) * 100,
         publicKey: process.env.REACT_APP_OMISE_PUBLICK_KEY,
         onCreateTokenSuccess: async (token) => {
@@ -59,7 +60,7 @@ const OmisePayment = ({ totalPrice, setOrderStatus, cartId }) => {
               token: omiseToken,
               amount: Number(totalPrice) * 100,
               cartId,
-              userAdd: JSON.parse(delver_address),
+              userAdd: JSON.parse(delver_address)
             },
             {
               headers: {

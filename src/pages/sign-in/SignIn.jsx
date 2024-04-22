@@ -14,7 +14,9 @@ const SignIn = () => {
   const [token, setToken] = useState(false);
   const [verify, setVerify] = useState(false);
   const [password, setPassword] = useState(false);
+  const [fides, setFides] = useState(false);
   const [email, setEmail] = useState(false);
+  const [otpValidation,setOtpValidation]=useState(false)
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -27,6 +29,10 @@ const SignIn = () => {
 
   // }]
   const verifyEmail = async () => {
+    if(otp=== ""){
+      setOtpValidation(true)
+      return
+    }
     const res = await axios.post(
       "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
       //https://52.77.244.89:8080
@@ -55,6 +61,13 @@ const SignIn = () => {
 
   const handelLogin = async () => {
     const userToken = localStorage.getItem("token");
+    if (
+      user.email === "" ||
+      user.password === ""
+    ) {
+      setFides(true);
+      return;
+    }
     if (
       !user?.email
         ?.toLowerCase()
@@ -136,8 +149,12 @@ const SignIn = () => {
               }}
               onChange={(e) => {
                 setOtp(e.target.value);
+                setOtpValidation(false)
               }}
             />
+            {otpValidation && (
+              <p style={{ color: "red" }}>OTP required</p>
+            )}
             {token && (
               <p style={{ color: "red", paddingTop: 10 }}>Not a valid OTP</p>
             )}
@@ -170,8 +187,12 @@ const SignIn = () => {
             onChange={(e) => {
               setEmail(false);
               setUser({ ...user, email: e.target.value });
+              setFides(false)
             }}
           />
+          {fides && user.email === "" && (
+            <p style={{ color: "red" }}>Email required</p>
+          )}
           {email && (
             <p style={{ color: "red" }}>
               Email is not valid or you are not Signup
@@ -184,8 +205,12 @@ const SignIn = () => {
             onChange={(e) => {
               setPassword(false);
               setUser({ ...user, password: e.target.value });
+              setFides(false)
             }}
           />
+          {fides && user.password === "" && (
+            <p style={{ color: "red" }}>Password required</p>
+          )}
           {password && <p style={{ color: "red" }}>Password is not valid</p>}
           <div
             style={{

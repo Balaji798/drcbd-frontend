@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import './register.css'
+import "./register.css";
 
 const Register = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [login, setLogin] = useState(false);
-  const [email,setEmail] = useState(false)
+  const [email, setEmail] = useState(false);
   const [verified, setVerified] = useState(false);
-  const [invalid,setInvalid] = useState(false)
+  const [invalid, setInvalid] = useState(false);
+  const [fides, setFides] = useState(false);
+  const [otpValidation,setOtpValidation]=useState(false)
   const [otp, setOtp] = useState("");
-  const [token, setToken] = useState(false);
   const [user, setUser] = useState({
     fullName: "",
     email: "",
@@ -20,44 +21,58 @@ const Register = () => {
 
   const handelSignUp = async () => {
     try {
-      if(!user?.email?.toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )){
-      setEmail(true)
-      return 
-    }
+      if (
+        user.fullName === "" ||
+        user.email === "" ||
+        user.password === "" ||
+        user.confirmPassword === ""
+      ) {
+        setFides(true);
+        return;
+      }
+      if (
+        !user?.email
+          ?.toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          )
+      ) {
+        setEmail(true);
+        return;
+      }
       if (user.password !== user.confirmPassword) {
         return alert("Password did not match");
       }
       const response = await axios.post(
         "https://drcbd-backend-zgqu.onrender.com/user/signup",
-        //https://52.77.244.89:8080
         user
       );
-      
-      
-      setLogin(true);
+
+      if(response.status){
+        setLogin(true);
+      }
     } catch (error) {
       alert("Signup failed", error.message);
     }
   };
 
   const verifyEmail = async () => {
-    
+    if(otp=== ""){
+      setOtpValidation(true)
+      return
+    }
     const res = await axios.post(
       "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
       //https://52.77.244.89:8080
       { otp: otp }
     );
-    if(res.data.status){
+    if (res.data.status) {
       localStorage.setItem("token", res.data.token);
-      setToken(true)
     }
-    if(!res.data.status){
-      setInvalid(true)
+    if (!res.data.status) {
+      setInvalid(true);
     }
-    if (res.data.status===true) setVerified(true) ;
+    if (res.data.status === true) setVerified(true);
   };
   return (
     <div
@@ -97,7 +112,7 @@ const Register = () => {
                   fontWeight: "bold",
                 }}
                 onClick={() => {
-                  navigate('/')
+                  navigate("/");
                   window.location.reload();
                 }}
               >
@@ -131,9 +146,17 @@ const Register = () => {
                 border: "1px solid grey",
               }}
               value={otp}
-              onChange={(e)=>{setOtp(e.target.value)}}
+              onChange={(e) => {
+                setOtp(e.target.value);
+                setOtpValidation(false)
+              }}
             />
-            {invalid&&<p style={{color:"red",paddingTop:10}}>Not a valid OTP</p>}
+            {otpValidation && (
+              <p style={{ color: "red" }}>OTP required</p>
+            )}
+            {invalid && (
+              <p style={{ color: "red", paddingTop: 10 }}>Not a valid OTP</p>
+            )}
             <button
               style={{
                 marginTop: "1em",
@@ -160,46 +183,55 @@ const Register = () => {
             </Link>
             Register
           </h1>
-          <p
-          >
-            User Name
-          </p>
+          <p>User Name</p>
           <input
             onChange={(e) => {
               setUser({ ...user, fullName: e.target.value });
+              setFides(false);
             }}
+            required={true}
           />
-          <p
-          >
-            Email Address
-          </p>
+          {fides && user.fullName === "" && (
+            <p style={{ color: "red" }}>User Name required</p>
+          )}
+          <p>Email Address</p>
           <input
-          type='email'
+            type="email"
             onChange={(e) => {
               setUser({ ...user, email: e.target.value });
+              setFides(false);
             }}
+            required={true}
           />
-          {email&&<p style={{color:"red"}}>Email is not valid</p>}
-          <p
-          >
-            Password
-          </p>
+          {email && <p style={{ color: "red" }}>Email is not valid</p>}
+          {fides && user.email === "" && (
+            <p style={{ color: "red" }}>Email required</p>
+          )}
+          <p>Password</p>
           <input
-          type='password'
+            type="password"
             onChange={(e) => {
               setUser({ ...user, password: e.target.value });
+              setFides(false);
             }}
+            required={true}
           />
-          <p
-          >
-            Confirm Password
-          </p>
+          {fides && user.password === "" && (
+            <p style={{ color: "red" }}>Password required</p>
+          )}
+
+          <p>Confirm Password</p>
           <input
-            type='password'
+            type="password"
             onChange={(e) => {
               setUser({ ...user, confirmPassword: e.target.value });
+              setFides(false);
             }}
+            required={true}
           />
+          {fides && user.confirmPassword === "" && (
+            <p style={{ color: "red" }}>Confirm Password required</p>
+          )}
           <p
             style={{ fontWeight: "500", lineHeight: "1.5em", fontSize: "20px" }}
           >
