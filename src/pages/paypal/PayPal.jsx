@@ -6,12 +6,10 @@ import BankTransfer from "../../components/BankTransfer";
 import { useSelector } from "react-redux";
 
 const PayPal = () => {
-  const [orderStatus, setOrderStatus] = useState(false);
   const [orderData, setOrderData] = useState({});
   const summeryTitle = ["Product", "Quantity", "Price", "Delivery Charge"];
   const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0)
   const cart = useSelector((state) => state.cart)
-  const navigate = useNavigate();
 
  useEffect(() => {
   const getOrderData = async () => {
@@ -32,37 +30,6 @@ const PayPal = () => {
 }, [cart?.cart?.items, cart?.cart?.totalPrice]);
   return (
     <>
-      {orderStatus && (
-        <div className="modal">
-          <div className="overlay"></div>
-          <div
-            className="modal-content"
-            style={{ background: "#fff", color: "#005652" }}
-          >
-            <BiSolidBadgeCheck color="#005652" size={45} />
-            <h4 style={{ padding: "5px 0" }}>Your Order Placed Successfully</h4>
-            <p>Thank You For Your Shopping</p>
-            <button
-              style={{
-                background: "#005652",
-                color: "#fff",
-                textAlign: "center",
-                margin: "15px 0",
-                fontWeight: "bold",
-                fontSize: "20px",
-                width: "20rem",
-              }}
-              onClick={() => {
-                setOrderStatus(false);
-                navigate("/order-history");
-                window.location.reload()
-              }}
-            >
-              Track Order
-            </button>
-          </div>
-        </div>
-      )}
       <div
         style={{
           display: "flex",
@@ -139,7 +106,7 @@ const PayPal = () => {
             </div>
           </div>
           </div>
-          <OmisePayment totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} setOrderStatus={setOrderStatus} cartId= {cart?.cart?._id}/>
+          <OmisePayment totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} cartId= {cart?.cart?._id}/>
           <div style={{height:"20px"}}/>
           <BankTransfer totalPrice={cart?.cart?.totalPrice+totalDeliveryCharge} cartId= {cart?.cart?._id}/>
       </div>

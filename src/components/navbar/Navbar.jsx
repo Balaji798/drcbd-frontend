@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import { MdArrowForwardIos } from "react-icons/md";
+//import { MdArrowForwardIos } from "react-icons/md";
 
 const naveData = [
   {

@@ -67,6 +67,7 @@ const BankTransfer = ({ totalPrice, cartId }) => {
           }
         );
         if(res.data.authorizeUri){
+          localStorage.setItem("omisePaymentId",res.data.paymentId)
           window.location.href = res.data.authorizeUri
         }
       },
