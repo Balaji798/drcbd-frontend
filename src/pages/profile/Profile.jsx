@@ -14,7 +14,7 @@ const Profile = () => {
   useEffect(() => {
     const getUser = async () => {
       const res = await ApiService.getUser();
-      console.log(res.data.user)
+      //console.log(res.data.user)
       setUserAddress(res.data.user?.userAddresses);
       setUser({
         ...res.data.user,

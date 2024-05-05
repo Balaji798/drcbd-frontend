@@ -1,10 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { getCart } from "../state/actions/cartAction";
-import { useDispatch } from "react-redux";
 
 const OmisePayment = ({ totalPrice, cartId }) => {
-  const dispatch = useDispatch();
   const delver_address = localStorage.getItem("delver_address");
   const OmiseCard = window.OmiseCard;
 
@@ -70,7 +67,6 @@ const OmisePayment = ({ totalPrice, cartId }) => {
               },
             }
           );
-          console.log(res.data)
           if(res.data.authorizeUri){
             localStorage.setItem("omisePaymentId",res.data.paymentId)
             window.location.href = res.data.authorizeUri
@@ -92,7 +88,7 @@ const OmisePayment = ({ totalPrice, cartId }) => {
       <button id="checkout-button" style={{ display: "none" }}></button>
       <form>
         <button onClick={(e) => handelClick(e)} id="credit-card">
-          Pay With Credit/Debit Card
+          Pay Withe Credit/Debit Card
         </button>
       </form>
     </div>

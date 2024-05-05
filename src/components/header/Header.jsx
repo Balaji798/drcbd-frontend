@@ -35,7 +35,7 @@ const Header = ({ openNav, setOpenNav }) => {
       try {
         const res = await ApiService.getUser();
       } catch (err) {
-        alert(err.response);
+        //alert(err.response);
         setUserLogIn(true);
       }
     };
