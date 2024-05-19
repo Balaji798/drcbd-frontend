@@ -182,7 +182,7 @@ const ImageSlider = () => {
         <h1 style={{ textAlign: "center", padding: "0.5em 0" }}>
           AVAILABLE AT
         </h1>
-        <div
+        {/*<div
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -237,7 +237,7 @@ const ImageSlider = () => {
           >
             <div className="blue-dev" />
           </div>
-        </div>
+          </div>*/}
         <div
           style={{
             display: "flex",

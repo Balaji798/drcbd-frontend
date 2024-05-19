@@ -21,23 +21,23 @@ const onButtonClick2 = () => {
   link.click();
   document.body.removeChild(link);
 };
-  const storiesData = [
-    {
-      title: "ABOUT",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DR.CBD-282.jpg",
-    },
-    {
-      title: "NEWS",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DSC01745.jpg",
-    },
-    {
-      title: "INSIGHTS",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/edit02.jpg",
-    },
-  ];
+  // const storiesData = [
+  //   {
+  //     title: "ABOUT",
+  //     image:
+  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DR.CBD-282.jpg",
+  //   },
+  //   {
+  //     title: "NEWS",
+  //     image:
+  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DSC01745.jpg",
+  //   },
+  //   {
+  //     title: "INSIGHTS",
+  //     image:
+  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/edit02.jpg",
+  //   },
+  // ];
   const howItStarted = [
     {
       image:
@@ -79,11 +79,11 @@ const onButtonClick2 = () => {
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
       name: "vitalmediclinicofficial",
     },
-    {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
-      name: "vitalhealtheathcafeofficial",
-    },
+    // {
+    //   image:
+    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
+    //   name: "vitalhealtheathcafeofficial",
+    // },
     {
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
@@ -96,23 +96,23 @@ const onButtonClick2 = () => {
     },
   ];
 
-  const newsData = [
-    {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/DR.CBD-282.jpg",
-      name: "Grand Opening Stores",
-    },
-    {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/IMG_1466.JPG",
-      name: "Grand Opening Stores",
-    },
-    {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/nodtiezpix.jpg",
-      name: "Grand Opening Stores",
-    },
-  ];
+  // const newsData = [
+  //   {
+  //     image:
+  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/DR.CBD-282.jpg",
+  //     name: "Grand Opening Stores",
+  //   },
+  //   {
+  //     image:
+  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/IMG_1466.JPG",
+  //     name: "Grand Opening Stores",
+  //   },
+  //   {
+  //     image:
+  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/nodtiezpix.jpg",
+  //     name: "Grand Opening Stores",
+  //   },
+  // ];
   return (
     <>
       <div className="stories">

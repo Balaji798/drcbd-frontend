@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { BiSolidBadgeCheck } from "react-icons/bi";
 import OmisePayment from "../../components/OmisePayment";
 import BankTransfer from "../../components/BankTransfer";
 import { useSelector } from "react-redux";

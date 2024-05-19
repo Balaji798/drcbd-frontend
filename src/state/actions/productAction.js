@@ -1,6 +1,6 @@
 import ApiService from "../../services/ApiService";
 
-const product = [];
+
 export const fetchProduct = async (dispatch, product) => {
   try {
     dispatch({ type: "FETCH_PRODUCT_SUCCESS", product: product });

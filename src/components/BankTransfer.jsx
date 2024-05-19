@@ -48,6 +48,7 @@ const BankTransfer = ({ totalPrice, cartId }) => {
      if (user) {
       const orderData = await axios.get("https://drcbd-backend-zgqu.onrender.com/orders/total_orders")
 
+      console.log(orderData.data.totalOrder+1)
     OmiseCard.open({
       frameLabel: "DRCBD Store",
       frameDescription: `Invoice #${String(orderData.data.totalOrder+1).padStart(5, '0')}`,
@@ -57,7 +58,8 @@ const BankTransfer = ({ totalPrice, cartId }) => {
         const omiseToekn = token;
         console.log(omiseToekn)
          const res = await axios.post(
-           "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise_bank",
+           "http://localhost:8080/orders/pay_withe_omise_bank",
+           //https://drcbd-backend-zgqu.onrender.com
           { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId, userAdd: JSON.parse(delver_address) },
           {
             headers: {
@@ -89,11 +91,8 @@ const BankTransfer = ({ totalPrice, cartId }) => {
       {" "}
       <script url="https://cdn.omise.co/omise.js" onLoad={handelLoad} />
       <form>
-        {/*       <button onClick={(e) => handelClick(e)} id="credit-card">
-          Pay Now
-  </button>*/}
         <button onClick={(e) => handelClick(e)} id="internet_banking">
-          Pay Withe internet banking
+          Pay With internet banking
         </button>
       </form>{" "}
     </div>

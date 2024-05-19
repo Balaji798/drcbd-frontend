@@ -59,7 +59,7 @@ const Accordion = () => {
               {/* <span>{index === i ? "-" : "+"}</span> */}
             </div>
             <div className={index === open ? "show content" : "content"}>
-              <p>{item.para}</p>
+              <p style={{padding: "20px 20px 0"}}>{item.para}</p>
             </div>
           </div>
         ))}

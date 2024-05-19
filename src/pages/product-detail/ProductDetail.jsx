@@ -15,6 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import data from "../../data";
 import "./productDetail.css";
+import "../../components/accordion/accordion.css";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -23,12 +24,17 @@ import { Link } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import { useSelector } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
-const VerticalCarousel = lazy(async () => await import("../../components/verticalslider/VerticalSlider")) ;
-const ProductSlider = lazy(async () => await import("../../components/productSlider/ProductSlider"));
+const VerticalCarousel = lazy(
+  async () => await import("../../components/verticalslider/VerticalSlider")
+);
+const ProductSlider = lazy(
+  async () => await import("../../components/productSlider/ProductSlider")
+);
 
 const ProductDetail = () => {
   const scrollContainerRef = useRef();
-  const videoRef = useRef();
+  //const videoRef = useRef();
+  const [expandedIndex, setExpandedIndex] = useState(null);
   const targetRef = useRef(null);
   const [position, setPosition] = useState(0);
   const [qty, setQty] = useState(1);
@@ -90,30 +96,43 @@ const ProductDetail = () => {
       title: "Product detail",
       para: productByName[0]?.productFor,
     },
-    {
-      title: "Suitable for",
-      para: productByName[0]?.suitableFor,
-    },
-    {
-      title: "Direction",
-      para: productByName[0]?.use,
-    },
-    {
-      title: "Storage & Condition",
-      para: productByName[0]?.storageContraindication,
-    },
-    {
-      title: "Contraindication",
-      para: productByName[0]?.contraindication,
-    },
-    {
-      title: "Warning & Precaution",
-      para: productByName[0]?.warningPrecaution,
-    },
+    // {
+    //   title: "Suitable for",
+    //   para: productByName[0]?.suitableFor,
+    // },
+    // {
+    //   title: "Direction",
+    //   para: productByName[0]?.use,
+    // },
+    // {
+    //   title: "Storage & Condition",
+    //   para: productByName[0]?.storageContraindication,
+    // },
+    // {
+    //   title: "Contraindication",
+    //   para: productByName[0]?.contraindication,
+    // },
+    // {
+    //   title: "Warning & Precaution",
+    //   para: productByName[0]?.warningPrecaution,
+    // },
     // {
     //   title: "Quantity",
     //   para: "50% ML",
     // },
+  ];
+  const accordionItems = [
+    { title: "Suitable for", para: productByName[0]?.suitableFor },
+    { title: "Direction", para: productByName[0]?.use },
+    {
+      title: "Storage & Condition",
+      para: productByName[0]?.storageContraindication,
+    },
+    { title: "Contraindication", para: productByName[0]?.contraindication },
+    {
+      title: "Warning & Precaution",
+      para: productByName[0]?.warningPrecaution,
+    },
   ];
   const concatData = [
     {
@@ -307,7 +326,7 @@ const ProductDetail = () => {
         </div>
       )}
       <div>
-      <div style={{width:'100%', maxHeight:'30rem', height:'100%'}}>
+        {/*<div style={{width:'100%', maxHeight:'30rem', height:'100%'}}>
       {!productByName[0]?.bannerImg ? (
         <img
           src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/info-product-banner.jpg"
@@ -375,7 +394,7 @@ const ProductDetail = () => {
           </div>
         </section>
       )}
-      </div>
+    </div>*/}
         <div className="productDetail" ref={targetRef} id="targetElement">
           <div className="imageContainer">
             {productByName[0]?.images && (
@@ -482,6 +501,141 @@ const ProductDetail = () => {
                 10 Pieces
               </p>
                 </div>*/}
+            <div className="center">
+              <div
+                style={{ borderBottom: "0.5px solid" }}
+                className="product-detail-container"
+              >
+                <h5 style={{ paddingTop: 15, fontSize: 25 }}>
+                  Product Description / Indications
+                </h5>
+                {about.map((item, index) => (
+                  <div
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      padding: "0.3em 0",
+                      flexWrap: "wrap",
+                    }}
+                    className="description-container"
+                  >
+                    <p className="description-container-title">
+                      {item.title} {":"}-
+                    </p>
+
+                    {Array.isArray(item.para) && item?.para?.length > 0 ? (
+                      <div className="description-container-title2">
+                        {item?.para?.map((des, i) => (
+                          <p
+                            style={{
+                              width: "100%",
+                              fontSize: "17px",
+                              paddingBottom: 15,
+                            }}
+                            key={i}
+                          >
+                            -{des}
+                          </p>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="description-container-title2">
+                        {item.para}
+                      </p>
+                    )}
+                  </div>
+                ))}
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-end",
+                  }}
+                >
+                  {" "}
+                  {!expandedIndex && (
+                    <h2 onClick={() => setExpandedIndex(!expandedIndex)} style={{cursor:"pointer"}}>
+                      See More
+                    </h2>
+                  )}
+                </div>
+
+                <div
+                  style={{ background: "transparent" }}
+                  className={expandedIndex ? "show content" : "content"}
+                >
+                  {accordionItems.map((item, index) => (
+                    <div
+                      style={{
+                        width: "100%",
+                        display: "flex",
+                        padding: "0.3em 0",
+                        flexWrap: "wrap",
+                      }}
+                      className="description-container"
+                    >
+                      <p className="description-container-title">
+                        {item.title} {":"}-
+                      </p>
+
+                      {Array.isArray(item.para) && item?.para?.length > 0 ? (
+                        <div
+                          className="description-container-title2"
+                          style={{ background: "transparent" }}
+                        >
+                          {item?.para?.map((des, i) => (
+                            <p
+                              style={{
+                                width: "100%",
+                                fontSize: "17px",
+                                //paddingBottom: 10,
+                                background: "transparent",
+                              }}
+                              key={i}
+                            >
+                              -{des}
+                            </p>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="description-container-title2">
+                          {item.para}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-end",
+                }}
+              >
+                {" "}
+                {expandedIndex && (
+                  <h2 onClick={() => setExpandedIndex(!expandedIndex)} style={{cursor:"pointer"}}>
+                    See Less
+                  </h2>
+                )}
+              </div>
+                {/*<div
+                    style={{ display: "flex", flexWrap: "wrap", maxWidth: "700px" }}
+                  >
+                    {icons[0]?.icons?.map((item, index) => (
+                      <div key={index} style={{ marginLeft: "0.3rem" }}>
+                        <img
+                          src={item}
+                          style={{ width: "8rem", objectFit: "cover" }}
+                          alt="/"
+                        />
+                      </div>
+                    ))}
+                    </div>*/}
+              </div>
+            </div>
             <div
               style={{
                 display: "flex",
@@ -614,80 +768,9 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-        <div className="center">
-          <div style={{}} className="product-detail-container">
-            <h5 style={{ paddingTop: 15, fontSize: 25 }}>
-              Product Description / Indications
-            </h5>
-            {about.map((item, index) => (
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  padding: "0.3em 0",
-                  flexWrap: "wrap",
-                }}
-                className="description-container"
-              >
-                <p className="description-container-title">
-                  {item.title} {":"}-
-                </p>
 
-                {Array.isArray(item.para) && item?.para?.length > 0 ? (
-                  <div className="description-container-title2">
-                    {item?.para?.map((des, i) => (
-                      <p
-                        style={{
-                          width: "100%",
-                          fontSize: "17px",
-                          paddingBottom: 15,
-                        }}
-                        key={i}
-                      >
-                        -{des}
-                      </p>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="description-container-title2">{item.para}</p>
-                )}
-              </div>
-            ))}
-            {/*<div
-              style={{ display: "flex", flexWrap: "wrap", maxWidth: "700px" }}
-            >
-              {icons[0]?.icons?.map((item, index) => (
-                <div key={index} style={{ marginLeft: "0.3rem" }}>
-                  <img
-                    src={item}
-                    style={{ width: "8rem", objectFit: "cover" }}
-                    alt="/"
-                  />
-                </div>
-              ))}
-              </div>*/}
-          </div>
-        </div>
-        <div
-              style={{ display: "flex", justifyContent: "flex-end",padding:'10px' }}
-              className="orderButton"
-            >
-              {/*<button onClick={buy}>BUY NOW</button>*/}
-              <button
-                style={{
-                  padding: "5px 0",
-                  cursor: "pointer",
-                }}
-                onClick={scrollToTarget}
-              >
-                ADD TO CART{" "}
-                <MdOutlineAddShoppingCart
-                  style={{ paddingLeft: 5, fontSize: "35px" }}
-                />{" "}
-              </button>{" "}
-            </div>
         <VerticalCarousel productId={productByName[0]?._id} />
-        <div
+        {/*<div
           className="video"
           style={{ overflow: "hidden", maxHeight: "40rem", width: "100%" }}
           onClick={() => {
@@ -702,7 +785,7 @@ const ProductDetail = () => {
           <video className='productVideo' ref={videoRef} controls>
             <source src={productByName[0]?.videoLink} type="video/mp4" />
           </video>
-        </div>
+        </div>*/}
         <div className="social-media-container">
           {concatData.map((item, index) => (
             <a href={item.link} className="social-media">
@@ -714,23 +797,27 @@ const ProductDetail = () => {
           ))}
         </div>
         <div
-        style={{ display: "flex", justifyContent: "flex-end",padding:'10px' }}
-        className="orderButton"
-      >
-        {/*<button onClick={buy}>BUY NOW</button>*/}
-        <button
           style={{
-            padding: "5px 0",
-            cursor: "pointer",
+            display: "flex",
+            justifyContent: "flex-end",
+            padding: "10px",
           }}
-          onClick={scrollToTarget}
+          className="orderButton"
         >
-          ADD TO CART{" "}
-          <MdOutlineAddShoppingCart
-            style={{ paddingLeft: 5, fontSize: "35px" }}
-          />{" "}
-        </button>{" "}
-      </div>
+          {/*<button onClick={buy}>BUY NOW</button>*/}
+          <button
+            style={{
+              padding: "5px 0",
+              cursor: "pointer",
+            }}
+            onClick={scrollToTarget}
+          >
+            ADD TO CART{" "}
+            <MdOutlineAddShoppingCart
+              style={{ paddingLeft: 5, fontSize: "35px" }}
+            />{" "}
+          </button>{" "}
+        </div>
       </div>
       <div
         style={{
@@ -755,7 +842,11 @@ const ProductDetail = () => {
           {sameCategoryProduct?.length > 3 ? (
             <Slider {...settings}>
               {sameCategoryProduct?.map((image, i) => (
-                <ProductSlider image={image} i={i} categoryName={categoryName}/>
+                <ProductSlider
+                  image={image}
+                  i={i}
+                  categoryName={categoryName}
+                />
               ))}
             </Slider>
           ) : (
@@ -768,7 +859,11 @@ const ProductDetail = () => {
               }}
             >
               {sameCategoryProduct?.map((image, i) => (
-                <ProductSlider image={image} i={i} categoryName={categoryName}/>
+                <ProductSlider
+                  image={image}
+                  i={i}
+                  categoryName={categoryName}
+                />
               ))}
             </div>
           )}

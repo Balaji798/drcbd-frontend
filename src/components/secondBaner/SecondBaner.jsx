@@ -22,16 +22,16 @@ const SecondBanner = () => {
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
-    {
-      title: "Vital Health Cafe",
-      para: "1st Floor, The Marche Thong Lo Road, Khlong Tan Nuea, Wattana, Bangkok 10110",
-      email:'Email: info@drcbdgroup.com',
-      tel: "Phone: +66 8 4192 6362",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
-      mapLink:
-        "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
-    },
+    // {
+    //   title: "Vital Health Cafe",
+    //   para: "1st Floor, The Marche Thong Lo Road, Khlong Tan Nuea, Wattana, Bangkok 10110",
+    //   email:'Email: info@drcbdgroup.com',
+    //   tel: "Phone: +66 8 4192 6362",
+    //   image:
+    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
+    //   mapLink:
+    //     "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
+    // },
     {
       title: "Dr. Kratom Bio",
       para: "255 Bangna Trat 3 (Soi Bua-Kued), Bangna-Nuea, Bangkok 10260 Thailand",

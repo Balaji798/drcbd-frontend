@@ -88,7 +88,7 @@ const OmisePayment = ({ totalPrice, cartId }) => {
       <button id="checkout-button" style={{ display: "none" }}></button>
       <form>
         <button onClick={(e) => handelClick(e)} id="credit-card">
-          Pay Withe Credit/Debit Card
+          Pay With Credit/Debit Card
         </button>
       </form>
     </div>

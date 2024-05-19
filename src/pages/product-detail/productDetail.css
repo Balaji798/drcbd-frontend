@@ -280,7 +280,7 @@ article.nextSlide {
 
 .description-container-title {
   text-decoration: underline;
-  width: 25%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -288,7 +288,7 @@ article.nextSlide {
 }
 
 .description-container-title2 {
-  width: 65%;
+  width: 70%;
   font-size: 17px;
 }
 .orderButton > button {

@@ -1,11 +1,11 @@
 import ApiService from '../../services/ApiService';
-import axios from 'axios';
+//import axios from 'axios';
 
 export const getNumber = (dispatch, data) => dispatch({ type: 'LOGIN_REQUEST', user: data });
-const getToken = async () => {
-	const token = await localStorage.getItem("token");
-	return { token };
-  };
+// const getToken = async () => {
+// 	const token = await localStorage.getItem("token");
+// 	return { token };
+//   };
 
 export const updateUser = async (dispatch) => {
 	try {
