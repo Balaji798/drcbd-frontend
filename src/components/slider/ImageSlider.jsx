@@ -242,7 +242,7 @@ const ImageSlider = () => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            paddingTop: "5em",
+            paddingTop: "1em",
           }}
         >
           <div
