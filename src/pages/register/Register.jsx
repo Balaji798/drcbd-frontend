@@ -62,7 +62,7 @@ const Register = () => {
       return
     }
     const res = await axios.post(
-      "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
+      "http://localhost:8080/user/email_verification",
       //https://52.77.244.89:8080
       { otp: otp }
     );

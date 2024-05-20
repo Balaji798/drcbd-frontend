@@ -555,7 +555,10 @@ const ProductDetail = () => {
                 >
                   {" "}
                   {!expandedIndex && (
-                    <h2 onClick={() => setExpandedIndex(!expandedIndex)} style={{cursor:"pointer"}}>
+                    <h2
+                      onClick={() => setExpandedIndex(!expandedIndex)}
+                      style={{ cursor: "pointer" }}
+                    >
                       See More
                     </h2>
                   )}
@@ -607,20 +610,23 @@ const ProductDetail = () => {
                   ))}
                 </div>
                 <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  alignItems: "flex-end",
-                }}
-              >
-                {" "}
-                {expandedIndex && (
-                  <h2 onClick={() => setExpandedIndex(!expandedIndex)} style={{cursor:"pointer"}}>
-                    See Less
-                  </h2>
-                )}
-              </div>
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-end",
+                  }}
+                >
+                  {" "}
+                  {expandedIndex && (
+                    <h2
+                      onClick={() => setExpandedIndex(!expandedIndex)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      See Less
+                    </h2>
+                  )}
+                </div>
                 {/*<div
                     style={{ display: "flex", flexWrap: "wrap", maxWidth: "700px" }}
                   >
@@ -721,28 +727,42 @@ const ProductDetail = () => {
                 Apply
               </div>
               </div>*/}
+
             <h2
               style={{
-                fontSize: "25px",
-                paddingBottom: "10px",
                 textAlign: "end",
               }}
             >
               Price :-
-              {/*<span
-                style={{
-                  color: "grey",
-                  textDecoration: "line-through",
-                  paddingLeft: 10,
-                }}
-              >
-              {Number(productByName[0]?.actualPrice) > 0
-                ? "฿" + Number(productByName[0]?.actualPrice).toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })
-                : ""}
-                </span>{" "}*/}
+              <span style={{ color: "grey", textDecoration: "line-through",paddingLeft:"5px" }}>
+                {Number(productByName[0]?.actualPrice) > 0 &&
+                  "฿" +
+                    Number(productByName[0]?.actualPrice).toLocaleString(
+                      "en-US",
+                      {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      }
+                    )}
+              </span>
+            </h2>
+            <h2
+              style={{
+                padding: "0 10px",
+                color: "red",
+                fontSize: "20px",
+                textAlign: "end",
+              }}
+            >
+              -{productByName[0]?.discount}
+            </h2>
+            <h2
+              style={{
+                fontSize: "25px",
+                textAlign: "end",
+                paddingBottom: "10px",
+              }}
+            >
               ฿
               {Number(price) >= 1000
                 ? Number(price).toLocaleString("en-US")
