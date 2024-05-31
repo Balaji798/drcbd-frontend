@@ -28,7 +28,7 @@ const PaymentSuccess = () => {
       try {
         const paymentId = localStorage.getItem("omisePaymentId")
         const res = await axios.post(
-          "http://localhost:8080/orders/get_payment",
+          "https://drcbd-backend-zgqu.onrender.com/orders/get_payment",
           { cartId: orderId,paymentId,userAdd: JSON.parse(delver_address), },
           config
         );

@@ -91,11 +91,7 @@ const Header = ({ openNav, setOpenNav }) => {
             <p
               style={{ cursor: "pointer", marginLeft: "2px" }}
               onClick={() => {
-                if (user) {
-                  navigate("/my-orders");
-                } else {
-                  setOpen(true);
-                }
+                handelNext("/my-orders")
               }}
               className="ord"
             >

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ApiService from "../../services/ApiService";
 import Steps from "../../components/Steps";
 import "./order.css";
+import { convertToLocalTime } from "../../util/convertToLocalTime";
 
 const UserOrder = () => {
   const { orderId } = useParams();
@@ -80,9 +81,9 @@ const UserOrder = () => {
           </p>{" "}
           <div
             className="input-container"
-            style={{ maxWidth: "900px", width: "100%" }}
+            style={{ maxWidth: "900px", width: "100%" ,display:"flex",flexDirection:"column",alignItems:"center"}}
           >
-            <p style={{ fontSize: "25px", width: "35%", textAlign: "end" }}>
+            <p style={{ fontSize: "25px", textAlign: "center" }}>
               Track Delivery Status:
             </p>{" "}
             <input
@@ -95,10 +96,6 @@ const UserOrder = () => {
               }}
             />
           </div>
-          <p style={{ paddingTop: "2em" }}>Recipients Name: 55-83</p>
-          <p style={{ paddingTop: "2em" }}>
-            Status: The recipient has received the item successfully
-          </p>
         </div>
         <div
           style={{
@@ -176,8 +173,9 @@ const UserOrder = () => {
               <div className="stepStyle" style={{ marginTop: "4rem" }} />
             </div>
             <div>
-              {orderData?.status?.map((item, index) => (
-                <div
+              {orderData?.status?.map((item, index) => {
+                const statusTime = convertToLocalTime(item?.statusTime)
+                return(<div
                   style={{
                     display: "flex",
                     fontWeight: "bold",
@@ -188,17 +186,12 @@ const UserOrder = () => {
                 >
                   <p style={{ paddingRight: 25 }}>
                     {
-                      item?.statusTime
-                        ?.split("-")
-                        ?.join("/")
-                        ?.split("T")
-                        ?.join(" ")
-                        ?.split(".")[0]
+                      statusTime
                     }
                   </p>
                   <p>Order {item.orderStatus}</p>
                 </div>
-              ))}
+              )})}
             </div>
           </div>
         </div>
