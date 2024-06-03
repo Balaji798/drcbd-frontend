@@ -37,26 +37,59 @@ const UserOrder = () => {
         </div>
       )}
       <div style={{ paddingTop: "4rem" }}>
-        <Steps stepsColor={[4]} />
+        {/*<Steps stepsColor={[4]} />*/}
+        <div
+        className="order-status-step"
+      >
+        <div
+          style={{
+            width: "100%",
+            backgroundColor: "#005652",
+            height: "20px",
+          }}
+        ></div>
+        <div className="step-container">
+          {steps2.map((item, index) => (
+            <div
+              style={{
+                background: "#fff",
+                width: 90,
+                height: 90,
+                borderRadius: "50%",
+              }}
+              key={index}
+            >
+              <div
+                className="steps"
+                style={{ padding: 0, background: "#fff" }}
+              >
+                <img
+                  src={item?.image}
+                  alt={item?.image}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
-            padding: "2em 0 3em 0",
+            padding: "2em 0 2em 0",
           }}
         >
           <img
             src="../thankyou.png"
             alt="/"
-            style={{
-              width: "100%",
-              objectFit: "contain",
-              height: "17em",
-              position: "absolute",
-              top: "18.5em",
-            }}
+            className="order-image-container"
           />
           <div
             style={{
@@ -71,7 +104,6 @@ const UserOrder = () => {
               fontSize: "18px",
               fontWeight: 300,
               textAlign: "center",
-              paddingBottom: 20,
             }}
           >
             "Thank you for trusting us!" "Your order is completed!" will do just
@@ -79,68 +111,8 @@ const UserOrder = () => {
             what just happened(and what they should expect to happen next, if
             necessary)
           </p>{" "}
-          <div
-            className="input-container"
-            style={{ maxWidth: "900px", width: "100%" ,display:"flex",flexDirection:"column",alignItems:"center"}}
-          >
-            <p style={{ fontSize: "25px", textAlign: "center" }}>
-              Track Delivery Status:
-            </p>{" "}
-            <input
-              style={{
-                width: "50%",
-                padding: "1em 0",
-                borderRadius: "10px",
-                border: "0.5px solid",
-                marginLeft: "1em",
-              }}
-            />
-          </div>
         </div>
-        <div
-          style={{
-            padding: "4em 0",
-            display: "flex",
-            alignItems: "center",
-            justifyItems: "center",
-          }}
-        >
-          <div
-            style={{
-              width: "100%",
-              backgroundColor: "#005652",
-              height: "20px",
-            }}
-          ></div>
-          <div className="step-container">
-            {steps2.map((item, index) => (
-              <div
-                style={{
-                  background: "#fff",
-                  width: 90,
-                  height: 90,
-                  borderRadius: "50%",
-                }}
-                key={index}
-              >
-                <div
-                  className="steps"
-                  style={{ padding: 0, background: "#fff" }}
-                >
-                  <img
-                    src={item?.image}
-                    alt={item?.image}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
         <div
           style={{
             display: "flex",
@@ -150,12 +122,7 @@ const UserOrder = () => {
           }}
         >
           <div
-            style={{
-              display: "flex",
-              paddingBottom: 20,
-              width: "35%",
-              justifyContent: "space-between",
-            }}
+            className="order-status-container"
           >
             <div
               style={{

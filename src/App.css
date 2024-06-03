@@ -267,4 +267,7 @@ button{
   .leaders{
     justify-content: center;
   }
+  .next{
+    margin-right: 35px;
+  }
 }

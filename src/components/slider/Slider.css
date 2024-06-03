@@ -77,6 +77,9 @@ article.nextSlide {
     height: 2rem;
     font-size: 1.5rem;
   }
+  .next{
+    margin-right: 35px !important;
+  }
 }
 
 .product {
@@ -341,5 +344,8 @@ video {
   }
   .person-img{
     object-fit: contain;
+  }
+  .next{
+    margin-right: 55px;
   }
 }

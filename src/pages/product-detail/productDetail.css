@@ -356,4 +356,7 @@ article.nextSlide {
   .banner-image{
     padding-top: 4rem;
   }
+  .next{
+    margin-right: 35px;
+  }
 }
