@@ -1,0 +1,216 @@
+.stories {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stories-container {
+  max-width: 1050px;
+  width: 100%;
+  padding: 3rem 0 5rem;
+}
+
+.stories-container-childe2 {
+  width: 50%;
+  z-index: 1;
+  background: #000;
+  padding: 2rem;
+  padding-bottom: 1.5rem;
+  color: #fff;
+}
+
+.stories-container-childe3 {
+  max-width: 400px;
+  width: 100%;
+  background: #00504c;
+  height: 20em;
+  position: absolute;
+  z-index: 0;
+  margin-left: 10rem;
+  margin-top: 11rem;
+}
+
+.stories-container-childe1 {
+  width: 45%;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stories-background {
+  background-image: url("./yty12.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribe {
+  background-image: url("./scuscriber.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 28rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stories-button {
+  background: #000;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 9rem;
+  text-align: center;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.stories-button-blue-gr {
+  background: #305253;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem 1.5rem;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  width: 30rem;
+}
+
+.subscribe-form {
+  padding-left: 3rem;
+  text-align: center;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.subscribe-form > h1 {
+  font-weight: 300;
+  padding: 1rem 0;
+}
+.subscribe-form > input {
+  width: 100%;
+  background-color: #fff;
+  outline: none;
+  border-radius: 5px;
+  height: 2.5em;
+  padding: 0.2rem 0.3rem;
+}
+
+.subscribe-button {
+  background: #305253;
+  font-weight: bold;
+  padding: 1rem 0;
+  color: #fff;
+  margin-top: 1rem;
+  width: 15rem;
+}
+
+.composes-logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1250px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.composes-logo > div > div {
+  width: 9.5rem;
+  height: 9.5rem;
+  border-radius: 50%;
+  background: #fff;
+  padding: 1rem;
+}
+
+.composes-logo > div > p {
+  color: #fff;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+}
+
+.profile-company {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.profile-company > div {
+  text-align: center;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.company1{
+  border-right: 4px solid #000;
+}
+
+@media screen and (max-width: 768px) {
+  .stories-container{
+    padding: 1rem;
+  }
+  .stories-container-childe1 {
+    padding: 2rem 1rem 0rem;
+    width: 100%;
+  }
+  .stories-container-childe2 {
+    width: 95%;
+  }
+  .stories-container-childe3 {
+    width: 80%;
+    height: 24em;
+    margin-left: 3rem;
+    margin-top: 10rem;
+  }
+  .composes-logo {
+    justify-content: center;
+  }
+  .composes-logo > div {
+    width: 7rem;
+  }
+  .composes-logo > div > p {
+    font-size: 0.6rem;
+  }
+  .composes-logo > div > div {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .stories-button-blue-gr {
+    font-size: 1rem;
+    width: 95%;
+  }
+  .profile-company {
+    justify-content: center;
+  }
+  .company1{
+    border: none;
+  }
+  .subscribe{
+    flex-wrap: wrap;
+  }
+  .subscribe>h1{
+    width: 100%;
+    text-align: center;
+  }
+  .subscribe-form{
+    padding: 0 2rem;
+    width: 100%;
+  }
+}

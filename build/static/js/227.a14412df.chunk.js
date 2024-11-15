@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdrcbd_frontend=self.webpackChunkdrcbd_frontend||[]).push([[227],{7227:(d,e,r)=>{r.r(e),r.d(e,{default:()=>c});r(390);var n=r(2559);const c=()=>(0,n.jsx)("div",{children:"CancelOrder"})}}]);
-//# sourceMappingURL=227.a14412df.chunk.js.map

@@ -1,0 +1,72 @@
+.purpose-container{
+    background: rgb(232, 234, 225);
+    width: 100%;
+    padding: 4.5em 0px 4.5em 7em;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.purpose{
+    width: 63%;
+}
+
+.purpose-second{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 5em;
+    flex-wrap: wrap;
+}
+
+.purpose-second>div{
+    width: 32%;
+}
+
+.purpose-img{
+    object-fit: contain;
+    position: absolute;
+    right: -4rem;
+    width: 35em;
+    height: 35em;
+    top: 1.5em;
+}
+.purpose-title{
+    font-size: 55px;
+    padding-bottom: 20px;
+}
+.purpose-para{
+    font-size: 22px;
+    line-height: 1.3em;
+    font-weight: 500;
+}
+@media screen and (max-width: 768px){
+    .purpose-container{
+     padding: 1rem;
+    }
+    .purpose-img{
+     width: 10rem;
+     right: 0;
+     top:-5rem
+    }
+    .purpose-title{
+        font-size: 35px;
+    }
+    .purpose-para{
+        font-size: 18px;
+        line-height: 1em;
+    }
+    .purpose{
+        width: 70%;
+    }
+
+    .purpose-second{
+       padding: 1rem
+    }
+
+    .purpose-second>div{
+        width: 100%;
+    }
+}

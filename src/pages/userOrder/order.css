@@ -1,0 +1,39 @@
+.stepStyle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.9rem;
+  border: 5px solid #004d4a;
+  background-color: #fff;
+}
+
+.order-image-container {
+  width: 100%;
+  object-fit: contain;
+  height: 17em;
+  position: absolute;
+  top: 16.5em;
+}
+.order-status-container {
+  display: flex;
+  padding-bottom: 20px;
+  width: 35%;
+  justify-content: space-between;
+}
+.order-status-step {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+@media screen and (max-width: 768px) {
+  .order-image-container {
+    height: 19em;
+    top: 8em;
+  }
+  .order-status-container {
+    width: 100%;
+    padding: 0 1rem 20px 2rem;
+  }
+  .order-status-step{
+    padding-top: 3rem;
+  }
+}

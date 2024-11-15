@@ -1,0 +1,72 @@
+.user-det-form {
+  background: #39797c;
+  max-width: 35rem;
+  width: 100%;
+  padding:2rem;
+  margin-left: 2rem;
+}
+
+.user-det-form > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding:0;
+  flex-wrap: wrap;
+}
+
+.user-det-form > div > div > input,
+.user-det-form > div > input {
+  margin: 0.5rem 0;
+  background-color: transparent;
+  color: #c5cccd;
+}
+
+.edit-button {
+  background: #003b45;
+  color: #fff;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  padding: 5px 20px;
+}
+
+.user-profile-container {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 3rem;
+  border-radius: 40px;
+  color: grey;
+  height: 30rem;
+  margin: 2rem 0;
+}
+.user-det-form>div>div{
+  width: 45%;
+}
+.user-det-form>div>div>input{
+  width: 100%;
+ }
+ .history-button{
+  width: 100% !important;
+  background: #003b45;
+  color: #fff;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  padding: 5px 14.5px;
+  cursor: pointer;
+ }
+@media screen and (max-width: 768px) {
+  .user-det-form>div{
+    padding: 0.5rem 0;
+  }
+    .user-det-form{
+        margin: 0 1rem 2rem;
+        height: 100%;
+    }
+
+    .user-det-form>div>div,.user-det-form>div>div>input{
+     width: 100%;
+    }
+}

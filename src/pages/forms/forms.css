@@ -1,0 +1,53 @@
+.input-container {
+  width: 100%;
+  display: flex;
+  padding-bottom: 2em;
+  flex-wrap: wrap;
+}
+.input-container > input {
+  max-width: 500px;
+  width: 100%;
+  padding: 0.5em 5px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  margin-left: 1em;
+  font-weight: bold;
+}
+select{
+  max-width: 500px;
+  width: 100%;
+  padding: 0.8em 5px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  margin-left: 1em;
+  font-weight: bold;
+}
+.input-container > p {
+  font-size: 18px;
+  max-width: 150px;
+  width: 100%;
+}
+.title-text {
+  font-size: 45px;
+}
+.back-button {
+  width: 5em;
+  font-size: 35px;
+  font-weight: 100;
+  background: rgb(12, 70, 65);
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .input-container {
+    padding: 0 1rem;
+  }
+  .input-container > input,
+  .input-container > p,.input-container>select {
+    width: 100%;
+    text-align: left;
+    margin-left: 0;
+  }
+  .title-text {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,34 @@
+.cart{
+}
+
+.cart-step-container {
+  padding: 4em 0;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.step-container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 20%;
+}
+
+.steps {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+@media screen and (max-width: 768px){
+  .step-container{
+    left: 0;
+  }
+}

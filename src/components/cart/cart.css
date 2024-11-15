@@ -1,0 +1,35 @@
+.cart-container{
+    padding: 1em 4em;
+    display: flex;
+    color: rgb(0, 86, 82);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cart-items{
+    width: 55%;
+}
+.items-detail{
+    width: 85%;
+    padding-left: 0.5rem;
+}
+
+.items-detail>h2{
+    font-Size: 1.3em;
+    font-Weight: bold
+}
+
+.text-end{
+    text-align: end;
+}
+@media screen and (max-width: 768px){
+    .cart-container{
+        padding: 1rem;
+    }
+    .cart-items{
+        width: 100%;
+    }
+    .text-end{
+        text-align: left;
+    }
+}
