@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy } from "react";
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+//import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
 import {people} from "../../data";
 import "./Slider.css";
@@ -81,18 +81,6 @@ const ImageSlider = () => {
               </article>
             );
           })}
-          <button
-            className="prev"
-            onClick={() => setSecondIndex(secondIndex - 1)}
-          >
-            <MdArrowBackIosNew style={{ fontSize: "50px", color: "#fff" }} />
-          </button>
-          <button
-            className="next"
-            onClick={() => setSecondIndex(secondIndex + 1)}
-          >
-            <MdArrowForwardIos style={{ fontSize: "50px", color: "#fff" }} />
-          </button>
         </div>
       </section>
       <ByCategory language={language}/>
