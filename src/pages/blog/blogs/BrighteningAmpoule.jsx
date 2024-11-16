@@ -293,7 +293,7 @@ const BrighteningAmpoule = () => {
             height: "500px",
             objectFit: "cover",
             borderRadius: "10px",
-            paddingBottom: "10px",
+            marginBottom: "10px",
           }}
         />
         <img src={ampoule_2} alt="/" className="image-style" />

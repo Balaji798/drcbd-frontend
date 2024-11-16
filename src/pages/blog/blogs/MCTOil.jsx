@@ -334,7 +334,7 @@ const MCTOil = () => {
             height: "500px",
             objectFit: "cover",
             borderRadius: "10px",
-            paddingBottom: "10px",
+            marginBottom: "10px",
           }}
         />
         <img src={dellep7} alt="/" className="image-style" />

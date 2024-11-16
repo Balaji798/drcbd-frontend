@@ -295,7 +295,7 @@ const SleepingCream = () => {
             height: "500px",
             objectFit: "contain",
             borderRadius: "10px",
-            paddingBottom: "10px",
+            marginBottom: "10px",
           }}
         />
         <img src={cbd4} alt="/" className="image-style" />

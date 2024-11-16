@@ -291,7 +291,7 @@ const CE = () => {
             height: "500px",
             objectFit: "cover",
             borderRadius: "10px",
-            paddingBottom: "10px",
+            marginBottom: "10px",
           }}
         />
         <img src={ce5} alt="/" className="image-style" />

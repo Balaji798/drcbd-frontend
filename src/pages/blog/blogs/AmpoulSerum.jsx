@@ -349,7 +349,7 @@ const AmpoulSerum = () => {
             height: "500px",
             objectFit: "cover",
             borderRadius: "10px",
-            paddingBottom: "20px",
+            marginBottom: "20px",
           }}
         />
         <img src={ampoule_2} alt="/" className="image-style" />
