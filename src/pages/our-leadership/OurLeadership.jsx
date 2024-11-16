@@ -1,73 +1,27 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import leader1 from "../../assets/aboutUs/leader-1.jpg";
+import leader2 from "../../assets/aboutUs/leader-2.jpg";
+import leader3 from "../../assets/aboutUs/leader-3.jpg";
+import staff from "../../assets/aboutUs/staff.jpg"
 
 const OurLeadership = () => {
   const location = useLocation();
   const data = [
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/7.jpg",
+      image:leader1,
       name: "PORNCHAI PADMINDRA",
       designation: "CEO & FOUNDER",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/3.jpg",
+      image:leader2,
       name: "TIYA PHAOSAWASDI",
       designation: "MANAGING DIRECTOR & FOUNDER",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/8.jpg",
+      image:leader3,
       name: "SOMJITRA DHANASOBHON",
       designation: "DEPUTY MANAGING DIRECTOR",
     },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/IMG_8904.jpg",
-    //   name: "DR.SAKAN WARINHOMHOUN",
-    //   designation: "Advisor to CEO",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/4.jpg",
-    //   name: "CHITAPHOL RATTANATHIKUN",
-    //   designation: "Chief Operating Officer",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/9.jpg",
-    //   name: "SUCHAIRI SITTISOMBOON",
-    //   designation: "Sales Director",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/1.jpg",
-    //   name: "KRIANGKRAI WILAILAK",
-    //   designation: "Chief Marketing Officer",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/10.jpg",
-    //   name: "NOPPAVEE TANTISAVEE",
-    //   designation: "Business Development & Strategy Director",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/IMG_9670-2.jpg",
-    //   name: "WANICHAYA PAKSARANUWAT",
-    //   designation: "Chief Financial Officer",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/2.jpg",
-    //   name: "SAPPASIT UDOMBOONDEE",
-    //   designation: "Human Resource Director",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/5.jpg",
-    //   name: "CHONTIDA JIRACHAISUDTIKUL",
-    //   designation: "General Manager - Clinic",
-    // },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/our-leadership/6.jpg",
-    //   name: "JIRATCHAYA THEPPHAITHUN",
-    //   designation: "Legal Supervisor",
-    // },
   ];
   return (
     <div
@@ -165,7 +119,7 @@ const OurLeadership = () => {
         }}
       >
         <img
-          src="./stafe.jpg"
+          src={staff}
           style={{ objectFit: "contain", width: "80%", paddingTop: "1rem" }}
           alt="/"
         />

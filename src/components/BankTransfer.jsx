@@ -1,5 +1,7 @@
-import axios from 'axios';
-import React, { useEffect } from 'react'
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/prop-types */
+import { useEffect } from 'react'
+import { getTotalOrders, payWitheBank } from '../services/ApiService';
 
 const BankTransfer = ({ totalPrice, cartId }) => {
   const OmiseCard = window.OmiseCard;
@@ -20,7 +22,7 @@ const BankTransfer = ({ totalPrice, cartId }) => {
     if (window.OmiseCard) {
       OmiseCard.configureButton("#internet_banking", {
         currency: "thb",
-        frameLabel: "Sabai Shop",
+        frameLabel: "DR.CBD Store",
         submitLabel: "PAY NOW",
         buttonLabel: "Pay with Omise",
       });
@@ -44,40 +46,27 @@ const BankTransfer = ({ totalPrice, cartId }) => {
   };
 
   const omiseHandler = async () => {
-     const user = localStorage.getItem("token");
-     if (user) {
-      const orderData = await axios.get("https://drcbd-backend-zgqu.onrender.com/orders/total_orders")
+      const orderData = await getTotalOrders();
 
-      console.log(orderData.data.totalOrder+1)
     OmiseCard.open({
       frameLabel: "DRCBD Store",
-      frameDescription: `Invoice #${String(orderData.data.totalOrder+1).padStart(5, '0')}`,
+      frameDescription: `Invoice #${String(orderData.totalOrder+1).padStart(5, '0')}`,
       amount: Number(totalPrice) * 100,
-      publicKey: process.env.REACT_APP_OMISE_PUBLICK_KEY,
+      publicKey: import.meta.env.VITE_OMISE_PUBLICK_KEY,
       onCreateTokenSuccess: async (token) => {
         const omiseToekn = token;
-        console.log(omiseToekn)
-         const res = await axios.post(
-           "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise_bank",
-           //https://drcbd-backend-zgqu.onrender.com
+         const res = await payWitheBank(
           { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId, userAdd: JSON.parse(delver_address) },
-          {
-            headers: {
-              Authorization: `Bearer ${user}`,
-              "Content-Type": "application/json", // Set the content type to JSON
-            },
-          }
         );
         if(res.data.authorizeUri){
-          localStorage.setItem("omisePaymentId",res.data.paymentId)
-          window.location.href = res.data.authorizeUri
+          localStorage.setItem("omisePaymentId",res.paymentId)
+          window.location.href = res.authorizeUri
         }
       },
       onFormClosed: () => {
         console.log("close")
       },
     });
-    }
   };
 
   const handelClick = (e) => {

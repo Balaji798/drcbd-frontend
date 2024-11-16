@@ -1,24 +1,27 @@
-import React from "react";
 import { BsFacebook } from "react-icons/bs";
 import { SlSocialInstagram } from "react-icons/sl";
 import { AiOutlineGlobal } from "react-icons/ai";
+import product from "../../assets/aboutUs/product.png";
+import business from "../../assets/aboutUs/business.png"
+import successful from "../../assets/aboutUs/successful.png";
+import scan from "../../assets/scan.png"
 import "./esteemed.css";
 
 const OurEsteemed = () => {
   const esteemed = [
     {
       image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/dd.png",
-      title: "EXTRACTION SERVICE FROM CANNABIS AND HEMP",
-      para: "DR.CBD offer Extraction service from Cannabis and Hemp with a team of experts, international standard laboratory and cutting edge extraction technology.",
+      title: "EXTRACTION SERVICE FOR HEMP",
+      para: "DR CBD offers extraction service for hemp within an  international standard laboratory using cutting edge extraction technology.",
       option: [
         "Crude Oil",
-        "CBD Full/Broad/Isolate Spectrum",
+        "CBD Isolate/Full/Broad Spectrum",
         "CBD Distillate",
         "CBD Nano Emulsion",
       ],
     },
     {
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/product.png",
+      image: product,
       title: "OEM",
       para: `Start a business under your own brand. We provide manufacture and branding service. Basically a "One Stop Service" for OEM, ODM, COA`,
       option: [
@@ -29,18 +32,13 @@ const OurEsteemed = () => {
         "Advice on building a brand Consultation on all marketing channels",
       ],
     },
-    // {
-    //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/DSC_9306.png",
-    //   title: "CLINIC FRANCHISE",
-    //   para: "Consider tapping into the holistic healthcare business? Become a part of Dr.CBD Clinic, and consult with us to start up a business with a team of experts. We will help you, from the structural planning and strategy, market analysis to the various other health channels and networks.",
-    // },
     {
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/business.png",
+      image: business,
       title: "AFFILIATE PROGRAM",
       para: "Be our partner in expanding the business of marijuana, hemp and kratom.No requirements for delivery. Sign up for free and enjoy the flexibility of working online wherever you are.",
     },
     {
-      image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/successful.png",
+      image: successful,
       title: "DISTRIBUTOR",
       para: "We welcome partnership whether it's through consignment, agent/distributors or drop shipping without having to stock or deliver products yourself. We welcome partners both domestic and international, to join us in this exiting phase of growth. Our products have all been Thai FDA-approved",
     },
@@ -118,18 +116,21 @@ const OurEsteemed = () => {
             padding:"1rem"
           }}
           className="estimate"
+          key={index}
         >
           <div
             style={{
-              maxWidth: "60em",
+              maxWidth: "1000px",
+              width:'100%',
               display: "flex",
+              justifyContent:"space-between",
               alignItems: "center",
               flexWrap:"wrap",
               flexDirection: index % 2 !==0 ? "row-reverse" : "row",
               borderBottom: "5px solid #005652",
             }}
           > 
-            <div>
+            <div style={{maxWidth:'500px'}}>
               <p style={{ fontSize: "25px", width: "63%", padding: "1em 0" }}>
                 {item.title}
               </p>
@@ -157,9 +158,9 @@ const OurEsteemed = () => {
           </div>
         </div>
       ))}
-      <div className="scanner-container">
-        <div>
-          <div>
+      <div className="scanner-container center">
+        <div style={{maxWidth:'1000px',width:'100%'}}>
+          <div style={{maxWidth:'700px',width:'100%'}}>
             <p
               style={{
                 fontSize: "35px",
@@ -174,6 +175,7 @@ const OurEsteemed = () => {
                     
                   }}
                   className="scanner-item"
+                  key={index}
                 >
                   {item.icon}
                   <p
@@ -190,7 +192,7 @@ const OurEsteemed = () => {
               ))}
             </div>
           </div>
-          <div>
+          <div style={{maxWidth:'200px',width:'100%'}}>
             <p
               style={{
                 background: "#187a7f",
@@ -211,7 +213,7 @@ const OurEsteemed = () => {
               }}
             >
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/esteemed-img/scan.png"
+                src={scan}
                 style={{
                   width: "100%",
                   height: "10em",

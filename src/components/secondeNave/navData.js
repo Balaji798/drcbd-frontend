@@ -1,73 +1,93 @@
 export const navData = [
   {
-    title: "CBD BY CATEGORY",
+    engTitle: "CBD BY CATEGORY",
+    thiTitle: "CBD ตามหมวดหมู่",
     link: "/cbd-by-category",
-      options: [
-        {
-          title: "CBD OIL",
-          link: "/cbd-by-category/CBD-OIL",
-        },
-        {
-          title: "CBD SUPPLEMENTS",
-          link: "/cbd-by-category/CBD-SUPPLEMENTS",
-        },
-        {
-          title: "CBD FACE",
-          link: "/cbd-by-category/CBD-FACE",
-        },
-        {
-          title: "CBD BODY",
-          link: "/cbd-by-category/cbd-body",
-        },
+    options: [
+      {
+        engTitle: "CBD OIL",
+        thiTitle: "CBD น้ำมัน",
+        link: "/cbd-by-category/CBD-OIL",
+      },
+      {
+        engTitle: "CBD SUPPLEMENTS",
+        thiTitle: "CBD อาหารเสริม",
+        link: "/cbd-by-category/CBD-SUPPLEMENTS",
+      },
+      {
+        engTitle: "CBD FACE",
+        thiTitle: "CBD ใบหน้า",
+        link: "/cbd-by-category/CBD-FACE",
+      },
+      {
+        engTitle: "CBD BODY",
+        thiTitle: "CBD ร่างกาย",
+        link: "/cbd-by-category/cbd-BODY",
+      },
 
-        {
-          title: "CBD BEVERAGE",
-          link: "/cbd-by-category/CBD-BEVERAGE",
-        },
-        {
-          title: "AROMATHERAPY",
-          link: "/cbd-by-category/AROMATHERAPY",
-        },
-        {
-          title: "CBD FOR PETS",
-          link: "/cbd-by-category/CBD-FOR-PETS",
-        },
-        // {
-        //   title: "EXTRACTS & CONCENTRATES",
-        //   link: "/",
-        // },
-        // {
-        //   title: "GIFT SETS & PROMOTIONS",
-        //   link: "/",
-        // },
-      ],
+      {
+        engTitle: "CBD BEVERAGE",
+        thiTitle: "CBD เครื่องดื่ม",
+        link: "/cbd-by-category/CBD-BEVERAGE",
+      },
+      {
+        engTitle: "AROMATHERAPY",
+        thiTitle: "อโรมาเธอราพี",
+        link: "/cbd-by-category/AROMATHERAPY",
+      },
+      // {
+      //   title: "HOME USE",
+      //   link: "/cbd-by-category/home-use",
+      // },
+      {
+        engTitle: "CBD FOR PETS",
+        thiTitle: "CBD สำหรับสัตว์เลี้ยง",
+        link: "/cbd-by-category/CBD-FOR-PETS",
+      },
+      // {
+      //   title: "EXTRACTS & CONCENTRATES",
+      //   link: "/",
+      //   //cbd-by-category/SKINCARE
+      // },
+      // {
+      //   title: "GIFT SETS & PROMOTIONS",
+      //   link: "/",
+      // },
+    ],
     },
     {
-      title: "CBD BY PURPOSE",
+      engTitle: "CBD BY PURPOSE",
+      thiTitle: "CBD ตามวัตถุประสงค์",
       link: "/cbd-by-purpose",
       options: [
         {
-          title: "SLEEP",
+          engTitle: "SLEEP",
+          thiTitle: "นอน",
           link: "/cbd-by-purpose/SLEEP",
         },
         {
-          title: "IMMUNE",
+          engTitle: "IMMUNE",
+          thiTitle: "มีภูมิคุ้มกัน",
           link: "/cbd-by-purpose/immunity",
         },
         {
-          title: "ENERGY",
+          engTitle: "ENERGY",
+          thiTitle: "พลังงาน",
           link: "/cbd-by-purpose/ENERGY",
         },
         {
-          title: "ANXIETY",
+          engTitle: "ANXIETY",
+          thiTitle: "ความวิตกกังวล",
           link: "/cbd-by-purpose/ANXIETY",
         },
         {
-          title: "MUSCLES & JOINT",
+          engTitle: "MUSCLES & JOINT",
+          thiTitle: "กล้ามเนื้อและข้อต่อ",
           link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
         },
         {
-          title: "CANCER",
+          engTitle: "CANCER",
+          thiTitle: "มะเร็ง",
           link: "/cbd-by-purpose/CANCER",
         },
         // {
@@ -75,7 +95,8 @@ export const navData = [
         //   link: "/cbd-by-purpose/PALLIATIVE-CARE",
         // },
         {
-          title: "SKINCARE",
+          engTitle: "SKINCARE",
+          thiTitle: "ผลิตภัณฑ์ดูแลผิว",
           link: "/cbd-by-purpose/SKINCARE",
         },
         // {
@@ -83,11 +104,13 @@ export const navData = [
         //   link: "/cbd-by-purpose/NCD'S",
         // },
         {
-          title: "AROMATHERAPY",
+          engTitle: "AROMATHERAPY",
+          thiTitle: "อโรมาเธอราพี",
           link: "/cbd-by-purpose/AROMATHERAPY",
         },
         {
-          title: "HORMONES",
+          engTitle: "HORMONES",
+          thiTitle: "ฮอร์โมน",
           link: "/cbd-by-purpose/HORMONES",
         },
         // {
@@ -95,115 +118,128 @@ export const navData = [
         //   link: "/cbd-by-purpose/OPIOID",
         // },
         {
-          title: "WEIGHT MANAGEMENT",
+          engTitle: "WEIGHT MANAGEMENT",
+          thiTitle: "การจัดการน้ำหนัก",
           link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
         },
         // {
         //   title: "GIFT SETS & PROMOTIONS",
-        //   link: "/",
+        //   link: "/", //"/cbd-by-purpose/WEIGHT-MANAGEMENT",
         // },
         // {
         //   title: "CBD CONCENTRATION & EXTRACTS",
-        //   link: "/",
+        //   link: "/", //"/cbd-by-purpose/WEIGHT-MANAGEMENT",
         // },
       ],
     },
   {
-    title: "OUR SERVICES",
-      options: [
-        {
-          title: "EXTRACTION",
-          link: "",
-        },
-        {
-          title: "OEM/ODM",
-          link: "",
-        },
-        {
-          title: "VITAL MEDI CLINIC",
-          link: "",
-        },
-        {
-          title: "VITAL HEALTH CAFE",
-          link: "",
-        },
-        {
-          title: "DR.CBD CLINIC",
-          link: "",
-        },
-      ],
+    engTitle: "ABOUT",
+    thiTitle: "เกี่ยวกับ",
+    options: [
+      {
+        engTitle: "BRAND PURPOSE",
+        thiTitle:"วัตถุประสงค์ของแบรนด์",
+        link: "/brand-purpose",
+      },
+      {
+        engTitle: "OUR TEAM",
+        thiTitle:"ทีมงานของเรา",
+        link: "/our-leadership",
+      },
+      {
+        engTitle: "JOIN US",
+        thiTitle:"เข้าร่วมกับเรา",
+        link: "/our-esteemed",
+      },
+    ],
   },
   {
-      title: "ABOUT",
-      options: [
-        {
-          title: "BRAND PURPOSE",
-          link: "/brand-purpose",
-        },
-        {
-          title: "OUR TEAM",
-          link: "/our-leadership",
-        },
-        {
-          title: "JOIN US",
-          link: "/our-esteemed",
-        },
-      ],
+    engTitle: "BLOG",
+    thiTitle: "เกี่ยวกับ",
+    link:"/blog",
+    options: [
+      {
+        engTitle: "EARTH LAB CBD WHITENING MASK",
+        thiTitle:"วัตถุประสงค์ของแบรนด์",
+        link: "/blog/earth-lab-cbd-whitening-mask",
+      },
+      {
+        engTitle: "EARTH LAB CBD GREEN ANGEL PLUS 50g",
+        thiTitle:"ทีมงานของเรา",
+        link: "/blog/earth-lab-cbd-green-angel",
+      },
+      {
+        engTitle: "EARTH LAB CBD AMPOULE SERUM 30ml",
+        thiTitle:"ทีมงานของเรา",
+        link: "/blog/earth-lab-cbd-ampoule-serum",
+      },
+      // {
+      //   engTitle: "CBD I-MUN (DIETARY SUPPLEMENT SOFTGEL CAPSULE)",
+      //   thiTitle:"เข้าร่วมกับเรา",
+      //   link: "/our-esteemed",
+      // },
+      {
+        engTitle: "EARTH LAB CBD DE'LEEP SOFTGEL 30cap",
+        thiTitle:"เข้าร่วมกับเรา",
+        link: "/blog/earth-lab-cbd-dellep-softgel",
+      },
+      // {
+      //   engTitle: "MCT OIL PLUS PERILLASEED OIL AND CBD EXTRACT FROM HEMP",
+      //   thiTitle:"เข้าร่วมกับเรา",
+      //   link: "/our-esteemed",
+      // },
+      // {
+      //   engTitle: "9CE CBD DEEP SLEEPING CREAM",
+      //   thiTitle:"เข้าร่วมกับเรา",
+      //   link: "/our-esteemed",
+      // },
+      {
+        engTitle: "9CE CBD CREAM",
+        thiTitle:"เข้าร่วมกับเรา",
+        link: "/blog/9ce",
+      },
+      // {
+      //   engTitle: "9CE DD & SUNSCREEN",
+      //   thiTitle:"เข้าร่วมกับเรา",
+      //   link: "/our-esteemed",
+      // },
+      // {
+      //   engTitle: "9CE CBD BRIGHTENING AMPOULE",
+      //   thiTitle:"เข้าร่วมกับเรา",
+      //   link: "/our-esteemed",
+      // },
+    ],
   },
   {
-      title: "DR.CBD UNIVERSITY",
-      options: [
-        {
-          title: "HEALTH",
-          link: "/insights/health",
-        },
-
-        {
-          title: "MEDICAL",
-          link: "/insights/medical",
-        },
-        {
-          title: "RESEARCH",
-          link: "/insights/research",
-        },
-        {
-          title: "NEWS",
-          link: "/insights/news",
-        },
-        {
-          title: "PRESS RELEASE",
-          link: "/insights/press-release",
-        },
-      ],
-  },
-  {
-      title: "CONTACT",
-      link: "/contact",
-      options: [
-        {
-          title: "www.drcbdgroup.com",
-          link: "",
-        },
-        {
-          title: "info@brcbdgroup.com",
-          link: "",
-        },
-        {
-          title: "+66 65 141 6999",
-          link: "",
-        },
-        {
-          title: "@drcbdinnovation",
-          link: "",
-        },
-        {
-          title: "@drcbdinnovation",
-          link: "",
-        },
-        {
-          title: "@DrCBDOfficalChannel",
-          link: "",
-        },
-      ],
+    engTitle: "CONTACT",
+    thiTitle: "ติดต่อ",
+    link: "/contact",
+    options: [
+      {
+        engTitle: "www.drcbdgroup.com",
+        thiTitle: "www.drcbdgroup.com",
+        link: "",
+      },
+      {
+        engTitle: "info@brcbdgroup.com",
+        thiTitle: "info@brcbdgroup.com",
+        link: "",
+      },
+      {
+        engTitle: "+66 65 141 6999",
+        thiTitle: "+66 65 141 6999",
+        link: "",
+      },
+      {
+        engTitle: "@drcbdinnovation",
+        thiTitle: "@drcbdinnovation",
+        link: "",
+      },
+      {
+        engTitle: "@DrCBDOfficalChannel",
+        thiTitle: "@DrCBDOfficalChannel",
+        link: "",
+      },
+    ],
     },
 ];

@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./secondBanner.css";
 import { iconsData } from "./iconsData";
+import companies1 from "../../assets/companies/1.png";
+import companies2 from "../../assets/companies/2.png";
+import companies3 from "../../assets/companies/3.png";
+import companies4 from "../../assets/companies/4.png";
+import lineAlbum from "../../assets/companies/LINE_ALBUM.jpg";
+import fascino from "../../assets/companies/IMG_8944.jpg";
+import seven from "../../assets/companies/jl281.jpeg";
+import cj from "../../assets/companies/image-5201.jpg";
+import BEAUTRIUM from "../../assets/companies/IMG_9020.jpg";
+import EVEANDBOY from "../../assets/companies/IMG_9128.jpg";
+import productoil from "../../assets/companies/productoil-01.jpg"
 import { IoIosArrowDown } from "react-icons/io";
+import { useLanguage } from "../../util/LanguageContext";
 
 const SecondBanner = () => {
+  const { language } = useLanguage();
   const [open, setOpen] = useState(null);
   const toggle = (string) => {
     if (open === string) {
@@ -17,28 +30,16 @@ const SecondBanner = () => {
       para: "4th Floor, The Marche Thong Lo Road, Khlong Tan Nuea, Wattana, Bangkok 10110",
       email:'Email:vitalmediclinic@drcbdgroup.com',
       tel: "Phone: +66 9 4263 9964",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
+      image:companies2,
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
-    // {
-    //   title: "Vital Health Cafe",
-    //   para: "1st Floor, The Marche Thong Lo Road, Khlong Tan Nuea, Wattana, Bangkok 10110",
-    //   email:'Email: info@drcbdgroup.com',
-    //   tel: "Phone: +66 8 4192 6362",
-    //   image:
-    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
-    //   mapLink:
-    //     "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
-    // },
     {
       title: "Dr. Kratom Bio",
       para: "255 Bangna Trat 3 (Soi Bua-Kued), Bangna-Nuea, Bangkok 10260 Thailand",
       email:'Email: info@drcbdgroup.com',
       tel: "Phone: +66 6 5141 6999",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
+      image:companies3,
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
@@ -47,8 +48,7 @@ const SecondBanner = () => {
       para: "218/1-4 Hua Hin Subdistrict, Hua Hin District, Prachuap Khiri Khan Province 77110",
       email:'Email: drcbdclinic_official@drcbdgroup.com',
       tel: "Phone: +66 8 4191 4926",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
+      image:companies1,
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
@@ -57,8 +57,7 @@ const SecondBanner = () => {
       para: "255 Bangna Trat 3 (Soi Bua-Kued), Bangna-Nuea, Bangkok 10260 Thailand",
       email:'Email: info@drcbdgroup.com',
       tel: "Phone: +66 6 5141 6999",
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
+      image:companies4,
       mapLink:
         "https://maps.google.com/maps?q=Medical Cannabis Department 6, 3rd floor, Ratchada-Ramindra Road, Nuanchan, Bueng Kum, Bangkok 10230&t=&z=8&ie=UTF8&iwloc=&output=embed",
     },
@@ -69,17 +68,17 @@ const SecondBanner = () => {
       <div className="secondBanner">
         <div>
           <h2 style={{ textAlign: "center", padding: "2rem 0" }}>
-            WHERE TO FIND US
+            {language==="eng"?'WHERE TO FIND US':'จะหาเราได้ที่ไหน'}
           </h2>
           <div className="second-banner-container">
             <div>
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/LINE_ALBUM.jpg"
+                src={lineAlbum}
                 style={{ objectFit: "cover", width: "100%" }}
                 alt="/"
               />
               <h2 style={{ textAlign: "center", padding: "1rem 0" }}>
-                TOP DEPARTMENT STORES
+                {language==="eng"?"TOP DEPARTMENT STORES":"ห้างสรรพสินค้าชั้นนำ"}
               </h2>
               <p
                 style={{
@@ -88,18 +87,17 @@ const SecondBanner = () => {
                   fontWeight: 500,
                 }}
               >
-                Our CBD Products are available at Tops Supermarket across
-                Thailand.
+                {language==="eng"?"Our CBD Products are available at Tops Supermarket across Thailand.":"ผลิตภัณฑ์ CBD ของเรามีจำหน่ายที่ Tops Supermarket ทั่วประเทศไทย"}
               </p>
             </div>
             <div>
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_8944.jpg"
+                src={fascino}
                 style={{ objectFit: "cover", width: "100%", height: "24.7em" }}
                 alt="/"
               />
               <h2 style={{ textAlign: "center", padding: "1rem 0" }}>
-                FASCINO
+                {language==="eng"?'FASCINO':'ฟาสซิโน'}
               </h2>
               <p
                 style={{
@@ -108,8 +106,7 @@ const SecondBanner = () => {
                   fontWeight: 500,
                 }}
               >
-                Our CBD products are available at Fascino Drug Store across
-                Bangkok.
+                {language==="eng"?'Our CBD products are available at Fascino Drug Store across Bangkok.':'ผลิตภัณฑ์ CBD ของเรามีจำหน่ายที่ Fascino Drug Store ทั่วกรุงเทพฯ'}
               </p>
             </div>
           </div>
@@ -129,30 +126,24 @@ const SecondBanner = () => {
             >
               <div style={{ width: "49.2%" }}>
                 <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/jl281.jpeg"
+                  src={seven}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
-                  alt="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/jl281.jpeg"
+                  alt={seven}
                 />
                 <h3 style={{ padding: "1rem 0" }}>7/11</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
-                  {" "}
-                  CBD products have gained popularity due to their potential
-                  therapeutic benefits. While research is ongoing, CBD has shown
-                  promise in
+                  {language==="eng"?"CBD products have gained popularity due to their potential therapeutic benefits. While research is ongoing, CBD has shown promise in":" ผลิตภัณฑ์ CBD ได้รับความนิยมเนื่องจากมีประโยชน์ในการรักษา ในขณะที่การวิจัยกำลังดำเนินอยู่ CBD ก็แสดงให้เห็นสัญญาณที่ดี"}
                 </p>
               </div>
               <div style={{ width: "49.2%" }}>
                 <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/image-5201.jpg"
+                  src={cj}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
-                  alt="/"
+                  alt={cj}
                 />
                 <h3 style={{ padding: "1rem 0" }}>CJ</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
-                  {" "}
-                  CBD products have gained popularity due to their potential
-                  therapeutic benefits. While research is ongoing, CBD has shown
-                  promise in
+                  {language==="eng"?"CBD products have gained popularity due to their potential therapeutic benefits. While research is ongoing, CBD has shown promise in":' ผลิตภัณฑ์ CBD ได้รับความนิยมเนื่องจากมีประโยชน์ในการรักษา ในขณะที่การวิจัยกำลังดำเนินอยู่ CBD ก็แสดงให้เห็นสัญญาณที่ดี'}
                 </p>
               </div>
             </div>
@@ -171,30 +162,24 @@ const SecondBanner = () => {
             >
               <div style={{ width: "49.2%" }}>
                 <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9020.jpg"
+                  src={BEAUTRIUM}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
-                  alt="/"
+                  alt={BEAUTRIUM}
                 />
                 <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
-                  {" "}
-                  CBD products have gained popularity due to their potential
-                  therapeutic benefits. While research is ongoing, CBD has shown
-                  promise in
+                  {language ==="eng"?"CBD products have gained popularity due to their potential therapeutic benefits. While research is ongoing, CBD has shown promise in":'ผลิตภัณฑ์ CBD ได้รับความนิยมเนื่องจากมีประโยชน์ในการรักษา ในขณะที่การวิจัยกำลังดำเนินอยู่ CBD ก็แสดงให้เห็นสัญญาณที่ดี'}    
                 </p>
               </div>
               <div style={{ width: "49.2%" }}>
                 <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/available/IMG_9128.jpg"
+                  src={EVEANDBOY}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
-                  alt="/"
+                  alt={EVEANDBOY}
                 />
                 <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
-                  {" "}
-                  CBD products have gained popularity due to their potential
-                  therapeutic benefits. While research is ongoing, CBD has shown
-                  promise in
+                  {language==="eng"?"CBD products have gained popularity due to their potential therapeutic benefits. While research is ongoing, CBD has shown promise in":"ผลิตภัณฑ์ CBD ได้รับความนิยมเนื่องจากมีประโยชน์ในการรักษา ในขณะที่การวิจัยกำลังดำเนินอยู่ CBD ก็แสดงให้เห็นสัญญาณที่ดี"}
                 </p>
               </div>
             </div>
@@ -236,9 +221,9 @@ const SecondBanner = () => {
         <div className="banner">
           <div className="banner-first">
             <h1>
-              WHY OUR CBD OIL
+              {language==="eng"?"WHY OUR CBD OIL":"ทำไมต้องเป็นน้ำมัน CBD ของเรา"}
               <br />
-              IS DIFFERENT?
+              {language==="eng"?"IS DIFFERENT?":"แตกต่างไหม?"}
             </h1>
             <div
               style={{
@@ -249,25 +234,19 @@ const SecondBanner = () => {
               }}
             />
             <p>
-              CBD oil is extracted from an IES (Isolate Extraction System)
-              machine, using supercritical CO2 extraction technology, the global
-              certified standard of extraction from the USA. This ensures that
-              the properties of the oil are thoroughly extracted for better
-              efficacy. CBD contain properties that help you relax to reduce
-              anxiety, improve the easing into sleep and the sleep quality and
-              depth without the ‘hangover feel’ when you awake.
+              {language === "eng"?'CBD oil is extracted from an IES (Isolate Extraction System) machine, using supercritical CO2 extraction technology, the global certified standard of extraction from the USA. This ensures that the properties of the oil are thoroughly extracted for better efficacy. CBD contain properties that help you relax to reduce anxiety, improve the easing into sleep and the sleep quality and depth without the ‘hangover feel’ when you awake.':'น้ำมัน CBD สกัดจากเครื่อง IES (Isolate Extraction System) โดยใช้เทคโนโลยีการสกัดแบบ Supercritical CO2 ซึ่งเป็นมาตรฐานการสกัดระดับโลกที่ได้รับการรับรองจากสหรัฐอเมริกา ช่วยให้มั่นใจได้ว่าคุณสมบัติของน้ำมันได้รับการสกัดอย่างทั่วถึงเพื่อประสิทธิภาพที่ดีขึ้น CBD มีคุณสมบัติที่ช่วยให้คุณผ่อนคลายเพื่อลดความวิตกกังวล ปรับปรุงการผ่อนคลายในการนอนหลับ คุณภาพการนอนหลับและความลึกโดยไม่เกิด "อาการเมาค้าง" เมื่อคุณตื่น'}
             </p>
           </div>
           <div className="pointer">
             <img
-              src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/images/productoil-01.jpg"
+              src={productoil}
               style={{
                 objectFit: "cover",
                 marginRight: "10em",
                 width: "100%",
                 height: "100%",
               }}
-              alt="/"
+              alt={productoil}
             />
           </div>
         </div>
@@ -275,7 +254,7 @@ const SecondBanner = () => {
           <div className="banner-second-parent">
             <div style={{ width: "40%" }} className="childe1">
               {iconsData[0].map((item, index) => (
-                <div>
+                <div key={index}>
                   <img src={item.icon} style={{}} alt="/" />
                   <p>{item.title}</p>
                 </div>

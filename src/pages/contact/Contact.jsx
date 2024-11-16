@@ -1,13 +1,14 @@
-import React from "react";
 import { AiOutlineGlobal, AiFillYoutube } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { CgPhone } from "react-icons/cg";
 import { RiLineFill } from "react-icons/ri";
 import { IoLocationSharp } from "react-icons/io5";
+import contact from "../../assets/contact.png";
+import bg from "../../assets/bg.png";
 import "./contact.css";
 
 const Contact = () => {
-  const contact = [
+  const contacts = [
     {
       link: "+66 65 141 6999",
       icon: <CgPhone size={40} color="#41631c" />,
@@ -42,7 +43,7 @@ const Contact = () => {
   return (
     <div>
       <img
-        src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/contact.png"
+        src={contact}
         className="contact-banner"
         alt="/"
       />
@@ -57,11 +58,10 @@ const Contact = () => {
         className="contact"
       >
         <img
-          src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/bg.png"
+          src={bg}
           style={{
             objectFit: "cover",
             //width: "450px",
-            right: 0,
             maxWidth: "600px",
             position: "absolute",
             right: "-16em",
@@ -69,7 +69,7 @@ const Contact = () => {
           }}
         />
         <img
-          src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/bg.png"
+          src={bg}
           style={{
             objectFit: "cover",
             width: "600px",
@@ -80,7 +80,7 @@ const Contact = () => {
           }}
         />
         <div style={{ maxWidth: 900, width: "100%", padding:'50px 1rem 0' }}>
-          {contact.map((item, index) => (
+          {contacts.map((item, index) => (
             <div
               style={{
                 display: "flex",
@@ -88,6 +88,7 @@ const Contact = () => {
                 width: "100%",
                 paddingBottom: 15,
               }}
+              key={index}
             >
               {item.icon}
               <p
@@ -110,7 +111,7 @@ const Contact = () => {
             style={{ border: 0 }}
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
       </div>

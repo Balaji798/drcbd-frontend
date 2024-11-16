@@ -1,15 +1,17 @@
-import React, { useState, useEffect, lazy } from "react";
+import { useState, useEffect, lazy } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
-import data from "../../data";
+import {people} from "../../data";
 import "./Slider.css";
 import { sliderData, products } from "./sliderData";
+import { useLanguage } from "../../util/LanguageContext";
+import vital from "../../assets/LOGO+VITAL-01.png";
+import mixClinic from "../../assets/mix-clinic.png"
 const ByCategory = lazy(async () => await import("./ByCategory"));
 const ByPurpose = lazy(async () => await import("./ByPurpose"));
 
 const ImageSlider = () => {
-  const [people] = useState(data);
-  const [slider] = useState(sliderData);
+  const { language } = useLanguage();
   const [index, setIndex] = useState(0);
   const [secondIndex, setSecondIndex] = useState(0);
 
@@ -33,14 +35,14 @@ const ImageSlider = () => {
   }, [index]);
 
   useEffect(() => {
-    const lastIndex = slider.length - 1;
+    const lastIndex = sliderData.length - 1;
     if (secondIndex < 0) {
       setSecondIndex(lastIndex);
     }
     if (secondIndex > lastIndex) {
       setSecondIndex(0);
     }
-  }, [secondIndex, slider]);
+  }, [secondIndex, sliderData]);
 
   useEffect(() => {
     let slider = setInterval(() => {
@@ -53,19 +55,9 @@ const ImageSlider = () => {
 
   return (
     <>
-    <div
-        className="video home-video"
-      >
-        <video autoPlay loop muted playsInline style={{marginTop:"-5rem"}}>
-          <source
-            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home-video.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
       <section className="section" style={{ paddingTop: "1em" }}>
         <div className="section-center-home">
-          {slider.map((item, indexPeople) => {
+          {sliderData.map((item, indexPeople) => {
             const { id, image } = item;
             let position = "nextSlide";
             if (indexPeople === secondIndex) {
@@ -83,11 +75,9 @@ const ImageSlider = () => {
                 style={{ display: "flex", overflow: "hidden" }}
                 key={id}
               >
-                <img
-                  src={image}
-                  alt="/"
-                  className="person-img"
-                />
+                <a href="https://shopee.co.th/9ceofficial?categoryId=100630&entryPoint=ShopByPDP&itemId=22479301919" style={{width:"100%"}}>
+                  <img src={image} alt="/" className="person-img" />
+                </a>
               </article>
             );
           })}
@@ -105,8 +95,8 @@ const ImageSlider = () => {
           </button>
         </div>
       </section>
-      <ByCategory/>
-      <ByPurpose/>
+      <ByCategory language={language}/>
+      <ByPurpose language={language}/>
       <div
         style={{
           paddingBottom: "1rem",
@@ -115,9 +105,9 @@ const ImageSlider = () => {
         className="center best-seller"
       >
         <h1 style={{ padding: "2.5rem 0 1.5rem", fontWeight: "bold" }}>
-          BEST SELLER
+          {language==="eng"?'BEST SELLER':'ขายดี'}
         </h1>
-        
+
         <p
           style={{
             fontWeight: 500,
@@ -126,24 +116,19 @@ const ImageSlider = () => {
             paddingBottom: "0.8rem",
           }}
         >
-          CBD products have gained popularity due to their potential therapeutic
-          benefits. While research is ongoing,
-          <br /> CBD has shown promise in several areas, including:
+          {language==="eng"?'CBD products have gained popularity due to their potential therapeutic benefits. While research is ongoing,':'ผลิตภัณฑ์ CBD ได้รับความนิยมเนื่องจากมีประโยชน์ในการรักษา ในขณะที่การวิจัยกำลังดำเนินอยู่'}
+          <br /> {language==="eng"?'CBD has shown promise in several areas, including:':'CBD แสดงให้เห็นแนวโน้มในหลายด้าน ได้แก่:'}
         </p>
         <ul>
           <li>
-            Pain Management: CBD may help alleviate chronic pain by interacting
-            with receptors in the
-            <br /> endocannabinoid system, reducing inflammation and influencing
-            neurotransmitter activity.
+            {language==="eng"?'Pain Management: CBD may help alleviate chronic pain by interacting with receptors in the':'การจัดการความเจ็บปวด: CBD อาจช่วยบรรเทาอาการปวดเรื้อรังได้โดยการโต้ตอบ โดยมีตัวรับอยู่ใน'}
+            <br /> {language==="eng"?'endocannabinoid system, reducing inflammation and influencing neurotransmitter activity.':'ระบบเอนโดแคนนาบินอยด์ ลดการอักเสบ และส่งผลต่อการทำงานของสารสื่อประสาท'}
           </li>
           <li style={{ paddingTop: "0.8rem" }}>
-            Anxiety and Depression: Preliminary studies suggest that CBD may
-            have an anxiolytic effect, potentially <br />
-            reducing symptoms of anxiety and depression. However, further
-            research is needed to establish its
+            {language==="eng"?'Anxiety and Depression: Preliminary studies suggest that CBD may have an anxiolytic effect, potentially':'ความวิตกกังวลและภาวะซึมเศร้า: การศึกษาเบื้องต้นชี้ให้เห็นว่า CBD อาจมีผลในการลดความวิตกกังวล'} <br />
+            {language==="eng"?'reducing symptoms of anxiety and depression. However, further research is needed to establish its':'ลดอาการวิตกกังวลและซึมเศร้า อย่างไรก็ตาม จำเป็นต้องมีการวิจัยเพิ่มเติมเพื่อสร้างมันขึ้นมา'}
             <br />
-            efficacy.
+            {language==="eng"?'efficacy.':"ประสิทธิภาพ"}
           </li>
         </ul>
         <div
@@ -171,7 +156,7 @@ const ImageSlider = () => {
             </Link>
           ))}
         </div>
-              </div>
+      </div>
       <div
         style={{
           background: "#000",
@@ -180,64 +165,8 @@ const ImageSlider = () => {
         }}
       >
         <h1 style={{ textAlign: "center", padding: "0.5em 0" }}>
-          AVAILABLE AT
+          {language==="eng"?'AVAILABLE AT':'สามารถดูได้ที่'}
         </h1>
-        {/*<div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            flex: "flexWrap",
-            width: "100%",
-          }}
-        >
-          <div className="cafe-container">
-            <div style={{ background: "#fff" }} className="cafe-image">
-              <div>
-                <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix.png"
-                
-                  alt="/"
-                />
-              </div>
-            </div>
-            <div className="cafe-content">
-              <a href="https://www.instagram.com/vitalhealthcafeofficial/">
-                <img
-                  src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-02.png"
-                  style={{ width: "15rem", objectFit: "contain" }}
-                  alt="/"
-                />
-              </a>
-              <h2>VITAL HEALTH CAFE</h2>
-              <p style={{ padding: "0.3rem 0" }}>Vital Health Cafe</p>
-              <p
-                style={{
-                  width: "100%",
-                  fontSize: "0.8rem",
-                  fontWeight: 600,
-                  lineHeight: "1.3rem",
-                  fontFamily: "Avenir",
-                }}
-              >
-                Vital Health Café offer you wide range of food
-                <br /> nutrients ranging from healthy food, beverages
-                <br /> and CBD-infused drinks. Looking for more CBD
-                <br /> products, visit us at “The Marche” Thonglor Soi 4,
-                <br /> 1st floor.
-              </p>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-            }}
-          >
-            <div className="blue-dev" />
-          </div>
-          </div>*/}
         <div
           style={{
             display: "flex",
@@ -253,51 +182,54 @@ const ImageSlider = () => {
               alignItems: "flex-start",
             }}
           >
-            <div
-            className="blue-dev"
-            />
+            <div className="blue-dev" />
           </div>
           <div className="second-cafe-container">
-          <div className="cafe-content">
-            <a href="https://www.facebook.com/realvitalmediclinic/">
-              <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/LOGO+VITAL-01.png"
+            <div className="cafe-content">
+              <a href="https://www.facebook.com/realvitalmediclinic/">
+                <img
+                  src={vital}
+                  style={{
+                    width: "18rem",
+                    objectFit: "cover",
+                    marginLeft: "0rem",
+                  }}
+                  alt={vital}
+                />
+              </a>
+              <h2>VITAL MEDI CLINIC</h2>
+              <p style={{ padding: "0.3rem 0" }}>CBD {language==="eng"?"products":"สินค้า"}</p>
+              {language==="eng"?<p
                 style={{
-                  width: "18rem",
-                  objectFit: "cover",
-                  marginLeft: "0rem",
+                  width: "100%",
+                  lineHeight: "1.3rem",
+                  fontSize: "0.8rem",
+                  fontWeight: 600,
+                  fontFamily: "Avenir",
                 }}
-                alt="/"
-              />
-            </a>
-            <h2>VITAL MEDI CLINIC</h2>
-            <p style={{ padding: "0.3rem 0" }}>CBD products</p>
-            <p
-              style={{
-                width: "100%",
-                lineHeight: "1.3rem",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                fontFamily: "Avenir",
-              }}
-            >
-              Vital Medi Clinic is an Integrative Medical clinic which
-              <br /> combines Preventive Medicine, Applied Thai Traditional
-              <br /> Medicine (ATTM) and Traditional Chinese Medicine (TCM)
-              <br /> altogether. We personalized treatment plans individually to
-              <br /> reach practical and sustainable optimum health.
-            </p>
-          </div>
-          <div className="second-cafe-image">
-            <div
-            >
-              <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/vital-health-cafe/mix-clinic.png"
-                style={{  }}
-                alt="/"
-              />
+              >
+                Vital Medi Clinic is an Integrative Medical clinic which
+                <br /> combines Preventive Medicine, Applied Thai Traditional
+                <br /> Medicine (ATTM) and Traditional Chinese Medicine (TCM)
+                <br /> altogether. We personalized treatment plans individually
+                to
+                <br /> reach practical and sustainable optimum health.
+              </p>:<p>
+              Vital Medi Clinic เป็นคลินิกการแพทย์เชิงบูรณาการที่
+              ผสมผสานการแพทย์แผนไทยประยุกต์
+              การแพทย์ (ATTM) และการแพทย์แผนจีน (TCM)
+              โดยสิ้นเชิง เราวางแผนการรักษาเป็นรายบุคคลเพื่อ
+              เข้าถึงสุขภาพที่เหมาะสมในทางปฏิบัติและยั่งยืน</p>}
             </div>
-          </div>
+            <div className="second-cafe-image">
+              <div>
+                <img
+                  src={mixClinic}
+                  style={{}}
+                  alt="/"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

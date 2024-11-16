@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ApiService from "../../services/ApiService";
-import Steps from "../../components/Steps";
+import { getOrder } from "../../services/ApiService";
+import checkout1 from "../../assets/checkoutImage/1.png";
+import checkout2 from "../../assets/checkoutImage/2.png";
+import checkout3 from "../../assets/checkoutImage/3.png";
+import checkout4 from "../../assets/checkoutImage/4.png";
 import "./order.css";
 import { convertToLocalTime } from "../../util/convertToLocalTime";
 
@@ -11,18 +14,18 @@ const UserOrder = () => {
   const [open, setOpen] = useState(false);
   //const [steps, setSteps] = useState([]);
   const steps2 = [
-    { image: "../checkoutImage/1.png", title: "Order Placed" },
-    { image: "../checkoutImage/2.png", title: "" },
-    { image: "../checkoutImage/3.png", title: "" },
-    { image: "../checkoutImage/4.png", title: "" },
+    { image: checkout1, title: "Order Placed" },
+    { image: checkout2, title: "" },
+    { image: checkout3, title: "" },
+    { image: checkout4, title: "" },
   ];
 
   useEffect(() => {
-    const getOrder = async () => {
-      const res = await ApiService.getOrder(orderId);
+    const getOrders = async () => {
+      const res = await getOrder(orderId);
       setOrderData(res.data);
     };
-    getOrder();
+    getOrders();
   }, [orderId]);
   return (
     <>
@@ -106,7 +109,7 @@ const UserOrder = () => {
               textAlign: "center",
             }}
           >
-            "Thank you for trusting us!" "Your order is completed!" will do just
+            {'"Thank you for trusting us!" '} {'"Your order is completed!"'} will do just
             fine. Just make sure that it is clear <br />
             what just happened(and what they should expect to happen next, if
             necessary)

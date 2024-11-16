@@ -1,11 +1,10 @@
-import ApiService from "../../services/ApiService";
+import { getCartItem } from "../../services/ApiService";
 import axios from "axios";
 
 export const getCart = async (dispatch) => {
   try {
-    const res = await ApiService.getCart();
-   
-    dispatch({ type: "FETCH_CART_SUCCESS", cart: res.data });
+    const res = await getCartItem();
+    dispatch({ type: "FETCH_CART_SUCCESS", cart: res });
   } catch (error) {
     dispatch({ type: "FETCH_CART_FAILURE", cart: error.message });
   }
@@ -29,11 +28,9 @@ export const removeItemFromCart = async (dispatch, itemId) => {
     );
     // Dispatch an action to update the cart state in Redux (you may need to fetch the updated cart)
     // For simplicity, let's assume you're refetching the entire cart after removing an item
-    const updatedCartRes = await ApiService.getCart();
+    const updatedCartRes = await getCartItem();
     dispatch({ type: "GET_CART", cart: updatedCartRes.data });
   } catch (error) {
     dispatch({ type: "REMOVE_CART_ITEM_FAILURE", error: error.message });
   }
 };
-
-export const removeAllItem = async (dispatch, cartId) => {};

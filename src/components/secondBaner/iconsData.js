@@ -1,49 +1,61 @@
+import icon1 from "../../assets/icons/1.png"
+import icon2 from "../../assets/icons/2.png"
+import icon3 from "../../assets/icons/3.png"
+import icon4 from "../../assets/icons/4.png"
+import icon5 from "../../assets/icons/5.png"
+import icon6 from "../../assets/icons/6.png"
+import icon7 from "../../assets/icons/7.png"
+import icon8 from "../../assets/icons/8.png"
+import icon9 from "../../assets/icons/9.png"
+import icon10 from "../../assets/icons/10.png"
+import icon11 from "../../assets/icons/11.png"
+
 export const iconsData = [
   [
     {
-      icon: "./icons/1.png",
+      icon: icon1,
       title: "Chemotherapy induced nausea and vomiting",
     },
     {
-      icon: "./icons/2.png",
+      icon: icon2,
       title: "Multiple sclerosis",
     },
     {
-      icon: "./icons/3.png",
+      icon: icon3,
       title: "Neuropathic pain",
     },
     {
-      icon: "./icons/4.png",
+      icon: icon4,
       title: "Excessive Weight Loss",
     },
     {
-      icon: "./icons/5.png",
+      icon: icon5,
       title: "Palliative care",
     },
     {
-      icon: "./icons/6.png",
+      icon: icon6,
       title: "Insomnia",
     },
     {
-      icon: "./icons/7.png",
+      icon: icon7,
       title: "Parkinson's",
     },
   ],
   [
     {
-      icon: "./icons/8.png",
+      icon: icon8,
       title: "Alzheimer",
     },
     {
-      icon: "./icons/9.png",
+      icon: icon9,
       title: "Anxiety",
     },
     {
-      icon: "./icons/10.png",
+      icon: icon10,
       title: "Demyelinating diseases",
     },
     {
-      icon: "./icons/11.png",
+      icon: icon11,
       title: "Epilepsy",
     },
   ],

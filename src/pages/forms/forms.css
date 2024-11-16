@@ -1,9 +1,6 @@
 .input-container {
-  max-width: 900px;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding-bottom: 2em;
   flex-wrap: wrap;
 }
@@ -16,10 +13,19 @@
   margin-left: 1em;
   font-weight: bold;
 }
+select{
+  max-width: 500px;
+  width: 100%;
+  padding: 0.8em 5px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  margin-left: 1em;
+  font-weight: bold;
+}
 .input-container > p {
-  font-size: 25px;
-  width: 10%;
-  text-align: end;
+  font-size: 18px;
+  max-width: 150px;
+  width: 100%;
 }
 .title-text {
   font-size: 45px;
@@ -36,7 +42,7 @@
     padding: 0 1rem;
   }
   .input-container > input,
-  .input-container > p {
+  .input-container > p,.input-container>select {
     width: 100%;
     text-align: left;
     margin-left: 0;

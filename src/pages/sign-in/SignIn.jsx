@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./register.css";
 import { useDispatch } from "react-redux";
 import { authSuccessful, updateUser } from "../../state/actions/authAction";
+import { login, sendUserOtp, verifyUserEmail } from "../../services/ApiService";
 
 const SignIn = () => {
   //const {data:session} = useSession();
@@ -33,11 +33,7 @@ const SignIn = () => {
       setOtpValidation(true)
       return
     }
-    const res = await axios.post(
-      "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
-      //https://52.77.244.89:8080
-      { otp: otp }
-    );
+    const res = await verifyUserEmail({otp:otp});
     if (!res.data.status) {
       setToken(true);
     }
@@ -49,11 +45,8 @@ const SignIn = () => {
   };
   const sendOtp = async () => {
     try {
-      const { data } = await axios.post(
-        "https://drcbd-backend-zgqu.onrender.com/user/send_otp",
-        user
-      );
-      if (data.status) setVerify(true);
+      const res = await sendUserOtp(user);
+      if (res) setVerify(true);
     } catch (err) {
       alert(err);
     }
@@ -78,32 +71,28 @@ const SignIn = () => {
       setEmail(true);
       return;
     }
-    const response = await axios.post(
-      "https://drcbd-backend-zgqu.onrender.com/user/login",
-      user
-    );
-    //https://52.77.244.89:8080
-    if (response?.data?.email) {
+    const response = await login(user)
+    if (response?.email) {
       if (userToken) {
         localStorage.removeItem("token");
       }
       setEmail(true);
       return;
-    } else if (response?.data?.password) {
+    } else if (response?.password) {
       if (userToken) {
         localStorage.removeItem("token");
       }
       setPassword(true);
       return;
     }
-    await authSuccessful(dispatch, response.data.user);
-    if (!response?.data?.user?.emailVerified) {
+    await authSuccessful(dispatch, response.user);
+    if (!response?.user?.emailVerified) {
       setOpen(true);
     } else {
       if (user) {
         localStorage.removeItem("token");
       }
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("token", response?.token);
       await updateUser(dispatch);
       navigate("/");
       window.location.reload();

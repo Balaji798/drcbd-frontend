@@ -1,9 +1,9 @@
-import React from "react";
-import "./style.css";
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import productImage from "../../assets/internationl-shipping.jpg"
 import { useNavigate } from "react-router-dom";
+import "./style.css";
 
-const ProductSlider = ({ image, i, marginB, categoryName }) => {
+const ProductSlider = ({ image, i, marginB, categoryName, languageType }) => {
   const navigate = useNavigate();
   return (
     <div
@@ -11,13 +11,16 @@ const ProductSlider = ({ image, i, marginB, categoryName }) => {
       key={i}
       style={{ marginBottom: "1rem", zIndex: 0 }}
       onClick={() => {
-        navigate(`/product-detail/${categoryName}/` + image.name, {
-          state: { catName1: categoryName },
-        });
+        navigate(
+          `/product-detail/${categoryName}/` + image?.eng?.name,
+          {
+            state: { catName1: categoryName },
+          }
+        );
         window.location.reload();
       }}
     >
-      {image.images && <img src={image.images[0]} alt="/" />}
+      {image.images && <img src={image?.eng?.name === "International Shipping"? productImage: image.images[0]} alt="/" />}
       <div
         style={{
           textAlign: "center",
@@ -33,7 +36,11 @@ const ProductSlider = ({ image, i, marginB, categoryName }) => {
         >
           {image.productFor[0]}
         </p>*/}
-        <h3 style={{ color: "#000" }}>{image.name.toString()}</h3>
+        <h3 style={{ color: "#000" }}>
+          {languageType === "eng"
+            ? image?.eng?.name.toString()
+            : image?.thi?.name.toString()}
+        </h3>
       </div>
 
       {/* <Link to="/product-detail">View Product</Link> */}

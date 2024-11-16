@@ -1,5 +1,4 @@
-import ApiService from '../../services/ApiService';
-//import axios from 'axios';
+import axios from 'axios';
 
 export const getNumber = (dispatch, data) => dispatch({ type: 'LOGIN_REQUEST', user: data });
 // const getToken = async () => {
@@ -9,7 +8,7 @@ export const getNumber = (dispatch, data) => dispatch({ type: 'LOGIN_REQUEST', u
 
 export const updateUser = async (dispatch) => {
 	try {
-		const res = await ApiService.getUser();
+		const res = await axios.get("");
 		// const config = {
 		// 	headers: {
 		// 		"Content-Type":"application/json",

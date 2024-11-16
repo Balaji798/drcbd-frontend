@@ -1,5 +1,6 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect } from "react";
+import { createToken, getTotalOrders } from "../services/ApiService";
 
 const OmisePayment = ({ totalPrice, cartId }) => {
   const delver_address = localStorage.getItem("delver_address");
@@ -42,34 +43,32 @@ const OmisePayment = ({ totalPrice, cartId }) => {
 
   const omiseHandler = async () => {
     const user = localStorage.getItem("token");
-    const orderData = await axios.get("https://drcbd-backend-zgqu.onrender.com/orders/total_orders")
+    const orderData = await getTotalOrders();
     if (user) {
       OmiseCard.open({
         frameLabel: "DRCBD Store",
-        frameDescription: `Invoice #${String(orderData.data.totalOrder+1).padStart(5, '0')}`,
+        frameDescription: `Invoice #${String(orderData.totalOrder + 1).padStart(
+          5,
+          "0"
+        )}`,
         amount: Number(totalPrice) * 100,
-        publicKey: process.env.REACT_APP_OMISE_PUBLICK_KEY,
+        publicKey: import.meta.env.VITE_OMISE_PUBLICK_KEY,
         onCreateTokenSuccess: async (token) => {
           const omiseToken = token;
-          const res = await axios.post(
-            "https://drcbd-backend-zgqu.onrender.com/orders/pay_withe_omise",
-            {
-              token: omiseToken,
-              amount: Number(totalPrice) * 100,
-              cartId,
-              userAdd: JSON.parse(delver_address),
-              description:`Invoice #${String(orderData.data.totalOrder+1).padStart(5, '0')}`
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${user}`,
-                "Content-Type": "application/json",
-              },
-            }
-          );
-          if(res.data.authorizeUri){
-            localStorage.setItem("omisePaymentId",res.data.paymentId)
-            window.location.href = res.data.authorizeUri
+          const res = await createToken({
+            token: omiseToken,
+            amount: Number(totalPrice) * 100,
+            cartId,
+            userAdd: JSON.parse(delver_address),
+            description: `Invoice #${String(orderData.totalOrder + 1).padStart(
+              5,
+              "0"
+            )}`,
+          });
+
+          if (res.authorizeUri) {
+            localStorage.setItem("omisePaymentId", res.data.paymentId);
+            window.location.href = res.data.authorizeUri;
           }
         },
         onFormClosed: () => {},

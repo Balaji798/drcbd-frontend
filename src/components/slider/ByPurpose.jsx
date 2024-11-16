@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { affiliates } from './sliderData'
 
-const ByPurpose = () => {
+const ByPurpose = ({ language }) => {
   return (
     <div className="product" style={{ background: "#000" }}>
         <div
@@ -18,7 +18,7 @@ const ByPurpose = () => {
           <h1
             style={{ color: "#fff", paddingTop: "1.5em", textAlign: "center" }}
           >
-            FIND YOUR CBD BY PURPOSE
+            {language==="eng"?'FIND YOUR CBD BY PURPOSE':'ค้นหา CBD ของคุณตามวัตถุประสงค์'}
           </h1>
           <div className="product-container-home">
             {affiliates.map((item, index) => (
@@ -34,7 +34,7 @@ const ByPurpose = () => {
                 key={index}
               >
                 <Link >
-                  {item.title}
+                  {language==="eng"?item.engTitle:item.thiTitle}
                 </Link>
               </Link>
             ))}
@@ -51,7 +51,7 @@ const ByPurpose = () => {
             }}
             to="/cbd-by-purpose"
           >
-            SHOP ALL CBD PRODUCT
+            {language==="eng"?'SHOP ALL CBD PRODUCT':'เลือกซื้อผลิตภัณฑ์ CBD ทั้งหมด'}
           </Link>
         </div>
       </div>

@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ApiService from "../../services/ApiService";
+import { getUserOrder } from "../../services/ApiService";
+import { useLanguage } from "../../util/LanguageContext";
 
 const Orders = () => {
+  const {language} = useLanguage()
   const [orderData, setOrderData] = useState({});
 
   useEffect(() => {
     const getOrders = async () => {
-      const res = await ApiService.getUserOrder();
+      const res = await getUserOrder();
       const data = res.data.filter(item=> {return item.status[item.status.length-1].orderStatus!=='pending'})
       setOrderData(data.reverse());
     };
@@ -39,6 +41,7 @@ const Orders = () => {
                   justifyContent: "space-between",
                   flexWrap: "wrap",
                 }}
+                key={i}
               >
                 <div style={{ display: "flex" }}>
                   <div
@@ -60,7 +63,7 @@ const Orders = () => {
                   </div>
                   <div style={{ paddingLeft: 10, height: "100%" }}>
                     <h4 style={{ paddingBottom: 10 }}>
-                      {product.productId?.name}
+                      {language==="eng"?product?.productId?.eng?.name:product?.productId?.thi?.name}
                     </h4>
 
                     <h4 style={{ paddingBottom: 10 }}>
@@ -71,7 +74,7 @@ const Orders = () => {
                 <div>
                   <h4 style={{ paddingBottom: 10 }}>
                     Total Price:- ฿
-                    {product.productId?.price * product?.quantity}
+                    {product?.productId?.eng?.price * product?.quantity}
                   </h4>
                   <h5>Order Date:- {}</h5>
                   <h5>Estimated delver time is 6 to 7 business week day</h5>

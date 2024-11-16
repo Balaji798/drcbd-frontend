@@ -1,12 +1,12 @@
 import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk'; // Import thunk as a named export
 import { persistReducer, persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // Use localStorage as the storage engine
-import rootReducer from './reducers'; // Your combined reducers
+import storage from 'redux-persist/lib/storage';
+import rootReducer from './reducers';
 
 const persistConfig = {
   key: 'root',
-  storage, // Use localStorage
+  storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

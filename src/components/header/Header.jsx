@@ -1,20 +1,23 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import "./header.css";
 import { Link } from "react-router-dom";
-// import cbd from "../../../public/dr/cbd.png";
+import cbd from "../../assets/drcbd.png";
 import { useNavigate } from "react-router-dom";
-import ApiService from "../../services/ApiService";
+import { getUser } from "../../services/ApiService";
 import Modal from "../modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { HiBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
 import { logout } from "../../state/actions/authAction";
+import { useLanguage } from "../../util/LanguageContext";
 
+// eslint-disable-next-line react/prop-types
 const Header = ({ openNav, setOpenNav }) => {
   const { product } = useSelector((state) => state.product);
-  const { store, auth } = useSelector((state) => state);
+  const { language, changeLanguage } = useLanguage();
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -33,7 +36,8 @@ const Header = ({ openNav, setOpenNav }) => {
   useEffect(() => {
     const gatUserRes = async () => {
       try {
-        const res = await ApiService.getUser();
+        await getUser();
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         //alert(err.response);
         setUserLogIn(true);
@@ -49,8 +53,9 @@ const Header = ({ openNav, setOpenNav }) => {
       if (!user) {
         setOpen(true);
       } else {
-        const res = await ApiService.getUser();
-        res?.data?.user?.emailVerified ? navigate(type) : setOpen(true);
+        console.log('hh')
+        const res = await getUser();
+        res?.user?.emailVerified ? navigate(type) : setOpen(true);
       }
     } catch (err) {
       alert(err);
@@ -64,15 +69,20 @@ const Header = ({ openNav, setOpenNav }) => {
       <header>
         <div className="header-container">
           <div className="sign-profile">
-            {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/england.jpg" style={{ width: "30px" }} alt="/" />*/}
-            {/*           <a href="#" style={{ marginRight: "2px" }}>
+            <div
+              style={{ marginRight: "2px",cursor:"pointer" }}
+              onClick={() => changeLanguage("eng")}
+            >
+           
               EN
-            </a>
+            </div>
             /
-            <a href="#" style={{ marginLeft: "2px" }}>
+            <div
+              style={{ marginLeft: "2px",cursor:"pointer" }}
+              onClick={() => changeLanguage("thi")}
+            >
               TH |{" "}
-  </a>*/}
-            {/*<img src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/brandp/thailand.png" style={{ width: "24px" }} alt="/" />*/}
+            </div>
             <Link to="/sign-in" style={{ marginLeft: "2px" }} className="sig">
               Sign In /
             </Link>
@@ -91,7 +101,7 @@ const Header = ({ openNav, setOpenNav }) => {
             <p
               style={{ cursor: "pointer", marginLeft: "2px" }}
               onClick={() => {
-                handelNext("/my-orders")
+                handelNext("/my-orders");
               }}
               className="ord"
             >
@@ -132,9 +142,14 @@ const Header = ({ openNav, setOpenNav }) => {
               <div className="searchQuery" style={{ display: "box" }}>
                 {product.map((item, index) => {
                   const isMatch =
-                    item.name.toLowerCase().indexOf(search.toLowerCase()) > -1;
+                    language === "eng"
+                      ? item?.eng?.name?.toLowerCase()
+                          .indexOf(search.toLowerCase()) > -1
+                      : item?.thi?.name?.toLowerCase()
+                          .indexOf(search.toLowerCase()) > -1;
+                          const catLength = language==="eng"?item?.eng?.categoryName.length > 0:item?.thi?.categoryName.length > 0
                   return (
-                    <ul style={{ listStyle: "none" }}>
+                    <ul style={{ listStyle: "none" }} key={index}>
                       {isMatch && (
                         <li
                           style={{
@@ -149,13 +164,15 @@ const Header = ({ openNav, setOpenNav }) => {
                           <Link
                             to={
                               `/product-detail/${
-                                item.categoryName.length > 0
-                                  ? item.categoryName[0]
-                                  : item.purposeName[0]
-                              }/` + item.name
+                                catLength > 0
+                                  ? item?.eng?.categoryName[0]
+                                  : item?.eng?.purposeName[0]
+                              }/` + item?.eng?.name
                             }
                           >
-                            {item.name}
+                            {language === "eng"
+                              ? item?.eng?.name
+                              : item?.thi?.name}
                           </Link>
                         </li>
                       )}
@@ -178,7 +195,9 @@ const Header = ({ openNav, setOpenNav }) => {
             >
               <div className="cart-item">
                 <p style={{ marginLeft: "2.5px" }}>
-                  {cart && auth.loggedIn && !isUserLogIn ? cart?.items?.length : "0"}
+                  {cart && auth.loggedIn && !isUserLogIn
+                    ? cart?.items?.length
+                    : "0"}
                 </p>
               </div>
             </div>
@@ -194,7 +213,7 @@ const Header = ({ openNav, setOpenNav }) => {
             </div>
             <a href="https://drcbdgroup.com/" className="old-web">
               <img
-                src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
+                src={cbd}
                 style={{
                   objectFit: "cover",
                   height: "25px",
@@ -223,7 +242,7 @@ const Header = ({ openNav, setOpenNav }) => {
           }}
         >
           <img
-            src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/cbd.png"
+            src={cbd}
             style={{
               objectFit: "cover",
               height: "45px",

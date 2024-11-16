@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import ApiService from "../../services/ApiService";
+import { useState, useEffect } from "react";
+import { getUser, updateUser } from "../../services/ApiService";
 import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import "./profile.css";
-import axios from "axios";
 
 const Profile = () => {
   const [userData, setUser] = useState({});
@@ -12,37 +11,21 @@ const Profile = () => {
   const [editAddress, setEditAddress] = useState(false);
 
   useEffect(() => {
-    const getUser = async () => {
-      const res = await ApiService.getUser();
-      //console.log(res.data.user)
-      setUserAddress(res.data.user?.userAddresses);
+    const getUsers = async () => {
+      const res = await getUser();
+      console.log(res.user)
+      setUserAddress(res.user?.userAddresses);
       setUser({
-        ...res.data.user,
-        dateOfBarth: res.data.user?.dateOfBarth?.split("T")[0],
+        ...res.user,
+        dateOfBarth: res.user?.dateOfBarth?.split("T")[0],
       });
     };
-    getUser();
+    getUsers();
   }, []);
   const handelUserUpdate = async () => {
-    const user = localStorage.getItem("token");
-    if (user) {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user}`,
-          "Content-Type": "application/json",
-        },
-      };
-
-      const res = await axios.put(
-        "https://drcbd-backend-zgqu.onrender.com/user/update_user",
-        //https://52.77.244.89:8080
-        { userData, userAddress },
-        config
-      );
-
-      setUser(res.data);
-      setEdit(false);
-    }
+    const res = await updateUser({ userData, userAddress:userAddress });
+    setUser(res);
+    setEdit(false);
   };
 
   return (

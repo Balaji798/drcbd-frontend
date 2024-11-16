@@ -1,32 +1,21 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import axios from "axios";
 import { getCart } from "../../state/actions/cartAction";
+import productImage from "../../assets/internationl-shipping.jpg"
 import './cart.css'
+import { useLanguage } from "../../util/LanguageContext";
+import { removeItemFromCart } from "../../services/ApiService";
 
-const CartComponent = (props) => {
+const CartComponent = () => {
+  const { language } = useLanguage();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
   const removeFromCart = async (productId) => {
     try {
-      const user = localStorage.getItem("token");
-      //await removeItemFromCart(dispatch,productId)
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user}`,
-          "Content-Type": "application/json", // Set the content type to JSON
-        },
-      };
-      await axios.post(
-        "https://drcbd-backend-zgqu.onrender.com/cart/remove_item_from_cart",
-        //https://drcbd-backend-zgqu.onrender.com
-        { productId },
-        config
-      );
+      await removeItemFromCart({ productId });
       
       await getCart(dispatch);
       return 
@@ -73,7 +62,7 @@ const CartComponent = (props) => {
                   }}
                 >
                   <img
-                    src={item?.productId?.images[0]}
+                    src={item?.productId?.eng?.name === "International Shipping"? productImage:item?.productId?.images[0]}
                     alt={item?.productId?.images[0]}
                     style={{
                       width: "100%",
@@ -86,7 +75,7 @@ const CartComponent = (props) => {
                   className="items-detail"
                 >
                   <h2 style={{  }}>
-                    {item?.productId?.name}
+                    {language === "eng"?item?.productId?.eng?.name:item?.productId.thi.name}
                   </h2>
                   <div
                     style={{

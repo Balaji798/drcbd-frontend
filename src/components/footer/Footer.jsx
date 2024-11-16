@@ -1,8 +1,11 @@
 import { footerData } from "../footerData";
 import {Link} from "react-router-dom";
+import logo from "../../assets/logo2-01.png"
 import "./footer.css";
+import { useLanguage } from "../../util/LanguageContext";
 
 const Footer = () => {
+  const { language } = useLanguage();
   return (
     <footer>
       <div
@@ -17,21 +20,21 @@ const Footer = () => {
         }}
       >
         <img
-          src="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/logo2-01.png"
-          style={{ objectFit: "contain", height: "100%", width: "300px" }}
-          alt="https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/logo2-01.png"
+          src={logo}
+          style={{ objectFit: "contain", height: "100%", maxWidth: "300px",width:"100%" }}
+          alt={logo}
         />
         <div className="footer-container">
           {footerData.map((item, index) => (
             <ul key={index}>
               <li>
-                <span>{item.title}</span>
+                <span>{language==="eng"?item.engTitle:item.thiTitle}</span>
                 <ul className="subMenu">
                   {item.subMenu.map((sub, i) => (
                     <li style={{ alignItems: "center", display: "flex" }} key={i}>
                       <div style={{ marginRight: "0.2em" }}>{sub.icon}</div>
                       <Link to={sub.link} style={{ padding: "0.6em 0", cursor: "pointer" }}>
-                        {sub.title}
+                        {language==="eng"?sub.engTitle:sub.thiTitle}
                       </Link>
                     </li>
                   ))}
@@ -44,7 +47,7 @@ const Footer = () => {
       <div className="second-footer-container">
         <p>DISCLAIMER</p>
         <p>Copyright 2024 - Dr. CBD innovation Center | Made with Love & Care </p>
-        <div Style="display:flex; align-items:center">
+        <div style={{display:"flex", alignItems:"center"}}>
          <Link to="/privacy-policy">Privacy & Policy</Link>
          <p> / </p>
          <Link to="/terms-condition">Terms & condition</Link>

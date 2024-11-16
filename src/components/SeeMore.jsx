@@ -1,15 +1,17 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import { settings } from "../util/settings";
 import ProductSlider from "./productSlider/ProductSlider";
 
 const SeeMore = ({ sameCategoryProduct, categoryName }) => {
 
+  // eslint-disable-next-line react/prop-types
   const product = sameCategoryProduct?.filter((item) => {
     if (
       item.category2.toLowerCase() ===
+      // eslint-disable-next-line react/prop-types
       categoryName?.split("-").join(" ").toLowerCase()
     ) {
       return item;
@@ -20,62 +22,13 @@ const SeeMore = ({ sameCategoryProduct, categoryName }) => {
       return item;
     }
   });
-  const PreviousBtn = (props) => {
-    const { onClick } = props;
-    return (
-      <div className="control-btn" onClick={onClick}>
-        <button className="prev" style={{ left: -45 }}>
-          <MdArrowBackIosNew style={{ fontSize: "75px", color: "#28504d" }} />
-        </button>
-      </div>
-    );
-  };
-  const NextBtn = (props) => {
-    const { onClick } = props;
-    return (
-      <div className="control-btn" onClick={onClick}>
-        <button className="next" style={{ right: -60 }}>
-          <MdArrowForwardIos style={{ fontSize: "75px", color: "#28504d" }} />
-        </button>
-      </div>
-    );
-  };
-  const settings = {
-    dots: false,
-    infinite: true,
-    //autoplay: true,
-    speed: 500,
-    slidesToShow: 4,
-    prevArrow: <PreviousBtn />,
-    nextArrow: <NextBtn />,
-    slidesToScroll: 1,
-    initialSlide: 0,
 
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-    ],
-  };
   return (
     <div style={{ padding: "0 3em 2em", display: "flex" }}>
       {product?.length > 3 ? (
         <Slider {...settings}>
           {product?.map((image, i) => (
-            <ProductSlider image={image} i={i} />
+            <ProductSlider image={image} i={i} key={i}/>
           ))}
         </Slider>
       ) : (
@@ -87,7 +40,7 @@ const SeeMore = ({ sameCategoryProduct, categoryName }) => {
           }}
         >
           {product?.map((image, i) => (
-            <ProductSlider image={image} i={i} />
+            <ProductSlider image={image} i={i} key={i}/>
           ))}
         </div>
       )}

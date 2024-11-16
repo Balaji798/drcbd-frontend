@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./register.css";
+import { signup, verifyUserEmail } from "../../services/ApiService";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -43,10 +43,7 @@ const Register = () => {
       if (user.password !== user.confirmPassword) {
         return alert("Password did not match");
       }
-      const response = await axios.post(
-        "https://drcbd-backend-zgqu.onrender.com/user/signup",
-        user
-      );
+      const response = await signup(user)
 
       if(response.status){
         setLogin(true);
@@ -61,18 +58,14 @@ const Register = () => {
       setOtpValidation(true)
       return
     }
-    const res = await axios.post(
-      "https://drcbd-backend-zgqu.onrender.com/user/email_verification",
-      //https://52.77.244.89:8080
-      { otp: otp }
-    );
-    if (res.data.status) {
+    const res = await verifyUserEmail({otp:otp})
+    if (res.status) {
       localStorage.setItem("token", res.data.token);
     }
-    if (!res.data.status) {
+    if (!res.status) {
       setInvalid(true);
     }
-    if (res.data.status === true) setVerified(true);
+    if (res.status === true) setVerified(true);
   };
   return (
     <div

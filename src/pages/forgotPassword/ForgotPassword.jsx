@@ -1,6 +1,6 @@
-import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { changePassword } from "../../services/ApiService";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -16,14 +16,11 @@ const ForgotPassword = () => {
     if (user.newPassword !== user.confirmPassword) {
       alert("Password did not match");
     }
-    const res = await axios.post("https://drcbd-backend-zgqu.onrender.com/user/change_password", {
-      email: user.email,
-      password: user.newPassword,
-    });
-    if (!res.data.status) {
+    const res = await changePassword({email: user.email,password: user.newPassword,})
+    if (!res.status) {
       alert("Email is not valid");
     }
-    if (res.data.status) {
+    if (res.status) {
       navigate("/sign-in");
     }
   };
@@ -77,6 +74,7 @@ const ForgotPassword = () => {
             background: "#0b4640",
             color: "#fff",
             fontWeight: "bold",
+            cursor:'pointer'
           }}
           value="Confirm"
         />

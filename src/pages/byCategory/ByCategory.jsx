@@ -1,74 +1,98 @@
-import React, { useState, useEffect, lazy } from "react";
+import { useState, useEffect, lazy } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
-import ApiService from "../../services/ApiService";
-import "./byCategory.css"
+import { getAllProduct } from "../../services/ApiService";
+import "./byCategory.css";
 import Card from "../../components/card/Card";
-import {fiterData} from "./categoryNameData.js"
-const ProductSlider =lazy(async () => await import("../../components/productSlider/ProductSlider"));
-
+import { fiterData } from "./categoryNameData.js";
+import { useLanguage } from "../../util/LanguageContext.jsx";
+const ProductSlider = lazy(
+  async () => await import("../../components/productSlider/ProductSlider")
+);
 
 const ByCategory = () => {
+  const { language } = useLanguage();
   const { pathname } = useLocation();
   const { categoryName } = useParams();
   const [data, setData] = useState([]);
-
   useEffect(() => {
-    const getAllProduct = async () => {
+    const getAllProducts = async () => {
       try {
-        const res = await ApiService.getAllProduct();
-        const categoryProduct = res.data.filter((item) => {
-          const lowerCaseCategoryName = categoryName.split('-').join(' ').toLowerCase();
-          const isCategoryMatch = item.categoryName.includes(lowerCaseCategoryName) && pathname.split('/')[1] === 'cbd-by-category';
-          const isPurposeMatch = item.purposeName?.includes(lowerCaseCategoryName) && pathname.split('/')[1] === 'cbd-by-purpose';
-          return isCategoryMatch || isPurposeMatch;
-        });
-        setData(categoryProduct);
+        const res = await getAllProduct();
+          const categoryProduct = res?.filter((item) => {
+            const lowerCaseCategoryName = categoryName
+              .split("-")
+              .join(" ")
+              .toLowerCase();
+            const isCategoryMatch =
+              item.eng.categoryName.includes(lowerCaseCategoryName) &&
+              pathname.split("/")[1] === "cbd-by-category";
+            const isPurposeMatch =
+              item.eng.purposeName?.includes(lowerCaseCategoryName) &&
+              pathname.split("/")[1] === "cbd-by-purpose";
+            return isCategoryMatch || isPurposeMatch;
+          });
+          setData(categoryProduct);
       } catch (err) {
         alert(err.message);
       }
     };
-    getAllProduct();
+    getAllProducts();
   }, [categoryName, pathname]);
-
   return (
     <div className="filter-container center">
       <div className="content-container">
-        <div style={{ color: '#005652' }}>
+        <div style={{ color: "#005652" }}>
           <div className="filter">
-            <h3>{fiterData[pathname.split('/')[1] === 'by-category' ? 0 : 1]?.title}</h3>
-            <ul style={{ listStyle: 'none' }}>
-              {fiterData[pathname.split('/')[1] === 'cbd-by-category' ? 0 : 1]?.options.map((item, index) => (
-                <li key={index} onClick={()=>{setData([])}}>
+            <h3>
+              {
+                language==="eng"?fiterData[pathname.split("/")[1] === "by-category" ? 0 : 1]
+                  ?.engTitle:fiterData[pathname.split("/")[1] === "by-category" ? 0 : 1]
+                  ?.thiTitle
+              }
+            </h3>
+            <ul style={{ listStyle: "none" }}>
+              {fiterData[
+                pathname.split("/")[1] === "cbd-by-category" ? 0 : 1
+              ]?.options.map((item, index) => (
+                <li
+                  key={index}
+                  onClick={() => {
+                    setData([]);
+                  }}
+                >
                   <Link
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      paddingBottom: '1rem',
-                      cursor: 'pointer',
+                      display: "flex",
+                      alignItems: "center",
+                      paddingBottom: "1rem",
+                      cursor: "pointer",
                       fontWeight: 600,
                     }}
                     to={item.link}
                   >
                     <div
                       style={{
-                        width: '1rem',
-                        height: '1rem',
-                        borderRadius: '1rem',
-                        border: '1px solid',
-                        marginRight: '0.3rem',
-                        padding: '0.2rem',
+                        width: "1rem",
+                        height: "1rem",
+                        borderRadius: "1rem",
+                        border: "1px solid",
+                        marginRight: "0.3rem",
+                        padding: "0.2rem",
                       }}
                     >
                       <div
                         style={{
-                          width: '0.5rem',
-                          height: '0.5rem',
-                          borderRadius: '0.5rem',
-                          background: categoryName === item.link.split('/')[2] ? '#005652' : '#fff',
+                          width: "0.5rem",
+                          height: "0.5rem",
+                          borderRadius: "0.5rem",
+                          background:
+                            categoryName === item.link.split("/")[2]
+                              ? "#005652"
+                              : "#fff",
                         }}
                       />
                     </div>
-                    <p>{item.title}</p>
+                    <p>{language==="eng"?item.engTitle:item.thiTitle}</p>
                   </Link>
                 </li>
               ))}
@@ -78,29 +102,39 @@ const ByCategory = () => {
         <div className="by-category-product">
           <h2
             style={{
-              textTransform: 'uppercase',
-              maxWidth: '1150px',
-              width: '100%',
-              paddingBottom: '1rem',
-              color: '#005652',
+              textTransform: "uppercase",
+              maxWidth: "1150px",
+              width: "100%",
+              paddingBottom: "1rem",
+              color: "#005652",
             }}
           >
             {categoryName}
           </h2>
           <div
             style={{
-              maxWidth: '1150px',
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              flexWrap: 'wrap',
+              maxWidth: "1150px",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
             }}
           >
-            {data.length === 0 ? (
-              [1,2,3].map((item)=>(<div key={item}><Card /></div>))
-            ) : (
-              data.map((item, i) => <ProductSlider image={item} key={i} marginB="yes" categoryName={categoryName} />)
-            )}
+            {data?.length === 0
+              ? [1, 2, 3].map((item) => (
+                  <div key={item}>
+                    <Card />
+                  </div>
+                ))
+              : data?.map((item, i) => (
+                  <ProductSlider
+                    image={item}
+                    key={i}
+                    marginB="yes"
+                    categoryName={categoryName}
+                    languageType={language}
+                  />
+                ))}
           </div>
         </div>
       </div>

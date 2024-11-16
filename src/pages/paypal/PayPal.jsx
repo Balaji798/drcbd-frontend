@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import OmisePayment from "../../components/OmisePayment";
 import BankTransfer from "../../components/BankTransfer";
 import { useSelector } from "react-redux";
+import { useLanguage } from "../../util/LanguageContext";
 
 const PayPal = () => {
+  const { language } = useLanguage();
   const [orderData, setOrderData] = useState({});
   const summeryTitle = ["Product", "Quantity", "Price", "Delivery Charge"];
   const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0)
@@ -79,7 +81,7 @@ const PayPal = () => {
                   }}
                   key={index}
                 >
-                  <p style={{ width: "55%" }}>{item.productId.name}</p>
+                  <p style={{ width: "55%" }}>{language === "eng"?item.productId.eng.name:item.productId.thi.name}</p>
                   <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid"  }}>{item?.quantity}</p>
                   <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid"  }}>฿ {item?.productId.price}</p>
                   <p style={{ width: "15%",textAlign:"center",borderLeft:"1px solid" }}>฿ {item?.deliveryCharge}</p>

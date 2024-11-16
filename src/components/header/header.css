@@ -122,40 +122,59 @@ header {
   font-size: 10px;
   font-weight: 600;
   color: #fff;
-  background-image: url("https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/cart.png");
+  background-image: url("../../assets/cart.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-.sign-profile{
+#google_translate_element {
+  margin-top: 10px !important;
+}
+#google_translate_element > select {
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  border-radius: 8px;
+  background-color: var(--white-to-grey);
+  border: 1px solid var(--bs-border-color);
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+#google_translate_element > .goog-te-combo {
+  font-size: 15px !important;
+  color: var(--d-l-grey);
+}
+.sign-profile {
   display: flex;
   justify-content: space-between;
   color: #fff;
 }
 
-.search-icon{
+.search-icon {
   display: none;
 }
 
-@media screen and (max-width: 1024px){
-  header{
+@media screen and (max-width: 1024px) {
+  header {
     padding: 10px 2rem;
   }
-  .cart-profile{
+  .cart-profile {
     width: 55%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .header-container{
+  .header-container {
     flex-direction: column;
   }
-  .sign-profile{
+  .sign-profile {
     justify-content: flex-end;
     width: 100%;
     display: none;
   }
-  .sig, .ord{
+  .sig,
+  .ord {
     display: none;
   }
   header {
@@ -171,9 +190,8 @@ header {
     height: 2rem;
     width: 94%;
     display: none;
-    
   }
-  .search-bar-active{
+  .search-bar-active {
     display: flex;
   }
   .header-container {
@@ -183,13 +201,13 @@ header {
   .old-web {
     display: none;
   }
-  .cart-profile{
+  .cart-profile {
     width: 100%;
-    
+
     justify-content: flex-end;
   }
 
-  .search-icon{
+  .search-icon {
     display: block;
   }
 }

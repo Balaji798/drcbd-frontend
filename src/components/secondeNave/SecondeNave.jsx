@@ -4,8 +4,10 @@ import "./secondNave.css";
 import { MdArrowForwardIos } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Modal from "../modal/Modal";
+import { useLanguage } from "../../util/LanguageContext";
 
 const SecondeNave = ({ openNav, setOpenNav }) => {
+  const { language } = useLanguage();
   const [menusIndex, setMenusIndex] = useState(-1);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -34,10 +36,10 @@ const SecondeNave = ({ openNav, setOpenNav }) => {
                       setOpenNav(false);
                     }}
                   >
-                    {item.title}
+                    {language==="eng"?item.engTitle:item.thiTitle}
                   </Link>
                 ) : (
-                  <p>{item.title}</p>
+                  <p>{language==="eng"?item.engTitle:item.thiTitle}</p>
                 )}
                 <MdArrowForwardIos
                   onClick={() => {
@@ -57,7 +59,7 @@ const SecondeNave = ({ openNav, setOpenNav }) => {
                     setOpenNav(false);
                   }}
                 >
-                  {item.title}
+                {language==="eng"?item.engTitle:item.thiTitle}
                 </Link>
               </li>
             ))}

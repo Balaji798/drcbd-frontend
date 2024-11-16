@@ -1,5 +1,3 @@
-import React from "react";
-
 const Steps = (props) => {
   const steps = [1, 2, 3, 4];
 
@@ -23,7 +21,8 @@ const Steps = (props) => {
             <div
               className="steps"
               style={{
-                background: props.stepsColor.includes(index)
+                // eslint-disable-next-line react/prop-types
+                background: props?.stepsColor?.includes(index)
                   ? "#005652"
                   : "#7d998d",
                 color: "#fff",

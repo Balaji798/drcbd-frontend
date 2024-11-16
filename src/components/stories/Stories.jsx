@@ -1,8 +1,9 @@
-import React from "react";
 import "./stories.css";
-import Accordion from "../accordion/Accordion";
+import { useLanguage } from "../../util/LanguageContext";
+import logo from "../../assets/logo2-01.png"
 
 const Stories = () => {
+  const { language } = useLanguage();
   const onButtonClick1 = () => {
     const pdfUrl = "./Company Profile-ENG-FP.pdf";
     const link = document.createElement("a");
@@ -21,23 +22,6 @@ const onButtonClick2 = () => {
   link.click();
   document.body.removeChild(link);
 };
-  // const storiesData = [
-  //   {
-  //     title: "ABOUT",
-  //     image:
-  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DR.CBD-282.jpg",
-  //   },
-  //   {
-  //     title: "NEWS",
-  //     image:
-  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/DSC01745.jpg",
-  //   },
-  //   {
-  //     title: "INSIGHTS",
-  //     image:
-  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/dr/stores/edit02.jpg",
-  //   },
-  // ];
   const howItStarted = [
     {
       image:
@@ -63,7 +47,7 @@ const onButtonClick2 = () => {
   ];
 
   const followData = [
-    { image: "./logo2-01.png", name: "drcbdinnovation" },
+    { image: logo, name: "drcbdinnovation" },
     {
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
@@ -79,11 +63,6 @@ const onButtonClick2 = () => {
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
       name: "vitalmediclinicofficial",
     },
-    // {
-    //   image:
-    //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
-    //   name: "vitalhealtheathcafeofficial",
-    // },
     {
       image:
         "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
@@ -96,23 +75,6 @@ const onButtonClick2 = () => {
     },
   ];
 
-  // const newsData = [
-  //   {
-  //     image:
-  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/DR.CBD-282.jpg",
-  //     name: "Grand Opening Stores",
-  //   },
-  //   {
-  //     image:
-  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/IMG_1466.JPG",
-  //     name: "Grand Opening Stores",
-  //   },
-  //   {
-  //     image:
-  //       "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/news/nodtiezpix.jpg",
-  //     name: "Grand Opening Stores",
-  //   },
-  // ];
   return (
     <>
       <div className="stories">
@@ -153,19 +115,14 @@ const onButtonClick2 = () => {
             >
               <div>
                 <h1 style={{ fontSize: "2.6rem", paddingBottom: "3.4rem" }}>
-                  HOW IT STARTS
+                  {language==="eng"?'HOW IT STARTS':'มันเริ่มต้นอย่างไร'}
                 </h1>
                 <p style={{ fontWeight: 500 }}>
-                  mission CBD products have gained popularity due to their
-                  potential therapeutic benefits. While research is ongoing, CBD
-                  has shown promise in several areas, including:
+                  {language==="eng"?"mission CBD products have gained popularity due to their potential therapeutic benefits. While research is ongoing, CBD has shown promise in several areas, including:":"ผลิตภัณฑ์ CBD ภารกิจได้รับความนิยมเนื่องจากมีประโยชน์ในการรักษา ในขณะที่การวิจัยกำลังดำเนินอยู่ CBD ได้แสดงให้เห็นสัญญาณที่ดีในหลายด้าน ได้แก่:"}
                   <br />
                   {""}
                   <br />
-                  vision Pain Management: CBD may help alleviate chronic pain by
-                  interacting with receptors in the endocannabinoid system,
-                  reducing inflammation and influencing neurotransmitter
-                  activity.
+                  {language==="eng"?'vision Pain Management: CBD may help alleviate chronic pain by interacting with receptors in the endocannabinoid system, reducing inflammation and influencing neurotransmitter activity.':'การจัดการความเจ็บปวด: CBD อาจช่วยบรรเทาอาการปวดเรื้อรังโดยการโต้ตอบกับตัวรับในระบบเอนโดแคนนาบินอยด์ ลดการอักเสบ และส่งผลต่อการทำงานของสารสื่อประสาท'}
                 </p>
               </div>
               <div
@@ -177,8 +134,8 @@ const onButtonClick2 = () => {
                 }}
               >
               { /* <div className="stories-button">Affiliate</div>*/}
-                <div className="stories-button" style={{marginRight:"1rem"}}>About Us</div>
-                <div className="stories-button">CBD Products</div>
+                <div className="stories-button" style={{marginRight:"1rem"}}>{language==="eng"?'About Us':'เกี่ยวกับเรา'}</div>
+                <div className="stories-button">CBD {language==="eng"?"Products":"สินค้า"}</div>
               </div>
             </div>
           </div>
@@ -190,18 +147,18 @@ const onButtonClick2 = () => {
               className="company1"
             >
               <h1 style={{ fontSize: "3rem", paddingBottom: "2rem" }}>
-                COMPANY PROFILE
+                {language==="eng"?'COMPANY PROFILE':'ประวัติบริษัท'}
               </h1>
               <button className="stories-button-blue-gr" onClick={onButtonClick1}>
-                Download Company Profile
+                {language==="eng"?'Download Company Profile':'ดาวน์โหลดประวัติบริษัท'}
               </button>
             </div>
             <div style={{ textAlign: "center" }}>
               <h1 style={{ fontSize: "3rem", paddingBottom: "2rem" }}>
-                PRODUCT CATALOG
+                {language==="eng"?'PRODUCT CATALOG':'แคตตาล็อกสินค้า'}
               </h1>
               <button className="stories-button-blue-gr" onClick={onButtonClick2}>
-                Download Product Catalog
+                {language==="eng"?'Download Product Catalog':'ดาวน์โหลดแค็ตตาล็อกผลิตภัณฑ์'}
               </button>
             </div>
           </div>
@@ -227,7 +184,7 @@ const onButtonClick2 = () => {
             className="composes-logo"
           >
             {followData.map((item, index) => (
-              <div>
+              <div key={index}>
                 <div>
                   <img src={item.image} style={{ width: "100%" }} alt="/"/>
                 </div>
@@ -238,164 +195,9 @@ const onButtonClick2 = () => {
             ))}
           </div>
         </div>
-{ /*       <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            justifyContent: "center",
-            flexWrap:"wrap",
-            background: "#000",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              justifyContent: "space-between",
-              flexWrap:"wrap",
-              maxWidth: 1200,
-              color: "#fff",
-              padding: "3rem 0",
-            }}
-          >
-            <div>
-              <h1>NEWS</h1>
-              <a
-                href="#"
-                style={{
-                  color: "#fff",
-                  fontSize: "1.2rem",
-                  textDecoration: "underline",
-                }}
-              >
-                Read more
-              </a>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent:"center",
-                flexWrap:"wrap",
-                
-              }}
-            >
-              {newsData.map((item, index) => (
-                <div
-                  style={{
-                    paddingRight: "0.5rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <img
-                    src={item.image}
-                    style={{
-                      width: "13.5rem",
-                      objectFit: "cover",
-                      height: "10rem",
-                    }}
-                    alt="/"
-                  />
-                  <p
-                    style={{
-                      color: "#fff",
-                      padding: "0.5rem 0",
-                    }}
-                  >
-                    {item.name}
-                  </p>
-                  <div
-                    style={{
-                      width: "7rem",
-                      height: 3,
-                      borderRadius: 5,
-                      background: "#fff",
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-                  </div>*/}
-{/*        <div className="subscribe">
-          <h1>
-            SIGN UP AND GET <br />
-            20% DISCOUNT
-          </h1>
-          <div className="subscribe-form">
-            <h1>Email Address</h1>
-            <input />
-            <div className="subscribe-button">Subscribe</div>
-          </div>
-                  </div>*/}
       </div>
     </>
   );
 };
 
 export default Stories;
-
-
-// <div
-// style={{
-//   display: "flex",
-//   alignItems: "center",
-//   width: "100%",
-//   justifyContent: "space-between",
-//   paddingTop: "2rem",
-// }}
-// >
-// <div style={{ width: "47.5%", background: "#263f44", height: 3 }} />
-// <h1 style={{ color: "#263f44" }}>FAQS</h1>
-// <div style={{ width: "47.5%", background: "#263f44", height: 3 }} />
-// </div>
-// <div
-// className="stories-container"
-// style={{
-//   display: "flex",
-//   justifyContent: "center",
-//   color: "#2b3d3f",
-// }}
-// >
-// <div>
-//   <div
-//     style={{
-//       background: "#e3e3e3",
-//       padding: "1rem 0.5rem",
-//       marginBottom: "0.1rem",
-//       fontWeight: "bold",
-//       borderLeft: "2px solid",
-//     }}
-//   >
-//     About CBD
-//   </div>
-//   <div
-//     style={{
-//       background: "#e3e3e3",
-//       padding: "1rem 0.5rem",
-//       marginBottom: "0.1rem",
-//       fontWeight: "bold",
-//     }}
-//   >
-//     How to use CBD
-//   </div>
-//   <div
-//     style={{
-//       background: "#e3e3e3",
-//       padding: "1rem 0.5rem",
-//       marginBottom: "0.1rem",
-//       fontWeight: "bold",
-//     }}
-//   >
-//     Traveling Thailand with CBD
-//   </div>
-// </div>
-// <div>
-//   <Accordion />
-// </div>
-// </div>

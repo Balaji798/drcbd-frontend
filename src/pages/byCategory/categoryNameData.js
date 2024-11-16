@@ -1,30 +1,37 @@
 export const fiterData = [
     {
-      title: "CBD BY CATEGORY",
+      engTitle: "CBD BY CATEGORY",
+      thiTitle:"CBD ตามหมวดหมู่",
       options: [
         {
-          title: "OIL",
+          engTitle: "OIL",
+          thiTitle:"น้ำมัน",
           link: "/cbd-by-category/CBD-OIL",
         },
         {
-          title: "SUPPLEMENTS",
+          engTitle: "SUPPLEMENTS",
+          thiTitle:"อาหารเสริม",
           link: "/cbd-by-category/CBD-SUPPLEMENTS",
         },
         {
-          title: "FACE",
+          engTitle: "FACE",
+          thiTitle:"ใบหน้า",
           link: "/cbd-by-category/CBD-FACE",
         },
         {
-          title: "BODY",
+          engTitle: "BODY",
+          thiTitle:"ร่างกาย",
           link: "/cbd-by-category/cbd-body",
         },
   
         {
-          title: "BEVERAGE",
+          engTitle: "BEVERAGE",
+          thiTitle:"เครื่องดื่ม",
           link: "/cbd-by-category/CBD-BEVERAGE",
         },
         {
-          title: "AROMATHERAPY",
+          engTitle: "AROMATHERAPY",
+          thiTitle:"อโรมาเธอราพี",
           link: "/cbd-by-category/AROMATHERAPY",
         },
         // {
@@ -32,36 +39,44 @@ export const fiterData = [
         //   link: "/cbd-by-category/home-use",
         // },
         {
-          title: "PETS",
+          engTitle: "PETS",
+          thiTitle:"สำหรับสัตว์เลี้ยง",
           link: "/cbd-by-category/CBD-FOR-PETS",
         },
       ],
     },
     {
-      title: "CBD BY PURPOSE",
+      engTitle: "CBD BY PURPOSE",
+      thiTitle:"CBD ตามวัตถุประสงค์",
       options: [
         {
-          title: "SLEEP",
+          engTitle: "SLEEP",
+          thiTitle:"นอน",
           link: "/cbd-by-purpose/SLEEP",
         },
         {
-          title: "IMMUNE",
+          engTitle: "IMMUNE",
+          thiTitle:"มีภูมิคุ้มกัน",
           link: "/cbd-by-purpose/immunity",
         },
         {
-          title: "ENERGY",
+          engTitle: "ENERGY",
+          thiTitle:"พลังงาน",
           link: "/cbd-by-purpose/ENERGY",
         },
         {
-          title: "ANXIETY",
+          engTitle: "ANXIETY",
+          thiTitle:"ความวิตกกังวล",
           link: "/cbd-by-purpose/ANXIETY",
         },
         {
-          title: "MUSCLES & JOINTS",
+          engTitle: "MUSCLES & JOINTS",
+          thiTitle:"กล้ามเนื้อและข้อต่อ",
           link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
         },
         {
-          title: "CANCER",
+          engTitle: "CANCER",
+          thiTitle:"มะเร็ง",
           link: "/cbd-by-purpose/CANCER",
         },
         // {
@@ -69,7 +84,8 @@ export const fiterData = [
         //   link: "/cbd-by-purpose/PALLIATIVE-CARE",
         // },
         {
-          title: "SKINCARE",
+          engTitle: "SKINCARE",
+          thiTitle:"ผลิตภัณฑ์ดูแลผิว",
           link: "/cbd-by-purpose/SKINCARE",
         },
         // {
@@ -77,11 +93,13 @@ export const fiterData = [
         //   link: "/cbd-by-purpose/NCD'S",
         // },
         {
-          title: "AROMATHERAPY",
+          engTitle: "AROMATHERAPY",
+          thiTitle:"อโรมาเธอราพี",
           link: "/cbd-by-purpose/AROMATHERAPY",
         },
         {
-          title: "HORMONES",
+          engTitle: "HORMONES",
+          thiTitle:"ฮอร์โมน",
           link: "/cbd-by-purpose/HORMONES",
         },
         // {
@@ -89,7 +107,8 @@ export const fiterData = [
         //   link: "/cbd-by-purpose/OPIOID",
         // },
         {
-          title: "WEIGHT MANAGEMENT",
+          engTitle: "WEIGHT MANAGEMENT",
+          thiTitle:"การจัดการน้ำหนัก",
           link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
         },
       ],

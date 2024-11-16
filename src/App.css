@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap");
 @font-face {
   font-family: Avenir;
-  src: url("../public/fonts/Avenir.ttc");
+  src: url("./assets/fonts/Avenir.ttc");
 }
 
 * {
@@ -22,7 +22,7 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 .route-container {
-  padding-top: 8rem;
+  padding-top: 7.4rem;
   background-color: #f6f9fa;
 }
 .center {
@@ -36,7 +36,11 @@ body {
   width: 100%;
   padding: 2rem 1rem;
 }
-
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .container >h4,.container >h5,.container >h3,.container >p,.container >ul>li {
   padding: 10px 0;
 }
@@ -93,11 +97,11 @@ textarea {
   z-index: 1000;
 }
 .control-btn .prev {
-  left: -0px;
+  left: -75px;
   color: #fff;
 }
 .control-btn .next {
-  right: -30px;
+  right: 0px;
 }
 
 .project-main-container {
@@ -254,6 +258,7 @@ button{
   width: 100%;
   max-height: 600px;
 }
+
 @media screen and (max-width: 768px) {
   .route-container{
     padding-top: 0;
@@ -267,7 +272,23 @@ button{
   .leaders{
     justify-content: center;
   }
+  .prev,
+  .next {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
   .next{
-    margin-right: 35px;
+    margin-right: 35px !important;
+  }
+  .blog-img{
+    object-fit: contain;
+    height: 250px;
+  }
+  .control-btn .prev {
+    left: -65px;
+  }
+  .control-btn .next {
+    right: -65px;
   }
 }

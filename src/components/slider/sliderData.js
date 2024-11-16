@@ -1,177 +1,181 @@
+import image1 from "../../assets/555-01.jpg"
+import image2 from "../../assets/555-01.jpg"
+import image3 from "../../assets/555-01.jpg"
+import image4 from "../../assets/555-01.jpg"
+import image5 from "../../assets/555-01.jpg";
+import anxiety from "../../assets/by-category/ANXIETY.jpg";
+import aromatherapy from "../../assets/by-category/AROMATHERAPY.jpg";
+import cancer from "../../assets/by-category/CANCER.jpg";
+import energy from "../../assets/by-category/ENERGY.jpg";
+import hormones from "../../assets/by-category/HORMONES.jpg";
+import immunity from "../../assets/by-category/immunity.jpg";
+import muscles from "../../assets/by-category/MUSCLES-&-JOINTS.jpg";
+import skincare from "../../assets/by-category/skincare.jpg";
+import sleep from "../../assets/by-category/SLEEP.jpg";
+import weight from "../../assets/by-category/WEIGHT-MANAGEMENT.jpg";
+import green from "../../assets/by-purpose/light-green.jpg";
+import black from "../../assets/by-purpose/black.jpg";
+import face from "../../assets/by-purpose/face.jpg";
+import oil from "../../assets/by-purpose/oil.jpg";
+import pets from "../../assets/by-purpose/pets.jpg";
+import body from "../../assets/by-purpose/body.jpg";
+import earth from "../../assets/by-purpose/earth.png";
+import SUPPLEMENTS from "../../assets/by-purpose/SUPPLEMENTS.jpg";
+import I_mun from "../../assets/by-purpose/i-mun.jpg";
+import peptide from "../../assets/by-purpose/peptide.png"
+
 export const sliderData = [
   {
     id: 1,
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/1-01.jpeg",
+    image: image1,
   },
   {
     id: 2,
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/1-02.jpeg"
+    image: image2
   },
   {
     id: 3,
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/1-03.jpeg"
+    image: image3
   },
   {
     id: 4,
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/1-04.jpeg"
+    image: image4
   },
   {
     id: 5,
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/second-banner/1-05.jpeg"
+    image: image5
   },
 ];
 
 export const affiliates = [
-  // {
-  //   title: "SKINCARE BEAUTY",
-  //   background:
-  //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-01.jpg",
-  //     link:'#'
-  // },
   {
-    title: "SKINCARE",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-02.jpg",
+    engTitle: "SKINCARE",
+    thiTitle:"ผลิตภัณฑ์ดูแลผิว",
+    background: skincare,
       link:'SKINCARE'
   },
   {
-    title: "SLEEP DISORDER",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-03.jpg",
+    engTitle: "SLEEP DISORDER",
+    thiTitle:"โรคการนอนหลับ",
+    background: sleep,
       link:'SLEEP'
   },
   {
-    title: "IMMUNE",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-04.jpg",
+    engTitle: "IMMUNE",
+    thiTitle:"มีภูมิคุ้มกัน",
+    background: immunity,
       link:'immunity'
   },
   {
-    title: "MUSCLE & JOINT",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-05.jpg",
+    engTitle: "MUSCLE & JOINT",
+    thiTitle:"กล้ามเนื้อและข้อต่อ",
+    background: muscles,
       link:'MUSCLES-&-JOINTS'
   },
   {
-    title: "ENERGY",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-06.jpg",
+    engTitle: "ENERGY",
+    thiTitle:"พลังงาน",
+    background: energy,
       link:'ENERGY'
   },
   {
-    title: "ANXIETY",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-07.jpg",
+    engTitle: "ANXIETY",
+    thiTitle:"ความวิตกกังวล",
+    background: anxiety,
       link:"ANXIETY"
   },
   {
-    title: "WEIGHT MANAGEMENT",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-08.jpg",
+    engTitle: "WEIGHT MANAGEMENT",
+    thiTitle:"การจัดการน้ำหนัก",
+    background: weight,
       link:'WEIGHT-MANAGEMENT'
   },
   {
-    title: "AROMATHERAPY",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-09.jpg",
+    engTitle: "AROMATHERAPY",
+    thiTitle:"อโรมาเธอราพี",
+    background: aromatherapy,
       link:'AROMATHERAPY'
   },
   {
-    title: "CANCER",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-10.jpg",
+    engTitle: "CANCER",
+    thiTitle:"มะเร็ง",
+    background: cancer,
       link:'CANCER'
   },
   {
-    title: "HORMONES",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-11.jpg",
+    engTitle: "HORMONES",
+    thiTitle:"ฮอร์โมน",
+    background: hormones,
       link:'HORMONES'
   },
-  // {
-  //   title: "OPIOID",
-  //   background:
-  //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-12.jpg",
-  //     link:'#'
-  // },
 ];
 export const product = [
   {
-    title: "CBD OIL",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2.jpg",
+    engTitle: "CBD OIL",
+    thiTitle:"CBD น้ำมัน",
+    background: oil,
       link:"CBD-OIL"
   },
   {
-    title: "CBD SUPPLEMENTS",
-    background: "./black.jpg",
+    engTitle: "CBD SUPPLEMENTS",
+    thiTitle:"CBD อาหารเสริม",
+    background: black,
     link:"CBD-SUPPLEMENTS"
   },
 
   {
-    title: "CBD SKIN & CARE",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-04.jpg",
+    engTitle: "CBD SKIN & CARE",
+    thiTitle:"CBD ผิวหนังและการดูแล",
+    background: face,
       link:"CBD-FACE"
   },
   {
-    title: "BEVERAGE",
-    background: "./light-green.jpg",
+    engTitle: "BEVERAGE",
+    thiTitle:"CBD เครื่องดื่ม",
+    background: green,
     link:"CBD-BEVERAGE"
   },
   {
-    title: "CBD BODY CARE",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-03.jpg",
+    engTitle: "CBD BODY CARE",
+    thiTitle:"CBD ดูแลร่างกาย",
+    background: body,
       link:"CBD-BODY"
   },
   {
-    title: "CBD FOR PETS",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-05.jpg",
+    engTitle: "CBD FOR PETS",
+    thiTitle:"CBD สำหรับสัตว์เลี้ยง",
+    background: pets,
       link:"CBD-FOR-PETS"
   },
-  // {
-  //   title: "CBD FOR MUSCLE & JOINTS",
-  //   background:
-  //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/1.jpg",
-  //     link:"#"
-  // },
-  // {
-  //   title: "HOME USE",
-  //   background:
-  //     "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/category/2-01.jpg",
-  //     link:"#"
-  // },
   {
     title: "AROMATHERAPY",
-    background:
-      "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/CBD-PURPOSE/DRCBD-09.jpg",
+    thiTitle:"อโรมาเธอราพี",
+    background: aromatherapy,
       link:'AROMATHERAPY'
   },
 ];
 
 export const products = [
   {
-    url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1701968935468.jpg",
+    url: SUPPLEMENTS,
     name: "Earth Lab CBD De' Leep Softgel",
     cat: 'CBD-SUPPLEMENTS',
     link: "EARTH LAB CBD DE'LEEP",
   },
   {
-    url: "./earth.png",
+    url: earth,
     name: "Earth Lab CBD Whitening Mask",
     cat: 'CBD-FACE',
     link: "EARTHLAB CBD WHITENING MASK",
   },
   {
-    url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/1694014891114.jpg",
+    url: I_mun,
     name: "CBD I-MUN",
     cat: 'CBD-SUPPLEMENTS',
     link: "CBD I-MUN",
   },
   {
-    url: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/products/CBD_Collagen-WBG1.png",
+    url: peptide,
     name: "CBD Collagen peptide",
     cat:'CBD-BEVERAGE',
     link: "EARTHLAB CBD COLLAGEN PEPTIDE",

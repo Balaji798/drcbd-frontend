@@ -1,308 +1,245 @@
-import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-//import { MdArrowForwardIos } from "react-icons/md";
+import { useLanguage } from "../../util/LanguageContext";
 
 const naveData = [
   {
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
-    title: "CBD BY CATEGORY",
+    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
+    engTitle: "CBD BY CATEGORY",
+    thiTitle: "CBD ตามหมวดหมู่",
     subMenu1: {
-      title: "CBD BY CATEGORY",
+      engTitle: "CBD BY CATEGORY",
+      thiTitle: "CBD ตามหมวดหมู่",
       link: "/cbd-by-category",
       options: [
         {
-          title: "CBD OIL",
+          engTitle: "CBD OIL",
+          thiTitle: "CBD น้ำมัน",
           link: "/cbd-by-category/CBD-OIL",
         },
         {
-          title: "CBD SUPPLEMENTS",
+          engTitle: "CBD SUPPLEMENTS",
+          thiTitle: "CBD อาหารเสริม",
           link: "/cbd-by-category/CBD-SUPPLEMENTS",
         },
         {
-          title: "CBD FACE",
+          engTitle: "CBD FACE",
+          thiTitle: "CBD ใบหน้า",
           link: "/cbd-by-category/CBD-FACE",
         },
         {
-          title: "CBD BODY",
-          link: "/cbd-by-category/cbd-body",
+          engTitle: "CBD BODY",
+          thiTitle: "CBD ร่างกาย",
+          link: "/cbd-by-category/cbd-BODY",
         },
 
         {
-          title: "CBD BEVERAGE",
+          engTitle: "CBD BEVERAGE",
+          thiTitle: "CBD เครื่องดื่ม",
           link: "/cbd-by-category/CBD-BEVERAGE",
         },
         {
-          title: "AROMATHERAPY",
+          engTitle: "AROMATHERAPY",
+          thiTitle: "อโรมาเธอราพี",
           link: "/cbd-by-category/AROMATHERAPY",
         },
-        // {
-        //   title: "HOME USE",
-        //   link: "/cbd-by-category/home-use",
-        // },
         {
-          title: "CBD FOR PETS",
+          engTitle: "CBD FOR PETS",
+          thiTitle: "CBD สำหรับสัตว์เลี้ยง",
           link: "/cbd-by-category/CBD-FOR-PETS",
         },
-        // {
-        //   title: "EXTRACTS & CONCENTRATES",
-        //   link: "/",
-        //   //cbd-by-category/SKINCARE
-        // },
-        // {
-        //   title: "GIFT SETS & PROMOTIONS",
-        //   link: "/",
-        // },
       ],
     },
-    
   },
-  {  
-    
-    title: "CBD BY PURPOSE",
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
-    subMenu1: {
-      title: "CBD BY PURPOSE",
-      link: "/cbd-by-purpose",
-    options: [
-      {
-        title: "SLEEP",
-        link: "/cbd-by-purpose/SLEEP",
-      },
-      {
-        title: "IMMUNE",
-        link: "/cbd-by-purpose/immunity",
-      },
-      {
-        title: "ENERGY",
-        link: "/cbd-by-purpose/ENERGY",
-      },
-      {
-        title: "ANXIETY",
-        link: "/cbd-by-purpose/ANXIETY",
-      },
-      {
-        title: "MUSCLES & JOINT",
-        link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
-      },
-      {
-        title: "CANCER",
-        link: "/cbd-by-purpose/CANCER",
-      },
-      // {
-      //   title: "PALLIATIVE CARE",
-      //   link: "/cbd-by-purpose/PALLIATIVE-CARE",
-      // },
-      {
-        title: "SKINCARE",
-        link: "/cbd-by-purpose/SKINCARE",
-      },
-      // {
-      //   title: "NCD'S(NON-COMMUNICABLE DISEASES)",
-      //   link: "/cbd-by-purpose/NCD'S",
-      // },
-      {
-        title: "AROMATHERAPY",
-        link: "/cbd-by-purpose/AROMATHERAPY",
-      },
-      {
-        title: "HORMONES",
-        link: "/cbd-by-purpose/HORMONES",
-      },
-      // {
-      //   title: "OPIOID",
-      //   link: "/cbd-by-purpose/OPIOID",
-      // },
-      {
-        title: "WEIGHT MANAGEMENT",
-        link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
-      },
-      // {
-      //   title: "GIFT SETS & PROMOTIONS",
-      //   link: "/", //"/cbd-by-purpose/WEIGHT-MANAGEMENT",
-      // },
-      // {
-      //   title: "CBD CONCENTRATION & EXTRACTS",
-      //   link: "/", //"/cbd-by-purpose/WEIGHT-MANAGEMENT",
-      // },
-    ],
-  }
-  },
-  // {
-  //   title: "CBD BY PURPOSE",
-  //   subMenu1: {
-  //     title: "CBD BY PURPOSE",
-  //     link: "/cbd-by-purpose",
-  //     options: [
-  //       {
-  //         title: "SLEEP",
-  //         link: "/"
-  //         //"/cbd-by-purpose/SLEEP-DISORDER",
-  //       },
-  //       {
-  //         title: "IMMUNE",
-  //         link: "/"//"/cbd-by-purpose/IMMUNE",
-  //       },
-  //       {
-  //         title: "ENERGY",
-  //         link: "/"//"/cbd-by-purpose/ENERGY",
-  //       },
-  //       {
-  //         title:"ANXIETY",
-  //         link:"/"//"/cbd-by-purpose/ANXIETY"
-  //       },
-  //       {
-  //         title: "MUSCLE & JOINT",
-  //         link: "/"//"/cbd-by-purpose/MUSCLE-&-JOINT",
-  //       },
-  //       {
-  //         title: "CANCER",
-  //         link: "/"//"/cbd-by-purpose/CANCER",
-  //       },
-  //       {
-  //         title:"PALLIATIVE CARE",
-  //         link:"/"//"/cbd-by-purpose/PALLIATIVE-CARE"
-  //       },
-  //       {
-  //         title: "SKINCARE",
-  //         link: "/"//"/cbd-by-purpose/SKINCARE-BEAUTY",
-  //       },
-  //       {
-  //         title: "NCD'S(NON-COMMUNICABLE DISEASES)",
-  //         link: "/"//"/cbd-by-purpose/NCD'S",
-  //       },
-  //       {
-  //         title: "RELAXATION",
-  //         link: "/"//"/cbd-by-purpose/RELAXATION",
-  //       },
-  //       {
-  //         title: "HORMONES",
-  //         link: "/"//"/cbd-by-purpose/HORMONES",
-  //       },
-  //       {
-  //         title: "OPIOID",
-  //         link: "/"//"/cbd-by-purpose/OPIOID",
-  //       },
-  //       {
-  //         title: "WEIGHT MANAGEMENT",
-  //         link: "/"//"/cbd-by-purpose/WEIGHT-MANAGEMENT",
-  //       },
-  //     ],
-  //   },
-  // },
-  // {
-  //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home2.jpeg",
-  //   title: "OUR SERVICES",
-  //   subMenu1: {
-  //     title: "OUR SERVICES",
-  //     options: [
-  //       {
-  //         title: "EXTRACTION",
-  //         link: "",
-  //       },
-  //       {
-  //         title: "OEM/ODM",
-  //         link: "",
-  //       },
-  //       // {
-  //       //   title: "CLINIC FRANCHISE",
-  //       //   link: "",
-  //       // },
-  //       {
-  //         title: "VITAL MEDI CLINIC",
-  //         link: "",
-  //       },
-  //       {
-  //         title: "VITAL HEALTH CAFE",
-  //         link: "",
-  //       },
-  //       {
-  //         title: "DR.CBD CLINIC",
-  //         link: "",
-  //       },
-  //     ],
-  //   },
-  // },
   {
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home1.jpeg",
-    title: "ABOUT",
+    engTitle: "CBD BY PURPOSE",
+    thiTitle: "CBD ตามวัตถุประสงค์",
+    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
     subMenu1: {
-      title: "ABOUT",
+      engTitle: "CBD BY PURPOSE",
+      thiTitle: "CBD ตามวัตถุประสงค์",
+      link: "/cbd-by-purpose",
       options: [
         {
-          title: "BRAND PURPOSE",
+          engTitle: "SLEEP",
+          thiTitle: "นอน",
+          link: "/cbd-by-purpose/SLEEP",
+        },
+        {
+          engTitle: "IMMUNE",
+          thiTitle: "มีภูมิคุ้มกัน",
+          link: "/cbd-by-purpose/immunity",
+        },
+        {
+          engTitle: "ENERGY",
+          thiTitle: "พลังงาน",
+          link: "/cbd-by-purpose/ENERGY",
+        },
+        {
+          engTitle: "ANXIETY",
+          thiTitle: "ความวิตกกังวล",
+          link: "/cbd-by-purpose/ANXIETY",
+        },
+        {
+          engTitle: "MUSCLES & JOINT",
+          thiTitle: "กล้ามเนื้อและข้อต่อ",
+          link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
+        },
+        {
+          engTitle: "CANCER",
+          thiTitle: "มะเร็ง",
+          link: "/cbd-by-purpose/CANCER",
+        },
+        // {
+        //   title: "PALLIATIVE CARE",
+        //   link: "/cbd-by-purpose/PALLIATIVE-CARE",
+        // },
+        {
+          engTitle: "SKINCARE",
+          thiTitle: "ผลิตภัณฑ์ดูแลผิว",
+          link: "/cbd-by-purpose/SKINCARE",
+        },
+        // {
+        //   title: "NCD'S(NON-COMMUNICABLE DISEASES)",
+        //   link: "/cbd-by-purpose/NCD'S",
+        // },
+        {
+          engTitle: "AROMATHERAPY",
+          thiTitle: "อโรมาเธอราพี",
+          link: "/cbd-by-purpose/AROMATHERAPY",
+        },
+        {
+          engTitle: "HORMONES",
+          thiTitle: "ฮอร์โมน",
+          link: "/cbd-by-purpose/HORMONES",
+        },
+        // {
+        //   title: "OPIOID",
+        //   link: "/cbd-by-purpose/OPIOID",
+        // },
+        {
+          engTitle: "WEIGHT MANAGEMENT",
+          thiTitle: "การจัดการน้ำหนัก",
+          link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
+        },
+      ],
+    },
+  },
+  {
+    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home1.jpeg",
+    engTitle: "ABOUT",
+    thiTitle: "เกี่ยวกับ",
+    subMenu1: {
+      engTitle: "ABOUT",
+      thiTitle: "เกี่ยวกับ",
+      options: [
+        {
+          engTitle: "BRAND PURPOSE",
+          thiTitle:"วัตถุประสงค์ของแบรนด์",
           link: "/brand-purpose",
         },
         {
-          title: "OUR TEAM",
+          engTitle: "OUR TEAM",
+          thiTitle:"ทีมงานของเรา",
           link: "/our-leadership",
         },
         {
-          title: "JOIN US",
+          engTitle: "JOIN US",
+          thiTitle:"เข้าร่วมกับเรา",
           link: "/our-esteemed",
         },
       ],
     },
   },
-  // {
-  //   image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home5.jpeg",
-  //   title: "DR.CBD UNIVERSITY",
-  //   subMenu1: {
-  //     title: "DR.CBD UNIVERSITY",
-  //     options: [
-  //       {
-  //         title: "HEALTH",
-  //         link: "/insights/health",
-  //       },
-
-  //       {
-  //         title: "MEDICAL",
-  //         link: "/insights/medical",
-  //       },
-  //       {
-  //         title: "RESEARCH",
-  //         link: "/insights/research",
-  //       },
-  //       {
-  //         title: "NEWS",
-  //         link: "/insights/news",
-  //       },
-  //       {
-  //         title: "PRESS RELEASE",
-  //         link: "/insights/press-release",
-  //       },
-  //     ],
-  //   },
-  // },
   {
-    image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home3.jpeg",
-    title: "CONTACT",
+    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home1.jpeg",
+    engTitle: "BLOG",
+    thiTitle: "เกี่ยวกับ",
     subMenu1: {
-      title: "CONTACT",
+      engTitle: "BLOG",
+      thiTitle: "เกี่ยวกับ",
+      link:"/blog",
+      options: [
+        {
+          engTitle: "EARTH LAB CBD WHITENING MASK",
+          thiTitle:"วัตถุประสงค์ของแบรนด์",
+          link: "/blog/earth-lab-cbd-whitening-mask",
+        },
+        {
+          engTitle: "EARTH LAB CBD GREEN ANGEL PLUS 50g",
+          thiTitle:"ทีมงานของเรา",
+          link: "/blog/earth-lab-cbd-green-angel",
+        },
+        {
+          engTitle: "EARTH LAB CBD AMPOULE SERUM 30ml",
+          thiTitle:"ทีมงานของเรา",
+          link: "/blog/earth-lab-cbd-ampoule-serum",
+        },
+        {
+          engTitle: "EARTH LAB CBD DE'LEEP SOFTGEL 30cap",
+          thiTitle:"เข้าร่วมกับเรา",
+          link: "/blog/earth-lab-cbd-dellep-softgel",
+        },
+        {
+          engTitle:"MCT OIl PERILLA SEED",
+          thiTitle:"MCT OIl PERILLA SEED",
+          link:"/blog/mct-oil-perilla-seed"
+        },
+        {
+          engTitle: "9CE CBD CREAM",
+          thiTitle:"เข้าร่วมกับเรา",
+          link: "/blog/9ce-cream",
+        },
+        {
+          engTitle:"9CE CBD Sunscreem",
+          thiTitle:"",
+          link:"/blog/9ce-sunscreem"
+        },
+        {
+          engTitle:"9CE CBD Deep Sleeping Cream",
+          thiTitle:"",
+          link:"/blog/9ce-deep-sleeping-cream"
+        },
+        {
+          engTitle:"9CE CBD Brightening Ampoule",
+          thiTitle:"",
+          link:"/blog/9ce-brightening-ampoule"
+        }
+      ],
+    },
+  },
+  {
+    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home3.jpeg",
+    engTitle: "CONTACT",
+    thiTitle: "ติดต่อ",
+    subMenu1: {
+      engTitle: "CONTACT",
+      thiTitle: "ติดต่อ",
       link: "/contact",
       options: [
         {
-          title: "www.drcbdgroup.com",
+          engTitle: "www.drcbdgroup.com",
+          thiTitle: "www.drcbdgroup.com",
           link: "",
         },
         {
-          title: "info@brcbdgroup.com",
+          engTitle: "info@brcbdgroup.com",
+          thiTitle: "info@brcbdgroup.com",
           link: "",
         },
         {
-          title: "+66 65 141 6999",
+          engTitle: "+66 65 141 6999",
+          thiTitle: "+66 65 141 6999",
           link: "",
         },
         {
-          title: "@drcbdinnovation",
+          engTitle: "@drcbdinnovation",
+          thiTitle: "@drcbdinnovation",
           link: "",
         },
         {
-          title: "@drcbdinnovation",
-          link: "",
-        },
-        {
-          title: "@DrCBDOfficalChannel",
+          engTitle: "@DrCBDOfficalChannel",
+          thiTitle: "@DrCBDOfficalChannel",
           link: "",
         },
       ],
@@ -311,6 +248,8 @@ const naveData = [
 ];
 
 const Navbar = () => {
+  const { language } = useLanguage();
+
   return (
     <nav>
       <div className="navContainer">
@@ -318,7 +257,9 @@ const Navbar = () => {
           {naveData.map((item, index) => (
             <div className="dropdown" key={index}>
               <p className="different">
-                <span>{item.title}</span>
+                <span>
+                  {language === "eng" ? item.engTitle : item.thiTitle}
+                </span>
               </p>
               <div
                 className="dropdown-content"
@@ -341,7 +282,9 @@ const Navbar = () => {
                         fontWeight: 800,
                       }}
                     >
-                      {item.subMenu1.title}
+                      {language === "eng"
+                        ? item.subMenu1.engTitle
+                        : item.subMenu1.thiTitle}
                     </Link>
                     {item?.subMenu1?.options?.map((sub, i) => (
                       <div
@@ -355,10 +298,10 @@ const Navbar = () => {
                         {sub.icon}
                         <Link
                           to={sub.link}
-                          style={{ cursor: "pointer"}}
+                          style={{ cursor: "pointer" }}
                           className="sub-menu"
                         >
-                          {sub.title}
+                          {language === "eng"?sub.engTitle:sub.thiTitle}
                         </Link>
                       </div>
                     ))}
@@ -375,25 +318,9 @@ const Navbar = () => {
                     >
                       {item?.subMenu2?.title}
                     </Link>
-                    {item?.subMenu2?.options?.map((sub, i) => (
-                      <div
-                        style={{ display: "flex", alignItems: "center" }}
-                        className="dropdown-item"
-                        key={i}
-                      >
-                        {sub.icon}
-                        <Link
-                          to={sub.link}
-                          style={{ cursor: "pointer" }}
-                          className="sub-menu"
-                        >
-                          {sub.title}
-                        </Link>
-                      </div>
-                    ))}
+
                   </div>
                 </div>
-                <img src={item.image} style={{ width: "50%" }} alt="/" />
               </div>
             </div>
           ))}
@@ -404,3 +331,20 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+                    // {item?.subMenu2?.options?.map((sub, i) => (
+                    //   <div
+                    //     style={{ display: "flex", alignItems: "center" }}
+                    //     className="dropdown-item"
+                    //     key={i}
+                    //   >
+                    //     {sub.icon}
+                    //     <Link
+                    //       to={sub.link}
+                    //       style={{ cursor: "pointer" }}
+                    //       className="sub-menu"
+                    //     >
+                    //       {sub.title}
+                    //     </Link>
+                    //   </div>
+                    // ))}
