@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import {useState} from "react"
 import { navData } from "./navData";
 import "./secondNave.css";
 import { MdArrowForwardIos } from "react-icons/md";

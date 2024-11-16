@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import productImage from "../../assets/internationl-shipping.jpg"
 import { useNavigate } from "react-router-dom";
