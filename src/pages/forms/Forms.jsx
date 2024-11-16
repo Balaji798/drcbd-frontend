@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect } from "react";
 import "./forms.css";
 import { editUser, getUser } from "../../services/ApiService";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
 import { country_list } from "../../data";
-const Steps = lazy(async () => await import("../../components/Steps"));
+import Steps from "../../components/Steps";
 
 const Forms = () => {
   const navigate = useNavigate();

@@ -275,7 +275,7 @@ const CE = () => {
       <div
         className="flex"
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1200px",
           width: "100%",
           padding: "20px 10px",
           flexWrap: "wrap",
@@ -285,14 +285,7 @@ const CE = () => {
         <img
           src={ce4}
           alt="/"
-          style={{
-            maxWidth: "400px",
-            width: "100%",
-            height: "500px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            marginBottom: "10px",
-          }}
+          className="image-style-1"
         />
         <img src={ce5} alt="/" className="image-style" />
       </div>

@@ -1,13 +1,11 @@
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
 import { getAllProduct } from "../../services/ApiService";
 import "./byCategory.css";
 import Card from "../../components/card/Card";
 import { fiterData } from "./categoryNameData.js";
 import { useLanguage } from "../../util/LanguageContext.jsx";
-const ProductSlider = lazy(
-  async () => await import("../../components/productSlider/ProductSlider")
-);
+import ProductSlider from "../../components/productSlider/ProductSlider"
 
 const ByCategory = () => {
   const { language } = useLanguage();

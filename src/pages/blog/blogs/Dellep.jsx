@@ -306,26 +306,20 @@ const Dellep = () => {
       <div
         className="flex"
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1200px",
           width: "100%",
           padding: "20px 10px",
           flexWrap: "wrap",
         }}
       >
-        <img src={dellep5} alt="/" className="image-style" />
+        <img src={dellep5} alt="/" className="image-style" style={{height:'600px'}}/>
         <img
           src={dellep6}
           alt="/"
-          style={{
-            maxWidth: "400px",
-            width: "100%",
-            height: "500px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            marginBottom: "10px",
-          }}
+          className="image-style-1"
+          style={{height:'600px'}}
         />
-        <img src={dellep7} alt="/" className="image-style" />
+        <img src={dellep7} alt="/" className="image-style" style={{height:'600px'}}/>
       </div>
       <div
         className="flex"

@@ -1,4 +1,4 @@
-import { lazy, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { settings } from "../../util/settings";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Card from "../../components/card/Card";
 import { useLanguage } from "../../util/LanguageContext";
-const ProductSlider = lazy(
-  async () => await import("../../components/productSlider/ProductSlider")
-);
+import ProductSlider from "../../components/productSlider/ProductSlider"
 
 const CBDByCategory = () => {
   const { language } = useLanguage();

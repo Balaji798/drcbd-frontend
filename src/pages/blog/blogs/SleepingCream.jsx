@@ -279,7 +279,7 @@ const SleepingCream = () => {
       <div
         className="flex"
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1200px",
           width: "100%",
           padding: "20px 10px",
           flexWrap: "wrap",
@@ -289,14 +289,7 @@ const SleepingCream = () => {
         <img
           src={cbd3}
           alt="/"
-          style={{
-            maxWidth: "400px",
-            width: "100%",
-            height: "500px",
-            objectFit: "contain",
-            borderRadius: "10px",
-            marginBottom: "10px",
-          }}
+          className="image-style-1"
         />
         <img src={cbd4} alt="/" className="image-style" />
       </div>

@@ -316,7 +316,7 @@ const WhiteMask = () => {
       <div
         className="flex"
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1200px",
           width: "100%",
           padding: "20px 10px",
           flexWrap: "wrap",
@@ -326,14 +326,7 @@ const WhiteMask = () => {
         <img
           src={whiteMask3}
           alt="/"
-          style={{
-            maxWidth: "400px",
-            width: "100%",
-            height: "500px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            marginBottom: "10px",
-          }}
+          className="image-style-1"
         />
         <img src={final_03} alt="/" className="image-style" />
       </div>

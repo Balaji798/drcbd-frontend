@@ -1,14 +1,7 @@
-import { lazy } from "react";
-
-const SecondBanner = lazy(
-  async () => await import("../../components/secondBaner/SecondBaner")
-);
-const ImageSlider = lazy(
-  async () => await import("../../components/slider/ImageSlider")
-);
-const Stories = lazy(
-  async () => await import("../../components/stories/Stories")
-);
+import SecondBanner from "../../components/secondBaner/SecondBaner"
+;
+import ImageSlider from "../../components/slider/ImageSlider";
+import Stories from "../../components/stories/Stories";
 
 export default function Home() {
   return (

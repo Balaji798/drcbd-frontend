@@ -70,11 +70,11 @@ const naveData = [
           thiTitle: "มีภูมิคุ้มกัน",
           link: "/cbd-by-purpose/immunity",
         },
-        {
-          engTitle: "ENERGY",
-          thiTitle: "พลังงาน",
-          link: "/cbd-by-purpose/ENERGY",
-        },
+        // {
+        //   engTitle: "ENERGY",
+        //   thiTitle: "พลังงาน",
+        //   link: "/cbd-by-purpose/ENERGY",
+        // },
         {
           engTitle: "ANXIETY",
           thiTitle: "ความวิตกกังวล",

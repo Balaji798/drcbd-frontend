@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, lazy } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import {
   FaInstagram,
@@ -24,9 +24,7 @@ import { getCart } from "../../state/actions/cartAction";
 import { useLanguage } from "../../util/LanguageContext";
 import {settings} from "../../util/settings";
 import productImage from "../../assets/internationl-shipping.jpg"
-const ProductSlider = lazy(
-  async () => await import("../../components/productSlider/ProductSlider")
-);
+import ProductSlider from "../../components/productSlider/ProductSlider";
 
 const ProductDetail = () => {
   const { language } = useLanguage();

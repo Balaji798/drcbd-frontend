@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect } from "react";
 //import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
 import {people} from "../../data";
@@ -7,8 +7,8 @@ import { sliderData, products } from "./sliderData";
 import { useLanguage } from "../../util/LanguageContext";
 import vital from "../../assets/LOGO+VITAL-01.png";
 import mixClinic from "../../assets/mix-clinic.png"
-const ByCategory = lazy(async () => await import("./ByCategory"));
-const ByPurpose = lazy(async () => await import("./ByPurpose"));
+import ByCategory from "./ByCategory"
+import ByPurpose from "./ByPurpose"
 
 const ImageSlider = () => {
   const { language } = useLanguage();

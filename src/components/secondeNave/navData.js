@@ -70,11 +70,11 @@ export const navData = [
           thiTitle: "มีภูมิคุ้มกัน",
           link: "/cbd-by-purpose/immunity",
         },
-        {
-          engTitle: "ENERGY",
-          thiTitle: "พลังงาน",
-          link: "/cbd-by-purpose/ENERGY",
-        },
+        // {
+        //   engTitle: "ENERGY",
+        //   thiTitle: "พลังงาน",
+        //   link: "/cbd-by-purpose/ENERGY",
+        // },
         {
           engTitle: "ANXIETY",
           thiTitle: "ความวิตกกังวล",
@@ -173,41 +173,36 @@ export const navData = [
         thiTitle:"ทีมงานของเรา",
         link: "/blog/earth-lab-cbd-ampoule-serum",
       },
-      // {
-      //   engTitle: "CBD I-MUN (DIETARY SUPPLEMENT SOFTGEL CAPSULE)",
-      //   thiTitle:"เข้าร่วมกับเรา",
-      //   link: "/our-esteemed",
-      // },
       {
         engTitle: "EARTH LAB CBD DE'LEEP SOFTGEL 30cap",
         thiTitle:"เข้าร่วมกับเรา",
         link: "/blog/earth-lab-cbd-dellep-softgel",
       },
-      // {
-      //   engTitle: "MCT OIL PLUS PERILLASEED OIL AND CBD EXTRACT FROM HEMP",
-      //   thiTitle:"เข้าร่วมกับเรา",
-      //   link: "/our-esteemed",
-      // },
-      // {
-      //   engTitle: "9CE CBD DEEP SLEEPING CREAM",
-      //   thiTitle:"เข้าร่วมกับเรา",
-      //   link: "/our-esteemed",
-      // },
+      {
+        engTitle:"MCT OIl PERILLA SEED",
+        thiTitle:"MCT OIl PERILLA SEED",
+        link:"/blog/mct-oil-perilla-seed"
+      },
       {
         engTitle: "9CE CBD CREAM",
         thiTitle:"เข้าร่วมกับเรา",
-        link: "/blog/9ce",
+        link: "/blog/9ce-cream",
       },
-      // {
-      //   engTitle: "9CE DD & SUNSCREEN",
-      //   thiTitle:"เข้าร่วมกับเรา",
-      //   link: "/our-esteemed",
-      // },
-      // {
-      //   engTitle: "9CE CBD BRIGHTENING AMPOULE",
-      //   thiTitle:"เข้าร่วมกับเรา",
-      //   link: "/our-esteemed",
-      // },
+      {
+        engTitle:"9CE CBD Sunscreem",
+        thiTitle:"",
+        link:"/blog/9ce-sunscreem"
+      },
+      {
+        engTitle:"9CE CBD Deep Sleeping Cream",
+        thiTitle:"",
+        link:"/blog/9ce-deep-sleeping-cream"
+      },
+      {
+        engTitle:"9CE CBD Brightening Ampoule",
+        thiTitle:"",
+        link:"/blog/9ce-brightening-ampoule"
+      }
     ],
   },
   {

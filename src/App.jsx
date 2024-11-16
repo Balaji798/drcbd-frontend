@@ -4,7 +4,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { useState, lazy, Suspense } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getProduct } from "./state/actions/productAction";
@@ -26,44 +26,28 @@ import WhiteMask from "./pages/blog/blogs/WhiteMask";
 import GreenAngel from "./pages/blog/blogs/GreenAngel";
 import AmpoulSerum from "./pages/blog/blogs/AmpoulSerum";
 import CE from "./pages/blog/blogs/CE";
-const Register = lazy(async () => await import("./pages/register/Register"));
-const Profile = lazy(async () => await import("./pages/profile/Profile"));
-const SignIn = lazy(async () => await import("./pages/sign-in/SignIn"));
-const PaymentSuccess = lazy(async () => import("./pages/PaymentSuccess"))
-const OurCompanies = lazy(
-  async () => await import("./pages/our-companies/OurCompanies")
-);
-const OurLeadership = lazy(
-  async () => await import("./pages/our-leadership/OurLeadership")
-);
-const Orders = lazy(async () => await import("./pages/orders/Orders"));
-const Contact = lazy(async () => await import("./pages/contact/Contact"));
-const ByCategory = lazy(
-  async () => await import("./pages/byCategory/ByCategory")
-);
-const Forms = lazy(async () => await import("./pages/forms/Forms"));
-const PayPal = lazy(async () => await import("./pages/paypal/PayPal"));
-const UserOrder = lazy(async () => await import("./pages/userOrder/UserOrder"));
-const CancelOrder = lazy(
-  async () => await import("./pages/cancelOrder/CancelOrder")
-);
-const ForgotPassword = lazy(
-  async () => await import("./pages/forgotPassword/ForgotPassword")
-);
-const CBDByCategory = lazy(
-  async () => await import("./pages/cbd-by-category/CBDByCategory")
-);
-const SecondeNave = lazy(
-  async () => await import("./components/secondeNave/SecondeNave")
-);
-const Home = lazy(async () => await import("./pages/home/Home"));
-const ProductDetail = lazy(
-  async () => await import("./pages/product-detail/ProductDetail")
-);
-const MCTOil = lazy(async()=>await import("./pages/blog/blogs/MCTOil"))
-const Sunscreem = lazy(async()=>await import("./pages/blog/blogs/Sunscreem"))
-const SleepingCream = lazy(async()=> await import("./pages/blog/blogs/SleepingCream"))
-const BrighteningAmpoule = lazy(async()=> await import("./pages/blog/blogs/BrighteningAmpoule"))
+import Register from"./pages/register/Register"
+import Profile from"./pages/profile/Profile"
+import SignIn from"./pages/sign-in/SignIn"
+import PaymentSuccess from "./pages/PaymentSuccess"
+import OurCompanies from "./pages/our-companies/OurCompanies"
+import OurLeadership from "./pages/our-leadership/OurLeadership"
+import Orders from"./pages/orders/Orders"
+import Contact from"./pages/contact/Contact"
+import ByCategory from "./pages/byCategory/ByCategory"
+import Forms from"./pages/forms/Forms"
+import PayPal from"./pages/paypal/PayPal"
+import UserOrder from"./pages/userOrder/UserOrder"
+import CancelOrder from "./pages/cancelOrder/CancelOrder"
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword"
+import CBDByCategory from "./pages/cbd-by-category/CBDByCategory"
+import SecondeNave from "./components/secondeNave/SecondeNave"
+import Home from"./pages/home/Home"
+import ProductDetail from "./pages/product-detail/ProductDetail"
+import MCTOil from "./pages/blog/blogs/MCTOil"
+import Sunscreem from "./pages/blog/blogs/Sunscreem"
+import SleepingCream from "./pages/blog/blogs/SleepingCream"
+import BrighteningAmpoule from "./pages/blog/blogs/BrighteningAmpoule"
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -86,23 +70,6 @@ function App() {
   }, [dispatch]);
 
   return (
-
-      <Suspense
-        fallback={
-          <div
-            style={{
-              display: "flex",
-              height: "100vh" /* Equivalent to h-screen in Tailwind */,
-              alignItems: "center" /* Equivalent to items-center in Tailwind */,
-              justifyContent:
-                "center" /* Equivalent to justify-center in Tailwind */,
-              backgroundColor: "#ffffff",
-            }}
-          >
-            <div className="spinner"></div>
-          </div>
-        }
-      >
         <Router scrollRestoration="auto">
           <div>
             <Header setOpenNav={setOpenNav} openNav={openNav} />
@@ -164,7 +131,6 @@ function App() {
           </div>
           <Footer />
         </Router>
-      </Suspense>
   );
 }
 

@@ -1,7 +1,6 @@
-import React, { lazy } from "react";
 import "./cart.css";
-const Steps =lazy(async () => await import("../../components/Steps"));
-const CartComponent =lazy(async () => await import("../../components/cart/CartComponent")) ;
+import Steps from "../../components/Steps"
+import CartComponent from "../../components/cart/CartComponent"
 
 const Cart = () => {
   //const [searchParams] = useSearchParams();
