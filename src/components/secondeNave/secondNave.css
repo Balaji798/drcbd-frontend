@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: space-between;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
     transform: translateX(145%);
     transition: 0.65s;
     padding: 2rem;

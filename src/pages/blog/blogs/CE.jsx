@@ -40,7 +40,7 @@ const CE = () => {
         <div
           style={{
             width: "300px",
-            height: "80px",
+            height: "100px",
             backgroundColor: "#004b47",
           }}
         />

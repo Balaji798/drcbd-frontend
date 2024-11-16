@@ -28,22 +28,12 @@ const ProductSlider = ({ image, i, marginB, categoryName, languageType }) => {
           width: "100%",
         }}
       >
-        {/*<p
-          style={{
-            textAlign: "center",
-            padding: "5px 0",
-          }}
-        >
-          {image.productFor[0]}
-        </p>*/}
         <h3 style={{ color: "#000" }}>
           {languageType === "eng"
             ? image?.eng?.name.toString()
             : image?.thi?.name.toString()}
         </h3>
       </div>
-
-      {/* <Link to="/product-detail">View Product</Link> */}
     </div>
   );
 };

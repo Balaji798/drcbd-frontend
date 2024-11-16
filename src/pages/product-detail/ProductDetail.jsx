@@ -668,6 +668,7 @@ const ProductDetail = () => {
                   i={i}
                   categoryName={categoryName}
                   key={i}
+                  languageType={language}
                 />
               ))}
             </Slider>
@@ -686,6 +687,7 @@ const ProductDetail = () => {
                   i={i}
                   categoryName={categoryName}
                   key={i}
+                  languageType={language}
                 />
               ))}
             </div>
