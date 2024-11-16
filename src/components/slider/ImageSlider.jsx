@@ -55,7 +55,7 @@ const ImageSlider = () => {
 
   return (
     <>
-      <section className="section" style={{ paddingTop: "1em" }}>
+      <section className="section">
         <div className="section-center-home">
           {sliderData.map((item, indexPeople) => {
             const { id, image } = item;
