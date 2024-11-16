@@ -22,7 +22,7 @@ const BrighteningAmpoule = () => {
           width: "100%",
           backgroundColor: "#091c20",
           color: "#fff",
-          padding: "2rem 0",
+          padding: "3rem 10px 2rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -145,7 +145,8 @@ const BrighteningAmpoule = () => {
             justifyContent: "flex-end",
           }}
         >
-          <div style={{ maxWidth: "580px" }}>
+          <div style={{ maxWidth: "580px",
+            paddingLeft: "10px" }}>
             <h4 style={{ padding: "10px 0 5px" }}>
               {language === "eng"
                 ? "Why Choose Sachet Creams?"

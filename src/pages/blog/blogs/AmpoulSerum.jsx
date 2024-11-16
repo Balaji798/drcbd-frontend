@@ -27,7 +27,7 @@ const AmpoulSerum = () => {
           width: "100%",
           backgroundColor: "#091c20",
           color: "#fff",
-          padding: "2rem 0",
+          padding: "3rem 10px 2rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

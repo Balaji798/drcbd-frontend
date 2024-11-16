@@ -1,37 +1,69 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import blog from "../../assets/blog/deelp.png";
+import cbd from "../../assets/blog/cbd-cream.png";
+import whiteMask from "../../assets/blog/whiteMask.png";
+import ampoule from "../../assets/blog/ampoule.png";
+import greenAngel from "../../assets/blog/greenAngel.png";
+import blogs from "../../assets/blog/blog.jpg";
+import ampoule_bri from "../../assets/blog/ampoule-bri.png";
+import sleeping from "../../assets/blog/sleeping-cream.png";
+import sunsCream from "../../assets/blog/suns-creem.png";
+import dellep from "../../assets/blog/deelp-1.png";
 
 const Blog = () => {
   const blogData = [
     {
       title: "Earth Lab CBD De Leep Softgel",
-      secondTitle: "MCT OIL PLUS PERILLASEED OIL AND CBD EXTRACT FROM HEMP",
       para: "Your Ticket to Deep, Restorative Sleep",
-      image: "../blog/deelp.png",
+      image: dellep,
       link:"/blog/earth-lab-cbd-dellep-softgel"
     },
     {
-      title: "9CE SKINCARE PRODUCT",
+      title: "MCT Oil Perilla Seed",
+      para: "Your Ticket to Deep, Restorative Sleep",
+      image: blog,
+      link:"/blog/earth-lab-cbd-dellep-softgel"
+    },
+    {
+      title: "9CE CBD CREAM",
       para: "Your Pocket-Sized Skincare Essentials for Radiant, Flawless Skin",
-      image: "../blog/9ce.png",
+      image: cbd,
+      link:"/blog/9ce"
+    },
+    {
+      title: "9CE CBD Sunscream",
+      para: "Your Pocket-Sized Skincare Essentials for Radiant, Flawless Skin",
+      image: sunsCream,
+      link:"/blog/9ce"
+    },
+    {
+      title: "9CE CBD DEEP sleeping Cream",
+      para: "Your Pocket-Sized Skincare Essentials for Radiant, Flawless Skin",
+      image: sleeping,
+      link:"/blog/9ce"
+    },
+    {
+      title: "9CE CBD Brightening Ampoule",
+      para: "Your Pocket-Sized Skincare Essentials for Radiant, Flawless Skin",
+      image: ampoule_bri,
       link:"/blog/9ce"
     },
     {
       title: "Earth Lab CBD Whitening Mask",
       para: "The Ultimate Solution for Sensitive, Acne-Prone Skin",
-      image: "../blog/whiteMask.png",
+      image: whiteMask,
       link:"/blog/earth-lab-cbd-whitening-mask"
     },
     {
       title: "Earth Lab CBD Ampoule Serum",
       para: "The Secret Wepon for Sensitive, Acne-Prone Skin",
-      image: "../blog/ampoule.png",
+      image: ampoule,
       link:"/blog/earth-lab-cbd-ampoule-serum"
     },
     {
       title: "Earth Lab CBD Green ANgel Plus",
       para: "A Soothing Solution for Psoriasis and Seborrheic Dermatitis",
-      image: "../blog/greenAngel.png",
+      image: greenAngel,
       link:"/blog/earth-lab-cbd-green-angel"
     },
   ];
@@ -43,7 +75,7 @@ const Blog = () => {
       }}
     >
       <img
-        src="../blog/blog.jpg"
+        src={blogs}
         alt="/"
         style={{ width: "100%", objectFit: "contain" }}
       />
@@ -54,6 +86,7 @@ const Blog = () => {
             style={{
               backgroundColor: index % 2 === 0 ? "#f5f5f5" : "#fff",
               padding: "20px",
+              textTransform: 'uppercase'
             }}
             className="center"
           >
