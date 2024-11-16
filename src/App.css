@@ -97,11 +97,11 @@ textarea {
   z-index: 1000;
 }
 .control-btn .prev {
-  left: -75px;
+  left: -65px;
   color: #fff;
 }
 .control-btn .next {
-  right: 0px;
+  right: -30px;
 }
 
 .project-main-container {
@@ -259,6 +259,14 @@ button{
   max-height: 600px;
 }
 
+.image-style {
+  max-width: 300px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 @media screen and (max-width: 768px) {
   .route-container{
     padding-top: 0;
@@ -290,5 +298,8 @@ button{
   }
   .control-btn .next {
     right: -65px;
+  }
+  .image-style{
+    max-width: 400px;
   }
 }

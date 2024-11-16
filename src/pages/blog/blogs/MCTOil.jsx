@@ -7,11 +7,11 @@ import { useLanguage } from "../../../util/LanguageContext";
 import { useNavigate } from "react-router-dom";
 import mct from "../../../assets/blog/deelp.png";
 import mct1 from "../../../assets/blog/female.jpg";
-import mct2 from "../../../assets/blog/mct-1.jpg"
+import mct2 from "../../../assets/blog/mct-1.jpg";
 import mct3 from "../../../assets/blog/deelp4.jpg";
 import mct4 from "../../../assets/blog/deelp2.jpg";
-import mct5 from '../../../assets/blog/mct.jpg';
-import mct6 from "../../../assets/blog/mct-2.jpg"
+import mct5 from "../../../assets/blog/mct.jpg";
+import mct6 from "../../../assets/blog/mct-2.jpg";
 import dellep7 from "../../../assets/blog/LINE_ALBUM_240724_7.jpg";
 
 const MCTOil = () => {
@@ -38,7 +38,11 @@ const MCTOil = () => {
       >
         <h1 style={{ maxWidth: "1200px", width: "100%" }}>BLOG</h1>
       </div>
-      <h2 style={{textAlign:"center",paddingTop:"10px",fontWeight:"bold"}}>MCT OIL PLUS PERILLA SEED OIL AND CBD EXTRACT FROM HEMP</h2>
+      <h2
+        style={{ textAlign: "center", paddingTop: "10px", fontWeight: "bold" }}
+      >
+        MCT OIL PLUS PERILLA SEED OIL AND CBD EXTRACT FROM HEMP
+      </h2>
       <div className="flex" style={{ width: "100%" }}>
         <div
           style={{
@@ -64,12 +68,9 @@ const MCTOil = () => {
               textAlign: "center",
             }}
             onClick={() => {
-              navigate(
-                `/product-detail/CBD-OIL/MCT%20OIL%20PLUS`,
-                {
-                  state: { catName1: "CBD-SUPPLEMENTS" },
-                }
-              );
+              navigate(`/product-detail/CBD-OIL/MCT%20OIL%20PLUS`, {
+                state: { catName1: "CBD-SUPPLEMENTS" },
+              });
             }}
           >
             BUY NOW
@@ -114,7 +115,7 @@ const MCTOil = () => {
             ? "Are you tired of tossing and turning all night? Do you wake up feeling groggy and unrested? If you're struggling with insomnia or any other sleep disorder, it's to discover the power of MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP."
             : "คุณกำลังเผชิญกับปัญหาเหล่านี้อยู่หรือไม่? นอนไม่หลับ หลับไม่สนิท ตื่นกลางดึกบ่อยครั้ง หรือแม้กระทั่ง นอนดึก ตื่นเช้าแล้วไม่สดชื่น? ปัญหาเหล่านี้ส่งผลกระทบต่อคุณภาพชีวิตของคุณอย่างแน่นอน ไม่ว่าจะเป็นเรื่องสมาธิ ประสิทธิภาพในการทำงาน หรือแม้กระทั่งสุขภาพกายและสุขภาพจิต"}
         </p>
-        <p style={{padding:"10px 0"}}>
+        <p style={{ padding: "10px 0" }}>
           {language === "eng"
             ? "MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP is a revolutionary sleeping oil designed to help you achieve the deep sleep your body craves. Unlike traditional sleeping pills that can leave you feeling groggy and dependent, MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP harnesses the power of natural ingredients to promote relaxation and healthy sleep patterns."
             : "De’ Leep คืออะไร? De’ Leep คืออาหารเสริมรูปแบบแคปซูลนิ่ม ที่พัฒนาขึ้นมาเป็นพิเศษเพื่อช่วยให้คุณ หลับลึก และ หลับสนิท ตลอดคืน ด้วยส่วนผสมจากธรรมชาติที่คัดสรรมาอย่างดี De’ Leep จึงปลอดภัยและไม่ทำให้เกิดอาการติด"}
@@ -181,8 +182,16 @@ const MCTOil = () => {
               ? "Deep sleep is essential for both physical and mental well-being. During deep sleep, your body repairs and restores itself, consolidates memories, and strengthens your immune system. MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP helps you achieve the deep sleep you need to wake up feeling refreshed and rejuvenated."
               : "De’ Leep ผลิตจากส่วนผสมจากธรรมชาติที่คัดสรรมาอย่างดี และผ่านการรับรองความปลอดภัยจาก อย. จึงมั่นใจได้ว่าปลอดภัยและไม่ก่อให้เกิดผลข้างเคียง อยากนอน หลับสบาย คืนนี้ต้องมี De’ Leep! หมายเหตุ: ผลลัพธ์ที่ได้อาจแตกต่างกันไปในแต่ละบุคคล ควรปรึกษาแพทย์ก่อนใช้หากคุณกำลังตั้งครรภ์ ให้นมบุตร หรือมีโรคประจำตัว"}
           </p>
-          <p style={{fontWeight: "500",padding:"10px 0"}}>{language==="eng"?"Say Goodbye to Insomnia and Sleep Disorders If you're struggling with insomnia or any other sleep disorder, MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP can help":""}</p>
-          <p style={{fontWeight: "500"}}>{language==="eng"?"MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP natural ingredients work together to regulate your sleep-wake cycle, reduce anxiety, and promote relaxation, making it easier for you to fall asleep and stay asleep.":""}</p>
+          <p style={{ fontWeight: "500", padding: "10px 0" }}>
+            {language === "eng"
+              ? "Say Goodbye to Insomnia and Sleep Disorders If you're struggling with insomnia or any other sleep disorder, MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP can help"
+              : ""}
+          </p>
+          <p style={{ fontWeight: "500" }}>
+            {language === "eng"
+              ? "MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP natural ingredients work together to regulate your sleep-wake cycle, reduce anxiety, and promote relaxation, making it easier for you to fall asleep and stay asleep."
+              : ""}
+          </p>
           <h3 style={{ padding: "10px 0 5px" }}>
             {language === "eng"
               ? "Experience the Power of MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP"
@@ -238,11 +247,7 @@ const MCTOil = () => {
             ? "Enter sleeping pills: they're like a fast pass to dreamland when counting sheep just won't cut it. Also known as a sleep aid or hypnotic medication, these pharmaceutical drugs are prescribed to help people who have difficulty falling asleep or staying asleep. But they often come with side effects and the risk of dependency"
             : "Leep ตัวช่วยในการนอนหลับที่ไม่ใช่ ยานอนหลับ แต่เป็นอาหารเสริมที่สกัดจากธรรมชาติ ช่วยให้คุณผ่อนคลาย หลับสบาย และตื่นมาพร้อมความสดชื่นในทุกเช้า De’ Leep ทำงานโดยการปรับสมดุลของสารสื่อประสาทและฮอร์โมนที่เกี่ยวข้องกับการนอนหลับ ช่วยให้คุณเข้าสู่ภาวะหลับลึกได้ง่ายและยาวนานขึ้น ทำให้การนอนหลับของคุณมีประสิทธิภาพมากขึ้น De’ Leep เหมาะสำหรับผู้ที่มีปัญหาหลับยาก หลับไม่สนิท หรือผู้ที่ต้องการเพิ่มคุณภาพการนอนหลับให้ดียิ่งขึ้น ไม่ว่าคุณจะเผชิญกับความเครียดจากการทำงาน การเรียน หรือสภาพแวดล้อมที่ไม่เอื้ออำนวย De’ Leep จะช่วยให้คุณสามารถพักผ่อนได้อย่างเต็มที่ และตื่นมาพร้อมพลังในการใช้ชีวิตในทุกๆ วัน"}
         </p>
-        <img
-          src={mct4}
-          alt="/"
-          style={{ width: "100%", padding: "20px 0" }}
-        />
+        <img src={mct4} alt="/" style={{ width: "100%", padding: "20px 0" }} />
         <h4>
           {language === "eng"
             ? "MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP: The Natural Alternative"
@@ -265,7 +270,10 @@ const MCTOil = () => {
           style={{ justifyContent: "center", flexWrap: "wrap" }}
         >
           <div style={{ maxWidth: "450px", padding: "0 10px" }}>
-            <h4>Benefits of MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP:</h4>
+            <h4>
+              Benefits of MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM
+              HEMP:
+            </h4>
             <ul>
               <li>
                 <span>Promotes deep sleep:</span>Get the most restorative sleep
@@ -285,24 +293,28 @@ const MCTOil = () => {
               </li>
             </ul>
             <p>
-            Unlock the Power of Deep Sleep with MCT OIL PLUS PERRILLA SEED
-            OIL AND CBD EXTRACT FROM HEMP<br/>
-            Don't let sleep problems hold you back from living your best life.
-            Experience the difference MCT OIL PLUS PERILLA SEED OIL AND CBD EXTRACT FROM HEMP can make and wake up felling refreshed, energized, and ready to conquer your day!
+              Unlock the Power of Deep Sleep with MCT OIL PLUS PERRILLA SEED OIL
+              AND CBD EXTRACT FROM HEMP
+              <br />
+              Don't let sleep problems hold you back from living your best life.
+              Experience the difference MCT OIL PLUS PERILLA SEED OIL AND CBD
+              EXTRACT FROM HEMP can make and wake up felling refreshed,
+              energized, and ready to conquer your day!
             </p>
           </div>
           <img
             src={mct5}
             alt="/"
-            style={{ maxWidth: "600px", width: "100%", objectFit: "cover",height: '100%' }}
+            style={{
+              maxWidth: "600px",
+              width: "100%",
+              objectFit: "cover",
+              height: "100%",
+            }}
           />
         </div>
       )}
-      <img
-        src={mct3}
-        alt="/"
-        style={{ width: "100%", objectFit: "cover" }}
-      />
+      <img src={mct3} alt="/" style={{ width: "100%", objectFit: "cover" }} />
       <div
         className="flex"
         style={{
@@ -312,18 +324,7 @@ const MCTOil = () => {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src={mct6}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            paddingBottom: "10px",
-          }}
-        />
+        <img src={mct6} alt="/" className="image-style" />
         <img
           src={mct2}
           alt="/"
@@ -336,17 +337,7 @@ const MCTOil = () => {
             paddingBottom: "10px",
           }}
         />
-        <img
-          src={dellep7}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-        />
+        <img src={dellep7} alt="/" className="image-style" />
       </div>
       <div
         className="flex"

@@ -46,15 +46,22 @@ const Dellep = () => {
             backgroundColor: "#004b47",
           }}
         />
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-        }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+          }}
+        >
           <img src={dellep} alt="/" className="blog-img" />
           <button
-            style={{ maxWidth: "150px",width:"100%",padding:"5px 0",textAlign:"center" }}
+            style={{
+              maxWidth: "150px",
+              width: "100%",
+              padding: "5px 0",
+              textAlign: "center",
+            }}
             onClick={() => {
               navigate(
                 `/product-detail/CBD-SUPPLEMENTS/EARTH%20LAB%20CBD%20DE'LEEP`,
@@ -305,18 +312,7 @@ const Dellep = () => {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src={dellep5}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            paddingBottom: "10px",
-          }}
-        />
+        <img src={dellep5} alt="/" className="image-style" />
         <img
           src={dellep6}
           alt="/"
@@ -329,17 +325,7 @@ const Dellep = () => {
             paddingBottom: "10px",
           }}
         />
-        <img
-          src={dellep7}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-        />
+        <img src={dellep7} alt="/" className="image-style" />
       </div>
       <div
         className="flex"

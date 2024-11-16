@@ -9,7 +9,7 @@ import ce1 from "../../../assets/blog/9ce1.jpg";
 import ce3 from "../../../assets/blog/9ce3.jpg";
 import ampoule_1 from "../../../assets/blog/ampoule-1.jpg";
 import ampoule_2 from "../../../assets/blog/ampoule-2.jpg";
-import ampoule_3 from "../../../assets/blog/ampoule3.jpg"
+import ampoule_3 from "../../../assets/blog/ampoule3.jpg";
 import brighting from "../../../assets/blog/brighting.png";
 
 const BrighteningAmpoule = () => {
@@ -39,26 +39,33 @@ const BrighteningAmpoule = () => {
             backgroundColor: "#004b47",
           }}
         />
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-        }}>
-          <img src={ampoule_bri} alt="/" className="blog-img" />
-          <button
-          style={{ maxWidth: "150px",width:"100%",padding:"5px 0",textAlign:"center" }}
-          onClick={() => {
-            navigate(
-              `/product-detail/CBD-FACE/9CE%20CBD%20BRIGHTENING%20AMPOULE`,
-              {
-                state: { catName1: "CBD-FACE" },
-              }
-            );
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
           }}
         >
-          BUY NOW
-        </button>
+          <img src={ampoule_bri} alt="/" className="blog-img" />
+          <button
+            style={{
+              maxWidth: "150px",
+              width: "100%",
+              padding: "5px 0",
+              textAlign: "center",
+            }}
+            onClick={() => {
+              navigate(
+                `/product-detail/CBD-FACE/9CE%20CBD%20BRIGHTENING%20AMPOULE`,
+                {
+                  state: { catName1: "CBD-FACE" },
+                }
+              );
+            }}
+          >
+            BUY NOW
+          </button>
         </div>
         <div
           style={{
@@ -100,11 +107,7 @@ const BrighteningAmpoule = () => {
             : "สาวๆ คนไหนอยากมีผิวสวยใส สุขภาพดี แต่ไม่อยากจ่ายแพง ต้องลอง 9CE ครีมซอง ที่มาพร้อมคุณสมบัติครบครัน ทั้งบำรุงผิว ลดเลือนจุดด่างดำ รอยแดง พร้อมปกป้องผิวจากแสงแดด ในราคาสบายกระเป๋า! ไม่ว่าคุณจะมีปัญหาผิวแห้ง ผิวมัน ผิวแพ้ง่าย หรือมีรอยดำ รอยแดงจากสิว 9CE ก็มีครีมซองสูตรเฉพาะที่ตอบโจทย์ทุกปัญหาผิวของคุณ"}
         </p>
       </div>
-      <img
-        src={ce1}
-        alt="/"
-        style={{ width: "100%", objectFit: "contain" }}
-      />
+      <img src={ce1} alt="/" style={{ width: "100%", objectFit: "contain" }} />
       <div style={{ maxWidth: "1000px", width: "100%", padding: "10px" }}>
         <ul style={{ listStyle: "none" }}>
           <li style={{ paddingBottom: "5px" }}>
@@ -121,15 +124,19 @@ const BrighteningAmpoule = () => {
       </div>
       <div
         style={{
-          display:"flex",
-          flexWrap:"wrap",
+          display: "flex",
+          flexWrap: "wrap",
           maxWidth: "1600px",
           width: "100%",
           padding: "3rem 0px 0px",
           objectFit: "cover",
         }}
       >
-      <img src={brighting} alt="/" style={{maxWidth:"600px",width:"100%"}}/>
+        <img
+          src={brighting}
+          alt="/"
+          style={{ maxWidth: "600px", width: "100%" }}
+        />
         <div
           className="flex"
           style={{
@@ -245,18 +252,25 @@ const BrighteningAmpoule = () => {
                 ? "Choose sachet creams from reputable brands to ensure quality and safety."
                 : "สำหรับผิวแห้งมาก สามารถทา 9CE CBD Cream ซ้ำระหว่างวันได้"}
             </p>
-            {language === "thi"&&<p>
-              อย่าลืมทาครีมกันแดด 9CE DD Sunscreen ทุกวัน แม้ในวันที่ไม่ได้ออกแดดจัด
-            </p>}
-            {language === "eng"&&<h4 style={{ padding: "10px 0 5px" }}>
-              Ready to Simplify Your Skincare?
-            </h4>}
-            {language === "eng"&&<p>
-              Sachet creams are a game-changer for anyone seeking a convenient
-              and effective skincare solution. Embrace the {'"to-go"'} lifestyle and
-              let these little packets unveil your most radiant, flawless skin
-              yet!
-            </p>}
+            {language === "thi" && (
+              <p>
+                อย่าลืมทาครีมกันแดด 9CE DD Sunscreen ทุกวัน
+                แม้ในวันที่ไม่ได้ออกแดดจัด
+              </p>
+            )}
+            {language === "eng" && (
+              <h4 style={{ padding: "10px 0 5px" }}>
+                Ready to Simplify Your Skincare?
+              </h4>
+            )}
+            {language === "eng" && (
+              <p>
+                Sachet creams are a game-changer for anyone seeking a convenient
+                and effective skincare solution. Embrace the {'"to-go"'}{" "}
+                lifestyle and let these little packets unveil your most radiant,
+                flawless skin yet!
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -269,18 +283,7 @@ const BrighteningAmpoule = () => {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src={ampoule_3}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            paddingBottom: "10px",
-          }}
-        />
+        <img src={ampoule_3} alt="/" className="image-style" />
         <img
           src={ampoule_1}
           alt="/"
@@ -293,17 +296,7 @@ const BrighteningAmpoule = () => {
             paddingBottom: "10px",
           }}
         />
-        <img
-          src={ampoule_2}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-        />
+        <img src={ampoule_2} alt="/" className="image-style" />
       </div>
       <div
         className="flex"
@@ -330,6 +323,6 @@ const BrighteningAmpoule = () => {
       </div>
     </div>
   );
-}
+};
 
-export default BrighteningAmpoule
+export default BrighteningAmpoule;

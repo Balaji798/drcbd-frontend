@@ -5,11 +5,11 @@ import { FaYoutube } from "react-icons/fa6";
 import { useLanguage } from "../../../util/LanguageContext";
 import { useNavigate } from "react-router-dom";
 import whiteMask from "../../../assets/blog/whiteMask.png";
-import whiteMask1 from "../../../assets/blog/whiteMask1.jpg"
-import use from "../../../assets/blog/use.jpg"
-import whiteMask2 from "../../../assets/blog/whiteMask2.jpg"
-import whiteMask3 from "../../../assets/blog/whiteMask3.jpg"
-import final_03 from "../../../assets/blog/final-03.jpg"
+import whiteMask1 from "../../../assets/blog/whiteMask1.jpg";
+import use from "../../../assets/blog/use.jpg";
+import whiteMask2 from "../../../assets/blog/whiteMask2.jpg";
+import whiteMask3 from "../../../assets/blog/whiteMask3.jpg";
+import final_03 from "../../../assets/blog/final-03.jpg";
 
 const WhiteMask = () => {
   const { language } = useLanguage();
@@ -43,15 +43,22 @@ const WhiteMask = () => {
             backgroundColor: "#004b47",
           }}
         />
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-        }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+          }}
+        >
           <img src={whiteMask} alt="/" className="blog-img" />
           <button
-          style={{ maxWidth: "150px",width:"100%",padding:"5px 0",textAlign:"center" }}
+            style={{
+              maxWidth: "150px",
+              width: "100%",
+              padding: "5px 0",
+              textAlign: "center",
+            }}
             onClick={() => {
               navigate(
                 `/product-detail/CBD-FACE/EARTHLAB%20CBD%20WHITENING%20MASK`,
@@ -315,18 +322,7 @@ const WhiteMask = () => {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src={final_03}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            paddingBottom: "10px",
-          }}
-        />
+        <img src={final_03} alt="/" className="image-style" />
         <img
           src={whiteMask3}
           alt="/"
@@ -336,20 +332,10 @@ const WhiteMask = () => {
             height: "500px",
             objectFit: "cover",
             borderRadius: "10px",
-            paddingBottom: "10px",
+            marginBottom: "10px",
           }}
         />
-        <img
-          src={final_03}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-        />
+        <img src={final_03} alt="/" className="image-style" />
       </div>
       <div
         className="flex"

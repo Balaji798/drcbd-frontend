@@ -4,12 +4,12 @@ import { GrInstagram } from "react-icons/gr";
 import { FaYoutube } from "react-icons/fa6";
 import { useLanguage } from "../../../util/LanguageContext";
 import { useNavigate } from "react-router-dom";
-import ampoule from "../../../assets/blog/ampoule.png"
-import serum from "../../../assets/blog/serum.jpg"
-import ampoule1 from "../../../assets/blog/ampoule1.jpg"
-import ampoule2 from "../../../assets/blog/ampoule2.jpg"
-import ampoule3 from "../../../assets/blog/ampoule-03.jpg"
-import ampoule_1 from "../../../assets/blog/ampoule-02.jpg"
+import ampoule from "../../../assets/blog/ampoule.png";
+import serum from "../../../assets/blog/serum.jpg";
+import ampoule1 from "../../../assets/blog/ampoule1.jpg";
+import ampoule2 from "../../../assets/blog/ampoule2.jpg";
+import ampoule3 from "../../../assets/blog/ampoule-03.jpg";
+import ampoule_1 from "../../../assets/blog/ampoule-02.jpg";
 import ampoule_2 from "../../../assets/blog/ampoule-01.jpg";
 
 const AmpoulSerum = () => {
@@ -54,10 +54,15 @@ const AmpoulSerum = () => {
         >
           <img src={ampoule} alt="/" className="blog-img" />
           <button
-          style={{ maxWidth: "150px",width:"100%",padding:"5px 0",textAlign:"center" }}
+            style={{
+              maxWidth: "150px",
+              width: "100%",
+              padding: "5px 0",
+              textAlign: "center",
+            }}
             onClick={() => {
               navigate(
-                `/product-detail/CBD-FACE/EARTHLAB%20CBD%20AMPOUL%20SERUM`,
+                `/product-detail/cbd%20face/EARTHLAB%20CBD%20AMPOULE%20SERUM`,
                 {
                   state: { catName1: "CBD-FACE" },
                 }
@@ -334,18 +339,7 @@ const AmpoulSerum = () => {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src={ampoule3}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            paddingBottom: "20px",
-          }}
-        />
+        <img src={ampoule3} alt="/" className="image-style" />
         <img
           src={ampoule_1}
           alt="/"
@@ -358,17 +352,7 @@ const AmpoulSerum = () => {
             paddingBottom: "20px",
           }}
         />
-        <img
-          src={ampoule_2}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-        />
+        <img src={ampoule_2} alt="/" className="image-style" />
       </div>
       <div
         className="flex"

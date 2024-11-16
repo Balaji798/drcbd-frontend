@@ -10,7 +10,7 @@ import cbd1 from "../../../assets/blog/cbd-1.png";
 import ce2 from "../../../assets/blog/9ce3.jpg";
 import ce3 from "../../../assets/blog/cbd.jpg";
 import ce4 from "../../../assets/blog/9ce6.jpg";
-import ce5 from "../../../assets/blog/CBD-Cream.jpg"
+import ce5 from "../../../assets/blog/CBD-Cream.jpg";
 
 const CE = () => {
   const { language } = useLanguage();
@@ -31,7 +31,11 @@ const CE = () => {
       >
         <h1 style={{ maxWidth: "1200px", width: "100%" }}>BLOG</h1>
       </div>
-      <h2 style={{textAlign:"center",paddingTop:"10px",fontWeight:"bold"}}>9CE CBD Cream</h2>
+      <h2
+        style={{ textAlign: "center", paddingTop: "10px", fontWeight: "bold" }}
+      >
+        9CE CBD Cream
+      </h2>
       <div className="flex" style={{ width: "100%" }}>
         <div
           style={{
@@ -40,26 +44,30 @@ const CE = () => {
             backgroundColor: "#004b47",
           }}
         />
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-        }}>
-          <img src={cbd} alt="/" className="blog-img" />
-          <button
-          style={{ maxWidth: "150px",width:"100%",padding:"5px 0",textAlign:"center" }}
-          onClick={() => {
-            navigate(
-              `/product-detail/CBD-FACE/9CE%20CBD%20CREAM`,
-              {
-                state: { catName1: "CBD-FACE" },
-              }
-            );
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
           }}
         >
-          BUY NOW
-        </button>
+          <img src={cbd} alt="/" className="blog-img" />
+          <button
+            style={{
+              maxWidth: "150px",
+              width: "100%",
+              padding: "5px 0",
+              textAlign: "center",
+            }}
+            onClick={() => {
+              navigate(`/product-detail/CBD-FACE/9CE%20CBD%20CREAM`, {
+                state: { catName1: "CBD-FACE" },
+              });
+            }}
+          >
+            BUY NOW
+          </button>
         </div>
         <div
           style={{
@@ -101,11 +109,7 @@ const CE = () => {
             : "สาวๆ คนไหนอยากมีผิวสวยใส สุขภาพดี แต่ไม่อยากจ่ายแพง ต้องลอง 9CE ครีมซอง ที่มาพร้อมคุณสมบัติครบครัน ทั้งบำรุงผิว ลดเลือนจุดด่างดำ รอยแดง พร้อมปกป้องผิวจากแสงแดด ในราคาสบายกระเป๋า! ไม่ว่าคุณจะมีปัญหาผิวแห้ง ผิวมัน ผิวแพ้ง่าย หรือมีรอยดำ รอยแดงจากสิว 9CE ก็มีครีมซองสูตรเฉพาะที่ตอบโจทย์ทุกปัญหาผิวของคุณ"}
         </p>
       </div>
-      <img
-        src={ce}
-        alt="/"
-        style={{ width: "100%", objectFit: "contain" }}
-      />
+      <img src={ce} alt="/" style={{ width: "100%", objectFit: "contain" }} />
       <div style={{ maxWidth: "1000px", width: "100%", padding: "10px" }}>
         <ul style={{ listStyle: "none" }}>
           <li style={{ paddingBottom: "5px" }}>
@@ -122,24 +126,24 @@ const CE = () => {
       </div>
       <div
         style={{
-          display:"flex",
-          flexWrap:"wrap",
+          display: "flex",
+          flexWrap: "wrap",
           maxWidth: "1600px",
           width: "100%",
           padding: "3rem 0px 0px",
           objectFit: "cover",
         }}
       >
-      <img src={cbd1} alt="/" style={{maxWidth:"600px",width:"100%"}}/>
-      <div
-      className="flex"
-      style={{
-        maxWidth: "600px",
-        width: "100%",
-        justifyContent: "flex-end",
-      }}
-    >
-      <div style={{ maxWidth: "580px" }}>
+        <img src={cbd1} alt="/" style={{ maxWidth: "600px", width: "100%" }} />
+        <div
+          className="flex"
+          style={{
+            maxWidth: "600px",
+            width: "100%",
+            justifyContent: "flex-end",
+          }}
+        >
+          <div style={{ maxWidth: "580px" }}>
             <h4 style={{ padding: "10px 0 5px" }}>
               {language === "eng"
                 ? "Why Choose Sachet Creams?"
@@ -246,18 +250,25 @@ const CE = () => {
                 ? "Choose sachet creams from reputable brands to ensure quality and safety."
                 : "สำหรับผิวแห้งมาก สามารถทา 9CE CBD Cream ซ้ำระหว่างวันได้"}
             </p>
-            {language === "thi"&&<p>
-              อย่าลืมทาครีมกันแดด 9CE DD Sunscreen ทุกวัน แม้ในวันที่ไม่ได้ออกแดดจัด
-            </p>}
-            {language === "eng"&&<h4 style={{ padding: "10px 0 5px" }}>
-              Ready to Simplify Your Skincare?
-            </h4>}
-            {language === "eng"&&<p>
-              Sachet creams are a game-changer for anyone seeking a convenient
-              and effective skincare solution. Embrace the {'"to-go"'} lifestyle and
-              let these little packets unveil your most radiant, flawless skin
-              yet!
-            </p>}
+            {language === "thi" && (
+              <p>
+                อย่าลืมทาครีมกันแดด 9CE DD Sunscreen ทุกวัน
+                แม้ในวันที่ไม่ได้ออกแดดจัด
+              </p>
+            )}
+            {language === "eng" && (
+              <h4 style={{ padding: "10px 0 5px" }}>
+                Ready to Simplify Your Skincare?
+              </h4>
+            )}
+            {language === "eng" && (
+              <p>
+                Sachet creams are a game-changer for anyone seeking a convenient
+                and effective skincare solution. Embrace the {'"to-go"'}{" "}
+                lifestyle and let these little packets unveil your most radiant,
+                flawless skin yet!
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -270,18 +281,7 @@ const CE = () => {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src={ce3}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            paddingBottom: "10px",
-          }}
-        />
+        <img src={ce3} alt="/" className="image-style" />
         <img
           src={ce4}
           alt="/"
@@ -294,17 +294,7 @@ const CE = () => {
             paddingBottom: "10px",
           }}
         />
-        <img
-          src={ce5}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-        />
+        <img src={ce5} alt="/" className="image-style" />
       </div>
       <div
         className="flex"

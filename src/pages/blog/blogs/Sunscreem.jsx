@@ -109,11 +109,7 @@ const Sunscreem = () => {
             : "สาวๆ คนไหนอยากมีผิวสวยใส สุขภาพดี แต่ไม่อยากจ่ายแพง ต้องลอง 9CE ครีมซอง ที่มาพร้อมคุณสมบัติครบครัน ทั้งบำรุงผิว ลดเลือนจุดด่างดำ รอยแดง พร้อมปกป้องผิวจากแสงแดด ในราคาสบายกระเป๋า! ไม่ว่าคุณจะมีปัญหาผิวแห้ง ผิวมัน ผิวแพ้ง่าย หรือมีรอยดำ รอยแดงจากสิว 9CE ก็มีครีมซองสูตรเฉพาะที่ตอบโจทย์ทุกปัญหาผิวของคุณ"}
         </p>
       </div>
-      <img
-        src={ce}
-        alt="/"
-        style={{ width: "100%", objectFit: "contain" }}
-      />
+      <img src={ce} alt="/" style={{ width: "100%", objectFit: "contain" }} />
       <div style={{ maxWidth: "1000px", width: "100%", padding: "10px" }}>
         <ul style={{ listStyle: "none" }}>
           <li style={{ paddingBottom: "5px" }}>
@@ -127,7 +123,7 @@ const Sunscreem = () => {
         </ul>
       </div>
       <div
-      className="center"
+        className="center"
         style={{
           backgroundImage: `url(${ce1})`,
           backgroundSize: "cover",
@@ -267,9 +263,9 @@ const Sunscreem = () => {
             {language === "eng" && (
               <p>
                 Sachet creams are a game-changer for anyone seeking a convenient
-                and effective skincare solution. Embrace the {'"to-go"'} lifestyle
-                and let these little packets unveil your most radiant, flawless
-                skin yet!
+                and effective skincare solution. Embrace the {'"to-go"'}{" "}
+                lifestyle and let these little packets unveil your most radiant,
+                flawless skin yet!
               </p>
             )}
           </div>
@@ -284,18 +280,7 @@ const Sunscreem = () => {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src={cbd}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-            paddingBottom: "10px",
-          }}
-        />
+        <img src={cbd} alt="/" className="image-style" />
         <img
           src={sunscreen}
           alt="/"
@@ -308,17 +293,7 @@ const Sunscreem = () => {
             paddingBottom: "10px",
           }}
         />
-        <img
-          src={sunscreen1}
-          alt="/"
-          style={{
-            maxWidth: "300px",
-            width: "100%",
-            height: "400px",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-        />
+        <img src={sunscreen1} alt="/" className="image-style" />
       </div>
       <div
         className="flex"
