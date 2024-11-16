@@ -9,7 +9,7 @@ import cbd from "../../../assets/blog/9ce1.jpg";
 import cbd1 from "../../../assets/blog/IMG_2154.png";
 import cbd2 from "../../../assets/blog/cbd.jpg";
 import cbd3 from "../../../assets/blog/Deep-Sleeping-Cream-02.jpg";
-import cbd4 from "../../../assets/blog/deep-sleeping-cream.jpg";
+import cbd4 from "../../../assets/blog/sleeping-cream-1.jpg";
 import cbd5 from "../../../assets/blog/9ce3.jpg"
 
 const SleepingCream = () => {
