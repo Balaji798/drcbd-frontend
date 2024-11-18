@@ -270,7 +270,7 @@ video {
    min-height: 27rem;
   }
   .section-center-home{
-    height: 10.5em;
+    height: 9rem;
   }
   .section-center-home>button{
     top:55px
@@ -336,6 +336,8 @@ video {
   }
   .person-img{
     object-fit: contain;
+    margin-top: 17px;
+    height: 100%;
   }
   /* .next{
     margin-right: 55px;
