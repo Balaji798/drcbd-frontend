@@ -296,6 +296,7 @@ const ProductDetail = () => {
                   src={productByName[0]?.eng?.name === "International Shipping"? productImage:productByName[0]?.images[position]}
                   style={{}}
                   alt={productByName[0]?.images[position]}
+                  loading="lazy"
                 />
               </div>
             )}
@@ -328,6 +329,7 @@ const ProductDetail = () => {
                         height: "100%",
                         objectFit: "contain",
                       }}
+                      loading="lazy"
                     />
                   </div>
                 ))}

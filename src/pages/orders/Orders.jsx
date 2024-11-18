@@ -59,6 +59,7 @@ const Orders = () => {
                         objectFit: "contain",
                       }}
                       alt="/"
+                      loading="lazy"
                     />
                   </div>
                   <div style={{ paddingLeft: 10, height: "100%" }}>

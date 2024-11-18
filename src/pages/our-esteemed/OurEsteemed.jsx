@@ -4,7 +4,8 @@ import { AiOutlineGlobal } from "react-icons/ai";
 import product from "../../assets/aboutUs/product.png";
 import business from "../../assets/aboutUs/business.png"
 import successful from "../../assets/aboutUs/successful.png";
-import scan from "../../assets/scan.png"
+import scan from "../../assets/scan.png";
+import { FaPhone } from "react-icons/fa6";
 import "./esteemed.css";
 
 const OurEsteemed = () => {
@@ -63,10 +64,7 @@ const OurEsteemed = () => {
       title: "+66 65 141 6999",
       link: "/join-our-esteemed",
       icon: (
-        <img
-          src="../free-phone.png"
-          style={{ objectFit: "cover", height: "30px" }}
-          alt="/"
+        <FaPhone size={35}
         />
       ),
     },
@@ -78,7 +76,7 @@ const OurEsteemed = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop:"4rem"
+        //paddingTop:"4rem"
       }}
     >
       <div className="esteemed">
@@ -154,6 +152,7 @@ const OurEsteemed = () => {
               src={item.image}
               className="esteemed-container"
               alt="/"
+              loading="lazy"
             />
           </div>
         </div>
@@ -222,6 +221,7 @@ const OurEsteemed = () => {
                   
                 }}
                 alt="/"
+                loading="lazy"
               />
             </div>
           </div>

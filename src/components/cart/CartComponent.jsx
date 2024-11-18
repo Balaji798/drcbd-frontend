@@ -69,6 +69,7 @@ const CartComponent = () => {
                       height: "100%",
                       objectFit: "contain",
                     }}
+                    loading="lazy"
                   />
                 </div>
                 <div

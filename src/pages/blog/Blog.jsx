@@ -78,6 +78,7 @@ const Blog = () => {
         src={blogs}
         alt="/"
         style={{ width: "100%", objectFit: "contain" }}
+        loading="lazy"
       />
       <div style={{ width: "100%" }}>
         {blogData.map((item, index) => (
@@ -100,6 +101,7 @@ const Blog = () => {
               alt="/"
               style={{ maxWidth: "650px", objectFit: "contain" }}
               className="blog-img"
+              loading="lazy"
             />
             <div
               className="flex"

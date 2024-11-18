@@ -122,6 +122,7 @@ const OurLeadership = () => {
           src={staff}
           style={{ objectFit: "contain", width: "80%", paddingTop: "1rem" }}
           alt="/"
+          loading="lazy"
         />
       </div>
     </div>

@@ -5,6 +5,7 @@ import checkout1 from "../../assets/checkoutImage/1.png";
 import checkout2 from "../../assets/checkoutImage/2.png";
 import checkout3 from "../../assets/checkoutImage/3.png";
 import checkout4 from "../../assets/checkoutImage/4.png";
+import thankyou from "../../assets/thankyou.png"
 import "./order.css";
 import { convertToLocalTime } from "../../util/convertToLocalTime";
 
@@ -74,6 +75,7 @@ const UserOrder = () => {
                     height: "100%",
                     objectFit: "cover",
                   }}
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -90,9 +92,10 @@ const UserOrder = () => {
           }}
         >
           <img
-            src="../thankyou.png"
+            src={thankyou}
             alt="/"
             className="order-image-container"
+            loading="lazy"
           />
           <div
             style={{

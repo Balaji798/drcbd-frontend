@@ -76,7 +76,7 @@ const ImageSlider = () => {
                 key={id}
               >
                 <a href="https://shopee.co.th/9ceofficial?categoryId=100630&entryPoint=ShopByPDP&itemId=22479301919" style={{width:"100%"}}>
-                  <img src={image} alt="/" className="person-img" />
+                  <img src={image} alt="/" className="person-img" loading="lazy"/>
                 </a>
               </article>
             );
@@ -129,6 +129,7 @@ const ImageSlider = () => {
                 src={item.url}
                 style={{ width: "18rem", height: "18em", objectFit: "contain" }}
                 alt="/"
+                loading="lazy"
               />
               <p
                 style={{
@@ -183,6 +184,7 @@ const ImageSlider = () => {
                     marginLeft: "0rem",
                   }}
                   alt={vital}
+                  loading="lazy"
                 />
               </a>
               <h2>VITAL MEDI CLINIC</h2>
@@ -215,6 +217,7 @@ const ImageSlider = () => {
                   src={mixClinic}
                   style={{}}
                   alt="/"
+                  loading="lazy"
                 />
               </div>
             </div>

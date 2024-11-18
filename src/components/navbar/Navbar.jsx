@@ -4,7 +4,6 @@ import { useLanguage } from "../../util/LanguageContext";
 
 const naveData = [
   {
-    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
     engTitle: "CBD BY CATEGORY",
     thiTitle: "CBD ตามหมวดหมู่",
     subMenu1: {
@@ -54,7 +53,6 @@ const naveData = [
   {
     engTitle: "CBD BY PURPOSE",
     thiTitle: "CBD ตามวัตถุประสงค์",
-    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home4.jpeg",
     subMenu1: {
       engTitle: "CBD BY PURPOSE",
       thiTitle: "CBD ตามวัตถุประสงค์",
@@ -126,7 +124,6 @@ const naveData = [
     },
   },
   {
-    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home1.jpeg",
     engTitle: "ABOUT",
     thiTitle: "เกี่ยวกับ",
     subMenu1: {
@@ -152,7 +149,6 @@ const naveData = [
     },
   },
   {
-    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home1.jpeg",
     engTitle: "BLOG",
     thiTitle: "เกี่ยวกับ",
     subMenu1: {
@@ -209,7 +205,6 @@ const naveData = [
     },
   },
   {
-    //image: "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/home3.jpeg",
     engTitle: "CONTACT",
     thiTitle: "ติดต่อ",
     subMenu1: {

@@ -54,7 +54,7 @@ const Dellep = () => {
             alignItems: "flex-end",
           }}
         >
-          <img src={dellep} alt="/" className="blog-img" />
+          <img src={dellep} alt="/" className="blog-img" loading="lazy"/>
           <button
             style={{
               maxWidth: "150px",
@@ -168,6 +168,7 @@ const Dellep = () => {
           src={dellep1}
           alt="/"
           style={{ maxWidth: "700px", width: "100%", objectFit: "cover" }}
+          loading="lazy"
         />
         <div style={{ maxWidth: "800px", width: "100%", padding: "0 10px" }}>
           <h3 style={{ padding: "10px 0 5px" }}>
@@ -242,6 +243,7 @@ const Dellep = () => {
           src={dellep2}
           alt="/"
           style={{ width: "100%", padding: "20px 0" }}
+          loading="lazy"
         />
         <h4>
           {language === "eng"
@@ -295,6 +297,7 @@ const Dellep = () => {
             src={dellep3}
             alt="/"
             style={{ maxWidth: "600px", width: "100%", objectFit: "cover" }}
+            loading="lazy"
           />
         </div>
       )}
@@ -302,6 +305,7 @@ const Dellep = () => {
         src={dellep4}
         alt="/"
         style={{ width: "100%", objectFit: "cover" }}
+        loading="lazy"
       />
       <div
         className="flex"
@@ -312,14 +316,15 @@ const Dellep = () => {
           flexWrap: "wrap",
         }}
       >
-        <img src={dellep5} alt="/" className="image-style" style={{height:'600px'}}/>
+        <img src={dellep5} alt="/" className="image-style" style={{height:'600px'}} loading="lazy"/>
         <img
           src={dellep6}
           alt="/"
           className="image-style-1"
           style={{height:'600px'}}
+          loading="lazy"
         />
-        <img src={dellep7} alt="/" className="image-style" style={{height:'600px'}}/>
+        <img src={dellep7} alt="/" className="image-style" style={{height:'600px'}} loading="lazy"/>
       </div>
       <div
         className="flex"

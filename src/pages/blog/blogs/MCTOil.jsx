@@ -59,7 +59,7 @@ const MCTOil = () => {
             alignItems: "flex-end",
           }}
         >
-          <img src={mct} alt="/" className="blog-img" />
+          <img src={mct} alt="/" className="blog-img" loading="lazy"/>
           <button
             style={{
               maxWidth: "150px",
@@ -170,6 +170,7 @@ const MCTOil = () => {
           src={mct1}
           alt="/"
           style={{ maxWidth: "800px", width: "100%", objectFit: "cover" }}
+          loading="lazy"
         />
         <div style={{ maxWidth: "680px", width: "100%", padding: "0 10px" }}>
           <h3 style={{ padding: "10px 0 5px" }}>
@@ -247,7 +248,7 @@ const MCTOil = () => {
             ? "Enter sleeping pills: they're like a fast pass to dreamland when counting sheep just won't cut it. Also known as a sleep aid or hypnotic medication, these pharmaceutical drugs are prescribed to help people who have difficulty falling asleep or staying asleep. But they often come with side effects and the risk of dependency"
             : "Leep ตัวช่วยในการนอนหลับที่ไม่ใช่ ยานอนหลับ แต่เป็นอาหารเสริมที่สกัดจากธรรมชาติ ช่วยให้คุณผ่อนคลาย หลับสบาย และตื่นมาพร้อมความสดชื่นในทุกเช้า De’ Leep ทำงานโดยการปรับสมดุลของสารสื่อประสาทและฮอร์โมนที่เกี่ยวข้องกับการนอนหลับ ช่วยให้คุณเข้าสู่ภาวะหลับลึกได้ง่ายและยาวนานขึ้น ทำให้การนอนหลับของคุณมีประสิทธิภาพมากขึ้น De’ Leep เหมาะสำหรับผู้ที่มีปัญหาหลับยาก หลับไม่สนิท หรือผู้ที่ต้องการเพิ่มคุณภาพการนอนหลับให้ดียิ่งขึ้น ไม่ว่าคุณจะเผชิญกับความเครียดจากการทำงาน การเรียน หรือสภาพแวดล้อมที่ไม่เอื้ออำนวย De’ Leep จะช่วยให้คุณสามารถพักผ่อนได้อย่างเต็มที่ และตื่นมาพร้อมพลังในการใช้ชีวิตในทุกๆ วัน"}
         </p>
-        <img src={mct4} alt="/" style={{ width: "100%", padding: "20px 0" }} />
+        <img src={mct4} alt="/" style={{ width: "100%", padding: "20px 0" }} loading="lazy"/>
         <h4>
           {language === "eng"
             ? "MCT OIL PLUS PERRILLA SEED OIL AND CBD EXTRACT FROM HEMP: The Natural Alternative"
@@ -311,10 +312,11 @@ const MCTOil = () => {
               objectFit: "cover",
               height: "100%",
             }}
+            loading="lazy"
           />
         </div>
       )}
-      <img src={mct3} alt="/" style={{ width: "100%", objectFit: "cover" }} />
+      <img src={mct3} alt="/" style={{ width: "100%", objectFit: "cover" }} loading="lazy"/>
       <div
         className="flex"
         style={{
@@ -324,14 +326,15 @@ const MCTOil = () => {
           flexWrap: "wrap",
         }}
       >
-        <img src={mct6} alt="/" className="image-style" style={{objectFit: 'cover',height: '550px'}}/>
+        <img src={mct6} alt="/" className="image-style" style={{objectFit: 'cover',height: '550px'}} loading="lazy"/>
         <img
           src={mct2}
           alt="/"
           className="image-style-1"
           style={{height:'600px'}}
+          loading="lazy"
         />
-        <img src={dellep7} alt="/" className="image-style" style={{height:'600px'}}/>
+        <img src={dellep7} alt="/" className="image-style" style={{height:'600px'}} loading="lazy"/>
       </div>
       <div
         className="flex"

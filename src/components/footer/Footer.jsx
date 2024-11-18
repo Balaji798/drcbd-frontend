@@ -23,6 +23,7 @@ const Footer = () => {
           src={logo}
           style={{ objectFit: "contain", height: "100%", maxWidth: "300px",width:"100%" }}
           alt={logo}
+          loading="lazy"
         />
         <div className="footer-container">
           {footerData.map((item, index) => (

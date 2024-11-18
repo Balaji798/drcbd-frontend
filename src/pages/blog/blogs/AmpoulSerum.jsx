@@ -52,7 +52,7 @@ const AmpoulSerum = () => {
             alignItems: "flex-end",
           }}
         >
-          <img src={ampoule} alt="/" className="blog-img" />
+          <img src={ampoule} alt="/" className="blog-img" loading="lazy"/>
           <button
             style={{
               maxWidth: "150px",
@@ -339,13 +339,14 @@ const AmpoulSerum = () => {
           flexWrap: "wrap",
         }}
       >
-        <img src={ampoule3} alt="/" className="image-style" />
+        <img src={ampoule3} alt="/" className="image-style" loading="lazy"/>
         <img
           src={ampoule_1}
           alt="/"
           className="image-style-1"
+          loading="lazy"
         />
-        <img src={ampoule_2} alt="/" className="image-style" style={{objectFit: "cover"}} />
+        <img src={ampoule_2} alt="/" className="image-style" style={{objectFit: "cover"}} loading="lazy"/>
       </div>
       <div
         className="flex"

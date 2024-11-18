@@ -1,6 +1,14 @@
 import "./stories.css";
 import { useLanguage } from "../../util/LanguageContext";
-import logo from "../../assets/logo2-01.png"
+import logo from "../../assets/logo2-01.png";
+import group from "../../assets/how-it-starts/group.jpg";
+import scientist from "../../assets/how-it-starts/scientist.jpg";
+import woman from "../../assets/how-it-starts/woman-scientist.jpg";
+import companies1 from "../../assets/companies/1.png";
+import companies2 from "../../assets/companies/2.png";
+import companies3 from "../../assets/companies/3.png";
+import companies4 from "../../assets/companies/4.png";
+import companies5 from "../../assets/companies/EARTH-LAB.png";
 
 const Stories = () => {
   const { language } = useLanguage();
@@ -24,22 +32,19 @@ const onButtonClick2 = () => {
 };
   const howItStarted = [
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/scientist.jpg",
+      image:scientist,
       year: "2019",
       title: "Exploration Year",
       para: "We started scientific work, research & development",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/woman-scientist.jpg",
+      image:woman,
       year: "2020",
       title: "Exploration Year",
       para: "We found real benefits from hemp & cannabis extracts",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/how-it-starts/s1-group.jpg",
+      image: group,
       year: "2021-2022",
       title: "Developed & Innovated",
       para: 'We have innovated, formulated and developed medical products from from hemp, cannabis, kratom and other Thai herbs Fro the well-being of the people and to ..."Save Lives & Heal People"',
@@ -49,28 +54,23 @@ const onButtonClick2 = () => {
   const followData = [
     { image: logo, name: "drcbdinnovation" },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
+      image:companies3,
       name: "drkratombio",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/EARTH-LAB.png",
+      image:companies5,
       name: "earthlab.th",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
+      image:companies2,
       name: "vitalmediclinicofficial",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
+      image:companies4,
       name: "drpetcbd",
     },
     {
-      image:
-        "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
+      image:companies1,
       name: "drcbdclinic",
     },
   ];
@@ -98,6 +98,7 @@ const onButtonClick2 = () => {
                       height: "8rem",
                     }}
                     alt="/"
+                    loading="lazy"
                   />
                   <div style={{ paddingLeft: "0.5rem" }}>
                     <p>.{item.year}</p>
@@ -186,7 +187,7 @@ const onButtonClick2 = () => {
             {followData.map((item, index) => (
               <div key={index}>
                 <div>
-                  <img src={item.image} style={{ width: "100%" }} alt="/"/>
+                  <img src={item.image} style={{ width: "100%" }} alt="/" loading="lazy"/>
                 </div>
                 <p>
                   {item.name}

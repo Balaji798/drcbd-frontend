@@ -51,7 +51,7 @@ const WhiteMask = () => {
             alignItems: "flex-end",
           }}
         >
-          <img src={whiteMask} alt="/" className="blog-img" />
+          <img src={whiteMask} alt="/" className="blog-img" loading="lazy"/>
           <button
             style={{
               maxWidth: "150px",
@@ -311,6 +311,7 @@ const WhiteMask = () => {
             objectFit: "cover",
             height: "340px",
           }}
+          loading="lazy"
         />
       </div>
       <div
@@ -322,13 +323,14 @@ const WhiteMask = () => {
           flexWrap: "wrap",
         }}
       >
-        <img src={final_03} alt="/" className="image-style" />
+        <img src={final_03} alt="/" className="image-style" loading="lazy"/>
         <img
           src={whiteMask3}
           alt="/"
           className="image-style-1"
+          loading="lazy"
         />
-        <img src={final_03} alt="/" className="image-style" />
+        <img src={final_03} alt="/" className="image-style" loading="lazy"/>
       </div>
       <div
         className="flex"

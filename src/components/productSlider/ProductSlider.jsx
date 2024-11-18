@@ -21,7 +21,7 @@ const ProductSlider = ({ image, i, marginB, categoryName, languageType }) => {
         window.location.reload();
       }}
     >
-      {image.images && <img src={image?.eng?.name === "International Shipping"? productImage: image.images[0]} alt="/" />}
+      {image.images && <img src={image?.eng?.name === "International Shipping"? productImage: image.images[0]} alt="/" loading="lazy"/>}
       <div
         style={{
           textAlign: "center",

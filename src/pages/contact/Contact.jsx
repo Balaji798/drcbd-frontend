@@ -46,6 +46,7 @@ const Contact = () => {
         src={contact}
         className="contact-banner"
         alt="/"
+        loading="lazy"
       />
       <div
         style={{
@@ -67,6 +68,7 @@ const Contact = () => {
             right: "-16em",
             top: "-6%",
           }}
+          loading="lazy"
         />
         <img
           src={bg}
@@ -78,6 +80,7 @@ const Contact = () => {
             bottom: "-10%",
             transform: "rotate(60deg)",
           }}
+          loading="lazy"
         />
         <div style={{ maxWidth: 900, width: "100%", padding:'50px 1rem 0' }}>
           {contacts.map((item, index) => (

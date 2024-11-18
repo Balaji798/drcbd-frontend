@@ -97,6 +97,7 @@ const BrandPurpose = () => {
             margin: "1em 0",
           }}
           alt="/"
+          loading="lazy"
         />
         <p style={{ padding: "0 1rem" }}>
           Incorporating the wisdom of Eastern and Western pharmacology, using
@@ -121,7 +122,7 @@ const BrandPurpose = () => {
             continuous research to create premium medical grade products.
           </p>
         </div>
-        <img src={piles} className="purpose-img" alt="/" />
+        <img src={piles} className="purpose-img" alt="/" loading="lazy"/>
       </div>
       <div className="purpose-second">
         {data.map((item, index) => (
@@ -135,6 +136,7 @@ const BrandPurpose = () => {
                 marginTop: index == 1 && "4em",
               }}
               alt="/"
+              loading="lazy"
             />
             <h2 style={{ padding: "1em 0" }}>{item.title}</h2>
             <p>{item.text}</p>
@@ -171,6 +173,7 @@ const BrandPurpose = () => {
               key={index}
               alt={item.image}
               style={{ width: "100%" }}
+              loading="lazy"
             />
             <p style={{ textAlign: "center", fontSize: "20px" }}>
               {item.title}
@@ -208,6 +211,7 @@ const BrandPurpose = () => {
             key={index}
             alt={item}
             style={{ width: "20%", margin: "1em" }}
+            loading="lazy"
           />
         ))}
       </div>

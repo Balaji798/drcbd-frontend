@@ -52,7 +52,7 @@ const GreenAngel = () => {
             alignItems: "flex-end",
           }}
         >
-          <img src={greenAngel} alt="/" className="blog-img" />
+          <img src={greenAngel} alt="/" className="blog-img" loading="lazy"/>
           <button
             style={{
               maxWidth: "150px",
@@ -111,7 +111,7 @@ const GreenAngel = () => {
             ? "Psoriasis, a chronic autoimmune condition, can cause significant discomfort and self-consciousness due to its visible effects on the skin. It manifests as red, sicaly patches that can be itchy and painful, making daily life a challenge for those affected. While not a cure, effective skincare products can help manage symptoms and improve quality of life for individuals living with psoriasis."
             : "โรคสะเก็ดเงิน (Psoriasis) คืออะไร?โรคสะเก็ดเงินเป็นโรคผิวหนังเรื้อรังที่เกิดจากความผิดปกติของระบบภูมิคุ้มกัน ทำให้เซลล์ผิวหนังแบ่งตัวเร็วกว่าปกติ ส่งผลให้เกิดผื่นแดงหนา มีสะเก็ดสีเงินปกคลุม มักเกิดขึ้นบริเวณข้อศอก เข่า หนังศีรษะ และลำตัว ผู้ป่วยมักมีอาการคัน ผิวแห้ง และอาจมีอาการปวดหรือแสบร้อนร่วมด้วย"}
         </p>
-        <img src={greenAngel1} alt="/" style={{ width: "100%" }} />
+        <img src={greenAngel1} alt="/" style={{ width: "100%" }} loading="lazy"/>
         <h4 style={{ padding: "10px 0 5px" }}>
           {language === "eng"
             ? "Understanding Psoriasis"
@@ -145,6 +145,7 @@ const GreenAngel = () => {
               width: "100%",
               objectFit: "cover",
             }}
+            loading="lazy"
           />
           <div style={{ maxWidth: "480px", width: "100%", paddingLeft: "5px" }}>
             <h3 style={{ padding: "10px 0 5px" }}>
@@ -256,14 +257,15 @@ const GreenAngel = () => {
           flexWrap: "wrap",
         }}
       >
-        <img src={greenAngel4} alt="/" className="image-style"/>
+        <img src={greenAngel4} alt="/" className="image-style" loading="lazy"/>
         <img
           src={greenAngel6}
           alt="/"
           className="image-style-1"
           style={{height:'600px'}}
+          loading="lazy"
         />
-        <img src={greenAngel5} alt="/" className="image-style" />
+        <img src={greenAngel5} alt="/" className="image-style" loading="lazy"/>
       </div>
       <div
         className="flex"

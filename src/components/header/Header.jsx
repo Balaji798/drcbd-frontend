@@ -53,7 +53,6 @@ const Header = ({ openNav, setOpenNav }) => {
       if (!user) {
         setOpen(true);
       } else {
-        console.log('hh')
         const res = await getUser();
         res?.user?.emailVerified ? navigate(type) : setOpen(true);
       }
@@ -223,6 +222,7 @@ const Header = ({ openNav, setOpenNav }) => {
                   marginLeft: "0.5rem",
                 }}
                 alt={""}
+                loading="lazy"
               />
             </a>
             <div
@@ -251,6 +251,7 @@ const Header = ({ openNav, setOpenNav }) => {
               left: "45%",
             }}
             alt={""}
+            loading="lazy"
           />
         </Link>
       </header>

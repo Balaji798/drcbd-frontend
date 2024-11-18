@@ -1,17 +1,19 @@
- import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import companies1 from "../../assets/companies/1.png";
+import companies2 from "../../assets/companies/2.png";
+import companies3 from "../../assets/companies/3.png";
+import companies4 from "../../assets/companies/4.png";
+import companies5 from "../../assets/companies/EARTH-LAB.png";
 
 const OurCompanies = () => {
 	const location = useLocation();
 
   const data = [
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/4.png",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/3.png",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/1.png",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/6.png",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/2.png",
-    "https://drcbd-cloud.s3.ap-southeast-1.amazonaws.com/companies/5.png",
+    companies4,
+    companies3,
+    companies1,
+    companies5,
+    companies2,
   ];
 
   return (
@@ -51,6 +53,7 @@ const OurCompanies = () => {
                 alt={item}
                 key={index}
                 style={{ objectFit: "contain", width: "30%", height: "15em" }}
+                loading="lazy"
               />
             ))
             // : data[1].map((item, index) => (

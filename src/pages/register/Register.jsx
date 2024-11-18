@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import sub from "../../assets/sub.png"
 import "./register.css";
 import { signup, verifyUserEmail } from "../../services/ApiService";
 
@@ -87,9 +88,10 @@ const Register = () => {
               Registered !
             </h1>
             <img
-              src="./sub.png"
+              src={sub}
               alt="/"
               style={{ width: "100%", objectFit: "contain", height: "20em" }}
+              loading="lazy"
             />
             <div style={{ color: "#99a79f", width: "35%" }}>
               <button

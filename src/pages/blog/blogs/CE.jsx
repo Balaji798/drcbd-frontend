@@ -52,7 +52,7 @@ const CE = () => {
             alignItems: "flex-end",
           }}
         >
-          <img src={cbd} alt="/" className="blog-img" />
+          <img src={cbd} alt="/" className="blog-img" loading="lazy"/>
           <button
             style={{
               maxWidth: "150px",
@@ -109,7 +109,7 @@ const CE = () => {
             : "สาวๆ คนไหนอยากมีผิวสวยใส สุขภาพดี แต่ไม่อยากจ่ายแพง ต้องลอง 9CE ครีมซอง ที่มาพร้อมคุณสมบัติครบครัน ทั้งบำรุงผิว ลดเลือนจุดด่างดำ รอยแดง พร้อมปกป้องผิวจากแสงแดด ในราคาสบายกระเป๋า! ไม่ว่าคุณจะมีปัญหาผิวแห้ง ผิวมัน ผิวแพ้ง่าย หรือมีรอยดำ รอยแดงจากสิว 9CE ก็มีครีมซองสูตรเฉพาะที่ตอบโจทย์ทุกปัญหาผิวของคุณ"}
         </p>
       </div>
-      <img src={ce} alt="/" style={{ width: "100%", objectFit: "contain" }} />
+      <img src={ce} alt="/" style={{ width: "100%", objectFit: "contain" }} loading="lazy"/>
       <div style={{ maxWidth: "1000px", width: "100%", padding: "10px" }}>
         <ul style={{ listStyle: "none" }}>
           <li style={{ paddingBottom: "5px" }}>
@@ -134,7 +134,7 @@ const CE = () => {
           objectFit: "cover",
         }}
       >
-        <img src={cbd1} alt="/" style={{ maxWidth: "600px", width: "100%" }} />
+        <img src={cbd1} alt="/" style={{ maxWidth: "600px", width: "100%" }} loading="lazy"/>
         <div
           className="flex"
           style={{
@@ -282,13 +282,14 @@ const CE = () => {
           flexWrap: "wrap",
         }}
       >
-        <img src={ce3} alt="/" className="image-style" />
+        <img src={ce3} alt="/" className="image-style" loading="lazy"/>
         <img
           src={ce4}
           alt="/"
           className="image-style-1"
+          loading="lazy"
         />
-        <img src={ce5} alt="/" className="image-style" />
+        <img src={ce5} alt="/" className="image-style" loading="lazy"/>
       </div>
       <div
         className="flex"

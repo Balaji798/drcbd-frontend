@@ -11,7 +11,10 @@ import seven from "../../assets/companies/jl281.jpeg";
 import cj from "../../assets/companies/image-5201.jpg";
 import BEAUTRIUM from "../../assets/companies/IMG_9020.jpg";
 import EVEANDBOY from "../../assets/companies/IMG_9128.jpg";
-import productoil from "../../assets/companies/productoil-01.jpg"
+import productoil from "../../assets/companies/productoil-01.jpg";
+import shopee from "../../assets/online/a.png";
+import lazada from "../../assets/online/ad.png";
+import konvy from "../../assets/online/h.png"
 import { IoIosArrowDown } from "react-icons/io";
 import { useLanguage } from "../../util/LanguageContext";
 
@@ -76,6 +79,7 @@ const SecondBanner = () => {
                 src={lineAlbum}
                 style={{ objectFit: "cover", width: "100%" }}
                 alt="/"
+                loading="lazy"
               />
               <h2 style={{ textAlign: "center", padding: "1rem 0" }}>
                 {language==="eng"?"TOP DEPARTMENT STORES":"ห้างสรรพสินค้าชั้นนำ"}
@@ -95,6 +99,7 @@ const SecondBanner = () => {
                 src={fascino}
                 style={{ objectFit: "cover", width: "100%", height: "24.7em" }}
                 alt="/"
+                loading="lazy"
               />
               <h2 style={{ textAlign: "center", padding: "1rem 0" }}>
                 {language==="eng"?'FASCINO':'ฟาสซิโน'}
@@ -129,6 +134,7 @@ const SecondBanner = () => {
                   src={seven}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
                   alt={seven}
+                  loading="lazy"
                 />
                 <h3 style={{ padding: "1rem 0" }}>7/11</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -140,6 +146,7 @@ const SecondBanner = () => {
                   src={cj}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
                   alt={cj}
+                  loading="lazy"
                 />
                 <h3 style={{ padding: "1rem 0" }}>CJ</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -165,6 +172,7 @@ const SecondBanner = () => {
                   src={BEAUTRIUM}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
                   alt={BEAUTRIUM}
+                  loading="lazy"
                 />
                 <h3 style={{ padding: "1rem 0" }}>BEAUTRIUM</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -176,6 +184,7 @@ const SecondBanner = () => {
                   src={EVEANDBOY}
                   style={{ objectFit: "cover", width: "100%", height: "15em" }}
                   alt={EVEANDBOY}
+                  loading="lazy"
                 />
                 <h3 style={{ padding: "1rem 0" }}>EVEANDBOY</h3>
                 <p style={{ lineHeight: "1.8rem" }}>
@@ -207,14 +216,14 @@ const SecondBanner = () => {
             LINE SHOPPING
           </a>
           <a href="https://shopee.co.th/earthlab">
-            <img src="./online/a.png" style={{ width: "8em" }} alt="/" />
+            <img src={shopee} style={{ width: "8em" }} alt="/" loading="lazy"/>
           </a>
           <a href="https://www.lazada.co.th/shop/earth-lab?path=index.htm&lang=en&pageTypeId=1">
-            <img src="./online/ad.png" style={{ width: "8em" }} alt="/" />
+            <img src={lazada} style={{ width: "8em" }} alt="/" loading="lazy"/>
           </a>
           {/*<img src="./online/Untitled-1.png" style={{ width: "8em" }} alt="/" />*/}
           <a href="https://www.konvy.com/brand/drcbd/">
-            <img src="./online/h.png" style={{ width: "8em" }} alt="/" />
+            <img src={konvy} style={{ width: "8em" }} alt="/" loading="lazy"/>
           </a>
           {/*<img src="./online/va.png" style={{ width: "8em" }} alt="/" />*/}
         </div>
@@ -247,6 +256,7 @@ const SecondBanner = () => {
                 height: "100%",
               }}
               alt={productoil}
+              loading="lazy"
             />
           </div>
         </div>
@@ -255,7 +265,7 @@ const SecondBanner = () => {
             <div style={{ width: "40%" }} className="childe1">
               {iconsData[0].map((item, index) => (
                 <div key={index}>
-                  <img src={item.icon} style={{}} alt="/" />
+                  <img src={item.icon} style={{}} alt="/" loading="lazy"/>
                   <p>{item.title}</p>
                 </div>
               ))}
@@ -263,7 +273,7 @@ const SecondBanner = () => {
             <div className="childe1 childe2">
               {iconsData[1].map((item, index) => (
                 <div key={index}>
-                  <img src={item.icon} alt="/" />
+                  <img src={item.icon} alt="/" loading="lazy"/>
                   <p style={{}}>{item.title}</p>
                 </div>
               ))}
@@ -312,6 +322,7 @@ const SecondBanner = () => {
                 src={item.image}
                 style={{ width: "15rem", objectFit: "contain", height: "5em" }}
                 alt="/"
+                loading="lazy"
               />
               <h2 style={{ padding: "5px 0" }}>{item.title}</h2>
               <p style={{ padding: "5px 0" }}>{item.para}</p>
