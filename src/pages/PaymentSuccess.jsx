@@ -24,7 +24,6 @@ const PaymentSuccess = () => {
           paymentId,
           userAdd: JSON.parse(delver_address),
         });
-        console.log(res)
         setStatus(res.status);
         await getCart(dispatch);
       } catch (error) {
