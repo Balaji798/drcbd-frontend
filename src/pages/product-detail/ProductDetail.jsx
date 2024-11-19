@@ -39,7 +39,6 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
   const { productName, categoryName } = useParams();
-  console.log(productName)
 
   const [sameCategoryProduct, setSmeCategoryProduct] = useState([]);
   const productByName = product?.filter((item) => {
