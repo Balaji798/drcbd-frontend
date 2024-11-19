@@ -14,7 +14,6 @@ const PaymentSuccess = () => {
   let count = 0;
   const [status, setStatus] = useState({});
 
-  console.log(count);
   useEffect(() => {
     const fetchData = async () => {
       count++;
@@ -25,7 +24,8 @@ const PaymentSuccess = () => {
           paymentId,
           userAdd: JSON.parse(delver_address),
         });
-        setStatus(res.data.status);
+        console.log(res)
+        setStatus(res.status);
         await getCart(dispatch);
       } catch (error) {
         console.error("Error fetching data:", error);

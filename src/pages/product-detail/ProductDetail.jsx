@@ -25,6 +25,7 @@ import { useLanguage } from "../../util/LanguageContext";
 import {settings} from "../../util/settings";
 import productImage from "../../assets/internationl-shipping.jpg"
 import ProductSlider from "../../components/productSlider/ProductSlider";
+import { detailData } from "./detailData";
 
 const ProductDetail = () => {
   const { language } = useLanguage();
@@ -596,12 +597,12 @@ const ProductDetail = () => {
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: detailData.includes(productName)? "space-between" : "flex-end",
                 flexWrap: "wrap",
               }}
               className="orderButton"
             >
-              <button
+              {detailData.includes(productName) && <button
                 style={{
                   padding: "5px 0",
                   cursor: "pointer",
@@ -615,7 +616,7 @@ const ProductDetail = () => {
                 {language === "eng"
                   ? "LEARN MORE ABOUT THE SCIENCE BEHIND"
                   : "เพิ่มลงในรถเข็น"}
-              </button>
+              </button>}
               <button
                 style={{
                   padding: "5px 0",

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { BiLogoFacebookSquare } from "react-icons/bi";
 import { FaLine, FaTwitter, FaTiktok } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
