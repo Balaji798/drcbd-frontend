@@ -67,8 +67,8 @@ const OmisePayment = ({ totalPrice, cartId }) => {
           });
 
           if (res.authorizeUri) {
-            localStorage.setItem("omisePaymentId", res.data.paymentId);
-            window.location.href = res.data.authorizeUri;
+            localStorage.setItem("omisePaymentId", res.paymentId);
+            window.location.href = res.authorizeUri;
           }
         },
         onFormClosed: () => {},

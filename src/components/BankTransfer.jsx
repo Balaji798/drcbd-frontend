@@ -58,7 +58,7 @@ const BankTransfer = ({ totalPrice, cartId }) => {
          const res = await payWitheBank(
           { token: omiseToekn, amount:Number(totalPrice)*100, cartId:cartId, userAdd: JSON.parse(delver_address) },
         );
-        if(res.data.authorizeUri){
+        if(res.authorizeUri){
           localStorage.setItem("omisePaymentId",res.paymentId)
           window.location.href = res.authorizeUri
         }
