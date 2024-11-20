@@ -595,12 +595,10 @@ const ProductDetail = () => {
                 : price.toLocaleString("en-US")}
             </h2>
             <div
+            className="cart-button-container orderButton"
               style={{
-                display: "flex",
                 justifyContent: detailData.includes(productName)? "space-between" : "flex-end",
-                flexWrap: "wrap",
               }}
-              className="orderButton"
             >
               {detailData.includes(productName) && <button
                 style={{
@@ -609,7 +607,7 @@ const ProductDetail = () => {
                   fontSize: "20px",
                   maxWidth: "350px",
                   width: "100%",
-                  marginBottom: '5px'
+                  marginBottom: '10px'
                 }}
                 onClick={handelBlog}
               >
@@ -621,6 +619,7 @@ const ProductDetail = () => {
                 style={{
                   padding: "5px 0",
                   cursor: "pointer",
+                  marginBottom: '10px'
                 }}
                 onClick={addToCart}
               >
