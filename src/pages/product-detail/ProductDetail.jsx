@@ -224,29 +224,41 @@ const ProductDetail = () => {
   };
 
   const handelBlog = () => {
-    if (productByName[0]?.eng?.name === "EARTHLAB CBD WHITENING MASK") {
-      navigate("/blog/earth-lab-cbd-whitening-mask");
-      return;
-    }
-    if (
-      productByName[0]?.eng?.name === "EARTHLAB CBD GREEN ANGLE HERBAL CREAM"
-    ) {
-      navigate("/blog/earth-lab-cbd-green-angel");
-      return;
-    }
-    if (productByName[0]?.eng?.name === "EARTHLAB CBD AMPOUL SERUM") {
-      navigate("/blog/earth-lab-cbd-ampoule-serum");
-      return;
-    }
-    if (productByName[0]?.eng?.name === "EARTH LAB CBD DE'LEEP") {
-      navigate("/blog/earth-lab-cbd-dellep-softgel");
-      return;
-    }
-    if (productByName[0]?.eng?.name === "9CE DD & SUNSCREEN") {
-      navigate("/blog/9ce");
-      return;
+    const productName = productByName[0]?.eng?.name.trim();
+    console.log(productName)
+    switch (productName) {
+      case "EARTHLAB CBD GREEN ANGEL HERBAL CREAM":
+        navigate("/blog/earth-lab-cbd-green-angel");
+        break;
+      case "EARTHLAB CBD AMPOULE SERUM":
+        navigate("/blog/earth-lab-cbd-ampoule-serum");
+        break;  
+      case "EARTH LAB CBD DE'LEEP":
+        navigate("/blog/earth-lab-cbd-dellep-softgel");
+        break;
+      case "9CE DD & SUNSCREEN":
+        navigate("/blog/9ce-sunscreem");
+        break;
+      case "9CE CBD BRIGHTENING AMPOULE":
+        navigate("/blog/9ce-brightening-ampoule");
+        break;
+      case "9CE CBD DEEP SLEEPING CREAM":
+        navigate("/blog/9ce-deep-sleeping-cream");
+        break;
+      case "9CE CBD CREAM":
+        navigate("/blog/9ce-cream");
+        break;
+      case "MCT OIL PLUS":
+        navigate("/blog/mct-oil-perilla-seed");
+        break;
+      case "EARTHLAB CBD WHITENING MASK":
+        navigate("/blog/earth-lab-cbd-whitening-mask");
+        break;
+      default:
+        console.warn("No matching blog found for the product.");
     }
   };
+  
   return (
     <div ref={scrollContainerRef}>
       <div>
