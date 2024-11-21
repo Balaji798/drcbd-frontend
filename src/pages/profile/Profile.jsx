@@ -13,7 +13,6 @@ const Profile = () => {
   useEffect(() => {
     const getUsers = async () => {
       const res = await getUser();
-      console.log(res.user)
       setUserAddress(res.user?.userAddresses);
       setUser({
         ...res.user,

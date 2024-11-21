@@ -15,7 +15,6 @@ const ByPurpose = () => {
   const [productsByCategory, setProductByCategory] = useState({});
 
   const groupedData = {};
-  console.log(product);
   useEffect(() => {
     const fetchData = async () => {
       const uniquePurposes = Array.from(
@@ -31,7 +30,6 @@ const ByPurpose = () => {
 
     fetchData();
   }, [product]);
-  console.log(productsByCategory);
   const productsArray = Object.entries(productsByCategory);
 
   return (

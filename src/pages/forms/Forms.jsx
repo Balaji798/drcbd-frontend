@@ -50,10 +50,10 @@ const Forms = () => {
         alert("Delivery address required");
         return;
       }
-      // if (userAdd.country.trim() !== "Thailand") {
-      //   setOpen(true);
-      //   return;
-      // }
+      if (userAdd.country.trim() !== "Thailand") {
+        setOpen(true);
+        return;
+      }
 
       const res = await editUser(userAdd)
       if (res.status) {
