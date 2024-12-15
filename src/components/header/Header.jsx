@@ -17,7 +17,6 @@ import { useLanguage } from "../../util/LanguageContext";
 const Header = ({ openNav, setOpenNav }) => {
   const { product } = useSelector((state) => state.product);
   const { language, changeLanguage } = useLanguage();
-  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -26,6 +25,7 @@ const Header = ({ openNav, setOpenNav }) => {
   const [isUserLogIn, setUserLogIn] = useState(false);
   const [search, setSearch] = useState("");
   const { cart } = useSelector((state) => state.cart);
+  const [cartCount,setCartCount] = useState(0);
   const navigate = useNavigate();
   const user = localStorage.getItem("token");
   if (open) {
@@ -37,14 +37,20 @@ const Header = ({ openNav, setOpenNav }) => {
     const gatUserRes = async () => {
       try {
         await getUser();
-      // eslint-disable-next-line no-unused-vars
+        setCartCount(cart && !isUserLogIn
+          ? cart?.items?.length
+          : "0")
+        setUserLogIn(false)
       } catch (err) {
         //alert(err.response);
-        setUserLogIn(true);
+        if(err.status === 401){
+          setUserLogIn(true);
+        }
+
       }
     };
     gatUserRes();
-  }, []);
+  }, [cart]);
   const handelNext = async (type) => {
     try {
       if (isUserLogIn) {
@@ -54,6 +60,7 @@ const Header = ({ openNav, setOpenNav }) => {
         setOpen(true);
       } else {
         const res = await getUser();
+        console.log(res);
         res?.user?.emailVerified ? navigate(type) : setOpen(true);
       }
     } catch (err) {
@@ -93,6 +100,8 @@ const Header = ({ openNav, setOpenNav }) => {
                 await logout(dispatch);
                 navigate("/");
                 setOpenNav(false);
+                setUserLogIn(false);
+                setCartCount('0')
               }}
             >
               Sign Out |
@@ -194,9 +203,7 @@ const Header = ({ openNav, setOpenNav }) => {
             >
               <div className="cart-item">
                 <p style={{ marginLeft: "2.5px" }}>
-                  {cart && auth.loggedIn && !isUserLogIn
-                    ? cart?.items?.length
-                    : "0"}
+                  {cartCount}
                 </p>
               </div>
             </div>

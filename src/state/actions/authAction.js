@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { getUser } from '../../services/ApiService';
 
 export const getNumber = (dispatch, data) => dispatch({ type: 'LOGIN_REQUEST', user: data });
 // const getToken = async () => {
@@ -8,7 +8,8 @@ export const getNumber = (dispatch, data) => dispatch({ type: 'LOGIN_REQUEST', u
 
 export const updateUser = async (dispatch) => {
 	try {
-		const res = await axios.get("");
+		const res = await getUser();
+		console.log(res)
 		// const config = {
 		// 	headers: {
 		// 		"Content-Type":"application/json",
@@ -16,7 +17,8 @@ export const updateUser = async (dispatch) => {
 		// 	  },
 		//   };
 		// const res=await axios.get("http://helonodeserver-env.eba-24ucv77z.ap-south-1.elasticbeanstalk.com/user/get_user", config);
-		return dispatch({ type: 'FETCH_USER', user: res.data });
+		return dispatch({ type: 'FETCH_USER', user: res });
+	// eslint-disable-next-line no-unused-vars
 	} catch (e) {
 		// Alert.alert(e.response?.data?.message || 'Something went wrong', 'Please try again later', [{ text: 'OK' }]);
 	}

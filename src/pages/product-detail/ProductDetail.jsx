@@ -201,7 +201,6 @@ const ProductDetail = () => {
     try {
       const requestBody = { qty, price, productId: productByName[0]?._id };
         const res = await addToItemCart(requestBody);
-        console.log(res)
         if (res !== "Item Add Successfully") {
           setOpen(true);
         }
@@ -219,7 +218,9 @@ const ProductDetail = () => {
         });
         return;
     } catch (err) {
-      alert(err.message);
+      if(err.status===401){
+        setOpen(true)
+      }else alert(err.message);
     }
   };
 
@@ -280,11 +281,11 @@ const ProductDetail = () => {
           <div className="modal-content">
             <h2>
               {language === "eng"
-                ? "You are not Sign Up Sign up First"
+                ? "You are not Sign In, Sign In First"
                 : "คุณไม่ได้ลงทะเบียน ลงทะเบียนก่อน"}
             </h2>
             <Link
-              href="/register"
+              to="/sign-in"
               style={{
                 background: "#fff",
                 color: "#005652",
@@ -295,7 +296,7 @@ const ProductDetail = () => {
                 width: "20rem",
               }}
             >
-              {language === "eng" ? "Sign Up" : "ลงชื่อ"}
+              {language === "eng" ? "Sign In" : "ลงชื่อ"}
             </Link>
           </div>
         </div>
@@ -560,7 +561,7 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <h2
+            {/*<h2
               style={{
                 textAlign: "end",
               }}
@@ -593,7 +594,7 @@ const ProductDetail = () => {
               }}
             >
               -{productByName[0]?.eng?.discount}
-            </h2>
+            </h2>*/}
             <h2
               style={{
                 fontSize: "25px",
@@ -601,7 +602,7 @@ const ProductDetail = () => {
                 paddingBottom: "10px",
               }}
             >
-              ฿
+            {language === "eng" ? "Price" : "ราคา"} :- ฿
               {Number(price) >= 1000
                 ? Number(price).toLocaleString("en-US")
                 : price.toLocaleString("en-US")}

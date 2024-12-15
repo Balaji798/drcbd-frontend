@@ -8,6 +8,7 @@ import { getPaymentStatus } from "../services/ApiService";
 
 const PaymentSuccess = () => {
   const delver_address = localStorage.getItem("delver_address");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { orderId } = useParams();
@@ -16,6 +17,7 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       count++;
       try {
         const paymentId = localStorage.getItem("omisePaymentId");
@@ -26,6 +28,7 @@ const PaymentSuccess = () => {
         });
         setStatus(res.status);
         await getCart(dispatch);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -53,16 +56,16 @@ const PaymentSuccess = () => {
           color: "#005652",
         }}
       >
-        {status ? (
+        {loading ? 'Loading' : status ? (
           <BiSolidBadgeCheck color="#005652" size={45} />
         ) : (
           <MdError color="#cc0000" size={45} />
         )}
         <h4 style={{ padding: "5px 0" }}>
-          {status ? "Your Order Placed Successfully" : "Payment failed"}
+          {loading ? 'Loading':status ? "Your Order Placed Successfully" : "Payment failed"}
         </h4>
-        {status && <p>Thank You For Your Shopping</p>}
-        {status ? (
+        {loading? 'Loading' :status && <p>Thank You For Your Shopping</p>}
+        {loading ? 'Loading':status ? (
           <button
             style={{
               background: "#005652",
