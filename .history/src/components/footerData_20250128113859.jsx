@@ -94,7 +94,7 @@ export const footerData = [
       {
         engTitle: "CBD FOR PETS",
         thiTitle: "ผลิตภัณฑ์สำหรับ",
-        link: "/cbd-by-purpose/CBD FOR PETS",
+        link: "/cbd-by-purpose/CBD-FOR-PETS",
       },
     ],
   },

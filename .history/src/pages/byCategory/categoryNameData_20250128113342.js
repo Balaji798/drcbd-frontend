@@ -88,7 +88,7 @@ export const fiterData = [
         {
           engTitle: "CBD FOR PETS",
           thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
-          link: "/cbd-by-purpose/CBD FOR PETS",
+          link: "/cbd-by-purpose/CBD-FOR-PETS",
         },
       ],
     },

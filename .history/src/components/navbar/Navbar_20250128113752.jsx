@@ -90,7 +90,7 @@ const naveData = [
         {
           engTitle: "WEIGHT MANAGEMENT",
           thiTitle: "ผลิตภัณฑ์ควบคุมน้ำหนัก",
-          link: "/cbd-by-purpose/WEIGHT MANAGEMENT",
+          link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
         },
         {
           engTitle: "HORMONES",
@@ -100,7 +100,7 @@ const naveData = [
         {
           engTitle: "CBD FOR PETS",
           thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
-          link: "/cbd-by-purpose/CBD FOR PETS",
+          link: "/cbd-by-purpose/CBD-FOR-PETS",
         },
       ],
     },

@@ -32,22 +32,22 @@ export const footerData = [
         {
           engTitle: "CBD BODY",
           thiTitle: "บํารุงผิวกาย",
-          link: "/cbd-by-category/CBD BODY",
+          link: "/cbd-by-category/cbd-BODY",
         },
         {
           engTitle: "CBD BEVERAGE",
           thiTitle: "เสริมภูมิคุ้มกัน",
-          link: "/cbd-by-category/CBD BEVERAGE",
+          link: "/cbd-by-category/CBD-BEVERAGE",
         },
         {
           engTitle: "HAIR CARE",
           thiTitle: "ผลิตภัณฑ์ดูแลเส้นผม",
-          link: "/cbd-by-category/HAIR CARE",
+          link: "/cbd-by-category/HAIR-CARE",
         },
         {
           engTitle: "CBD FOR PETS",
           thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
-          link: "/cbd-by-category/CBD FOR PETS",
+          link: "/cbd-by-category/CBD-FOR-PETS",
         },
       ],
   },
@@ -64,12 +64,12 @@ export const footerData = [
       {
         engTitle: "HAIR CARE",
         thiTitle: "ผลิตภัณฑ์ดูแลเส้นผม",
-        link: "/cbd-by-purpose/HAIR CARE",
+        link: "/cbd-by-purpose/HAIR-CARE",
       },
       {
         engTitle: "FACE CARE",
         thiTitle: "ผลิตภัณฑ์ดูแลผิวหน้า",
-        link: "/cbd-by-purpose/FACE CARE",
+        link: "/cbd-by-purpose/FACE-CARE",
       },
       {
         engTitle: "SUPPLEMENTS",
@@ -79,12 +79,12 @@ export const footerData = [
       {
         engTitle: "JOINT & MUSCLES",
         thiTitle: "บำรุงกระดูกและกล้ามเนื้อ",
-        link: "/cbd-by-purpose/MUSCLES & JOINTS",
+        link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
       },
       {
         engTitle: "WEIGHT MANAGEMENT",
         thiTitle: "ผลิตภัณฑ์ควบคุมน้ำหนัก",
-        link: "/cbd-by-purpose/WEIGHT MANAGEMENT",
+        link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
       },
       {
         engTitle: "HORMONES",
@@ -94,7 +94,7 @@ export const footerData = [
       {
         engTitle: "CBD FOR PETS",
         thiTitle: "ผลิตภัณฑ์สำหรับ",
-        link: "/cbd-by-purpose/CBD FOR PETS",
+        link: "/cbd-by-purpose/CBD-FOR-PETS",
       },
     ],
   },

@@ -79,12 +79,12 @@ export const footerData = [
       {
         engTitle: "JOINT & MUSCLES",
         thiTitle: "บำรุงกระดูกและกล้ามเนื้อ",
-        link: "/cbd-by-purpose/MUSCLES & JOINTS",
+        link: "/cbd-by-purpose/MUSCLES &-JOINTS",
       },
       {
         engTitle: "WEIGHT MANAGEMENT",
         thiTitle: "ผลิตภัณฑ์ควบคุมน้ำหนัก",
-        link: "/cbd-by-purpose/WEIGHT MANAGEMENT",
+        link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
       },
       {
         engTitle: "HORMONES",
@@ -94,7 +94,7 @@ export const footerData = [
       {
         engTitle: "CBD FOR PETS",
         thiTitle: "ผลิตภัณฑ์สำหรับ",
-        link: "/cbd-by-purpose/CBD FOR PETS",
+        link: "/cbd-by-purpose/CBD-FOR-PETS",
       },
     ],
   },

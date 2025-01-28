@@ -63,7 +63,7 @@ export const fiterData = [
         {
           engTitle: "FACE CARE",
           thiTitle: "ผลิตภัณฑ์ดูแลผิวหน้า",
-          link: "/cbd-by-purpose/FACE CARE",
+          link: "/cbd-by-purpose/FACE-CARE",
         },
         {
           engTitle: "SUPPLEMENTS",
@@ -73,12 +73,12 @@ export const fiterData = [
         {
           engTitle: "JOINT & MUSCLES",
           thiTitle: "บำรุงกระดูกและกล้ามเนื้อ",
-          link: "/cbd-by-purpose/MUSCLES & JOINTS",
+          link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
         },
         {
           engTitle: "WEIGHT MANAGEMENT",
           thiTitle: "ผลิตภัณฑ์ควบคุมน้ำหนัก",
-          link: "/cbd-by-purpose/WEIGHT MANAGEMENT",
+          link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
         },
         {
           engTitle: "HORMONES",
@@ -88,7 +88,7 @@ export const fiterData = [
         {
           engTitle: "CBD FOR PETS",
           thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
-          link: "/cbd-by-purpose/CBD FOR PETS",
+          link: "/cbd-by-purpose/CBD-FOR-PETS",
         },
       ],
     },

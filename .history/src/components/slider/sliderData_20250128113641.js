@@ -68,19 +68,19 @@ export const affiliates = [
     engTitle: "SLEEP DISORDER & ANXIETY",
     thiTitle:"ผลิตภัณฑ์ช่วยการนอนหลับ & คลายเครียด",
     background: skincare,
-      link:'SLEEP DISORDER & ANXIETY'
+      link:'SLEEP-DISORDER-&-ANXIETY'
   },
   {
     engTitle: "HAIR CARE",
     thiTitle:"ผลิตภัณฑ์ดูแลเส้นผม",
     background: sleep,
-      link:'HAIR CARE'
+      link:'HAIR-CARE'
   },
   {
     engTitle: "FACE CARE",
     thiTitle:"ผลิตภัณฑ์ดูแลผิวหน้า",
     background: immunity,
-      link:'FACE CARE'
+      link:'FACE-CARE'
   },
   {
     engTitle: "SUPPLEMENTS",
@@ -92,13 +92,13 @@ export const affiliates = [
     engTitle: "JOINT & MUSCLE",
     thiTitle:"บำรุงกระดูกและกล้ามเนื้อ",
     background: energy,
-      link:'MUSCLES & JOINTS'
+      link:'MUSCLES-&-JOINTS'
   },
   {
     engTitle: "WEIGHT MANAGEMENT",
     thiTitle:"ผลิตภัณฑ์ควบคุมน้ำหนัก",
     background: weight,
-      link:'WEIGHT MANAGEMENT'
+      link:'WEIGHT-MANAGEMENT'
   },
   {
     engTitle: "HORMONES",
@@ -110,7 +110,7 @@ export const affiliates = [
     engTitle: "CBD FOR PETS",
     thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์",
     background: cancer,
-      link:'CBD FOR PETS'
+      link:'CBD-FOR-PETS'
   },
 ];
 export const product = [
@@ -155,7 +155,7 @@ export const product = [
     engTitle: "CBD FOR PETS",
     thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์",
     background: pets,
-      link:"CBD FOR PETS"
+      link:"CBD FOR-PETS"
   },
 ];
 

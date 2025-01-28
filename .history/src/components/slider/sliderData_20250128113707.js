@@ -68,7 +68,7 @@ export const affiliates = [
     engTitle: "SLEEP DISORDER & ANXIETY",
     thiTitle:"ผลิตภัณฑ์ช่วยการนอนหลับ & คลายเครียด",
     background: skincare,
-      link:'SLEEP DISORDER & ANXIETY'
+      link:'SLEEP DISORDER-&-ANXIETY'
   },
   {
     engTitle: "HAIR CARE",

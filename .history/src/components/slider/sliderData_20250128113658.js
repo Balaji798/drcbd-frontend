@@ -68,19 +68,19 @@ export const affiliates = [
     engTitle: "SLEEP DISORDER & ANXIETY",
     thiTitle:"ผลิตภัณฑ์ช่วยการนอนหลับ & คลายเครียด",
     background: skincare,
-      link:'SLEEP DISORDER & ANXIETY'
+      link:'SLEEP-DISORDER-&-ANXIETY'
   },
   {
     engTitle: "HAIR CARE",
     thiTitle:"ผลิตภัณฑ์ดูแลเส้นผม",
     background: sleep,
-      link:'HAIR CARE'
+      link:'HAIR-CARE'
   },
   {
     engTitle: "FACE CARE",
     thiTitle:"ผลิตภัณฑ์ดูแลผิวหน้า",
     background: immunity,
-      link:'FACE CARE'
+      link:'FACE-CARE'
   },
   {
     engTitle: "SUPPLEMENTS",
@@ -92,7 +92,7 @@ export const affiliates = [
     engTitle: "JOINT & MUSCLE",
     thiTitle:"บำรุงกระดูกและกล้ามเนื้อ",
     background: energy,
-      link:'MUSCLES & JOINTS'
+      link:'MUSCLES-&-JOINTS'
   },
   {
     engTitle: "WEIGHT MANAGEMENT",

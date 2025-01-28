@@ -65,17 +65,17 @@ const naveData = [
         {
           engTitle: "SLEEP DISORDER & ANXIETY",
           thiTitle: "ผลิตภัณฑ์ช่วยการนอนหลับ & คลายเครียด",
-          link: "/cbd-by-purpose/SLEEP DISORDER & ANXIETY",
+          link: "/cbd-by-purpose/SLEEP DISORDER &-ANXIETY",
         },
         {
           engTitle: "HAIR CARE",
           thiTitle: "ผลิตภัณฑ์ดูแลเส้นผม",
-          link: "/cbd-by-purpose/HAIR CARE",
+          link: "/cbd-by-purpose/HAIR-CARE",
         },
         {
           engTitle: "FACE CARE",
           thiTitle: "ผลิตภัณฑ์ดูแลผิวหน้า",
-          link: "/cbd-by-purpose/FACE CARE",
+          link: "/cbd-by-purpose/FACE-CARE",
         },
         {
           engTitle: "SUPPLEMENTS",
@@ -85,12 +85,12 @@ const naveData = [
         {
           engTitle: "JOINT & MUSCLES",
           thiTitle: "บำรุงกระดูกและกล้ามเนื้อ",
-          link: "/cbd-by-purpose/MUSCLES & JOINTS",
+          link: "/cbd-by-purpose/MUSCLES-&-JOINTS",
         },
         {
           engTitle: "WEIGHT MANAGEMENT",
           thiTitle: "ผลิตภัณฑ์ควบคุมน้ำหนัก",
-          link: "/cbd-by-purpose/WEIGHT MANAGEMENT",
+          link: "/cbd-by-purpose/WEIGHT-MANAGEMENT",
         },
         {
           engTitle: "HORMONES",
@@ -100,7 +100,7 @@ const naveData = [
         {
           engTitle: "CBD FOR PETS",
           thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
-          link: "/cbd-by-purpose/CBD FOR PETS",
+          link: "/cbd-by-purpose/CBD-FOR-PETS",
         },
       ],
     },
