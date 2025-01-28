@@ -4,7 +4,6 @@ import logo from "../../assets/logo2-01.png";
 import group from "../../assets/how-it-starts/group.jpg";
 import scientist from "../../assets/how-it-starts/scientist.jpg";
 import woman from "../../assets/how-it-starts/woman-scientist.jpg";
-import companies1 from "../../assets/companies/1.png";
 import companies2 from "../../assets/companies/2.png";
 import companies3 from "../../assets/companies/3.png";
 import companies4 from "../../assets/companies/4.png";
@@ -68,10 +67,6 @@ const onButtonClick2 = () => {
     {
       image:companies4,
       name: "drpetcbd",
-    },
-    {
-      image:companies1,
-      name: "drcbdclinic",
     },
   ];
 

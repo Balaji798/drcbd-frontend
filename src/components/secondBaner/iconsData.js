@@ -8,7 +8,13 @@ import icon7 from "../../assets/icons/7.png"
 import icon8 from "../../assets/icons/8.png"
 import icon9 from "../../assets/icons/9.png"
 import icon10 from "../../assets/icons/10.png"
-import icon11 from "../../assets/icons/11.png"
+import icon11 from "../../assets/icons/11.png";
+import findUs1 from "../../assets/find-us/1topss.webp";
+import findUs2 from "../../assets/find-us/2fascino.webp";
+import findUs3 from "../../assets/find-us/3Boots.webp";
+import findUs4 from "../../assets/find-us/4Cj more.webp";
+import findUs5 from "../../assets/find-us/5EveandBoy.webp";
+import findUs6 from "../../assets/find-us/6Beautrium.webp";
 
 export const iconsData = [
   [
@@ -89,3 +95,5 @@ export const useType = [
     link: "Download Product Catalog",
   },
 ];
+
+export const findUsData = [findUs1,findUs2,findUs3,findUs4,findUs5,findUs6 ]

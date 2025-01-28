@@ -16,6 +16,7 @@ const ByCategory = () => {
     const getAllProducts = async () => {
       try {
         const res = await getAllProduct();
+        console.log(res)
           const categoryProduct = res?.filter((item) => {
             const lowerCaseCategoryName = categoryName
               .split("-")

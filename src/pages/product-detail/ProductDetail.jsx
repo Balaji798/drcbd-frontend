@@ -12,18 +12,18 @@ import "react-toastify/dist/ReactToastify.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import {people} from "../../data";
+import { people } from "../../data";
 import "./productDetail.css";
 import "../../components/accordion/accordion.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllProduct,addToItemCart } from "../../services/ApiService";
+import { getAllProduct, addToItemCart } from "../../services/ApiService";
 import { useSelector } from "react-redux";
 import { getCart } from "../../state/actions/cartAction";
 import { useLanguage } from "../../util/LanguageContext";
-import {settings} from "../../util/settings";
-import productImage from "../../assets/internationl-shipping.jpg"
+import { settings } from "../../util/settings";
+import productImage from "../../assets/internationl-shipping.jpg";
 import ProductSlider from "../../components/productSlider/ProductSlider";
 import { detailData } from "./detailData";
 
@@ -71,18 +71,18 @@ const ProductDetail = () => {
 
   const about = [
     {
-      title: language === "eng" ? "FDA NO. " : "FDA ตัวเลข",
+      title: language === "eng" ? "FDA NO. " : "FDA เลขทะเบียนสินค้า",
       para: productByName[0]?.fda,
     },
     {
-      title: language === "eng" ? "Dosage Form" : "แบบฟอร์มการให้ยา",
+      title: language === "eng" ? "Dosage Form" : "ประเภทสินค้า",
       para:
         language === "eng"
           ? productByName[0]?.eng?.dosage
           : productByName[0]?.thi?.dosage,
     },
     {
-      title: language === "eng" ? "Active Ingredients" : "ส่วนผสมที่ใช้งานอยู่",
+      title: language === "eng" ? "Active Ingredients" : "ส่วนประกอบสินค้า",
       para:
         language === "eng"
           ? productByName[0]?.eng?.ingredient
@@ -105,21 +105,21 @@ const ProductDetail = () => {
           : productByName[0]?.thi.suitableFor,
     },
     {
-      title: language === "eng" ? "Direction" : "ทิศทาง",
+      title: language === "eng" ? "Direction" : "วิธีใช้",
       para:
         language === "eng"
           ? productByName[0]?.eng?.use
           : productByName[0]?.thi?.use,
     },
     {
-      title: language === "eng" ? "Storage & Condition" : "การจัดเก็บและสภาพ",
+      title: language === "eng" ? "Storage & Condition" : "การเก็บรักษา",
       para:
         language === "eng"
           ? productByName[0]?.eng?.storageContraindication
           : productByName[0]?.thi?.storageContraindication,
     },
     {
-      title: language === "eng" ? "Contraindication" : "ข้อห้าม",
+      title: language === "eng" ? "Contraindication" : "ข้อควรระวัง",
       para:
         language === "eng"
           ? productByName[0]?.eng?.contraindication
@@ -200,40 +200,40 @@ const ProductDetail = () => {
   const addToCart = async () => {
     try {
       const requestBody = { qty, price, productId: productByName[0]?._id };
-        const res = await addToItemCart(requestBody);
-        if (res !== "Item Add Successfully") {
-          setOpen(true);
-        }
-        await getCart(dispatch);
-        toast.success("Item added to cart", {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        return;
+      const res = await addToItemCart(requestBody);
+      if (res !== "Item Add Successfully") {
+        setOpen(true);
+      }
+      await getCart(dispatch);
+      toast.success("Item added to cart", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
     } catch (err) {
-      if(err.status===401){
-        setOpen(true)
-      }else alert(err.message);
+      if (err.status === 401) {
+        setOpen(true);
+      } else alert(err.message);
     }
   };
 
   const handelBlog = () => {
     const productName = productByName[0]?.eng?.name.trim();
-    console.log(productName)
+    console.log(productName);
     switch (productName) {
       case "EARTHLAB CBD GREEN ANGEL HERBAL CREAM":
         navigate("/blog/earth-lab-cbd-green-angel");
         break;
       case "EARTHLAB CBD AMPOULE SERUM":
         navigate("/blog/earth-lab-cbd-ampoule-serum");
-        break;  
+        break;
       case "EARTH LAB CBD DE'LEEP":
         navigate("/blog/earth-lab-cbd-dellep-softgel");
         break;
@@ -259,7 +259,9 @@ const ProductDetail = () => {
         console.warn("No matching blog found for the product.");
     }
   };
-  
+  about.map((item) => {
+    console.log(item.title, Array.isArray(item.para) && item?.para?.length > 0);
+  });
   return (
     <div ref={scrollContainerRef}>
       <div>
@@ -307,7 +309,11 @@ const ProductDetail = () => {
             {productByName[0]?.images && (
               <div style={{}} className="center product-detail-image">
                 <img
-                  src={productByName[0]?.eng?.name === "International Shipping"? productImage:productByName[0]?.images[position]}
+                  src={
+                    productByName[0]?.eng?.name === "International Shipping"
+                      ? productImage
+                      : productByName[0]?.images[position]
+                  }
                   style={{}}
                   alt={productByName[0]?.images[position]}
                   loading="lazy"
@@ -368,6 +374,7 @@ const ProductDetail = () => {
                 borderBottom: "1px solid grey",
                 paddingBottom: "1em",
                 fontWeight: 26,
+                fontSize: 20
               }}
             >
               {language === "eng"
@@ -395,9 +402,17 @@ const ProductDetail = () => {
                     className="description-container"
                     key={index}
                   >
-                    <p className="description-container-title">
-                      {item.title} {":"}-
-                    </p>
+                    {Array.isArray(item.para) && item?.para?.length > 0 ? (
+                      <p className="description-container-title">
+                        {item.title} {":"}
+                      </p>
+                    ) : (
+                      typeof item.para === 'string' && item.para !== ""? (
+                        <p className="description-container-title">
+                          {item.title} {":"}
+                        </p>
+                      ): ''
+                    )}
 
                     {Array.isArray(item.para) && item?.para?.length > 0 ? (
                       <div className="description-container-title2">
@@ -410,7 +425,7 @@ const ProductDetail = () => {
                             }}
                             key={i}
                           >
-                            -{des}
+                             {des}
                           </p>
                         ))}
                       </div>
@@ -446,44 +461,44 @@ const ProductDetail = () => {
                 >
                   {accordionItems.map((item, index) => (
                     <div
-                      style={{
-                        width: "100%",
-                        display: "flex",
-                        padding: "0.3em 0",
-                        flexWrap: "wrap",
-                      }}
-                      className="description-container"
-                      key={index}
-                    >
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      padding: "0.3em 0",
+                      flexWrap: "wrap",
+                    }}
+                    className="description-container"
+                    key={index}
+                  >
+                    {Array.isArray(item.para) && item?.para?.length > 0 ? (
                       <p className="description-container-title">
-                        {item.title} {":"}-
+                        {item.title} {":"}
                       </p>
+                    ) : typeof item.para === 'string' && item.para !== "" && <p className="description-container-title">
+                    {item.title} {":"}
+                  </p>}
 
-                      {Array.isArray(item.para) && item?.para?.length > 0 ? (
-                        <div
-                          className="description-container-title2"
-                          style={{ background: "transparent" }}
-                        >
-                          {item?.para?.map((des, i) => (
-                            <p
-                              style={{
-                                width: "100%",
-                                fontSize: "17px",
-                                //paddingBottom: 10,
-                                background: "transparent",
-                              }}
-                              key={i}
-                            >
-                              -{des}
-                            </p>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="description-container-title2">
-                          {item.para}
-                        </p>
-                      )}
-                    </div>
+                    {Array.isArray(item.para) && item?.para?.length > 0 ? (
+                      <div className="description-container-title2">
+                        {item?.para?.map((des, i) => (
+                          <p
+                            style={{
+                              width: "100%",
+                              fontSize: "17px",
+                              paddingBottom: 15,
+                            }}
+                            key={i}
+                          >
+                            -{des}
+                          </p>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="description-container-title2">
+                        {item.para}
+                      </p>
+                    )}
+                  </div>
                   ))}
                 </div>
                 <div
@@ -602,37 +617,41 @@ const ProductDetail = () => {
                 paddingBottom: "10px",
               }}
             >
-            {language === "eng" ? "Price" : "ราคา"} :- ฿
+              {language === "eng" ? "Price" : "ราคา"} :- ฿
               {Number(price) >= 1000
                 ? Number(price).toLocaleString("en-US")
                 : price.toLocaleString("en-US")}
             </h2>
             <div
-            className="cart-button-container orderButton"
+              className="cart-button-container orderButton"
               style={{
-                justifyContent: detailData.includes(productName)? "space-between" : "flex-end",
+                justifyContent: detailData.includes(productName)
+                  ? "space-between"
+                  : "flex-end",
               }}
             >
-              {detailData.includes(productName) && <button
-                style={{
-                  padding: "5px 0",
-                  cursor: "pointer",
-                  fontSize: "20px",
-                  maxWidth: "350px",
-                  width: "100%",
-                  marginBottom: '10px'
-                }}
-                onClick={handelBlog}
-              >
-                {language === "eng"
-                  ? "LEARN MORE ABOUT THE SCIENCE BEHIND"
-                  : "เพิ่มลงในรถเข็น"}
-              </button>}
+              {detailData.includes(productName) && (
+                <button
+                  style={{
+                    padding: "5px 0",
+                    cursor: "pointer",
+                    fontSize: "20px",
+                    maxWidth: "350px",
+                    width: "100%",
+                    marginBottom: "10px",
+                  }}
+                  onClick={handelBlog}
+                >
+                  {language === "eng"
+                    ? "LEARN MORE ABOUT THE SCIENCE BEHIND"
+                    : "เพิ่มลงในรถเข็น"}
+                </button>
+              )}
               <button
                 style={{
                   padding: "5px 0",
                   cursor: "pointer",
-                  marginBottom: '10px'
+                  marginBottom: "10px",
                 }}
                 onClick={addToCart}
               >
@@ -648,9 +667,6 @@ const ProductDetail = () => {
           {concatData.map((item, index) => (
             <a href={item.link} className="social-media" key={index}>
               <div className="social-icon">{item.icon}</div>
-              <p style={{ color: "#0b4640", paddingLeft: "0.5rem" }}>
-                Share On {item.title}
-              </p>
             </a>
           ))}
         </div>

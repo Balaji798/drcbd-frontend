@@ -31,7 +31,7 @@ const Blog = () => {
       link:"/blog/9ce"
     },
     {
-      title: "9CE CBD Sunscream",
+      title: "9CE CBD SUNSCREEM",
       para: "Your Pocket-Sized Skincare Essentials for Radiant, Flawless Skin",
       image: sunsCream,
       link:"/blog/9ce"
@@ -56,7 +56,7 @@ const Blog = () => {
     },
     {
       title: "Earth Lab CBD Ampoule Serum",
-      para: "The Secret Wepon for Sensitive, Acne-Prone Skin",
+      para: "The Secret Weapon for Sensitive, Acne-Prone Skin",
       image: ampoule,
       link:"/blog/earth-lab-cbd-ampoule-serum"
     },

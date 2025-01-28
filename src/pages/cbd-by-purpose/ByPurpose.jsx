@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { settings } from "../../util/settings";
 import "slick-carousel/slick/slick.css";

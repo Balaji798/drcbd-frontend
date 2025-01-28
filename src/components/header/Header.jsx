@@ -7,17 +7,15 @@ import cbd from "../../assets/drcbd.png";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../services/ApiService";
 import Modal from "../modal/Modal";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { HiBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
-import { logout } from "../../state/actions/authAction";
 import { useLanguage } from "../../util/LanguageContext";
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ openNav, setOpenNav }) => {
   const { product } = useSelector((state) => state.product);
   const { language, changeLanguage } = useLanguage();
-  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const inputRef = useRef();
@@ -50,7 +48,7 @@ const Header = ({ openNav, setOpenNav }) => {
       }
     };
     gatUserRes();
-  }, [cart]);
+  }, [cart,isUserLogIn]);
   const handelNext = async (type) => {
     try {
       if (isUserLogIn) {
@@ -92,20 +90,10 @@ const Header = ({ openNav, setOpenNav }) => {
             <Link to="/sign-in" style={{ marginLeft: "2px" }} className="sig">
               Sign In /
             </Link>
-            <p
-              style={{ marginLeft: "2px", cursor: "pointer" }}
-              className="sig"
-              onClick={async () => {
-                localStorage.removeItem("token");
-                await logout(dispatch);
-                navigate("/");
-                setOpenNav(false);
-                setUserLogIn(false);
-                setCartCount('0')
-              }}
+            <Link to="/register" style={{ marginLeft: "2px" }} className="sig"
             >
-              Sign Out |
-            </p>
+              Sign Up |
+            </Link>
             <p
               style={{ cursor: "pointer", marginLeft: "2px" }}
               onClick={() => {
@@ -253,7 +241,7 @@ const Header = ({ openNav, setOpenNav }) => {
             style={{
               objectFit: "cover",
               height: "45px",
-              width: "120px",
+              width: "125px",
               top: 20,
               left: "45%",
             }}

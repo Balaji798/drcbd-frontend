@@ -239,7 +239,8 @@ article.nextSlide {
 
 .social-media-container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
   padding: 1.5rem;
 }
 
@@ -247,23 +248,21 @@ article.nextSlide {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 2px solid #0b4640;
   padding-right: 1rem;
-  width: 25%;
 }
 
 .social-icon {
   background: #0b4640;
   border-radius: 50px;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .social-icon > svg {
-  font-size: 50px;
+  font-size: 20px;
 }
 
 .social-icon > img {
@@ -284,12 +283,12 @@ article.nextSlide {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .description-container-title2 {
   width: 70%;
-  font-size: 17px;
+  font-size: 20px;
 }
 .orderButton > button {
   width: 200px;

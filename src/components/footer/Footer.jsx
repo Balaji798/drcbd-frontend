@@ -47,7 +47,7 @@ const Footer = () => {
       </div>
       <div className="second-footer-container">
         <p>DISCLAIMER</p>
-        <p>Copyright 2024 - Dr. CBD innovation Center | Made with Love & Care </p>
+        <p>Copyright 2025 - Dr. CBD innovation Center | Made with Love & Care </p>
         <div style={{display:"flex", alignItems:"center"}}>
          <Link to="/privacy-policy">Privacy & Policy</Link>
          <p> / </p>

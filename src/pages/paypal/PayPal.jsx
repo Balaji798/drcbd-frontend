@@ -21,7 +21,7 @@ const PayPal = () => {
           quantity: item.quantity,
           productId: item.productId,
         })
-        totalCharge = cart?.cart?.totalPrice < 1500 ? 50 : 0
+        totalCharge+= cart?.cart?.totalPrice < 1500 ? 50 : 0
     });
     setOrderData(items)
     setTotalDeliveryCharge(totalCharge)

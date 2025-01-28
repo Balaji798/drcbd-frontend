@@ -9,11 +9,13 @@
 }
 
 .second-banner-container {
+  background-color: #000;
   display: flex;
   width: 100%;
-  max-width: 1200px;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .second-banner-container2 {
@@ -28,7 +30,8 @@
 }
 
 .second-banner-container > div {
-  width: 49.6%;
+  max-width: 380px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,6 +79,7 @@
   z-index: 1;
   background: #fff;
   padding: 1rem;
+  margin-top: 1rem;
 }
 .pointer {
   width: 40%;
