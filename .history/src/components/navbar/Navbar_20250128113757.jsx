@@ -48,7 +48,7 @@ const naveData = [
         },
         {
           engTitle: "CBD FOR PETS",
-          thiTitle: "ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+          thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
           link: "/cbd-by-category/CBD FOR PETS",
         },
       ],
@@ -56,10 +56,10 @@ const naveData = [
   },
   {
     engTitle: "CBD BY PURPOSE",
-    thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
+    thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค",
     subMenu1: {
       engTitle: "CBD BY PURPOSE",
-      thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
+      thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค",
       link: "/cbd-by-purpose",
       options: [
         {
@@ -99,7 +99,7 @@ const naveData = [
         },
         {
           engTitle: "CBD FOR PETS",
-          thiTitle: "ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+          thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
           link: "/cbd-by-purpose/CBD FOR PETS",
         },
       ],

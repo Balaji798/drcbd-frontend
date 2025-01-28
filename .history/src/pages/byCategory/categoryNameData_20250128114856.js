@@ -41,7 +41,7 @@ export const fiterData = [
         },
         {
           engTitle: "PETS",
-          thiTitle:"ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+          thiTitle:"สำหรับสัตว์เลี้ยง",
           link: "/cbd-by-category/CBD FOR PETS",
         },
       ],

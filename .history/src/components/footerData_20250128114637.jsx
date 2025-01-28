@@ -53,7 +53,7 @@ export const footerData = [
   },
   {
     engTitle: "CBD BY PURPOSE",
-    thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์",
+    thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์ ",
     link: "/cbd-by-purpose",
     subMenu: [
       {

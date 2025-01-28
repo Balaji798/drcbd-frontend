@@ -48,7 +48,7 @@ const naveData = [
         },
         {
           engTitle: "CBD FOR PETS",
-          thiTitle: "ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+          thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
           link: "/cbd-by-category/CBD FOR PETS",
         },
       ],

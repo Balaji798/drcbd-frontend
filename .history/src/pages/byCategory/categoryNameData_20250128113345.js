@@ -41,14 +41,14 @@ export const fiterData = [
         },
         {
           engTitle: "PETS",
-          thiTitle:"ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+          thiTitle:"สำหรับสัตว์เลี้ยง",
           link: "/cbd-by-category/CBD FOR PETS",
         },
       ],
     },
     {
       engTitle: "CBD BY PURPOSE",
-      thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์",
+      thiTitle:"ผลิตภัณฑ์ ตามวัตถุประสงค",
       options: [
         {
           engTitle: "SLEEP DISORDER & ANXIETY",
@@ -87,7 +87,7 @@ export const fiterData = [
         },
         {
           engTitle: "CBD FOR PETS",
-          thiTitle: "ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+          thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
           link: "/cbd-by-purpose/CBD FOR PETS",
         },
       ],

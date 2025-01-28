@@ -88,7 +88,7 @@ export const navData = [
         },
         {
           engTitle: "CBD FOR PETS",
-          thiTitle: "ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+          thiTitle: "ผลิตภัณฑ์ตามวัตถุประสงค์",
           link: "/cbd-by-purpose/CBD-FOR-PETS",
         },
       ],

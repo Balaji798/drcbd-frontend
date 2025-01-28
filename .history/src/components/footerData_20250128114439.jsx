@@ -53,7 +53,7 @@ export const footerData = [
   },
   {
     engTitle: "CBD BY PURPOSE",
-    thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์",
+    thiTitle:"ผลิตภัณฑ์ ตามวัตถุประสงค",
     link: "/cbd-by-purpose",
     subMenu: [
       {
@@ -93,7 +93,7 @@ export const footerData = [
       },
       {
         engTitle: "CBD FOR PETS",
-        thiTitle: "ผลิตภัณฑ์สำหรับ",
+        thiTitle: "ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
         link: "/cbd-by-purpose/CBD FOR PETS",
       },
     ],

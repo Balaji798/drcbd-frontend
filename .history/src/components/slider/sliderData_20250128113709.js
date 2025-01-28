@@ -108,7 +108,7 @@ export const affiliates = [
   },
   {
     engTitle: "CBD FOR PETS",
-    thiTitle:"ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+    thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์",
     background: cancer,
       link:'CBD FOR PETS'
   },
@@ -153,7 +153,7 @@ export const product = [
   },
   {
     engTitle: "CBD FOR PETS",
-    thiTitle:"ผลิตภัณฑ์สำหรับสัตว์เลี้ยง",
+    thiTitle:"ผลิตภัณฑ์ตามวัตถุประสงค์",
     background: pets,
       link:"CBD FOR PETS"
   },
