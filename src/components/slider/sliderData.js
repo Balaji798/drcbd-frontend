@@ -12,7 +12,7 @@ import skincare from "../../assets/by-purpose/sleep-disorder.webp";
 import sleep from "../../assets/by-purpose/hiar.webp";
 import weight from "../../assets/by-purpose/weight manage.webp";
 import green from "../../assets/by-category/supplement.webp";
-import ampoule1 from "../../assets/by-category/cbd-skincare.webp";
+import ampoule1 from "../../assets/by-category/cbd-Skincare.webp";
 import oil from "../../assets/by-category/cbd-oil.webp";
 import pets from "../../assets/by-category/cbd-pets.webp";
 import body from "../../assets/by-category/cbd-body.webp";
