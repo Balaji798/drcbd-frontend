@@ -102,13 +102,15 @@ const ByCategory = ({ language }) => {
             </div>
           </div>
           <div className="byCategory-dots">
-            {product.map((_, index) => (
-              <span
-                key={index}
-                className={`dot ${index === currentIndex ? "active" : ""}`}
-                onClick={() => setCurrentIndex(index)}
-              ></span>
-            ))}
+          <div className="dotes-container">
+          {product.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === currentIndex ? "active" : ""}`}
+              onClick={() => setCurrentIndex(index)}
+            ></span>
+          ))}
+          </div>
           </div>
           <div
             style={{

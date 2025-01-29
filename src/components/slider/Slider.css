@@ -268,12 +268,12 @@ video {
   max-width: 17em;
   height: 280px; /* Adjust height */
   margin: 1rem 5px;
-  background-color: #fff;
+  /* background-color: #fff; */
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
   justify-content: flex-end;
   align-items: flex-end;
   text-decoration: none;
@@ -307,10 +307,17 @@ video {
   justify-content: center;
   margin-top: 15px;
 }
-
+.dotes-container{
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  padding: 5px;
+  border-radius: 20px;
+}
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   margin: 0 5px;
   background-color: #ccc;
   border-radius: 50%;

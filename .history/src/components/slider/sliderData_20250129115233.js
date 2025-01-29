@@ -2,7 +2,7 @@ import image1 from "../../assets/banners/Homepage Banner-01.webp"
 import image2 from "../../assets/banners/Homepage Banner-02.webp"
 import image3 from "../../assets/banners/Homepage Banner-03.webp"
 import image4 from "../../assets/banners/Homepage Banner-04.webp"
-import aromatherapy from "../../assets/by-category/hair-care.webp";
+import aromatherapy from "../../assets/by-category/haircare.webp";
 import cancer from "../../assets/by-purpose/pet product.webp";
 import energy from "../../assets/by-purpose/muscle & joint.webp";
 import hormones from "../../assets/by-purpose/hormone.webp";
